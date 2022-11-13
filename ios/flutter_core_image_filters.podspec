@@ -3,7 +3,7 @@
 # Run `pod lib lint core_image_filters.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'core_image_filters'
+  s.name             = 'flutter_core_image_filters'
   s.version          = '0.0.1'
   s.summary          = 'Core Image filters API'
   s.description      = <<-DESC
