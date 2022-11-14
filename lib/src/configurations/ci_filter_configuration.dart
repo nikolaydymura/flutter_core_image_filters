@@ -7,7 +7,6 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
       CoreImageFiltersPlatform.instance;
 
   int? _filterId;
-  int? textureId;
   final String name;
 
   bool get ready => _filterId != null;
