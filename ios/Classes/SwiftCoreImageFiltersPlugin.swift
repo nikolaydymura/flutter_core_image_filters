@@ -14,9 +14,11 @@ public class SwiftCoreImageFiltersPlugin: NSObject, FlutterPlugin {
     }
     
     public static func register(with registrar: FlutterPluginRegistrar) {
-      let channel = FlutterMethodChannel(name: "core_image_filters", binaryMessenger: registrar.messenger())
         let instance = SwiftCoreImageFiltersPlugin(registrar: registrar)
+      let channel = FlutterMethodChannel(name: "core_image_filters", binaryMessenger: registrar.messenger())
       registrar.addMethodCallDelegate(instance, channel: channel)
+        let channel1 = FlutterMethodChannel(name: "core_image_previews", binaryMessenger: registrar.messenger())
+        registrar.addMethodCallDelegate(instance, channel: channel1)
     }
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
@@ -72,12 +74,56 @@ public class SwiftCoreImageFiltersPlugin: NSObject, FlutterPlugin {
                 result(FlutterError.init())
                 return
             }
-            guard let imageSource = imageSources[textureId],
-                  let filter = filters[filterId] else {
+            guard let imageSource = imageSources[textureId] else {
+                result(FlutterError.init())
+                return
+            }
+            
+            guard filterId >= 0, let filter = filters[filterId] else {
+                imageSource.filter = nil
                 result(FlutterError.init())
                 return
             }
             imageSource.filter = filter
+            result(nil)
+        case "updateParameter":
+            guard let arguments = call.arguments as? [Any],
+                  let filterId = arguments[0] as? Int64,
+                  let key = arguments[1] as? String else {
+                result(FlutterError.init())
+                return
+            }
+            guard let filter = filters[filterId] else {
+                result(FlutterError.init())
+                return
+            }
+            guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+                result(FlutterError.init())
+                return
+            }
+            guard let targetClass = attributes[kCIAttributeClass] as? String else {
+                result(FlutterError.init())
+                return
+            }
+            if targetClass == "CIColor" {
+                guard let value = arguments[2] as? [Double] else {
+                    result(FlutterError.init())
+                    return
+                }
+                let color = CIColor(red: value[0], green: value[1], blue: value[2])
+                filter.setValue(color, forKey: key)
+                result(nil)
+                return
+            }
+            let value = arguments[2]
+            filter.setValue(value, forKey: key)
+            result(nil)
+        case "updatePreview":
+            guard let textureId = call.arguments as? Int64 else {
+                result(FlutterError.init())
+                return
+            }
+            registry.textureFrameAvailable(textureId)
             result(nil)
         default:
             result(FlutterError.init())

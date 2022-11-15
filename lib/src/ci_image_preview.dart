@@ -1,41 +1,37 @@
-import 'dart:io';
-import 'dart:typed_data';
-
-import 'package:flutter/material.dart';
-
-import 'configurations/ci_filter_configuration.dart';
+part of flutter_core_image_filters;
 
 class CIImagePreview extends StatelessWidget {
   final CIImagePreviewController controller;
 
-  const CIImagePreview({Key? key, required this.controller})
-      : super(key: key);
+  const CIImagePreview({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Texture(textureId: controller.textureId);
+    return Texture(textureId: controller._textureId);
   }
 }
 
 class CIImagePreviewController {
-  final int textureId;
+  static final CoreImagePreviewsPlatform _api =
+      CoreImagePreviewsPlatform.instance;
+  final int _textureId;
 
-  CIImagePreviewController._(this.textureId);
+  CIImagePreviewController._(this._textureId);
 
   Future<void> setImageAsset(String asset) async {
-    await CIFilterConfiguration.api.setImagePreviewAsset(textureId, asset);
+    await _api.setImagePreviewAsset(_textureId, asset);
   }
 
   Future<void> setImageFile(File file) async {
-    await CIFilterConfiguration.api.setImagePreviewFile(textureId, file);
+    await _api.setImagePreviewFile(_textureId, file);
   }
 
   Future<void> setImageData(Uint8List data) async {
-    await CIFilterConfiguration.api.setImagePreviewData(textureId, data);
+    await _api.setImagePreviewData(_textureId, data);
   }
 
   static Future<CIImagePreviewController> initialize() async {
-    final textureId = await CIFilterConfiguration.api.createImagePreview();
+    final textureId = await _api.createImagePreview();
     return CIImagePreviewController._(textureId);
   }
 
@@ -57,7 +53,27 @@ class CIImagePreviewController {
     return controller;
   }
 
-  Future<void> update(CIFilterConfiguration configuration) async {
-    await CIFilterConfiguration.api.setImagePreviewConfiguration(textureId, 0);
+  Future<void> connect(CIFilterConfiguration configuration) async {
+    if (!configuration.ready) {
+      await configuration.prepare();
+    }
+    await _api.setImagePreviewConfiguration(
+      _textureId,
+      configuration._filterId,
+    );
+  }
+
+  Future<void> disconnect(
+    CIFilterConfiguration configuration, {
+    bool disposeConfiguration = false,
+  }) async {
+    if (disposeConfiguration && configuration.ready) {
+      await configuration.dispose();
+    }
+    await _api.setImagePreviewConfiguration(_textureId, -1);
+  }
+
+  Future<void> update() async {
+    await _api.updatePreview(_textureId);
   }
 }

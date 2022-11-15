@@ -1,6 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+part of flutter_core_image_filters;
 
 class SliderNSNumberParameter extends RangeNumberParameter {
   SliderNSNumberParameter(
@@ -12,5 +10,7 @@ class SliderNSNumberParameter extends RangeNumberParameter {
   });
 
   @override
-  FutureOr<void> update(FilterConfiguration configuration) {}
+  FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    await CIFilterConfiguration._api.updateParameter(configuration._filterId, name, value);
+  }
 }

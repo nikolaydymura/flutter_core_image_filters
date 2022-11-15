@@ -1,9 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
-
-import '../parameters/ci_color_parameter.dart';
-import '../parameters/slider_ns_number_parameter.dart';
-import 'ci_filter_configuration.dart';
+part of flutter_core_image_filters;
 
 class CIMonochromeConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;

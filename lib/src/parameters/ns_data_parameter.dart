@@ -1,6 +1,4 @@
-import 'dart:async';
-
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+part of flutter_core_image_filters;
 
 class NSDataParameter extends DataParameter {
   NSDataParameter(super.name, super.displayName);

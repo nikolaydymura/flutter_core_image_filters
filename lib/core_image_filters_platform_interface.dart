@@ -26,12 +26,32 @@ abstract class CoreImageFiltersPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<int> prepareFilter(String name) {
-    throw UnimplementedError('prepareFilter() has not been implemented.');
-  }
+  Future<int> prepareFilter(String name);
 
-  Future<void> disposeFilter(int id) {
-    throw UnimplementedError('disposeFilter() has not been implemented.');
+  Future<void> disposeFilter(int id);
+
+  Future<void> updateParameter(int id, String name, dynamic value);
+}
+
+abstract class CoreImagePreviewsPlatform extends PlatformInterface {
+  /// Constructs a CoreImageFiltersPlatform.
+  CoreImagePreviewsPlatform() : super(token: _token);
+
+  static final Object _token = Object();
+
+  static CoreImagePreviewsPlatform _instance = MethodChannelCoreImagePreview();
+
+  /// The default instance of [CoreImageFiltersPlatform] to use.
+  ///
+  /// Defaults to [MethodChannelCoreImageFilters].
+  static CoreImagePreviewsPlatform get instance => _instance;
+
+  /// Platform-specific implementations should set this with their own
+  /// platform-specific class that extends [CoreImageFiltersPlatform] when
+  /// they register themselves.
+  static set instance(CoreImagePreviewsPlatform instance) {
+    PlatformInterface.verifyToken(instance, _token);
+    _instance = instance;
   }
 
   Future<int> createImagePreview() {
@@ -50,7 +70,7 @@ abstract class CoreImageFiltersPlatform extends PlatformInterface {
     throw UnimplementedError('setImagePreviewData() has not been implemented.');
   }
 
-  Future<void> setImagePreviewConfiguration(int textureId, int filterId)  {
-    throw UnimplementedError('setImagePreviewConfiguration() has not been implemented.');
-  }
+  Future<void> setImagePreviewConfiguration(int textureId, int filterId);
+
+  Future<void> updatePreview(int textureId);
 }

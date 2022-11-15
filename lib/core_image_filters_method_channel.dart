@@ -27,9 +27,21 @@ class MethodChannelCoreImageFilters extends CoreImageFiltersPlatform {
   }
 
   @override
+  Future<void> updateParameter(int id, String name, dynamic value) async {
+    await methodChannel.invokeMethod<int>('updateParameter', [id, name, value]);
+  }
+}
+
+/// An implementation of [CoreImageFiltersPlatform] that uses method channels.
+class MethodChannelCoreImagePreview extends CoreImagePreviewsPlatform {
+  /// The method channel used to interact with the native platform.
+  @visibleForTesting
+  final methodChannel = const MethodChannel('core_image_previews');
+
+  @override
   Future<int> createImagePreview() async {
     final textureId =
-        await methodChannel.invokeMethod<int>('createImagePreview');
+    await methodChannel.invokeMethod<int>('createImagePreview');
     if (textureId == null) {
       throw NullThrownError();
     }
@@ -57,5 +69,10 @@ class MethodChannelCoreImageFilters extends CoreImageFiltersPlatform {
   Future<void> setImagePreviewConfiguration(int textureId, int filterId) async {
     await methodChannel
         .invokeMethod('setImagePreviewConfiguration', [textureId, filterId]);
+  }
+
+  @override
+  Future<void> updatePreview(int textureId) async {
+    await methodChannel.invokeMethod('updatePreview', textureId);
   }
 }
