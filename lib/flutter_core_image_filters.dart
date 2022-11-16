@@ -11,9 +11,8 @@ export 'src/ci_image_preview.dart';
 
 Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
     ? {
-
         'Color Cube': () => CIColorCubeConfiguration(),
-  'Bokeh Blur Configuration': () => CIBokehBlurConfiguration(),
-          'Color Monochrome': () => CIMonochromeConfiguration(),
+        'Bokeh Blur ': () => CIBokehBlurConfiguration(),
+        'Color Monochrome': () => CIMonochromeConfiguration(),
       }
     : {};
