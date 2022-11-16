@@ -1,0 +1,61 @@
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+import '../parameters/slider_ns_number_parameter.dart';
+import 'ci_filter_configuration.dart';
+
+class CIBokehBlurConfiguration extends CIFilterConfiguration {
+  final NumberParameter _softness;
+  final NumberParameter _ringSize;
+  final NumberParameter _radius;
+  final NumberParameter _ringAmount;
+
+  CIBokehBlurConfiguration()
+      : _softness = SliderNSNumberParameter(
+    'inputSoftness',
+    'Softness',
+    1,
+    min: 0,
+    max: 10,
+  ),
+        _ringSize = SliderNSNumberParameter(
+          'inputRingSize',
+          'RingSize',
+          0.1,
+          min: 0,
+          max: 0.2,
+        ),
+        _radius = SliderNSNumberParameter(
+          'inputRadius',
+          'Radius',
+          20,
+          min: 0,
+          max: 500,
+        ),
+        _ringAmount = SliderNSNumberParameter(
+          'inputRingAmount',
+          'RingAmount',
+          0,
+          min: 0,
+          max: 1,
+        ),
+        super('CIBokehBlur');
+
+  set softness(double value) {
+    _softness.value = value;
+  }
+
+  set ringSize(double value) {
+    _ringSize.value = value;
+  }
+
+  set radius(double value) {
+    _radius.value = value;
+  }
+
+  set ringAmount(double value) {
+    _ringAmount.value = value;
+  }
+
+  @override
+  List<ConfigurationParameter> get parameters =>
+      [_softness, _ringSize, _radius, _ringAmount];
+}
