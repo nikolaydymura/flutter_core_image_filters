@@ -10,6 +10,7 @@ import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart
 import 'core_image_filters_platform_interface.dart';
 
 part 'src/ci_image_preview.dart';
+part 'src/ci_video_preview.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_filter_configuration.dart';
 part 'src/configurations/ci_monochrome.dart';

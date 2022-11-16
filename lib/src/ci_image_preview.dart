@@ -19,19 +19,19 @@ class CIImagePreviewController {
   CIImagePreviewController._(this._textureId);
 
   Future<void> setImageAsset(String asset) async {
-    await _api.setImagePreviewAsset(_textureId, asset);
+    await _api.setPreviewAsset(_textureId, asset);
   }
 
   Future<void> setImageFile(File file) async {
-    await _api.setImagePreviewFile(_textureId, file);
+    await _api.setPreviewFile(_textureId, file);
   }
 
   Future<void> setImageData(Uint8List data) async {
-    await _api.setImagePreviewData(_textureId, data);
+    await _api.setPreviewData(_textureId, data);
   }
 
   static Future<CIImagePreviewController> initialize() async {
-    final textureId = await _api.createImagePreview();
+    final textureId = await _api.createPreview();
     return CIImagePreviewController._(textureId);
   }
 
@@ -57,7 +57,7 @@ class CIImagePreviewController {
     if (!configuration.ready) {
       await configuration.prepare();
     }
-    await _api.setImagePreviewConfiguration(
+    await _api.setPreviewConfiguration(
       _textureId,
       configuration._filterId,
     );
@@ -70,6 +70,10 @@ class CIImagePreviewController {
     if (disposeConfiguration && configuration.ready) {
       await configuration.dispose();
     }
-    await _api.setImagePreviewConfiguration(_textureId, -1);
+    await _api.setPreviewConfiguration(_textureId, -1);
+  }
+
+  Future<void> dispose() async {
+    await _api.destroyPreview(_textureId);
   }
 }

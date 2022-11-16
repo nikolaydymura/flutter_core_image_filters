@@ -54,22 +54,28 @@ abstract class CoreImagePreviewsPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<int> createImagePreview() {
+  Future<int> createPreview({bool video = false}) {
     throw UnimplementedError('createImageSource() has not been implemented.');
   }
 
-  Future<void> setImagePreviewAsset(int textureId, String asset) {
+  Future<void> setPreviewAsset(int textureId, String asset, {bool video = false}) {
     throw UnimplementedError('setImagePreviewAsset() has not been implemented.');
   }
 
-  Future<void> setImagePreviewFile(int textureId, File file)  {
+  Future<void> setPreviewFile(int textureId, File file, {bool video = false})  {
     throw UnimplementedError('setImagePreviewFile() has not been implemented.');
   }
 
-  Future<void> setImagePreviewData(int textureId, Uint8List data)  {
+  Future<void> setPreviewData(int textureId, Uint8List data, {bool video = false})  {
     throw UnimplementedError('setImagePreviewData() has not been implemented.');
   }
 
-  Future<void> setImagePreviewConfiguration(int textureId, int filterId);
+  Future<void> setPreviewConfiguration(int textureId, int filterId, {bool video = false});
+
+  Future<void> destroyPreview(int textureId, {bool video = false});
+
+  Future<void> pausePreview(int textureId, {bool video = false});
+
+  Future<void> resumePreview(int textureId, {bool video = false});
 
 }
