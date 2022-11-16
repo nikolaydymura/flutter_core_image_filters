@@ -1,3 +1,8 @@
+import 'src/configurations/ci_barcode_generator.dart';
+import 'src/configurations/ci_blend_with_alpha_mask.dart';
+import 'src/configurations/ci_blend_with_blue_mask.dart';
+import 'src/configurations/ci_blend_with_mask.dart';
+import 'src/configurations/ci_blend_with_red_mask.dart';
 import 'src/configurations/ci_color_blend_mode.dart';
 import 'src/configurations/ci_color_burn_blend_mode.dart';
 import 'src/configurations/ci_color_cube.dart';
@@ -7,11 +12,13 @@ import 'dart:io' show Platform;
 import 'src/configurations/ci_color_dodge_blend_mode.dart';
 import 'src/configurations/ci_color_invert.dart';
 import 'src/configurations/ci_color_map.dart';
+import 'src/configurations/ci_comic_effect.dart';
 import 'src/configurations/ci_darken_blend_mode.dart';
 import 'src/configurations/ci_depth_to_disparity.dart';
 import 'src/configurations/ci_difference_blend_mode.dart';
 import 'src/configurations/ci_divide_blend_mode.dart';
 import 'src/configurations/ci_exclusion_blend_mode.dart';
+import 'src/configurations/ci_gabor_gradients.dart';
 import 'src/configurations/ci_hard_light_blend_mode.dart';
 import 'src/configurations/ci_hue_blend_mode.dart';
 import 'src/configurations/ci_lighten_blend_mode.dart';
@@ -44,6 +51,9 @@ import 'src/configurations/ci_photo_effect_process.dart';
 import 'src/configurations/ci_photo_effect_tonal.dart';
 import 'src/configurations/ci_photo_effect_transfer.dart';
 import 'src/configurations/ci_pin_light_blend_mode.dart';
+import 'src/configurations/ci_random_generator.dart';
+import 'src/configurations/ci_saliency_map_filter.dart';
+import 'src/configurations/ci_sample_nearest.dart';
 import 'src/configurations/ci_saturation_blend_mode.dart';
 import 'src/configurations/ci_screen_blend_mode.dart';
 import 'src/configurations/ci_soft_light_blend_mode.dart';
@@ -114,5 +124,15 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
         'CISourceOutCompositing': () => CISourceOutCompositingConfiguration(),
         'CISourceOverCompositing': () => CISourceOverCompositingConfiguration(),
         'CISubtractBlendMode': () => CISubtractBlendModeConfiguration(),
+        'CIBarcodeGenerator': () => CIBarcodeGeneratorConfiguration(),
+        'CIRandomGenerator': () => CIRandomGeneratorConfiguration(),
+        'CIBlendWithAlphaMask': () => CIBlendWithAlphaMaskConfiguration(),
+        'CIBlendWithBlueMask': () => CIBlendWithBlueMaskConfiguration(),
+        'CIBlendWithMask': () => CIBlendWithMaskConfiguration(),
+        'CIBlendWithRedMask': () => CIBlendWithRedMaskConfiguration(),
+        'CIComicEffect': () => CIComicEffectConfiguration(),
+        'CIGaborGradients': () => CIGaborGradientsConfiguration(),
+        'CISaliencyMapFilter': () => CISaliencyMapFilterConfiguration(),
+        'CISampleNearest': () => CISampleNearestConfiguration(),
       }
     : {};
