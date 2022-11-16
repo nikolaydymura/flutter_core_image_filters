@@ -72,8 +72,4 @@ class CIImagePreviewController {
     }
     await _api.setImagePreviewConfiguration(_textureId, -1);
   }
-
-  Future<void> update() async {
-    await _api.updatePreview(_textureId);
-  }
 }

@@ -71,8 +71,4 @@ class MethodChannelCoreImagePreview extends CoreImagePreviewsPlatform {
         .invokeMethod('setImagePreviewConfiguration', [textureId, filterId]);
   }
 
-  @override
-  Future<void> updatePreview(int textureId) async {
-    await methodChannel.invokeMethod('updatePreview', textureId);
-  }
 }

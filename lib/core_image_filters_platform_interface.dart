@@ -72,5 +72,4 @@ abstract class CoreImagePreviewsPlatform extends PlatformInterface {
 
   Future<void> setImagePreviewConfiguration(int textureId, int filterId);
 
-  Future<void> updatePreview(int textureId);
 }
