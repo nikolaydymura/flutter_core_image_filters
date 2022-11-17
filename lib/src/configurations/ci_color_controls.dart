@@ -1,0 +1,49 @@
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+import '../parameters/slider_ns_number_parameter.dart';
+import 'ci_filter_configuration.dart';
+
+class CIColorControlsConfiguration extends CIFilterConfiguration {
+  final NumberParameter _brightness;
+  final NumberParameter _saturation;
+  final NumberParameter _contrast;
+
+  CIColorControlsConfiguration()
+      : _brightness = SliderNSNumberParameter(
+          'inputBrightness',
+          'Brightness',
+          0,
+          min: -1,
+          max: 1,
+        ),
+        _saturation = SliderNSNumberParameter(
+          'inputSaturation',
+          'Saturation',
+          1,
+          min: 0,
+          max: 2,
+        ),
+        _contrast = SliderNSNumberParameter(
+          'inputContrast',
+          'Contrast',
+          1,
+          min: 0.25,
+          max: 4,
+        ),
+        super('CIColorControls');
+
+  set brightness(double value) {
+    _brightness.value = value;
+  }
+
+  set saturation(double value) {
+    _saturation.value = value;
+  }
+
+  set contrast(double value) {
+    _contrast.value = value;
+  }
+
+  @override
+  List<ConfigurationParameter> get parameters =>
+      [_brightness, _saturation, _contrast];
+}

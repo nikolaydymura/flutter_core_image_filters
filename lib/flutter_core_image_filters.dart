@@ -1,5 +1,9 @@
 import 'src/configurations/ci_bokeh_blur.dart';
 import 'src/configurations/ci_box_blur.dart';
+import 'src/configurations/ci_color_controls.dart';
+import 'src/configurations/ci_exposure_adjust.dart';
+import 'src/configurations/ci_color_threshold.dart';
+import 'src/configurations/ci_gamma_adjust.dart';
 import 'src/configurations/ci_gaussian_blur.dart';
 import 'src/configurations/ci_disc_blur.dart';
 import 'src/configurations/ci_filter_configuration.dart';
@@ -8,6 +12,7 @@ import 'src/configurations/ci_color_cube.dart';
 
 import 'dart:io' show Platform;
 
+import 'src/configurations/ci_hue_adjust.dart';
 import 'src/configurations/ci_masked_variable_blur.dart';
 import 'src/configurations/ci_monochrome.dart';
 import 'src/configurations/ci_morphology_gradient.dart';
@@ -38,5 +43,10 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
             CIMorphologyRectangleMinimumConfiguration(),
         'Motion Blur': () => CIMotionBlurConfiguration(),
         'Noise Reduction': () => CINoiseReductionConfiguration(),
+        'Color Controls': () => CIColorControlsConfiguration(),
+        'Color Threshold': () => CIColorThresholdConfiguration(),
+        'Exposure Adjust': () => CIExposureAdjustConfiguration(),
+        'Gamma Adjust': () => CIGammaAdjustConfiguration(),
+        'Hue Adjust': () => CIHueAdjustConfiguration(),
       }
     : {};
