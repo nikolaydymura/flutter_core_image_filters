@@ -6,6 +6,7 @@ import 'src/configurations/ci_color_posterize.dart';
 import 'src/configurations/ci_dither.dart';
 import 'src/configurations/ci_exposure_adjust.dart';
 import 'src/configurations/ci_color_threshold.dart';
+import 'src/configurations/ci_false_color.dart';
 import 'src/configurations/ci_gamma_adjust.dart';
 import 'src/configurations/ci_gaussian_blur.dart';
 import 'src/configurations/ci_disc_blur.dart';
@@ -16,6 +17,11 @@ import 'src/configurations/ci_color_cube.dart';
 import 'dart:io' show Platform;
 
 import 'src/configurations/ci_document_enhancer.dart';
+import 'src/configurations/ci_lab_delta_e.dart';
+import 'src/configurations/ci_palette_centroid copy.dart';
+import 'src/configurations/ci_sepia_tone copy.dart';
+import 'src/configurations/ci_sepia_tone.dart';
+import 'src/configurations/ci_palette_centroid.dart';
 import 'src/configurations/ci_vibrance.dart';
 import 'src/configurations/ci_hue_adjust.dart';
 import 'src/configurations/ci_masked_variable_blur.dart';
@@ -61,11 +67,11 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
         'Color Posterize': () => CIColorPosterizeConfiguration(),
         'Dither': () => CIDitherConfiguration(),
         'Document Enhancer': () => CIDocumentEnhancerConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
-        'Dither': () => CIDitherConfiguration(),
+        'False Color': () => CIFalseColorConfiguration(),
+        'Lab Delta E': () => CILabDeltaEConfiguration(),
+        'Palette Centroid': () => CIPaletteCentroidConfiguration(),
+        'Palettize': () => CIPalettizeConfiguration(),
+        'Sepia Tone': () => CISepiaToneConfiguration(),
+        'Vignette': () => CIVignetteConfiguration(),
       }
     : {};
