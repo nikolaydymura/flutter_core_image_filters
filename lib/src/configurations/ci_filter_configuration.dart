@@ -24,4 +24,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     }
     _filterId = null;
   }
+
+  @override
+  List<ConfigurationParameter> get parameters => [];
 }
