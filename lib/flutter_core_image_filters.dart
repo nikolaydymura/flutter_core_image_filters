@@ -1,8 +1,11 @@
+import 'src/configurations/ci_attributed_text_image_generator.dart';
+import 'src/configurations/ci_aztec_code_generator.dart';
 import 'src/configurations/ci_bokeh_blur.dart';
 import 'src/configurations/ci_box_blur.dart';
 import 'src/configurations/ci_color_controls.dart';
 import 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
 import 'src/configurations/ci_color_posterize.dart';
+import 'src/configurations/ci_displacement_distortion.dart';
 import 'src/configurations/ci_dither.dart';
 import 'src/configurations/ci_exposure_adjust.dart';
 import 'src/configurations/ci_color_threshold.dart';
@@ -73,5 +76,10 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
         'Palettize': () => CIPalettizeConfiguration(),
         'Sepia Tone': () => CISepiaToneConfiguration(),
         'Vignette': () => CIVignetteConfiguration(),
+        'Displacement Distortion': () =>
+            CIDisplacementDistortionConfiguration(),
+        'Attributed TextImage Generator': () =>
+            CIAttributedTextImageGeneratorConfiguration(),
+        'Aztec Code Generator': () => CIAztecCodeGeneratorConfiguration(),
       }
     : {};
