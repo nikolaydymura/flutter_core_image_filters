@@ -194,6 +194,21 @@ public class SwiftCoreImageFiltersPlugin: NSObject, FlutterPlugin {
                 result(nil)
                 return
             }
+            if targetClass == "CIImage" {
+                if let value = arguments[2] as? String {
+                    let asset = registrar.lookupKey(forAsset: value)
+                    
+                    let path = Bundle.main.path(forResource: asset, ofType: nil) ?? value
+                    
+                    let image = CIImage(contentsOf: URL(fileURLWithPath: path))
+                    updateFilterValue(filter, value: image, forKey: key)
+                } else if let value = arguments[2] as? FlutterStandardTypedData {
+                    let image = CIImage(data: value.data)
+                    updateFilterValue(filter, value: image, forKey: key)
+                }
+                result(nil)
+                return
+            }
             if targetClass == "CIColor" {
                 guard let value = arguments[2] as? [Double] else {
                     result(FlutterError.init())
