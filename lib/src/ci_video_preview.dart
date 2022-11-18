@@ -57,8 +57,11 @@ class CIVideoPreviewController {
     if (!configuration.ready) {
       await configuration.prepare();
     }
-    await _api.setPreviewConfiguration(_textureId, configuration._filterId,
-        video: true,);
+    await _api.setPreviewConfiguration(
+      _textureId,
+      configuration._filterId,
+      video: true,
+    );
   }
 
   Future<void> disconnect(
