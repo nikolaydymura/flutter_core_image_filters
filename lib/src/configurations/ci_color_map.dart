@@ -4,7 +4,8 @@ class CIColorMapConfiguration extends CIFilterConfiguration {
   final DataParameter _gradientImage;
 
   CIColorMapConfiguration()
-      : _gradientImage = CIImageParameter('inputGradientImage', 'Gradient Image'),
+      : _gradientImage =
+            CIImageParameter('inputGradientImage', 'Gradient Image'),
         super('CIColorMap');
 
   set gradientImage(Uint8List value) {
