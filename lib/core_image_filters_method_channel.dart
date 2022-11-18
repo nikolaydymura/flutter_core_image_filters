@@ -27,9 +27,21 @@ class MethodChannelCoreImageFilters extends CoreImageFiltersPlatform {
   }
 
   @override
-  Future<int> createImagePreview() async {
-    final textureId =
-        await methodChannel.invokeMethod<int>('createImagePreview');
+  Future<void> updateParameter(int id, String name, dynamic value) async {
+    await methodChannel.invokeMethod<int>('updateParameter', [id, name, value]);
+  }
+}
+
+/// An implementation of [CoreImageFiltersPlatform] that uses method channels.
+class MethodChannelCoreImagePreview extends CoreImagePreviewsPlatform {
+  /// The method channel used to interact with the native platform.
+  @visibleForTesting
+  final methodChannel = const MethodChannel('core_image_previews');
+
+  @override
+  Future<int> createPreview({bool video = false}) async {
+    final textureId = await methodChannel
+        .invokeMethod<int>(video ? 'createVideoPreview' : 'createImagePreview');
     if (textureId == null) {
       throw NullThrownError();
     }
@@ -37,25 +49,78 @@ class MethodChannelCoreImageFilters extends CoreImageFiltersPlatform {
   }
 
   @override
-  Future<void> setImagePreviewAsset(int textureId, String asset) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewAsset', [textureId, asset]);
+  Future<void> setPreviewAsset(
+    int textureId,
+    String asset, {
+    bool video = false,
+  }) async {
+    await methodChannel.invokeMethod(
+      video ? 'setVideoPreviewAsset' : 'setImagePreviewAsset',
+      [textureId, asset],
+    );
   }
 
   @override
-  Future<void> setImagePreviewData(int textureId, Uint8List data) async {
-    await methodChannel.invokeMethod('setImagePreviewData', [textureId, data]);
+  Future<void> setPreviewData(
+    int textureId,
+    Uint8List data, {
+    bool video = false,
+  }) async {
+    await methodChannel.invokeMethod(
+      video ? 'setVideoPreviewData' : 'setImagePreviewData',
+      [textureId, data],
+    );
   }
 
   @override
-  Future<void> setImagePreviewFile(int textureId, File file) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewFile', [textureId, file.absolute.path]);
+  Future<void> setPreviewFile(
+    int textureId,
+    File file, {
+    bool video = false,
+  }) async {
+    await methodChannel.invokeMethod(
+      video ? 'setVideoPreviewFile' : 'setImagePreviewFile',
+      [textureId, file.absolute.path],
+    );
   }
 
   @override
-  Future<void> setImagePreviewConfiguration(int textureId, int filterId) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewConfiguration', [textureId, filterId]);
+  Future<void> setPreviewConfiguration(
+    int textureId,
+    int filterId, {
+    bool video = false,
+  }) async {
+    await methodChannel.invokeMethod(
+      video ? 'setVideoPreviewConfiguration' : 'setImagePreviewConfiguration',
+      [textureId, filterId],
+    );
+  }
+
+  @override
+  Future<void> resumePreview(int textureId, {bool video = false}) async {
+    if (video) {
+      await methodChannel.invokeMethod(
+        'resumeVideoPreview',
+        textureId,
+      );
+    }
+  }
+
+  @override
+  Future<void> pausePreview(int textureId, {bool video = false}) async {
+    if (video) {
+      await methodChannel.invokeMethod(
+        'pauseVideoPreview',
+        textureId,
+      );
+    }
+  }
+
+  @override
+  Future<void> destroyPreview(int textureId, {bool video = false}) async {
+    await methodChannel.invokeMethod(
+      video ? 'destroyVideoPreview' : 'destroyImagePreview',
+      textureId,
+    );
   }
 }

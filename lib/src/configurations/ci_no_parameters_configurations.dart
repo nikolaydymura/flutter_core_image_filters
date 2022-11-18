@@ -1,17 +1,7 @@
-class CIAdditionCompositingConfiguration extends CIFilterConfiguration {
-  CIAdditionCompositingConfiguration() : super('CIAdditionCompositing');
-}
-
-class CIColorAbsoluteDifferenceConfiguration extends CIFilterConfiguration {
-  CIColorAbsoluteDifferenceConfiguration() : super('CIColorAbsoluteDifference');
-}
+part of flutter_core_image_filters;
 
 class CIColorInvertConfiguration extends CIFilterConfiguration {
   CIColorInvertConfiguration() : super('CIColorInvert');
-}
-
-class CIColorMapConfiguration extends CIFilterConfiguration {
-  CIColorMapConfiguration() : super('CIColorMap');
 }
 
 class CIColorThresholdOtsuConfiguration extends CIFilterConfiguration {

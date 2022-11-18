@@ -1,7 +1,7 @@
 part of flutter_core_image_filters;
 
-class NSDataParameter extends DataParameter {
-  NSDataParameter(super.name, super.displayName);
+class CIImageParameter extends DataParameter {
+  CIImageParameter(super.name, super.displayName);
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
