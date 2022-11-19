@@ -13,7 +13,7 @@ class CIPalettizeConfiguration extends CIFilterConfiguration {
           min: 0,
           max: 1,
         ),
-        super('CIPaletteCentroid');
+        super('CIPalettize');
 
   set perceptual(double value) {
     _perceptual.value = value;

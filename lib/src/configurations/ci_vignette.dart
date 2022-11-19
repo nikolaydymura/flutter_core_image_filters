@@ -13,7 +13,7 @@ class CIVignetteConfiguration extends CIFilterConfiguration {
           min: -1,
           max: 1,
         ),
-        super('CISepiaTone');
+        super('CIVignette');
 
   set intensity(double value) {
     _intensity.value = value;
