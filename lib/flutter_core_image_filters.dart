@@ -1,8 +1,10 @@
 import 'src/configurations/ci_attributed_text_image_generator.dart';
+import 'src/configurations/ci_highlight_shadow_adjust.dart';
 import 'src/configurations/ci_aztec_code_generator.dart';
 import 'src/configurations/ci_bicubic_scale_transform.dart';
 import 'src/configurations/ci_bloom.dart';
 import 'src/configurations/ci_bokeh_blur.dart';
+import 'src/configurations/ci_box_blur copy.dart';
 import 'src/configurations/ci_box_blur.dart';
 import 'src/configurations/ci_code_128_barcode_generator.dart';
 import 'src/configurations/ci_color_controls.dart';
@@ -12,6 +14,8 @@ import 'src/configurations/ci_constant_color_generator.dart';
 import 'src/configurations/ci_displacement_distortion.dart';
 import 'src/configurations/ci_dither.dart';
 import 'src/configurations/ci_edge_work.dart';
+import 'src/configurations/ci_edges.dart';
+import 'src/configurations/ci_gloom.dart';
 import 'src/configurations/ci_histogram_display_filter.dart';
 import 'src/configurations/ci_lanczos_scale_transform.dart';
 import 'src/configurations/ci_edge_preserve_upsample_filter.dart';
@@ -29,9 +33,11 @@ import 'dart:io' show Platform;
 
 import 'src/configurations/ci_document_enhancer.dart';
 import 'src/configurations/ci_lab_delta_e.dart';
+import 'src/configurations/ci_line_overlay.dart';
 import 'src/configurations/ci_palettize.dart';
 import 'src/configurations/ci_pdf417_barcode_generator.dart';
 import 'src/configurations/ci_perspective_rotate.dart';
+import 'src/configurations/ci_shaded_material.dart';
 import 'src/configurations/ci_vignette.dart';
 import 'src/configurations/ci_sepia_tone.dart';
 import 'src/configurations/ci_palette_centroid.dart';
@@ -112,5 +118,11 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
         'Unsharp Mask': () => CIUnsharpMaskConfiguration(),
         'Bloom': () => CIBloomConfiguration(),
         'Edge Work': () => CIEdgeWorkConfiguration(),
+        'Edges': () => CIEdgesConfiguration(),
+        'Gloom': () => CIGloomConfiguration(),
+        'Height Field From Mask': () => CIHeightFieldFromMaskConfiguration(),
+        'Highlight Shadow Adjust': () => CIHighlightShadowAdjustConfiguration(),
+        'Line Overlay': () => CILineOverlayConfiguration(),
+        'Shaded Material': () => CIShadedMaterialConfiguration(),
       }
     : {};
