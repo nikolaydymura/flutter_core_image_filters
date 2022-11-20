@@ -1,4 +1,8 @@
+import 'src/configurations/ci_accordion_fold_transition.dart';
 import 'src/configurations/ci_attributed_text_image_generator.dart';
+import 'src/configurations/ci_bars_swipe_transition.dart';
+import 'src/configurations/ci_dissolve_transition.dart';
+import 'src/configurations/ci_guided_filter.dart';
 import 'src/configurations/ci_highlight_shadow_adjust.dart';
 import 'src/configurations/ci_aztec_code_generator.dart';
 import 'src/configurations/ci_bicubic_scale_transform.dart';
@@ -124,5 +128,10 @@ Map<String, CIFilterConfiguration Function()> availableFilters = Platform.isIOS
         'Highlight Shadow Adjust': () => CIHighlightShadowAdjustConfiguration(),
         'Line Overlay': () => CILineOverlayConfiguration(),
         'Shaded Material': () => CIShadedMaterialConfiguration(),
+        'Accordion Fold Transition': () =>
+            CIAccordionFoldTransitionConfiguration(),
+        'Bars Swipe Transition': () => CIBarsSwipeTransitionConfiguration(),
+        'Dissolve Transition': () => CIDissolveTransitionConfiguration(),
+        ' Guided Filter': () => CIGuidedFilterConfiguration(),
       }
     : {};
