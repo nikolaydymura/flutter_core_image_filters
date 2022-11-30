@@ -1,6 +1,3 @@
-import 'dart:io';
-import 'dart:typed_data';
-
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'core_image_filters_method_channel.dart';
@@ -26,31 +23,9 @@ abstract class CoreImageFiltersPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<int> prepareFilter(String name) {
-    throw UnimplementedError('prepareFilter() has not been implemented.');
-  }
+  Future<int> prepareFilter(String name);
 
-  Future<void> disposeFilter(int id) {
-    throw UnimplementedError('disposeFilter() has not been implemented.');
-  }
+  Future<void> disposeFilter(int id);
 
-  Future<int> createImagePreview() {
-    throw UnimplementedError('createImageSource() has not been implemented.');
-  }
-
-  Future<void> setImagePreviewAsset(int textureId, String asset) {
-    throw UnimplementedError('setImagePreviewAsset() has not been implemented.');
-  }
-
-  Future<void> setImagePreviewFile(int textureId, File file)  {
-    throw UnimplementedError('setImagePreviewFile() has not been implemented.');
-  }
-
-  Future<void> setImagePreviewData(int textureId, Uint8List data)  {
-    throw UnimplementedError('setImagePreviewData() has not been implemented.');
-  }
-
-  Future<void> setImagePreviewConfiguration(int textureId, int filterId)  {
-    throw UnimplementedError('setImagePreviewConfiguration() has not been implemented.');
-  }
+  Future<void> updateParameter(int id, String name, dynamic value);
 }

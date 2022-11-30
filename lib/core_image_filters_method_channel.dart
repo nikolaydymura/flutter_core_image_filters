@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
@@ -27,35 +25,7 @@ class MethodChannelCoreImageFilters extends CoreImageFiltersPlatform {
   }
 
   @override
-  Future<int> createImagePreview() async {
-    final textureId =
-        await methodChannel.invokeMethod<int>('createImagePreview');
-    if (textureId == null) {
-      throw NullThrownError();
-    }
-    return textureId;
-  }
-
-  @override
-  Future<void> setImagePreviewAsset(int textureId, String asset) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewAsset', [textureId, asset]);
-  }
-
-  @override
-  Future<void> setImagePreviewData(int textureId, Uint8List data) async {
-    await methodChannel.invokeMethod('setImagePreviewData', [textureId, data]);
-  }
-
-  @override
-  Future<void> setImagePreviewFile(int textureId, File file) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewFile', [textureId, file.absolute.path]);
-  }
-
-  @override
-  Future<void> setImagePreviewConfiguration(int textureId, int filterId) async {
-    await methodChannel
-        .invokeMethod('setImagePreviewConfiguration', [textureId, filterId]);
+  Future<void> updateParameter(int id, String name, dynamic value) async {
+    await methodChannel.invokeMethod<int>('updateParameter', [id, name, value]);
   }
 }

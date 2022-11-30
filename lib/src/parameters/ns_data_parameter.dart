@@ -1,10 +1,19 @@
-import 'dart:async';
-
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+part of flutter_core_image_filters;
 
 class NSDataParameter extends DataParameter {
   NSDataParameter(super.name, super.displayName);
 
   @override
-  FutureOr<void> update(FilterConfiguration configuration) {}
+  FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    if (asset != null) {
+      await CIFilterConfiguration._api
+          .updateParameter(configuration._filterId, name, asset);
+    } else if (file != null) {
+      await CIFilterConfiguration._api
+          .updateParameter(configuration._filterId, name, file?.absolute.path);
+    } else if (data != null) {
+      await CIFilterConfiguration._api
+          .updateParameter(configuration._filterId, name, data);
+    }
+  }
 }

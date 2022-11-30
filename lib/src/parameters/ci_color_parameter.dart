@@ -1,11 +1,14 @@
-import 'dart:async';
-
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+part of flutter_core_image_filters;
 
 class CIColorParameter extends ColorParameter {
   CIColorParameter(super.name, super.displayName, super.value);
 
   @override
-  FutureOr<void> update(FilterConfiguration configuration) {
+  FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    await CIFilterConfiguration._api.updateParameter(
+      configuration._filterId,
+      name,
+      [value.red / 255.0, value.green / 255.0, value.blue / 255.0],
+    );
   }
 }

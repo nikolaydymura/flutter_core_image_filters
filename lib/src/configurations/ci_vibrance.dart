@@ -1,6 +1,4 @@
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
-import '../parameters/slider_ns_number_parameter.dart';
-import 'ci_filter_configuration.dart';
+part of flutter_core_image_filters;
 
 class CIVibranceConfiguration extends CIFilterConfiguration {
   final NumberParameter _amount;
