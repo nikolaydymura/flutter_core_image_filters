@@ -12,27 +12,36 @@ class CIImagePreview extends StatelessWidget {
 }
 
 class CIImagePreviewController {
-  static final CoreImagePreviewsPlatform _api =
-      CoreImagePreviewsPlatform.instance;
+  static final ImagePreviewApi _api = ImagePreviewApi();
   final int _textureId;
 
   CIImagePreviewController._(this._textureId);
 
   Future<void> setImageAsset(String asset) async {
-    await _api.setPreviewAsset(_textureId, asset);
+    await _api.setSource(
+      SourcePreviewMessage(textureId: _textureId, path: asset, asset: true),
+    );
   }
 
   Future<void> setImageFile(File file) async {
-    await _api.setPreviewFile(_textureId, file);
+    await _api.setSource(
+      SourcePreviewMessage(
+        textureId: _textureId,
+        path: file.absolute.path,
+        asset: false,
+      ),
+    );
   }
 
   Future<void> setImageData(Uint8List data) async {
-    await _api.setPreviewData(_textureId, data);
+    await _api.setData(
+      DataPreviewMessage(textureId: _textureId, data: data),
+    );
   }
 
   static Future<CIImagePreviewController> initialize() async {
-    final textureId = await _api.createPreview();
-    return CIImagePreviewController._(textureId);
+    final message = await _api.create();
+    return CIImagePreviewController._(message.textureId);
   }
 
   static Future<CIImagePreviewController> fromFile(File file) async {
@@ -54,26 +63,29 @@ class CIImagePreviewController {
   }
 
   Future<void> connect(CIFilterConfiguration configuration) async {
-    if (!configuration.ready) {
-      await configuration.prepare();
+    if (configuration.ready) {
+      await _api.connect(
+        BindPreviewMessage(
+          textureId: _textureId,
+          filterId: configuration._filterId,
+        ),
+      );
+    } else {
+      throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }
-    await _api.setPreviewConfiguration(
-      _textureId,
-      configuration._filterId,
-    );
   }
 
   Future<void> disconnect(
-    CIFilterConfiguration configuration, {
-    bool disposeConfiguration = false,
-  }) async {
-    if (disposeConfiguration && configuration.ready) {
-      await configuration.dispose();
-    }
-    await _api.setPreviewConfiguration(_textureId, -1);
+    CIFilterConfiguration configuration,
+  ) async {
+    await _api.disconnect(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 
   Future<void> dispose() async {
-    await _api.destroyPreview(_textureId);
+    await _api.dispose(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 }

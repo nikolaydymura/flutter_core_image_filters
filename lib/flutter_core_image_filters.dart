@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 import 'core_image_filters_platform_interface.dart';
+import 'src/messages/preview_messages.g.dart';
 
 part 'src/ci_image_preview.dart';
 part 'src/ci_video_preview.dart';
@@ -24,6 +25,7 @@ part 'src/configurations/ci_color_burn_blend_mode.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
 part 'src/configurations/ci_color_map.dart';
+part 'src/configurations/ci_color_monochrome.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_darken_blend_mode.dart';
 part 'src/configurations/ci_difference_blend_mode.dart';
@@ -36,10 +38,10 @@ part 'src/configurations/ci_hue_blend_mode.dart';
 part 'src/configurations/ci_lighten_blend_mode.dart';
 part 'src/configurations/ci_linear_burn_blend_mode.dart';
 part 'src/configurations/ci_linear_dodge_blend_mode.dart';
+part 'src/configurations/ci_lookup_table.dart';
 part 'src/configurations/ci_luminosity_blend_mode.dart';
 part 'src/configurations/ci_maximum_compositing.dart';
 part 'src/configurations/ci_minimum_compositing.dart';
-part 'src/configurations/ci_color_monochrome.dart';
 part 'src/configurations/ci_multiply_blend_mode.dart';
 part 'src/configurations/ci_multiply_compositing.dart';
 part 'src/configurations/ci_no_parameters_configurations.dart';
@@ -61,6 +63,7 @@ part 'src/parameters/ci_color_parameter.dart';
 part 'src/parameters/ci_image_parameter.dart';
 part 'src/parameters/ns_data_parameter.dart';
 part 'src/parameters/ns_number_parameter.dart';
+part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/slider_ns_number_parameter.dart';
 
 class FlutterCoreImageFilters {
@@ -96,6 +99,7 @@ class FlutterCoreImageFilters {
     'Linear Burn Blend Mode': () => CILinearBurnBlendModeConfiguration(),
     'Linear Dodge Blend Mode': () => CILinearDodgeBlendModeConfiguration(),
     'Linear To SRGB Tone Curve': () => CILinearToSRGBToneCurveConfiguration(),
+    'Lookup Table': () => CILookupTableConfiguration(),
     'Luminosity Blend Mode': () => CILuminosityBlendModeConfiguration(),
     'Mask ToAlpha': () => CIMaskToAlphaConfiguration(),
     'Maximum Component': () => CIMaximumComponentConfiguration(),

@@ -12,77 +12,80 @@ class CIVideoPreview extends StatelessWidget {
 }
 
 class CIVideoPreviewController {
-  static final CoreImagePreviewsPlatform _api =
-      CoreImagePreviewsPlatform.instance;
+  static final VideoPreviewApi _api = VideoPreviewApi();
   final int _textureId;
 
   CIVideoPreviewController._(this._textureId);
 
-  Future<void> setImageAsset(String asset) async {
-    await _api.setPreviewAsset(_textureId, asset, video: true);
+  Future<void> setVideoAsset(String asset) async {
+    await _api.setSource(
+      SourcePreviewMessage(textureId: _textureId, path: asset, asset: true),
+    );
   }
 
-  Future<void> setImageFile(File file) async {
-    await _api.setPreviewFile(_textureId, file, video: true);
-  }
-
-  Future<void> setImageData(Uint8List data) async {
-    await _api.setPreviewData(_textureId, data, video: true);
+  Future<void> setVideoFile(File file) async {
+    await _api.setSource(
+      SourcePreviewMessage(
+        textureId: _textureId,
+        path: file.absolute.path,
+        asset: false,
+      ),
+    );
   }
 
   static Future<CIVideoPreviewController> initialize() async {
-    final textureId = await _api.createPreview(video: true);
-    return CIVideoPreviewController._(textureId);
+    final message = await _api.create();
+    return CIVideoPreviewController._(message.textureId);
   }
 
   static Future<CIVideoPreviewController> fromFile(File file) async {
     final controller = await initialize();
-    await controller.setImageFile(file);
+    await controller.setVideoFile(file);
     return controller;
   }
 
   static Future<CIVideoPreviewController> fromAsset(String asset) async {
     final controller = await initialize();
-    await controller.setImageAsset(asset);
-    return controller;
-  }
-
-  static Future<CIVideoPreviewController> fromMemory(Uint8List data) async {
-    final controller = await initialize();
-    await controller.setImageData(data);
+    await controller.setVideoAsset(asset);
     return controller;
   }
 
   Future<void> connect(CIFilterConfiguration configuration) async {
-    if (!configuration.ready) {
-      await configuration.prepare();
+    if (configuration.ready) {
+      await _api.connect(
+        BindPreviewMessage(
+          textureId: _textureId,
+          filterId: configuration._filterId,
+        ),
+      );
+    } else {
+      throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }
-    await _api.setPreviewConfiguration(
-      _textureId,
-      configuration._filterId,
-      video: true,
-    );
   }
 
   Future<void> disconnect(
-    CIFilterConfiguration configuration, {
-    bool disposeConfiguration = false,
-  }) async {
-    if (disposeConfiguration && configuration.ready) {
-      await configuration.dispose();
-    }
-    await _api.setPreviewConfiguration(_textureId, -1, video: true);
+    CIFilterConfiguration configuration,
+  ) async {
+    await _api.disconnect(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 
   Future<void> dispose() async {
-    await _api.destroyPreview(_textureId, video: true);
+    await _api.dispose(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 
   Future<void> play() async {
-    await _api.resumePreview(_textureId, video: true);
+    await _api.resume(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 
   Future<void> pause() async {
-    await _api.pausePreview(_textureId, video: true);
+    await _api.pause(
+      PreviewMessage(textureId: _textureId),
+    );
   }
 }
