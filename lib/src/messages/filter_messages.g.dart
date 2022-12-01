@@ -45,6 +45,77 @@ class FilterApi {
     }
   }
 
+  Future<Uint8List> exportData(int arg_filterId, String arg_format) async {
+    final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+        'dev.flutter.pigeon.FilterApi.exportData', codec, binaryMessenger: _binaryMessenger);
+    final Map<Object?, Object?>? replyMap =
+        await channel.send(<Object?>[arg_filterId, arg_format]) as Map<Object?, Object?>?;
+    if (replyMap == null) {
+      throw PlatformException(
+        code: 'channel-error',
+        message: 'Unable to establish connection on channel.',
+      );
+    } else if (replyMap['error'] != null) {
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      throw PlatformException(
+        code: (error['code'] as String?)!,
+        message: error['message'] as String?,
+        details: error['details'],
+      );
+    } else if (replyMap['result'] == null) {
+      throw PlatformException(
+        code: 'null-error',
+        message: 'Host platform returned null value for non-null return value.',
+      );
+    } else {
+      return (replyMap['result'] as Uint8List?)!;
+    }
+  }
+
+  Future<void> exportImageFile(int arg_filterId, String arg_path, String arg_format) async {
+    final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+        'dev.flutter.pigeon.FilterApi.exportImageFile', codec, binaryMessenger: _binaryMessenger);
+    final Map<Object?, Object?>? replyMap =
+        await channel.send(<Object?>[arg_filterId, arg_path, arg_format]) as Map<Object?, Object?>?;
+    if (replyMap == null) {
+      throw PlatformException(
+        code: 'channel-error',
+        message: 'Unable to establish connection on channel.',
+      );
+    } else if (replyMap['error'] != null) {
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      throw PlatformException(
+        code: (error['code'] as String?)!,
+        message: error['message'] as String?,
+        details: error['details'],
+      );
+    } else {
+      return;
+    }
+  }
+
+  Future<void> exportVideoFile(int arg_filterId, bool arg_asset, String arg_input, String arg_output, String arg_format) async {
+    final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
+        'dev.flutter.pigeon.FilterApi.exportVideoFile', codec, binaryMessenger: _binaryMessenger);
+    final Map<Object?, Object?>? replyMap =
+        await channel.send(<Object?>[arg_filterId, arg_asset, arg_input, arg_output, arg_format]) as Map<Object?, Object?>?;
+    if (replyMap == null) {
+      throw PlatformException(
+        code: 'channel-error',
+        message: 'Unable to establish connection on channel.',
+      );
+    } else if (replyMap['error'] != null) {
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
+      throw PlatformException(
+        code: (error['code'] as String?)!,
+        message: error['message'] as String?,
+        details: error['details'],
+      );
+    } else {
+      return;
+    }
+  }
+
   Future<void> setInputData(int arg_filterId, Uint8List arg_data) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.FilterApi.setInputData', codec, binaryMessenger: _binaryMessenger);
@@ -67,9 +138,9 @@ class FilterApi {
     }
   }
 
-  Future<void> setInputSource(int arg_filterId, String arg_path) async {
+  Future<void> setInputAsset(int arg_filterId, String arg_path) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.FilterApi.setInputSource', codec, binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.FilterApi.setInputAsset', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(<Object?>[arg_filterId, arg_path]) as Map<Object?, Object?>?;
     if (replyMap == null) {

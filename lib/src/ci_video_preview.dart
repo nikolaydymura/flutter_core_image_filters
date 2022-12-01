@@ -17,22 +17,25 @@ class CIVideoPreviewController {
 
   CIVideoPreviewController._(this._textureId);
 
-  Future<void> setVideoAsset(String asset) async {
-    await _api.setSource(
-      SourcePreviewMessage(textureId: _textureId, path: asset, asset: true),
-    );
+  Future<void> setVideoSource(PathInputSource source) async {
+    if (source is FileInputSource) {
+      await _api.setSource(
+        SourcePreviewMessage(
+          textureId: _textureId,
+          path: source.path,
+          asset: false,
+        ),
+      );
+    } else if (source is AssetInputSource) {
+      await _api.setSource(
+        SourcePreviewMessage(
+          textureId: _textureId,
+          path: source.path,
+          asset: true,
+        ),
+      );
+    }
   }
-
-  Future<void> setVideoFile(File file) async {
-    await _api.setSource(
-      SourcePreviewMessage(
-        textureId: _textureId,
-        path: file.absolute.path,
-        asset: false,
-      ),
-    );
-  }
-
   static Future<CIVideoPreviewController> initialize() async {
     final message = await _api.create();
     return CIVideoPreviewController._(message.textureId);
@@ -40,13 +43,13 @@ class CIVideoPreviewController {
 
   static Future<CIVideoPreviewController> fromFile(File file) async {
     final controller = await initialize();
-    await controller.setVideoFile(file);
+    await controller.setVideoSource(FileInputSource(file));
     return controller;
   }
 
   static Future<CIVideoPreviewController> fromAsset(String asset) async {
     final controller = await initialize();
-    await controller.setVideoAsset(asset);
+    await controller.setVideoSource(AssetInputSource(asset));
     return controller;
   }
 

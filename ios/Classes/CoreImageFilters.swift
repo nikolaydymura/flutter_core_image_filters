@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import AVFoundation
 import Flutter
 
 protocol FiltersLocator {
@@ -176,6 +177,123 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
     
     func disposeFilter(_ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         filters.removeValue(forKey: filterId.int64Value)
+    }
+    
+}
+
+
+extension CoreImageFilters {
+    func exportData(_ filterId: NSNumber, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return nil
+        }
+        guard let image = filter.outputImage else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
+            return nil
+        }
+        
+        let context = CIContext()
+        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+        if format == "png" {
+            if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
+                return FlutterStandardTypedData(bytes: data)
+            } else {
+                error.pointee = FlutterError(code: "core-image-filters", message: "Failed to create PNG data", details: nil)
+            }
+        } else if format == "jpeg" {
+            if let data = context.jpegRepresentation(of: image, colorSpace: image.colorSpace ?? colorSpace) {
+                return FlutterStandardTypedData(bytes: data)
+            } else {
+                error.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JPEG data", details: nil)
+            }
+        } else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
+        }
+        
+        return nil
+        
+    }
+    
+    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        let flutterError = error
+        guard let filter = filters[filterId.int64Value] else {
+            flutterError.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let image = filter.outputImage else {
+            flutterError.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
+            return
+        }
+        
+        let context = CIContext()
+        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+        if format == "png" {
+            do {
+                try context.writePNGRepresentation(of: image, to: URL(fileURLWithPath: path), format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace)
+            } catch {
+                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create PNG data", details: nil)
+            }
+        } else if format == "jpeg" {
+            do {
+                try context.writeJPEGRepresentation(of: image, to: URL(fileURLWithPath: path), colorSpace: image.colorSpace ?? colorSpace)
+            } catch {
+                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JEPG data", details: nil)
+            }
+        } else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
+        }
+    }
+
+    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, completion: @escaping (FlutterError?) -> Void) {
+
+        guard let filter = filters[filterId.int64Value] else {
+            completion(FlutterError(code: "core-image-filters", message: "Filter not found", details: nil))
+            return
+        }
+        var path = input
+        if asset.boolValue {
+            let assetKey = registrar.lookupKey(forAsset: path)
+            
+            guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+                completion(FlutterError(code: "core-image-filters", message: "Asset not found", details: nil))
+                return
+            }
+            path = filePath
+        }
+        let asset = AVAsset(url: URL(fileURLWithPath: path))
+        let videoComposition = AVVideoComposition(asset: asset) { request in
+            let source = request.sourceImage.clampedToExtent()
+            let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
+            request.finish(with: output ?? source, context: nil)
+        }
+        guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+            completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))
+            return
+        }
+        
+        exporter.videoComposition = videoComposition
+        exporter.outputURL = URL(fileURLWithPath: output)
+        
+        if format == "mp4" {
+            exporter.outputFileType = .mp4
+        } else if format == "mov" {
+            exporter.outputFileType = .mov
+        } else {
+            completion(FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil))
+            return
+        }
+        exporter.exportAsynchronously { () -> Void in
+            if exporter.error == nil && exporter.status == .completed {
+                completion(nil)
+
+            } else {
+                let message = String(describing: exporter.error)
+                completion(FlutterError.init(code: "core-image-filters",
+                                             message: message,
+                                             details: nil))
+            }
+        }
     }
     
 }

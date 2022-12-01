@@ -17,26 +17,28 @@ class CIImagePreviewController {
 
   CIImagePreviewController._(this._textureId);
 
-  Future<void> setImageAsset(String asset) async {
-    await _api.setSource(
-      SourcePreviewMessage(textureId: _textureId, path: asset, asset: true),
-    );
-  }
-
-  Future<void> setImageFile(File file) async {
-    await _api.setSource(
-      SourcePreviewMessage(
-        textureId: _textureId,
-        path: file.absolute.path,
-        asset: false,
-      ),
-    );
-  }
-
-  Future<void> setImageData(Uint8List data) async {
-    await _api.setData(
-      DataPreviewMessage(textureId: _textureId, data: data),
-    );
+  Future<void> setImageSource(InputSource source) async {
+    if (source is DataInputSource) {
+      await _api.setData(
+        DataPreviewMessage(textureId: _textureId, data: source.data),
+      );
+    } else if (source is FileInputSource) {
+      await _api.setSource(
+        SourcePreviewMessage(
+          textureId: _textureId,
+          path: source.path,
+          asset: false,
+        ),
+      );
+    } else if (source is AssetInputSource) {
+      await _api.setSource(
+        SourcePreviewMessage(
+          textureId: _textureId,
+          path: source.path,
+          asset: true,
+        ),
+      );
+    }
   }
 
   static Future<CIImagePreviewController> initialize() async {
@@ -46,19 +48,19 @@ class CIImagePreviewController {
 
   static Future<CIImagePreviewController> fromFile(File file) async {
     final controller = await initialize();
-    await controller.setImageFile(file);
+    await controller.setImageSource(FileInputSource(file));
     return controller;
   }
 
   static Future<CIImagePreviewController> fromAsset(String asset) async {
     final controller = await initialize();
-    await controller.setImageAsset(asset);
+    await controller.setImageSource(AssetInputSource(asset));
     return controller;
   }
 
   static Future<CIImagePreviewController> fromMemory(Uint8List data) async {
     final controller = await initialize();
-    await controller.setImageData(data);
+    await controller.setImageSource(DataInputSource(data));
     return controller;
   }
 

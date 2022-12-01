@@ -16,6 +16,10 @@ NSObject<FlutterMessageCodec> *FLTFilterApiGetCodec(void);
 @protocol FLTFilterApi
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)createFilter:(NSString *)name error:(FlutterError *_Nullable *_Nonnull)error;
+/// @return `nil` only when `error != nil`.
+- (nullable FlutterStandardTypedData *)exportData:(NSNumber *)filterId  :(NSString *)format error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)exportImageFile:(NSNumber *)filterId  :(NSString *)path  :(NSString *)format error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)exportVideoFile:(NSNumber *)filterId  :(NSNumber *)asset  :(NSString *)input  :(NSString *)output  :(NSString *)format completion:(void(^)(FlutterError *_Nullable))completion;
 - (void)setInputData:(NSNumber *)filterId  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputAsset:(NSNumber *)filterId  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputFile:(NSNumber *)filterId  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;

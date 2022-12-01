@@ -2,9 +2,10 @@ library flutter_core_image_filters;
 
 import 'dart:async';
 import 'dart:io' show File;
+import 'dart:ui' show Image;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Image;
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 import 'src/messages/filter_messages.g.dart';
@@ -55,7 +56,6 @@ part 'src/configurations/ci_edges.dart';
 part 'src/configurations/ci_exclusion_blend_mode.dart';
 part 'src/configurations/ci_exposure_adjust.dart';
 part 'src/configurations/ci_false_color.dart';
-part 'src/configurations/ci_filter_configuration.dart';
 part 'src/configurations/ci_gabor_gradients.dart';
 part 'src/configurations/ci_gamma_adjust.dart';
 part 'src/configurations/ci_gaussian_blur.dart';
@@ -114,6 +114,7 @@ part 'src/configurations/ci_unsharp_mask.dart';
 part 'src/configurations/ci_vibrance.dart';
 part 'src/configurations/ci_vignette.dart';
 part 'src/configurations/ci_white_point_adjust.dart';
+part 'src/configurations/configuration.dart';
 part 'src/configurations/image_mask_mixin.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';

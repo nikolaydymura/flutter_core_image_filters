@@ -63,6 +63,73 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.FilterApi.exportData"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(exportData: :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportData: :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_format = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        FlutterStandardTypedData *output = [api exportData:arg_filterId  :arg_format error:&error];
+        callback(wrapResult(output, error));
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.FilterApi.exportImageFile"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(exportImageFile: : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportImageFile: : :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_format = GetNullableObjectAtIndex(args, 2);
+        FlutterError *error;
+        [api exportImageFile:arg_filterId  :arg_path  :arg_format error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.FilterApi.exportVideoFile"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(exportVideoFile: : : : :completion:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportVideoFile: : : : :completion:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSNumber *arg_asset = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_input = GetNullableObjectAtIndex(args, 2);
+        NSString *arg_output = GetNullableObjectAtIndex(args, 3);
+        NSString *arg_format = GetNullableObjectAtIndex(args, 4);
+        [api exportVideoFile:arg_filterId  :arg_asset  :arg_input  :arg_output  :arg_format completion:^(FlutterError *_Nullable error) {
+          callback(wrapResult(nil, error));
+        }];
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
         initWithName:@"dev.flutter.pigeon.FilterApi.setInputData"
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];
@@ -84,7 +151,7 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
-        initWithName:@"dev.flutter.pigeon.FilterApi.setInputSource"
+        initWithName:@"dev.flutter.pigeon.FilterApi.setInputAsset"
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];
     if (api) {
