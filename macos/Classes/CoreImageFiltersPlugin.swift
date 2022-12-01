@@ -3,17 +3,14 @@ import FlutterMacOS
 
 public class CoreImageFiltersPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "core_image_filters", binaryMessenger: registrar.messenger)
-    let instance = CoreImageFiltersPlugin()
-    registrar.addMethodCallDelegate(instance, channel: channel)
-  }
+        CILookupTableFilterRegister.register()
+        let filtersApi = CoreImageFilters(registrar: registrar)
+        let imagePreview = ImagePreview(registrar: registrar, filters: filtersApi)
+        let videoPreview = VideoPreview(registrar: registrar, filters: filtersApi)
 
-  public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    switch call.method {
-    case "getPlatformVersion":
-      result("macOS " + ProcessInfo.processInfo.operatingSystemVersionString)
-    default:
-      result(FlutterMethodNotImplemented)
-    }
+        filtersApi.filterDelegate = imagePreview
+        FLTFilterApiSetup(registrar.messenger(), filtersApi)
+        FLTImagePreviewApiSetup(registrar.messenger(), imagePreview)
+        FLTVideoPreviewApiSetup(registrar.messenger(), videoPreview)
   }
 }

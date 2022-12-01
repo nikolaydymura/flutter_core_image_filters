@@ -1,8 +1,8 @@
 part of flutter_core_image_filters;
 
 abstract class CIFilterConfiguration extends FilterConfiguration {
-  static final CoreImageFiltersPlatform _api =
-      CoreImageFiltersPlatform.instance;
+  static final FilterApi _api =
+      FilterApi();
 
   int _filterId = -1;
   final String name;
@@ -13,13 +13,13 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
 
   Future<void> prepare() async {
     if (_filterId == -1) {
-      _filterId = await _api.prepareFilter(name);
+      _filterId = await _api.create(name);
     }
   }
 
   Future<void> dispose() async {
     if (_filterId >= 0) {
-      await _api.disposeFilter(_filterId);
+      await _api.dispose(_filterId);
     }
     _filterId = -1;
   }

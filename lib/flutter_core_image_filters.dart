@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
-import 'core_image_filters_platform_interface.dart';
+import 'src/messages/filter_messages.g.dart';
 import 'src/messages/preview_messages.g.dart';
 
 part 'src/ci_image_preview.dart';

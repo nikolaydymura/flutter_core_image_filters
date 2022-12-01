@@ -4,8 +4,8 @@
 //
 //  Created by Nikolay Dymura on 22.11.2022.
 //
-import Flutter
-import UIKit
+import FlutterMacOS
+
 import Foundation
 
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {

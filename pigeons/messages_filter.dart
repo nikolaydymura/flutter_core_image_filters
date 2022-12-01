@@ -4,81 +4,53 @@
 
 import 'package:pigeon/pigeon.dart';
 
-@ConfigurePigeon(PigeonOptions(
-  dartOut: 'lib/src/messages/filter_messages.g.dart',
-  javaOut:
-      'android/src/main/java/nd/flutter/plugins/gpu_video_filters/FilterMessages.java',
-  javaOptions: JavaOptions(
-    package: 'nd.flutter.plugins.gpu_video_filters',
+@ConfigurePigeon(
+  PigeonOptions(
+    dartOut: 'lib/src/messages/filter_messages.g.dart',
+    objcHeaderOut: 'ios/Classes/FilterMessages.g.h',
+    objcSourceOut: 'ios/Classes/FilterMessages.g.m',
+    objcOptions: ObjcOptions(
+      prefix: 'FLT',
+    ),
+    copyrightHeader: 'pigeons/copyright.txt',
   ),
-  copyrightHeader: 'pigeons/copyright.txt',
-))
-class CreateFilterMessage {
-  CreateFilterMessage(this.fragmentShader);
-
-  String fragmentShader;
-}
-
-class FilterMessage {
-  FilterMessage(this.filterId);
-
-  int filterId;
-}
-
-class FloatFilterMessage {
-  FloatFilterMessage(this.filterId, this.name, this.value);
-
-  int filterId;
-  String name;
-  double value;
-}
-
-class FloatArrayFilterMessage {
-  FloatArrayFilterMessage(this.filterId, this.name, this.value);
-
-  int filterId;
-  String name;
-  List<double?> value;
-}
-
-class SourceFilterMessage {
-  SourceFilterMessage(this.filterId, this.path, this.asset);
-
-  int filterId;
-  String path;
-  bool asset;
-}
-
-class BitmapFilterMessage {
-  BitmapFilterMessage(this.filterId, this.name, this.path, this.asset);
-
-  int filterId;
-  String name;
-  String path;
-  bool asset;
-}
-
-class BitmapDataFilterMessage {
-  BitmapDataFilterMessage(this.filterId, this.name, this.data);
-
-  int filterId;
-  String name;
-  Uint8List data;
-}
+)
 
 @HostApi()
 abstract class FilterApi {
-  FilterMessage create(CreateFilterMessage msg);
+  @ObjCSelector('createFilter:')
+  int create(String name);
 
-  void setSource(SourceFilterMessage msg);
+  @ObjCSelector('setInputData: :')
+  void setInputData(int filterId, Uint8List data);
 
-  void setFloatParameter(FloatFilterMessage msg);
+  @ObjCSelector('setInputAsset: :')
+  void setInputSource(int filterId, String path);
 
-  void setFloatArrayParameter(FloatArrayFilterMessage msg);
+  @ObjCSelector('setInputFile: :')
+  void setInputFile(int filterId, String path);
 
-  void setBitmapParameter(BitmapFilterMessage msg);
+  @ObjCSelector('setNSNumberParameter: : :')
+  void setNSNumberParameter(int filterId, String key, double value);
 
-  void setBitmapDataParameter(BitmapDataFilterMessage msg);
+  @ObjCSelector('setCIColorParameter: : :')
+  void setCIColorParameter(int filterId, String key, List<double?> value);
 
-  void dispose(FilterMessage msg);
+  @ObjCSelector('setCIVectorParameter: : :')
+  void setCIVectorParameter(int filterId, String key, List<double?> value);
+
+  @ObjCSelector('setCIImageDataParameter: : :')
+  void setCIImageDataParameter(int filterId, String key, Uint8List data);
+
+  @ObjCSelector('setCIImageSourceParameter: : : :')
+  void setCIImageSourceParameter(int filterId, String key, bool asset, String path);
+
+  @ObjCSelector('setNSDataParameter: : :')
+  void setNSDataParameter(int filterId, String key, Uint8List data);
+
+  @ObjCSelector('setNSDataSourceParameter: : : :')
+  void setNSDataSourceParameter(int filterId,String key, bool asset, String path);
+
+  @ObjCSelector('disposeFilter:')
+  void dispose(int filterId);
 }

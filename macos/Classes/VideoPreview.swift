@@ -8,7 +8,7 @@
 import Foundation
 import AVFoundation
 import CoreImage
-import Flutter
+import FlutterMacOS
 
 fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     var player: AVPlayer?
