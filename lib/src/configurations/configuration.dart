@@ -23,6 +23,12 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     _filterId = -1;
   }
 
+  Future<void> update() async {
+    for(final param in parameters) {
+      await param.update(this);
+    }
+  }
+
   Future<Image> export(
     InputSource source, {
     ImageExportFormat format = ImageExportFormat.auto,
