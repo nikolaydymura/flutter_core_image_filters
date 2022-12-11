@@ -7,7 +7,7 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
   final DataParameter _lut;
 
   CILookupTableConfiguration()
-      : _dimension = NSNumberParameter('inputSize', 'Size', 8),
+      : _dimension = NSNumberParameter('inputSize', 'Size', 64),
         _size = CGRectParameter('inputRect', 'Rect', const Size(8, 8)),
         _intensity = SliderNSNumberParameter(
           'inputIntensity',
@@ -16,7 +16,7 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
           min: 0.0,
           max: 1.0,
         ),
-        _lut = NSDataParameter('inputImage2', 'Image 2'),
+        _lut = CIImageParameter('inputImage2', 'Image 2'),
         super('CILookupTable');
 
   set size(int value) {
