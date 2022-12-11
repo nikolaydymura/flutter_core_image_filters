@@ -170,9 +170,9 @@ await output.writeAsBytes(data);
 
 ### Support status of [CoreImage filters](https://cifilter.io/)
 
-| Status             | Name                | Display Name        |
-|:-------------------|:--------------------|:--------------------|
-| :heavy_check_mark: | CIPhotoEffectChrome | Photo Effect Chrome |
+| Status | Name                | Display Name        |
+|:-------|:--------------------|:--------------------|
+| - [x]  | CIPhotoEffectChrome | Photo Effect Chrome |
 
 - [x] CIPhotoEffectChrome :heavy_check_mark:
 - [ ] Bulge Distortion
