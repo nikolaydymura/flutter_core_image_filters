@@ -36,6 +36,7 @@ class CIVideoPreviewController {
       );
     }
   }
+
   static Future<CIVideoPreviewController> initialize() async {
     final message = await _api.create();
     return CIVideoPreviewController._(message.textureId);

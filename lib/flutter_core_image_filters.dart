@@ -129,7 +129,8 @@ class FlutterCoreImageFilters {
       {
     'Accordion Fold Transition': () => CIAccordionFoldTransitionConfiguration(),
     'Addition Compositing': () => CIAdditionCompositingConfiguration(),
-    'Attributed TextImage Generator': () =>CIAttributedTextImageGeneratorConfiguration(),
+    'Attributed TextImage Generator': () =>
+        CIAttributedTextImageGeneratorConfiguration(),
     'Aztec Code Generator': () => CIAztecCodeGeneratorConfiguration(),
     'Barcode Generator': () => CIBarcodeGeneratorConfiguration(),
     'Bars Swipe Transition': () => CIBarsSwipeTransitionConfiguration(),
@@ -141,13 +142,15 @@ class FlutterCoreImageFilters {
     'Bloom': () => CIBloomConfiguration(),
     'Bokeh Blur': () => CIBokehBlurConfiguration(),
     'Box Blur': () => CIBoxBlurConfiguration(),
-    'Code 128 Barcode Generator': () => CICode128BarcodeGeneratorConfiguration(),
+    'Code 128 Barcode Generator': () =>
+        CICode128BarcodeGeneratorConfiguration(),
     'Color Absolute Difference': () => CIColorAbsoluteDifferenceConfiguration(),
     'Color Blend Mode': () => CIColorBlendModeConfiguration(),
     'Color Burn Blend Mode': () => CIColorBurnBlendModeConfiguration(),
     'Color Controls': () => CIColorControlsConfiguration(),
     'Color Cube': () => CIColorCubeConfiguration(),
-    'Color Cubes Mixed With Mask': () =>CIColorCubesMixedWithMaskConfiguration(),
+    'Color Cubes Mixed With Mask': () =>
+        CIColorCubesMixedWithMaskConfiguration(),
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),
     'Color Invert': () => CIColorInvertConfiguration(),
     'Color Map': () => CIColorMapConfiguration(),
@@ -167,7 +170,8 @@ class FlutterCoreImageFilters {
     'Dither': () => CIDitherConfiguration(),
     'Divide Blend Mode': () => CIDivideBlendModeConfiguration(),
     'Document Enhancer': () => CIDocumentEnhancerConfiguration(),
-    'Edge Preserve Upsample Filter': () =>CIEdgePreserveUpsampleFilterConfiguration(),
+    'Edge Preserve Upsample Filter': () =>
+        CIEdgePreserveUpsampleFilterConfiguration(),
     'Edge Work': () => CIEdgeWorkConfiguration(),
     'Edges': () => CIEdgesConfiguration(),
     'Exclusion Blend Mode': () => CIExclusionBlendModeConfiguration(),
@@ -204,8 +208,10 @@ class FlutterCoreImageFilters {
     'Morphology Gradient': () => CIMorphologyGradientConfiguration(),
     'Morphology Maximum': () => CIMorphologyMaximumConfiguration(),
     'Morphology Minimum': () => CIMorphologyMinimumConfiguration(),
-    'Morphology Rectangle Maximum': () => CIMorphologyRectangleMaximumConfiguration(),
-    'Morphology Rectangle Minimum': () =>CIMorphologyRectangleMinimumConfiguration(),
+    'Morphology Rectangle Maximum': () =>
+        CIMorphologyRectangleMaximumConfiguration(),
+    'Morphology Rectangle Minimum': () =>
+        CIMorphologyRectangleMinimumConfiguration(),
     'Motion Blur': () => CIMotionBlurConfiguration(),
     'Multiply Blend Mode': () => CIMultiplyBlendModeConfiguration(),
     'Multiply': () => CIMultiplyCompositingConfiguration(),

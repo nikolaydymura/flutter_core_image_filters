@@ -8,12 +8,12 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
 
   CIBokehBlurConfiguration()
       : _softness = SliderNSNumberParameter(
-    'inputSoftness',
-    'Softness',
-    1,
-    min: 0,
-    max: 10,
-  ),
+          'inputSoftness',
+          'Softness',
+          1,
+          min: 0,
+          max: 10,
+        ),
         _ringSize = SliderNSNumberParameter(
           'inputRingSize',
           'RingSize',

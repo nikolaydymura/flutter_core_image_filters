@@ -54,6 +54,5 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_b, _scale, _c, _aspectRatio];
+  List<ConfigurationParameter> get parameters => [_b, _scale, _c, _aspectRatio];
 }

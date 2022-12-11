@@ -24,7 +24,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
   }
 
   Future<void> update() async {
-    for(final param in parameters) {
+    for (final param in parameters) {
       await param.update(this);
     }
   }
