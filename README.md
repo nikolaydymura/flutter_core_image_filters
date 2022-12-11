@@ -16,37 +16,12 @@ A flutter package for iOS and MacOS for applying CoreImage filters to image.
 ### Export processed image
 
 ```dart
-final texture = await TextureSource.fromAsset('demo.jpeg');
-final configuration = BrightnessShaderConfiguration();
-configuration.brightness = 0.5;
-final image = await configuration.export(texture, texture.size);
+final inputSource = AssetInputSource('demo.jpeg');
+final configuration = CIPhotoEffectChromeConfiguration();
+final image = await configuration.export(inputSource);
 ```
 
-### LookupTable sample
-![LUT](https://raw.githubusercontent.com/nikolaydymura/flutter_image_filters/main/demos/lookup_amatorka.png)
-```dart
-final texture = await TextureSource.fromAsset('demo.jpeg');
-final configuration = LookupTableShaderConfiguration();
-configuration.size = 8;
-configuration.rows = 8;
-configuration.columns = 8;
-await configuration.setLutAsset('lookup_amatorka.png');
-final image = await configuration.export(texture, texture.size);
-```
-
-### LookupTable HALD sample
-![LUT](https://raw.githubusercontent.com/nikolaydymura/flutter_image_filters/main/demos/lookup_hald.png)
-```dart
-final texture = await TextureSource.fromAsset('demo.jpeg');
-final configuration = LookupTableShaderConfiguration();
-configuration.size = 8;
-configuration.rows = 64;
-configuration.columns = 8;
-await configuration.setLutAsset('lookup_hald.png');
-final image = await configuration.export(texture, texture.size);
-```
-
-### ImageShaderPreview example
+### CIImagePreview example
 ```dart
 import 'package:flutter_image_filters/flutter_image_filters.dart';
 
@@ -58,31 +33,38 @@ class PreviewPage extends StatefulWidget {
 }
 
 class _PreviewPageState extends State<PreviewPage> {
-  late TextureSource texture;
-  late BrightnessShaderConfiguration configuration;
-  bool textureLoaded = false;
+  late CIPhotoEffectChromeConfiguration configuration;
+  late final CIImagePreviewController controller;
+  bool controllerReady = false;
 
   @override
   void initState() {
     super.initState();
-    configuration = BrightnessShaderConfiguration();
-    configuration.brightness = 0.5;
-    TextureSource.fromAsset('demo.jpeg')
-        .then((value) => texture = value)
-        .whenComplete(
-          () => setState(() {
-            textureLoaded = true;
-          }),
-        );
+    _prepare().whenComplete(() {
+      setState(() {});
+    });
+  }
+
+  Future<void> _prepare() async {
+    configuration = CIPhotoEffectChromeConfiguration();
+    controller =
+    await CIImagePreviewController.fromAsset(_assetPath);
+    await configuration.prepare();
+    await controller.connect(configuration);
+    controllerReady = true;
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    configuration.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return textureLoaded
-        ? ImageShaderPreview(
-            texture: texture,
-            configuration: configuration,
-          )
+    return controllerReady
+        ? CIImagePreview(controller: controller)
         : const Offstage();
   }
 }
@@ -101,39 +83,50 @@ class PreviewPage extends StatefulWidget {
 }
 
 class _PreviewPageState extends State<PreviewPage> {
-  late TextureSource texture;
-  late BrightnessShaderConfiguration configuration;
-  bool textureLoaded = false;
+  late CIPhotoEffectChromeConfiguration configuration;
+  late final CIImagePreviewController sourceController;
+  late final CIImagePreviewController destinationController;
+  bool controllersReady = false;
 
   @override
   void initState() {
     super.initState();
-    configuration = BrightnessShaderConfiguration();
-    configuration.brightness = 0.5;
-    TextureSource.fromAsset('demo.jpeg')
-        .then((value) => texture = value)
-        .whenComplete(
-          () => setState(() {
-            textureLoaded = true;
-          }),
-        );
+    _prepare().whenComplete(() {
+      setState(() {});
+    });
+  }
+
+  Future<void> _prepare() async {
+    configuration = CIPhotoEffectChromeConfiguration();
+    sourceController = await CIImagePreviewController.fromAsset('demo.jpeg');
+    destinationController =
+    await CIImagePreviewController.fromAsset('demo.jpeg');
+    await configuration.prepare();
+    await destinationController.connect(configuration);
+    controllersReady = true;
+  }
+
+  @override
+  void dispose() {
+    sourceController.dispose();
+    destinationController.dispose();
+    configuration.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return textureLoaded
+    return controllersReady
         ? BeforeAfter(
-            thumbRadius: 0.0,
-            thumbColor: Colors.transparent,
-            beforeImage: ImageShaderPreview(
-              texture: texture,
-              configuration: NoneShaderConfiguration(),
-            ),
-            afterImage: ImageShaderPreview(
-              texture: texture,
-              configuration: configuration,
-            ),
-          )
+      thumbRadius: 0.0,
+      thumbColor: Colors.transparent,
+      beforeImage: CIImagePreview(
+        controller: sourceController,
+      ),
+      afterImage: CIImagePreview(
+        controller: destinationController,
+      ),
+    )
         : const Offstage();
   }
 }

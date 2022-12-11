@@ -20,7 +20,6 @@ void main() {
       if(!name.startsWith('Photo Effect')) {
         continue;
       }
-      CIPhotoEffectChromeConfiguration
       final configuration = FlutterCoreImageFilters.createFilter(
           displayName: name);
       if (configuration == null) {
