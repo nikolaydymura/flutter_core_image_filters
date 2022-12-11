@@ -147,10 +147,9 @@ import 'package:path_provider/path_provider.dart';
 
 
 
-final texture = await TextureSource.fromAsset('demo.jpeg');
-final configuration = BrightnessShaderConfiguration();
-configuration.brightness = 0.5;
-final image = await configuration.export(texture, texture.size);
+final inputSource = AssetInputSource('demo.jpeg');
+final configuration = CIPhotoEffectChromeConfiguration();
+final image = await configuration.export(inputSource);
 
 final directory = await getTemporaryDirectory();
 final output =
@@ -408,7 +407,14 @@ await output.writeAsBytes(data);
 
 ### Sample results
 
-![Brightness](https://raw.githubusercontent.com/nikolaydymura/flutter_image_filters/main/demos/Brightness.jpg)
+![Photo Effect Chrome](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Chrome.jpeg)
+![Photo Effect Fade](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Fade.jpeg)
+![Photo Effect Instant](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Instant.jpeg)
+![Photo Effect Mono](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Mono.jpeg)
+![Photo Effect Noir](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Noir.jpeg)
+![Photo Effect Process](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Process.jpeg)
+![Photo Effect Tonal](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Tonal.jpeg)
+![Photo Effect Transfer](https://raw.githubusercontent.com/nikolaydymura/flutter_core_image_filters/main/demos/Photo%20Effect%20Transfer.jpeg)
 
 ## Examples
 
