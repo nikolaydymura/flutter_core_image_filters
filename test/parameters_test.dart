@@ -1,10 +1,8 @@
 import 'dart:io';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -50,7 +48,10 @@ void main() {
     await parameter.update(configuration);
     verify(
       mockFilterApi.setCIColorParameter(
-          101, 'inputValue', [1.0, 0.596078431372549, 0.0]),
+        101,
+        'inputValue',
+        [1.0, 0.596078431372549, 0.0],
+      ),
     );
   });
   group('NSDataParameter', () {

@@ -134,6 +134,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
         break;
     }
   }
+
 // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters => [];
