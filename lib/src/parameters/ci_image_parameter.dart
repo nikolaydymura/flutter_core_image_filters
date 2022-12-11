@@ -7,10 +7,18 @@ class CIImageParameter extends DataParameter {
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
     if (asset != null) {
       await CIFilterConfiguration._api.setCIImageSourceParameter(
-          configuration._filterId, name, true, asset!);
+        configuration._filterId,
+        name,
+        true,
+        asset!,
+      );
     } else if (file != null) {
       await CIFilterConfiguration._api.setCIImageSourceParameter(
-          configuration._filterId, name, false, file!.absolute.path);
+        configuration._filterId,
+        name,
+        false,
+        file!.absolute.path,
+      );
     } else if (data != null) {
       await CIFilterConfiguration._api
           .setCIImageDataParameter(configuration._filterId, name, data!);
