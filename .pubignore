@@ -1,0 +1,7 @@
+demos/
+coverage/
+build/
+scripts/
+pigeons/
+test/
+*.iml

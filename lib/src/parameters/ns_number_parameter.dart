@@ -5,7 +5,7 @@ class NSNumberParameter extends NumberParameter {
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
-    await CIFilterConfiguration._api
+    await configuration._api
         .setNSNumberParameter(configuration._filterId, name, value.toDouble());
   }
 }

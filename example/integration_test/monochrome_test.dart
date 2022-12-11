@@ -9,7 +9,7 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   final source = AssetInputSource('images/demo.jpeg');
 
-  final configuration = CIMonochromeConfiguration();
+  final configuration = CIColorMonochromeConfiguration();
 
   setUpAll(() async {
     await configuration.prepare();

@@ -128,7 +128,7 @@ class FlutterCoreImageFilters {
   static final Map<String, CIFilterConfiguration Function()> _availableFilters =
       {
     'Accordion Fold Transition': () => CIAccordionFoldTransitionConfiguration(),
-    'Addition Compositing': () => CIAdditionCompositingConfiguration(),
+    'Addition': () => CIAdditionCompositingConfiguration(),
     'Attributed TextImage Generator': () =>
         CIAttributedTextImageGeneratorConfiguration(),
     'Aztec Code Generator': () => CIAztecCodeGeneratorConfiguration(),
@@ -154,7 +154,7 @@ class FlutterCoreImageFilters {
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),
     'Color Invert': () => CIColorInvertConfiguration(),
     'Color Map': () => CIColorMapConfiguration(),
-    'Color Monochrome': () => CIMonochromeConfiguration(),
+    'Color Monochrome': () => CIColorMonochromeConfiguration(),
     'Color Posterize': () => CIColorPosterizeConfiguration(),
     'Color Threshold Otsu': () => CIColorThresholdOtsuConfiguration(),
     'Color Threshold': () => CIColorThresholdConfiguration(),
@@ -204,7 +204,7 @@ class FlutterCoreImageFilters {
     'Median Filter': () => CIMedianFilterConfiguration(),
     'Minimum Component': () => CIMinimumComponentConfiguration(),
     'Minimum': () => CIMinimumCompositingConfiguration(),
-    'Monochrome': () => CIMonochromeConfiguration(),
+    'Monochrome': () => CIColorMonochromeConfiguration(),
     'Morphology Gradient': () => CIMorphologyGradientConfiguration(),
     'Morphology Maximum': () => CIMorphologyMaximumConfiguration(),
     'Morphology Minimum': () => CIMorphologyMinimumConfiguration(),

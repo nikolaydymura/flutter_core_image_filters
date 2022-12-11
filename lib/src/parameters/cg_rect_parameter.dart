@@ -5,7 +5,7 @@ class CGRectParameter extends SizeParameter {
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
-    await CIFilterConfiguration._api.setCIVectorParameter(
+    await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
       [value.width, value.height],

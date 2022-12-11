@@ -1,10 +1,15 @@
 part of flutter_core_image_filters;
 
 abstract class CIFilterConfiguration extends FilterConfiguration {
-  static final FilterApi _api = FilterApi();
+// coverage:ignore-start
+  static final FilterApi _gAPI = FilterApi();
+// coverage:ignore-end
 
   int _filterId = -1;
   final String name;
+// coverage:ignore-start
+  FilterApi get _api => _gAPI;
+// coverage:ignore-end
 
   bool get ready => _filterId != -1;
 
@@ -129,9 +134,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
         break;
     }
   }
-
+// coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters => [];
+// coverage:ignore-end
 }
 
 abstract class InputSource {}
@@ -185,3 +191,11 @@ class VideoExportConfig {
 }
 
 enum VideoExportFormat { mp4, mov, auto }
+
+@visibleForTesting
+class PassthroughFilterConfiguration extends CIFilterConfiguration {
+  @override
+  final FilterApi _api;
+
+  PassthroughFilterConfiguration(this._api) : super('Passthrough');
+}

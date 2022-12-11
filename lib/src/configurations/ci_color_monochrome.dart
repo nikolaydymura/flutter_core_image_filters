@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CIMonochromeConfiguration extends CIFilterConfiguration {
+class CIColorMonochromeConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
   final ColorParameter _color;
 
-  CIMonochromeConfiguration()
+  CIColorMonochromeConfiguration()
       : _intensity = SliderNSNumberParameter(
           'inputIntensity',
           'Intensity',
