@@ -33,7 +33,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
         }
         
         if let buffer = pixelBuffer {
-            let context = CIContext()
+            let context = CIContext.defaultGLContext
             if let filter = self.filter {
                 filter.setValue(image, forKey: kCIInputImageKey)
                 let processed = filter.outputImage ?? image

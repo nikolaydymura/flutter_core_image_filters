@@ -193,7 +193,7 @@ extension CoreImageFilters {
             return nil
         }
         
-        let context = CIContext()
+        let context = CIContext.defaultGLContext
         let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
@@ -226,7 +226,7 @@ extension CoreImageFilters {
             return
         }
         
-        let context = CIContext()
+        let context = CIContext.defaultGLContext
         let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
         if format == "png" {
             do {
@@ -266,7 +266,7 @@ extension CoreImageFilters {
             let source = request.sourceImage.clampedToExtent()
             filter.setValue(source, forKey: kCIInputImageKey)
             let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
-            request.finish(with: output ?? source, context: nil)
+            request.finish(with: output ?? source, context: CIContext.defaultGLContext)
         }
         guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
             completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))
