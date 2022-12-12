@@ -9,8 +9,8 @@ public class CoreImageFiltersPlugin: NSObject, FlutterPlugin {
         let videoPreview = VideoPreview(registrar: registrar, filters: filtersApi)
 
         filtersApi.filterDelegate = imagePreview
-        FLTFilterApiSetup(registrar.messenger(), filtersApi)
-        FLTImagePreviewApiSetup(registrar.messenger(), imagePreview)
-        FLTVideoPreviewApiSetup(registrar.messenger(), videoPreview)
+        FLTFilterApiSetup(registrar.messenger, filtersApi)
+        FLTImagePreviewApiSetup(registrar.messenger, imagePreview)
+        FLTVideoPreviewApiSetup(registrar.messenger, videoPreview)
   }
 }
