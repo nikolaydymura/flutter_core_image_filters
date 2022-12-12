@@ -264,6 +264,7 @@ extension CoreImageFilters {
         let asset = AVAsset(url: URL(fileURLWithPath: path))
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
+            filter.setValue(source, forKey: kCIInputImageKey)
             let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
             request.finish(with: output ?? source, context: nil)
         }

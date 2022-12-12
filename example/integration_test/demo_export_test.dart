@@ -17,11 +17,11 @@ void main() {
 
   test('export all', skip: true, () async {
     for (final name in FlutterCoreImageFilters.availableFilters) {
-      if(!name.startsWith('Photo Effect')) {
+      if (!name.startsWith('Photo Effect')) {
         continue;
       }
-      final configuration = FlutterCoreImageFilters.createFilter(
-          displayName: name);
+      final configuration =
+          FlutterCoreImageFilters.createFilter(displayName: name);
       if (configuration == null) {
         continue;
       }
@@ -50,10 +50,31 @@ void main() {
           'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
         );
         debugPrint('Exported: ${output.absolute}');
-        await output.copy('/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos/$name.jpeg');
+        await output.copy(
+            '/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos/$name.jpeg');
       } finally {
         await configuration.dispose();
       }
+    }
+  });
+  test('export video', skip: true, () async {
+    final configuration = CIPhotoEffectNoirConfiguration();
+    try {
+      await configuration.prepare();
+      final watch = Stopwatch();
+      watch.start();
+      final output = File('${tmpDirectory.path}/${configuration.name}.mp4');
+      final config =
+          VideoExportConfig(AssetInputSource('videos/demo.mp4'), output);
+      await configuration.exportVideoFile(config);
+      debugPrint(
+        'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
+      );
+      debugPrint('Exported: ${output.absolute}');
+      await output.copy(
+          '/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos/${configuration.name}.mp4');
+    } finally {
+      await configuration.dispose();
     }
   });
 }
