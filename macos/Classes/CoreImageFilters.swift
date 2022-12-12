@@ -193,7 +193,7 @@ extension CoreImageFilters {
             return nil
         }
         
-        let context = CIContext()
+        let context = CIContext.defaultGLContext
         let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
@@ -226,7 +226,7 @@ extension CoreImageFilters {
             return
         }
         
-        let context = CIContext()
+        let context = CIContext.defaultGLContext
         let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
         if format == "png" {
             do {
@@ -244,7 +244,6 @@ extension CoreImageFilters {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
         }
     }
-    
 
     func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, completion: @escaping (FlutterError?) -> Void) {
 
@@ -265,8 +264,9 @@ extension CoreImageFilters {
         let asset = AVAsset(url: URL(fileURLWithPath: path))
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
+            filter.setValue(source, forKey: kCIInputImageKey)
             let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
-            request.finish(with: output ?? source, context: nil)
+            request.finish(with: output ?? source, context: CIContext.defaultGLContext)
         }
         guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
             completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))

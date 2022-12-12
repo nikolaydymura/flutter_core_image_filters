@@ -17,20 +17,23 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
             return nil
         }
         var pixelBuffer: CVPixelBuffer?
-        let attrs = [ kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
-                      kCVPixelBufferIOSurfacePropertiesKey as String : [:]] as CFDictionary
+        let attrs = [ kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32RGBA,
+                       kCVPixelBufferIOSurfacePropertiesKey as String : [:]] as CFDictionary
         
         let width:Int = Int(image.extent.width)
         let height:Int = Int(image.extent.height)
-        CVPixelBufferCreate(kCFAllocatorDefault,
+        let status = CVPixelBufferCreate(kCFAllocatorDefault,
                             width,
                             height,
                             kCVPixelFormatType_32BGRA,
                             attrs,
                             &pixelBuffer)
+        guard status == kCVReturnSuccess else {
+             return nil
+        }
         
         if let buffer = pixelBuffer {
-            let context = CIContext()
+            let context = CIContext.defaultGLContext
             if let filter = self.filter {
                 filter.setValue(image, forKey: kCIInputImageKey)
                 let processed = filter.outputImage ?? image

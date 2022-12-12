@@ -62,7 +62,8 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
             let source = request.sourceImage.clampedToExtent()
             self.filter?.setValue(source, forKey: kCIInputImageKey)
             let output = self.filter?.outputImage?.cropped(to: request.sourceImage.extent)
-            request.finish(with: output ?? source, context: nil)
+            request.finish(with: output ?? source,
+                           context: self.filter != nil ?  CIContext.defaultGLContext : nil)
         }
         let item = AVPlayerItem(asset: asset)
         item.add(videoOutput)
