@@ -57,7 +57,11 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     init(registrar: FlutterPluginRegistrar, filters: FiltersLocator) {
         self.registrar = registrar
         self.filters = filters
+        #if os(iOS)
         self.registry = registrar.textures()
+        #else
+        self.registry = registrar.textures
+        #endif
     }
     
     func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FLTPreviewMessage? {
@@ -93,18 +97,19 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
-        let url: URL
+        var path = msg.path
         if msg.asset.boolValue {
+            #if os(iOS)
             let assetKey = registrar.lookupKey(forAsset: msg.path)
             
-            guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+            guard let assetPath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
                 error.pointee = FlutterError()
                 return
             }
-            url = URL(fileURLWithPath: path)
-        } else {
-            url = URL(fileURLWithPath: msg.path)
+            path = assetPath
+            #endif
         }
+        let url = URL(fileURLWithPath: path)
         guard let image = CIImage(contentsOf: url) else {
             error.pointee = FlutterError()
             return

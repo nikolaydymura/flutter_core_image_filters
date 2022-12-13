@@ -9,9 +9,10 @@ cp -r ios/Classes/FilterMessages.g.m macos/Classes/
 cp -r ios/Classes/ImagePreview.swift macos/Classes/
 cp -r ios/Classes/PreviewMessages.g.h macos/Classes/
 cp -r ios/Classes/PreviewMessages.g.m macos/Classes/
-cp -r ios/Classes/VideoPreview.swift macos/Classes/
+cp -r ios/Classes/Extensions/Context+extensions.swift macos/Classes/Extensions/
 
 sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/CoreImageFilters.swift
 sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/ImagePreview.swift
 sed -i '' -e 's/import UIKit//' macos/Classes/ImagePreview.swift
-sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/VideoPreview.swift
+sed -i '' -e 's:#import <Flutter/Flutter.h>:#import <FlutterMacOS/FlutterMacOS.h>:' macos/Classes/PreviewMessages.g.m
+sed -i '' -e 's:#import <Flutter/Flutter.h>:#import <FlutterMacOS/FlutterMacOS.h>:' macos/Classes/FilterMessages.g.m

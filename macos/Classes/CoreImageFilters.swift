@@ -144,6 +144,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "CIImage" {
             if asset.boolValue {
+                #if os(iOS)
                 let assetKey = registrar.lookupKey(forAsset: path)
                 
                 guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -156,6 +157,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
+                #endif
             } else {
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else {
                     error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
@@ -194,7 +196,7 @@ extension CoreImageFilters {
         }
         
         let context = CIContext.defaultGLContext
-        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
                 return FlutterStandardTypedData(bytes: data)
@@ -227,7 +229,7 @@ extension CoreImageFilters {
         }
         
         let context = CIContext.defaultGLContext
-        let colorSpace = CGColorSpace(name: CGColorSpace.sRGB)!
+        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             do {
                 try context.writePNGRepresentation(of: image, to: URL(fileURLWithPath: path), format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace)
@@ -253,6 +255,7 @@ extension CoreImageFilters {
         }
         var path = input
         if asset.boolValue {
+            #if os(iOS)
             let assetKey = registrar.lookupKey(forAsset: path)
             
             guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -260,6 +263,7 @@ extension CoreImageFilters {
                 return
             }
             path = filePath
+            #endif
         }
         let asset = AVAsset(url: URL(fileURLWithPath: path))
         let videoComposition = AVVideoComposition(asset: asset) { request in
