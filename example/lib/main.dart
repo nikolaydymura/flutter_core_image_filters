@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -80,15 +81,15 @@ class _CIFilterDetailsPageState extends State<VideoExportPage> {
   }
 
   Future<void> _exportVideo() async {
-    const asset = 'videos/demo.mp4';
+    final data = await rootBundle.load('images/demo.jpeg');
     final directory = await getTemporaryDirectory();
     final output =
-        File('${directory.path}/${DateTime.now().millisecondsSinceEpoch}.mp4');
+        File('${directory.path}/${DateTime.now().millisecondsSinceEpoch}.jpeg');
     final watch = Stopwatch();
     watch.start();
-    await widget.configuration.exportVideoFile(
-      VideoExportConfig(
-        AssetInputSource(asset),
+    await widget.configuration.exportImageFile(
+      ImageExportConfig(
+        DataInputSource(data.buffer.asUint8List()),
         output,
       ),
     );
