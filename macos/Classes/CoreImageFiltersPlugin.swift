@@ -6,11 +6,9 @@ public class CoreImageFiltersPlugin: NSObject, FlutterPlugin {
         CILookupTableFilterRegister.register()
         let filtersApi = CoreImageFilters(registrar: registrar)
         let imagePreview = ImagePreview(registrar: registrar, filters: filtersApi)
-        let videoPreview = VideoPreview(registrar: registrar, filters: filtersApi)
 
         filtersApi.filterDelegate = imagePreview
         FLTFilterApiSetup(registrar.messenger, filtersApi)
         FLTImagePreviewApiSetup(registrar.messenger, imagePreview)
-        FLTVideoPreviewApiSetup(registrar.messenger, videoPreview)
   }
 }
