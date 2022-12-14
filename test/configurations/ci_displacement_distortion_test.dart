@@ -4,27 +4,27 @@ import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late CIAttributedTextImageGeneratorConfiguration configuration;
+  late CIDisplacementDistortionConfiguration configuration;
   setUp(() {
-    configuration = CIAttributedTextImageGeneratorConfiguration();
+    configuration = CIDisplacementDistortionConfiguration();
   });
-  group('CIAttributedTextImageGenerator', () {
+  group('CIDisplacementDistortion', () {
     test('verify name', () {
-      expect(configuration.name, 'CIAttributedTextImageGenerator');
+      expect(configuration.name, 'CIDisplacementDistortion');
     });
     test('verify inputKeys', () {
       final parameters =
           configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, ['inputScaleFactor']);
+      expect(parameters, ['inputScale']);
       final names =
           configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(names, ['ScaleFactor']);
+      expect(names, ['Scale']);
     });
-    test('change inputScaleFactor', () {
+    test('change inputScale', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
-      expect(parameter.value, 50.0);
-      configuration.scaleFactor = 100;
+          .firstWhere((e) => e.name == 'inputScale') as NumberParameter;
+      expect(parameter.value, 50);
+      configuration.scale = 100;
       expect(parameter.value, 100);
     });
   });

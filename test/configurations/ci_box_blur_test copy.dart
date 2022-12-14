@@ -4,28 +4,28 @@ import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late CIAttributedTextImageGeneratorConfiguration configuration;
+  late CIDocumentEnhancerConfiguration configuration;
   setUp(() {
-    configuration = CIAttributedTextImageGeneratorConfiguration();
+    configuration = CIDocumentEnhancerConfiguration();
   });
-  group('CIAttributedTextImageGenerator', () {
+  group('CIDocumentEnhancer', () {
     test('verify name', () {
-      expect(configuration.name, 'CIAttributedTextImageGenerator');
+      expect(configuration.name, 'CIDocumentEnhancer');
     });
     test('verify inputKeys', () {
       final parameters =
           configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, ['inputScaleFactor']);
+      expect(parameters, ['inputAmount']);
       final names =
           configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(names, ['ScaleFactor']);
+      expect(names, ['Amount']);
     });
-    test('change inputScaleFactor', () {
+    test('change inputAmount', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
-      expect(parameter.value, 50.0);
-      configuration.scaleFactor = 100;
-      expect(parameter.value, 100);
+          .firstWhere((e) => e.name == 'inputAmount') as NumberParameter;
+      expect(parameter.value, 1);
+      configuration.amount = 1.5;
+      expect(parameter.value, 1.5);
     });
   });
 }

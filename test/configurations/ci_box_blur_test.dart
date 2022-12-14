@@ -20,12 +20,12 @@ void main() {
           configuration.parameters.map((e) => e.displayName).toSet().sorted();
       expect(names, ['Radius']);
     });
-    test('change inputTime', () {
+    test('change inputRadius', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTime') as NumberParameter;
-      expect(parameter.value, 10);
-      configuration.radius = 50;
-      expect(parameter.value, 50);
+          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      expect(parameter.value, 0.1);
+      configuration.radius = 0.5;
+      expect(parameter.value, 0.5);
     });
   });
 }
