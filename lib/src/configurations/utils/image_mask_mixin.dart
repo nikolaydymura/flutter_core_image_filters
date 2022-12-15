@@ -1,8 +1,10 @@
 part of flutter_core_image_filters;
 
 mixin MaskImageMixin on CIFilterConfiguration {
-  final DataParameter _maskImage =
-      CIImageParameter('inputMaskImage', 'Mask Image');
+  late final DataParameter _maskImage =
+      CIImageParameter(_maskImageInputKey, _maskImageInputName);
+  String get _maskImageInputKey => 'inputMaskImage';
+  String get _maskImageInputName => 'Mask Image';
 
   set maskImage(Uint8List value) {
     _maskImage.data = value;

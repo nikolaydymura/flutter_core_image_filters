@@ -14,7 +14,7 @@ class CILanczosScaleTransformConfiguration extends CIFilterConfiguration {
         ),
         _aspectRatio = SliderNSNumberParameter(
           'inputAspectRatio',
-          'AspectRatio',
+          'Aspect Ratio',
           1,
           min: 0.5,
           max: 2,

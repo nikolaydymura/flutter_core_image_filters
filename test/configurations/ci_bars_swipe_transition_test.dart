@@ -1,7 +1,8 @@
-import 'package:collection/collection.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import '../helpers.dart';
 
 void main() {
   late CIBarsSwipeTransitionConfiguration configuration;
@@ -12,20 +13,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIBarsSwipeTransition');
     });
-    test('verify inputKeys', () {
-      final parameters =
-          configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(
-        parameters,
-        ['inputTime', 'inputAngle', 'inputWidth', 'inputBarOffset'],
-      );
-      final names =
-          configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(
-        names,
-        ['Time', 'Angle', 'Width', 'BarOffset'],
-      );
-    });
+    testInputKeys(build: () => configuration);
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;
@@ -37,14 +25,14 @@ void main() {
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
-      expect(parameter.value, 3);
+      expect(parameter.value, 3.141592653589793);
       configuration.angle = 5;
       expect(parameter.value, 5);
     });
     test('change inputWidth', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
-      expect(parameter.value, 3.141592653589793);
+      expect(parameter.value, 30);
       configuration.width = 2;
       expect(parameter.value, 2);
     });

@@ -38,14 +38,6 @@ class CILookupTableFilter: CIFilter {
     @objc dynamic var inputColumns: NSNumber?
     @objc dynamic var inputImage2: CIImage?
     
-    var inputSmoothness = CGFloat(0.5)
-    
-    var inputColor0 = CIColor(red: 1, green: 0, blue: 1)
-    var inputColor1 = CIColor(red: 0, green: 0, blue: 1)
-    var inputColor2 = CIColor(red: 0, green: 1, blue: 0)
-    var inputColor3 = CIColor(red: 1, green: 0, blue: 1)
-    var inputColor4 = CIColor(red: 0, green: 1, blue: 1)
-    
     let pseudoColorKernel = CIKernel(source:
          """
          vec2 computeSliceOffset(float slice, float slicesPerRow, vec2 sliceSize) {
@@ -73,41 +65,9 @@ class CILookupTableFilter: CIFilter {
            vec2 textureCoordinate = samplerCoord(image);
            vec4 textureColor = sample(image, textureCoordinate);
            vec4 newColor = sampleAs3DTexture(lutImage, textureColor.rgb, inputSize, inputRows, inputColumns);
-           //return mix(textureColor, vec4(newColor.rgb, textureColor.a), inputIntensity);
-           return mix(linear_to_srgb(textureColor), linear_to_srgb(vec4(newColor.rgb, textureColor.a)), inputIntensity);
+           return mix(textureColor, vec4(newColor.rgb, textureColor.a), inputIntensity);
         }
         """
-    /*"""
-    kernel vec4 lutColor(sampler image, sampler lutImage, float inputSize, float inputRows, float inputColumns, float inputIntensity)
-    {
-        vec2 textureCoordinate = samplerCoord(image);
-        vec4 textureColor = sample(image, textureCoordinate);
-
-        float blueColor = textureColor.b * 63.0;
-
-        vec2 quad1;
-        quad1.y = floor(floor(blueColor) / 8.0);
-        quad1.x = floor(blueColor) - (quad1.y * 8.0);
-
-        vec2 quad2;
-        quad2.y = floor(ceil(blueColor) / 8.0);
-        quad2.x = ceil(blueColor) - (quad2.y * 8.0);
-
-        vec2 texPos1;
-        texPos1.x = (quad1.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.r);
-        texPos1.y = (quad1.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.g);
-
-        vec2 texPos2;
-        texPos2.x = (quad2.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.r);
-        texPos2.y = (quad2.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.g);
-
-        vec4 newColor1 = sample(lutImage, texPos1);
-        vec4 newColor2 = sample(lutImage, texPos2);
-
-        vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
-        return mix(textureColor, vec4(newColor.rgb, textureColor.w), inputIntensity);
-    }
-    """*/
     )
     
     override var outputImage: CIImage? {

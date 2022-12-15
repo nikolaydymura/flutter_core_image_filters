@@ -6,19 +6,19 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
   final NumberParameter _threshold;
   final NumberParameter _edgeIntensity;
 
-  final NumberParameter _nrSharpnessy;
+  final NumberParameter _nrSharpness;
 
   CILineOverlayConfiguration()
       : _noiseLevel = SliderNSNumberParameter(
-          'inputNoiseLevel',
-          'NoiseLevel',
+          'inputNRNoiseLevel',
+          'NR Noise Level',
           0.07000000000000001,
           min: 0,
           max: 0.1,
         ),
         _contrast = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
+          'inputContrast',
+          'Contrast',
           50,
           min: 0.25,
           max: 200,
@@ -32,14 +32,14 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
         ),
         _edgeIntensity = SliderNSNumberParameter(
           'inputEdgeIntensity',
-          'EdgeIntensity',
+          'Edge Intensity',
           1,
           min: 0,
           max: 200,
         ),
-        _nrSharpnessy = SliderNSNumberParameter(
+        _nrSharpness = SliderNSNumberParameter(
           'inputNRSharpness',
-          'NRSharpness',
+          'NR Sharpness',
           0.71,
           min: 0,
           max: 2,
@@ -63,10 +63,10 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
   }
 
   set nrSharpnessy(double value) {
-    _nrSharpnessy.value = value;
+    _nrSharpness.value = value;
   }
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_noiseLevel, _contrast, _threshold, _edgeIntensity, _nrSharpnessy];
+      [_noiseLevel, _contrast, _threshold, _edgeIntensity, _nrSharpness];
 }

@@ -4,18 +4,19 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _compactStyle;
   final NumberParameter _correctionLevel;
   final NumberParameter _layers;
+  final DataParameter _message;
 
   CIAztecCodeGeneratorConfiguration()
       : _compactStyle = SliderNSNumberParameter(
           'inputCompactStyle',
-          'CompactStyle',
+          'Compact Style',
           0,
           min: 0,
           max: 1,
         ),
         _correctionLevel = SliderNSNumberParameter(
           'inputCorrectionLevel',
-          'CorrectionLevel',
+          'Correction Level',
           23,
           min: 5,
           max: 95,
@@ -27,6 +28,7 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
           min: 1,
           max: 32,
         ),
+        _message = NSDataParameter('inputMessage', 'Message'),
         super('CIAztecCodeGenerator');
 
   set compactStyle(double value) {
@@ -41,7 +43,13 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
     _layers.value = value;
   }
 
+  set messageData(Uint8List value) {
+    _message.data = value;
+    _message.asset = null;
+    _message.file = null;
+  }
+
   @override
   List<ConfigurationParameter> get parameters =>
-      [_compactStyle, _correctionLevel, _layers];
+      [_compactStyle, _correctionLevel, _layers, _message];
 }
