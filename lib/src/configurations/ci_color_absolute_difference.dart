@@ -4,7 +4,7 @@ class CIColorAbsoluteDifferenceConfiguration extends CIFilterConfiguration {
   final DataParameter _image2;
 
   CIColorAbsoluteDifferenceConfiguration()
-      : _image2 = CIImageParameter('inputImage2', 'Image 2'),
+      : _image2 = CIImageParameter('inputImage2', 'Image2'),
         super('CIColorAbsoluteDifference');
 
   set image2(Uint8List value) {

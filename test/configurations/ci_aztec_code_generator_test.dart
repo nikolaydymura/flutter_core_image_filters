@@ -3,6 +3,8 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers.dart';
+
 void main() {
   late CIAztecCodeGeneratorConfiguration configuration;
   setUp(() {
@@ -12,20 +14,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIAztecCodeGenerator');
     });
-    test('verify inputKeys', () {
-      final parameters =
-          configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(
-        parameters,
-        ['inputCompactStyle', 'inputCorrectionLevel', 'inputLayers'],
-      );
-      final names =
-          configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(
-        names,
-        ['CompactStyle', 'CorrectionLevel', 'Layers'],
-      );
-    });
+    testInputKeys(build: () => configuration);
     test('change inputCompactStyle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCompactStyle') as NumberParameter;

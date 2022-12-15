@@ -16,7 +16,7 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
         ),
         _ringSize = SliderNSNumberParameter(
           'inputRingSize',
-          'RingSize',
+          'Ring Size',
           0.1,
           min: 0,
           max: 0.2,
@@ -30,7 +30,7 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
         ),
         _ringAmount = SliderNSNumberParameter(
           'inputRingAmount',
-          'RingAmount',
+          'Ring Amount',
           0,
           min: 0,
           max: 1,

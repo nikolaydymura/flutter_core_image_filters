@@ -1,6 +1,6 @@
 part of flutter_core_image_filters;
 
-class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration {
+class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration with  TargetImageMixin {
   final NumberParameter _time;
   final NumberParameter _angle;
   final NumberParameter _width;
@@ -30,7 +30,7 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration {
         ),
         _barOffset = SliderNSNumberParameter(
           'inputBarOffset',
-          'BarOffset',
+          'Bar Offset',
           1,
           min: 0,
           max: 100,
@@ -55,5 +55,5 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_time, _angle, _width, _barOffset];
+      [_time, _angle, _width, _barOffset, _targetImage];
 }

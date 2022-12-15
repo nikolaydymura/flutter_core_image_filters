@@ -115,6 +115,7 @@ part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/configuration.dart';
 part 'src/configurations/utils/background_image_mixin.dart';
 part 'src/configurations/utils/image_mask_mixin.dart';
+part 'src/configurations/utils/target_image_mixin.dart';
 part 'src/configurations/without_parameters.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';

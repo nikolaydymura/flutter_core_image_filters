@@ -1,6 +1,6 @@
 part of flutter_core_image_filters;
 
-class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration {
+class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration with TargetImageMixin {
   final NumberParameter _time;
   final NumberParameter _numberOfFolds;
   final NumberParameter _bottomHeight;
@@ -16,20 +16,20 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration {
         ),
         _numberOfFolds = SliderNSNumberParameter(
           'inputNumberOfFolds',
-          'NumberOfFolds',
+          'Number of Folds',
           3,
           min: 1,
           max: 10,
         ),
         _bottomHeight = SliderNSNumberParameter(
           'inputBottomHeight',
-          'BottomHeight',
+          'Bottom Height',
           0,
           min: 0,
         ),
         _foldShadowAmount = SliderNSNumberParameter(
           'inputFoldShadowAmount',
-          'FoldShadowAmount',
+          'Fold Shadow Amount',
           0.1,
           min: 0,
           max: 1,
@@ -54,5 +54,5 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_time, _numberOfFolds, _bottomHeight, _foldShadowAmount];
+      [_time, _numberOfFolds, _bottomHeight, _foldShadowAmount, _targetImage];
 }
