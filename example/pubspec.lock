@@ -101,7 +101,7 @@ packages:
       name: flutter_gpu_filters_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "0.0.2"
   flutter_lints:
     dependency: "direct dev"
     description:
