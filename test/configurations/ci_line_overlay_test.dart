@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -17,7 +16,7 @@ void main() {
     testInputKeys(build: () => configuration);
     test('change inputNoiseLevel', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputNoiseLevel') as NumberParameter;
+          .firstWhere((e) => e.name == 'inputNRNoiseLevel') as NumberParameter;
       expect(parameter.value, 0.07000000000000001);
       configuration.noiseLevel = 0.08;
       expect(parameter.value, 0.08);

@@ -38,5 +38,6 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_quietSpace, _barcodeHeight, _message];
+  List<ConfigurationParameter> get parameters =>
+      [_quietSpace, _barcodeHeight, _message];
 }

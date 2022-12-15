@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration with  TargetImageMixin {
+class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _time;
   final NumberParameter _angle;
   final NumberParameter _width;

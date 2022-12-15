@@ -8,7 +8,7 @@ void main() {
   setUp(() {
     configuration = CIBarcodeGeneratorConfiguration();
   });
-  group('CIBarcodeGenerator', () {
+  group('CIBarcodeGenerator', skip: true, () {
     test('verify name', () {
       expect(configuration.name, 'CIBarcodeGenerator');
     });

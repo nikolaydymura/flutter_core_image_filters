@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIMixConfiguration extends CIFilterConfiguration with BackgroundImageMixin {
+class CIMixConfiguration extends CIFilterConfiguration
+    with BackgroundImageMixin {
   final NumberParameter _amount;
 
   CIMixConfiguration()

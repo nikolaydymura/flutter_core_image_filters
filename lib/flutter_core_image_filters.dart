@@ -114,8 +114,10 @@ part 'src/configurations/ci_vignette.dart';
 part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/configuration.dart';
 part 'src/configurations/utils/background_image_mixin.dart';
+part 'src/configurations/utils/image_2_mixin.dart';
 part 'src/configurations/utils/image_mask_mixin.dart';
 part 'src/configurations/utils/target_image_mixin.dart';
+part 'src/configurations/utils/guide_image_mixin.dart';
 part 'src/configurations/without_parameters.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';
@@ -123,6 +125,8 @@ part 'src/parameters/ci_image_parameter.dart';
 part 'src/parameters/ns_data_parameter.dart';
 part 'src/parameters/ns_number_parameter.dart';
 part 'src/parameters/slider_ns_number_parameter.dart';
+part 'src/parameters/ns_bool_parameter.dart';
+part 'src/parameters/ns_string_parameter.dart';
 
 class FlutterCoreImageFilters {
   static Iterable<String> get availableFilters => _availableFilters.keys;

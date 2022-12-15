@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration with TargetImageMixin {
+class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _time;
   final NumberParameter _numberOfFolds;
   final NumberParameter _bottomHeight;

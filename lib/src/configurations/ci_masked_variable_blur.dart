@@ -1,7 +1,13 @@
 part of flutter_core_image_filters;
 
-class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration with MaskImageMixin {
+class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration
+    with MaskImageMixin {
   final NumberParameter _radius;
+
+  @override
+  String get _maskImageInputKey => 'inputMask';
+  @override
+  String get _maskImageInputName => 'Mask';
 
   CIMaskedVariableBlurConfiguration()
       : _radius = SliderNSNumberParameter(
