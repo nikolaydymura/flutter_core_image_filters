@@ -126,4 +126,17 @@ void main() {
       verify(mockFilterApi.setCIImageDataParameter(101, 'inputValue', data));
     });
   });
+  test('NSBoolParameter', () async {
+    final parameter = NSBoolParameter('inputValue', 'Value', false);
+    parameter.value = true;
+    await parameter.update(configuration);
+    verify(
+      mockFilterApi.setNSNumberParameter(101, 'inputValue', 1),
+    );
+  });
+  test('NSStringParameter', () async {
+    final parameter = NSStringParameter('inputValue', 'Value', '');
+    parameter.value = 'hello';
+    await parameter.update(configuration);
+  });
 }

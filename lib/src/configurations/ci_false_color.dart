@@ -1,32 +1,30 @@
 part of flutter_core_image_filters;
 
 class CIFalseColorConfiguration extends CIFilterConfiguration {
-  final ColorParameter _color;
-  final NumberParameter _eV;
+  final ColorParameter _color0;
+  final CIColorParameter _color1;
 
   CIFalseColorConfiguration()
-      : _color = CIColorParameter(
+      : _color0 = CIColorParameter(
           'inputColor0',
-          'Color0',
+          'Color 1',
           const Color.fromRGBO(0, 0, 0, 1.0),
         ),
-        _eV = SliderNSNumberParameter(
-          'inputEV',
-          'EV',
-          0,
-          min: -10,
-          max: 10,
+        _color1 = CIColorParameter(
+          'inputColor1',
+          'Color 2',
+          const Color.fromRGBO(0, 0, 0, 1.0),
         ),
         super('CIFalseColor');
 
-  set color(Color value) {
-    _color.value = value;
+  set color0(Color value) {
+    _color0.value = value;
   }
 
-  set eV(double value) {
-    _eV.value = value;
+  set color1(Color value) {
+    _color1.value = value;
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_color, _eV];
+  List<ConfigurationParameter> get parameters => [_color0, _color1];
 }

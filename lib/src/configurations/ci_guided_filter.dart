@@ -1,13 +1,14 @@
 part of flutter_core_image_filters;
 
-class CIGuidedFilterConfiguration extends CIFilterConfiguration {
+class CIGuidedFilterConfiguration extends CIFilterConfiguration
+    with GuideImageMixin {
   final NumberParameter _epsilon;
   final NumberParameter _radius;
 
   CIGuidedFilterConfiguration()
       : _epsilon = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
+          'inputEpsilon',
+          'Epsilon',
           0.0001,
           min: -0.000000001,
           max: 0.1,
@@ -30,5 +31,6 @@ class CIGuidedFilterConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_radius, _epsilon];
+  List<ConfigurationParameter> get parameters =>
+      [_radius, _epsilon, _guideImage];
 }
