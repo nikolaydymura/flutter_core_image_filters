@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIDissolveTransitionConfiguration extends CIFilterConfiguration {
+class CIDissolveTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _time;
 
   CIDissolveTransitionConfiguration()
@@ -18,5 +19,5 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_time];
+  List<ConfigurationParameter> get parameters => [_time, _targetImage];
 }

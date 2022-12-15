@@ -8,14 +8,14 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
   CIHistogramDisplayFilterConfiguration()
       : _lowLimit = SliderNSNumberParameter(
           'inputLowLimit',
-          'LowLimit',
+          'Low Limit',
           0,
           min: 0,
           max: 1,
         ),
         _highLimit = SliderNSNumberParameter(
           'inputHighLimit',
-          'HighLimit',
+          'High Limit',
           1,
           min: 0,
           max: 1,

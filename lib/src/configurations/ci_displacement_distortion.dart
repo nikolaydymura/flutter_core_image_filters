@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIDisplacementDistortionConfiguration extends CIFilterConfiguration {
+class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
+    with DisplacementImageMixin {
   final NumberParameter _scale;
 
   CIDisplacementDistortionConfiguration()
@@ -18,5 +19,5 @@ class CIDisplacementDistortionConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_scale];
+  List<ConfigurationParameter> get parameters => [_scale, _displacementImage];
 }
