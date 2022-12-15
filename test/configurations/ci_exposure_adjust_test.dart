@@ -3,6 +3,8 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers.dart';
+
 void main() {
   late CIExposureAdjustConfiguration configuration;
   setUp(() {
@@ -12,17 +14,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIExposureAdjust');
     });
-    test('verify inputKeys', () {
-      final parameters =
-          configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, ['inputEV']);
-      final names =
-          configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(
-        names,
-        ['EV'],
-      );
-    });
+    testInputKeys(build: () => configuration);
 
     test('change inputEV', () {
       final parameter = configuration.parameters

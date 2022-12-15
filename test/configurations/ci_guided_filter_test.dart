@@ -3,6 +3,8 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers.dart';
+
 void main() {
   late CIGuidedFilterConfiguration configuration;
   setUp(() {
@@ -12,14 +14,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIGuidedFilter');
     });
-    test('verify inputKeys', () {
-      final parameters =
-          configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, ['inputEpsilon', 'inputRadius']);
-      final names =
-          configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(names, ['Epsilon', 'Radius']);
-    });
+    testInputKeys(build: () => configuration);
     test('change inputEpsilon', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputEpsilon') as NumberParameter;

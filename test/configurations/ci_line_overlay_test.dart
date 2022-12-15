@@ -3,6 +3,8 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import '../helpers.dart';
+
 void main() {
   late CILineOverlayConfiguration configuration;
   setUp(() {
@@ -12,29 +14,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CILineOverlay');
     });
-    test('verify inputKeys', () {
-      final parameters =
-          configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, [
-        'inputNoiseLevel',
-        'inputContrast',
-        'inputThreshold',
-        'inputEdgeIntensity',
-        'inputNRSharpness',
-      ]);
-      final names =
-          configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(
-        names,
-        [
-          'NoiseLevel',
-          'Contrast',
-          'Threshold',
-          'EdgeIntensity',
-          'NRSharpness',
-        ],
-      );
-    });
+    testInputKeys(build: () => configuration);
     test('change inputNoiseLevel', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNoiseLevel') as NumberParameter;
