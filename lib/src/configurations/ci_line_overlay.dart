@@ -17,8 +17,8 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
           max: 0.1,
         ),
         _contrast = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
+          'inputContrast',
+          'Contrast',
           50,
           min: 0.25,
           max: 200,
