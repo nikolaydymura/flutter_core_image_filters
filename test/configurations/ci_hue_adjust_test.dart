@@ -4,28 +4,28 @@ import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late CIBoxBlurConfiguration configuration;
+  late CIHueAdjustConfiguration configuration;
   setUp(() {
-    configuration = CIBoxBlurConfiguration();
+    configuration = CIHueAdjustConfiguration();
   });
-  group('CIBoxBlur', () {
+  group('CIHueAdjust', () {
     test('verify name', () {
-      expect(configuration.name, 'CIBoxBlur');
+      expect(configuration.name, 'CIHueAdjust');
     });
     test('verify inputKeys', () {
       final parameters =
           configuration.parameters.map((e) => e.name).toSet().sorted();
-      expect(parameters, ['inputRadius']);
+      expect(parameters, ['inputAngle']);
       final names =
           configuration.parameters.map((e) => e.displayName).toSet().sorted();
-      expect(names, ['Radius']);
+      expect(names, ['Angle']);
     });
-    test('change inputRadius', () {
+    test('change inputAngle', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
-      expect(parameter.value, 10);
-      configuration.radius = 50;
-      expect(parameter.value, 50);
+          .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
+      expect(parameter.value, 0);
+      configuration.angle = -1;
+      expect(parameter.value, -1);
     });
   });
 }
