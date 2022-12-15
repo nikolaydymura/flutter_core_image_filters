@@ -115,6 +115,7 @@ part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/configuration.dart';
 part 'src/configurations/utils/background_image_mixin.dart';
 part 'src/configurations/utils/displacement_image_mixin.dart';
+part 'src/configurations/utils/gradient_image_mixin.dart';
 part 'src/configurations/utils/guide_image_mixin.dart';
 part 'src/configurations/utils/image_2_mixin.dart';
 part 'src/configurations/utils/image_mask_mixin.dart';
