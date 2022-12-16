@@ -13,8 +13,8 @@ class CIPerspectiveRotateConfiguration extends CIFilterConfiguration {
           20,
         ),
         _roll = SliderNSNumberParameter(
-          'inputAspectRatio',
-          'AspectRatio',
+          'inputRoll',
+          'Roll',
           0,
         ),
         _pitch = SliderNSNumberParameter(
