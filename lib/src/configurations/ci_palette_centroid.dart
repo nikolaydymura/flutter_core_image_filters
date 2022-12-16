@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIPaletteCentroidConfiguration extends CIFilterConfiguration {
+class CIPaletteCentroidConfiguration extends CIFilterConfiguration
+    with PaletteImageMixin {
   final NumberParameter _perceptual;
 
   CIPaletteCentroidConfiguration()
@@ -18,5 +19,5 @@ class CIPaletteCentroidConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_perceptual];
+  List<ConfigurationParameter> get parameters => [_perceptual, _paletteImage];
 }

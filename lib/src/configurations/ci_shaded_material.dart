@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIShadedMaterialConfiguration extends CIFilterConfiguration {
+class CIShadedMaterialConfiguration extends CIFilterConfiguration
+    with ShadingImageMixin {
   final NumberParameter _scale;
 
   CIShadedMaterialConfiguration()
@@ -18,5 +19,5 @@ class CIShadedMaterialConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_scale];
+  List<ConfigurationParameter> get parameters => [_scale, _shadingImage];
 }

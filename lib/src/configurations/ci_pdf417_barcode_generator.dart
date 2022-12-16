@@ -2,63 +2,62 @@ part of flutter_core_image_filters;
 
 class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _minHeight;
-  final NumberParameter _alwaysSpecifyCompaction;
+  final BoolParameter _alwaysSpecifyCompaction;
   final NumberParameter _dataColumns;
   final NumberParameter _minWidth;
   final NumberParameter _maxWidth;
   final NumberParameter _correctionLevel;
   final NumberParameter _compactionMode;
   final NumberParameter _rows;
-  final NumberParameter _compactStyle;
+  final BoolParameter _compactStyle;
   final NumberParameter _preferredAspectRatio;
   final NumberParameter _maxHeight;
+  final DataParameter _message;
 
   CIPDF417BarcodeGeneratorConfiguration()
       : _minHeight = SliderNSNumberParameter(
           'inputMinHeight',
-          'MinHeight',
+          'Min Height',
           13,
           min: 13,
           max: 283,
         ),
-        _alwaysSpecifyCompaction = SliderNSNumberParameter(
+        _alwaysSpecifyCompaction = NSBoolParameter(
           'inputAlwaysSpecifyCompaction',
-          'AlwaysSpecifyCompaction',
-          0,
-          min: 0,
-          max: 1,
+          'Always Specify Compaction',
+          false,
         ),
         _dataColumns = SliderNSNumberParameter(
           'inputDataColumns',
-          'DataColumns',
+          'Data Columns',
           0,
           min: 0,
           max: 1,
         ),
         _minWidth = SliderNSNumberParameter(
           'inputMinWidth',
-          'MinWidth',
+          'Min Width',
           56,
           min: 56,
           max: 583,
         ),
         _maxWidth = SliderNSNumberParameter(
           'inputMaxWidth',
-          'MaxWidth',
+          'Max Width',
           56,
           min: 56,
           max: 583,
         ),
         _correctionLevel = SliderNSNumberParameter(
           'inputCorrectionLevel',
-          'CorrectionLevel',
+          'Correction Level',
           0,
           min: 0,
           max: 8,
         ),
         _compactionMode = SliderNSNumberParameter(
           'inputCompactionMode',
-          'CompactionMode',
+          'Compaction Mode',
           0,
           min: 0,
           max: 3,
@@ -70,34 +69,39 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
           min: 3,
           max: 90,
         ),
-        _compactStyle = SliderNSNumberParameter(
+        _compactStyle = NSBoolParameter(
           'inputCompactStyle',
-          'compactStyle',
-          0,
-          min: 0,
-          max: 1,
+          'Compact Style',
+          false,
         ),
         _preferredAspectRatio = SliderNSNumberParameter(
           'inputPreferredAspectRatio',
-          'PreferredAspectRatio',
+          'Preferred Aspect Ratio',
           0,
           min: 0,
           max: double.maxFinite,
         ),
         _maxHeight = SliderNSNumberParameter(
           'inputMaxHeight',
-          'MaxHeight',
+          'Max Height',
           13,
           min: 13,
           max: 283,
         ),
+        _message = NSDataParameter('inputMessage', 'Message'),
         super('CIPDF417BarcodeGenerator');
+
+  set message(Uint8List value) {
+    _message.data = value;
+    _message.asset = null;
+    _message.file = null;
+  }
 
   set minHeight(double value) {
     _minHeight.value = value;
   }
 
-  set alwaysSpecifyCompaction(double value) {
+  set alwaysSpecifyCompaction(bool value) {
     _alwaysSpecifyCompaction.value = value;
   }
 
@@ -125,7 +129,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
     _rows.value = value;
   }
 
-  set compactStyle(double value) {
+  set compactStyle(bool value) {
     _compactStyle.value = value;
   }
 
@@ -149,6 +153,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
         _rows,
         _compactStyle,
         _preferredAspectRatio,
-        _maxHeight
+        _maxHeight,
+        _message,
       ];
 }

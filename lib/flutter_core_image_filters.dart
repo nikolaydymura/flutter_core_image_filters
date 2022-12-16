@@ -119,6 +119,8 @@ part 'src/configurations/utils/gradient_image_mixin.dart';
 part 'src/configurations/utils/guide_image_mixin.dart';
 part 'src/configurations/utils/image_2_mixin.dart';
 part 'src/configurations/utils/image_mask_mixin.dart';
+part 'src/configurations/utils/palette_image_mixin.dart';
+part 'src/configurations/utils/shading_image_mixin.dart';
 part 'src/configurations/utils/small_image_mixin.dart';
 part 'src/configurations/utils/target_image_mixin.dart';
 part 'src/configurations/without_parameters.dart';

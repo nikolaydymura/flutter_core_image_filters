@@ -39,7 +39,7 @@ void main() {
     test('change inputYaw', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputYaw') as NumberParameter;
-      expect(parameter.value, 1);
+      expect(parameter.value, 0);
       configuration.yaw = 10;
       expect(parameter.value, 10);
     });

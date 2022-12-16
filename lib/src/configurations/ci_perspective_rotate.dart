@@ -9,7 +9,7 @@ class CIPerspectiveRotateConfiguration extends CIFilterConfiguration {
   CIPerspectiveRotateConfiguration()
       : _focalLength = SliderNSNumberParameter(
           'inputFocalLength',
-          'FocalLength',
+          'Focal Length',
           20,
         ),
         _roll = SliderNSNumberParameter(

@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIPalettizeConfiguration extends CIFilterConfiguration {
+class CIPalettizeConfiguration extends CIFilterConfiguration
+    with PaletteImageMixin {
   final NumberParameter _perceptual;
 
   CIPalettizeConfiguration()
@@ -18,5 +19,5 @@ class CIPalettizeConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_perceptual];
+  List<ConfigurationParameter> get parameters => [_perceptual, _paletteImage];
 }
