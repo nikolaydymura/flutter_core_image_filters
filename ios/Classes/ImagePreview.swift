@@ -64,28 +64,29 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         #endif
     }
     
-    func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FLTPreviewMessage? {
+    
+    func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
         let preview = ImagePreviewTexture()
         let textureId = registry.register(preview)
         previews[textureId] = preview
-        return FLTPreviewMessage.make(withTextureId: NSNumber(value: textureId))
+        return NSNumber(value: textureId)
     }
     
-    func connect(_ msg: FLTBindPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func connect(_ textureId: NSNumber, _ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         
-        guard let filter = filters[msg.filterId.int64Value] else {
+        guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.filter = filter
     }
     
-    func disconnect(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
@@ -129,9 +130,9 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         preview.image = image
     }
     
-    func dispose(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         
-        let preview = previews.removeValue(forKey: msg.textureId.int64Value)
+        let preview = previews.removeValue(forKey: textureId.int64Value)
         preview?.filter = nil
         preview?.image = nil
     }

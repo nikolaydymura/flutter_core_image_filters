@@ -3,13 +3,13 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i4;
-import 'dart:typed_data' as _i5;
+import 'dart:async' as _i3;
+import 'dart:typed_data' as _i4;
 
 import 'package:flutter_core_image_filters/src/messages/filter_messages.g.dart'
-    as _i3;
-import 'package:flutter_core_image_filters/src/messages/preview_messages.g.dart'
     as _i2;
+import 'package:flutter_core_image_filters/src/messages/preview_messages.g.dart'
+    as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -23,35 +23,24 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakePreviewMessage_0 extends _i1.SmartFake
-    implements _i2.PreviewMessage {
-  _FakePreviewMessage_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
 /// A class which mocks [FilterApi].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
+class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
   MockFilterApi() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<int> create(String? arg_name) => (super.noSuchMethod(
+  _i3.Future<int> create(String? arg_name) => (super.noSuchMethod(
         Invocation.method(
           #create,
           [arg_name],
         ),
-        returnValue: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+        returnValue: _i3.Future<int>.value(0),
+      ) as _i3.Future<int>);
   @override
-  _i4.Future<_i5.Uint8List> exportData(
+  _i3.Future<_i4.Uint8List> exportData(
     int? arg_filterId,
     String? arg_format,
   ) =>
@@ -63,10 +52,10 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_format,
           ],
         ),
-        returnValue: _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
-      ) as _i4.Future<_i5.Uint8List>);
+        returnValue: _i3.Future<_i4.Uint8List>.value(_i4.Uint8List(0)),
+      ) as _i3.Future<_i4.Uint8List>);
   @override
-  _i4.Future<void> exportImageFile(
+  _i3.Future<void> exportImageFile(
     int? arg_filterId,
     String? arg_path,
     String? arg_format,
@@ -80,11 +69,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_format,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> exportVideoFile(
+  _i3.Future<void> exportVideoFile(
     int? arg_filterId,
     bool? arg_asset,
     String? arg_input,
@@ -102,13 +91,13 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_format,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setInputData(
+  _i3.Future<void> setInputData(
     int? arg_filterId,
-    _i5.Uint8List? arg_data,
+    _i4.Uint8List? arg_data,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -118,11 +107,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_data,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setInputAsset(
+  _i3.Future<void> setInputAsset(
     int? arg_filterId,
     String? arg_path,
   ) =>
@@ -134,11 +123,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_path,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setInputFile(
+  _i3.Future<void> setInputFile(
     int? arg_filterId,
     String? arg_path,
   ) =>
@@ -150,11 +139,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_path,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setNSNumberParameter(
+  _i3.Future<void> setNSNumberParameter(
     int? arg_filterId,
     String? arg_key,
     double? arg_value,
@@ -168,11 +157,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_value,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setCIColorParameter(
+  _i3.Future<void> setCIColorParameter(
     int? arg_filterId,
     String? arg_key,
     List<double?>? arg_value,
@@ -186,11 +175,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_value,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setCIVectorParameter(
+  _i3.Future<void> setCIVectorParameter(
     int? arg_filterId,
     String? arg_key,
     List<double?>? arg_value,
@@ -204,14 +193,14 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_value,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setCIImageDataParameter(
+  _i3.Future<void> setCIImageDataParameter(
     int? arg_filterId,
     String? arg_key,
-    _i5.Uint8List? arg_data,
+    _i4.Uint8List? arg_data,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -222,11 +211,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_data,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setCIImageSourceParameter(
+  _i3.Future<void> setCIImageSourceParameter(
     int? arg_filterId,
     String? arg_key,
     bool? arg_asset,
@@ -242,14 +231,14 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_path,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setNSDataParameter(
+  _i3.Future<void> setNSDataParameter(
     int? arg_filterId,
     String? arg_key,
-    _i5.Uint8List? arg_data,
+    _i4.Uint8List? arg_data,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -260,11 +249,11 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_data,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setNSDataSourceParameter(
+  _i3.Future<void> setNSDataSourceParameter(
     int? arg_filterId,
     String? arg_key,
     bool? arg_asset,
@@ -280,170 +269,168 @@ class MockFilterApi extends _i1.Mock implements _i3.FilterApi {
             arg_path,
           ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> dispose(int? arg_filterId) => (super.noSuchMethod(
+  _i3.Future<void> dispose(int? arg_filterId) => (super.noSuchMethod(
         Invocation.method(
           #dispose,
           [arg_filterId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
 }
 
 /// A class which mocks [ImagePreviewApi].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockImagePreviewApi extends _i1.Mock implements _i2.ImagePreviewApi {
+class MockImagePreviewApi extends _i1.Mock implements _i5.ImagePreviewApi {
   MockImagePreviewApi() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.PreviewMessage> create() => (super.noSuchMethod(
+  _i3.Future<int> create() => (super.noSuchMethod(
         Invocation.method(
           #create,
           [],
         ),
-        returnValue: _i4.Future<_i2.PreviewMessage>.value(_FakePreviewMessage_0(
-          this,
-          Invocation.method(
-            #create,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.PreviewMessage>);
+        returnValue: _i3.Future<int>.value(0),
+      ) as _i3.Future<int>);
   @override
-  _i4.Future<void> connect(_i2.BindPreviewMessage? arg_msg) =>
+  _i3.Future<void> connect(
+    int? arg_textureId,
+    int? arg_filterId,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
           #connect,
-          [arg_msg],
+          [
+            arg_textureId,
+            arg_filterId,
+          ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> disconnect(_i2.PreviewMessage? arg_msg) =>
-      (super.noSuchMethod(
+  _i3.Future<void> disconnect(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #disconnect,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setSource(_i2.SourcePreviewMessage? arg_msg) =>
+  _i3.Future<void> setSource(_i5.SourcePreviewMessage? arg_msg) =>
       (super.noSuchMethod(
         Invocation.method(
           #setSource,
           [arg_msg],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setData(_i2.DataPreviewMessage? arg_msg) =>
+  _i3.Future<void> setData(_i5.DataPreviewMessage? arg_msg) =>
       (super.noSuchMethod(
         Invocation.method(
           #setData,
           [arg_msg],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> dispose(_i2.PreviewMessage? arg_msg) => (super.noSuchMethod(
+  _i3.Future<void> dispose(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #dispose,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
 }
 
 /// A class which mocks [VideoPreviewApi].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockVideoPreviewApi extends _i1.Mock implements _i2.VideoPreviewApi {
+class MockVideoPreviewApi extends _i1.Mock implements _i5.VideoPreviewApi {
   MockVideoPreviewApi() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i4.Future<_i2.PreviewMessage> create() => (super.noSuchMethod(
+  _i3.Future<int> create() => (super.noSuchMethod(
         Invocation.method(
           #create,
           [],
         ),
-        returnValue: _i4.Future<_i2.PreviewMessage>.value(_FakePreviewMessage_0(
-          this,
-          Invocation.method(
-            #create,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.PreviewMessage>);
+        returnValue: _i3.Future<int>.value(0),
+      ) as _i3.Future<int>);
   @override
-  _i4.Future<void> connect(_i2.BindPreviewMessage? arg_msg) =>
+  _i3.Future<void> connect(
+    int? arg_textureId,
+    int? arg_filterId,
+  ) =>
       (super.noSuchMethod(
         Invocation.method(
           #connect,
-          [arg_msg],
+          [
+            arg_textureId,
+            arg_filterId,
+          ],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> disconnect(_i2.PreviewMessage? arg_msg) =>
-      (super.noSuchMethod(
+  _i3.Future<void> disconnect(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #disconnect,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> setSource(_i2.SourcePreviewMessage? arg_msg) =>
+  _i3.Future<void> setSource(_i5.SourcePreviewMessage? arg_msg) =>
       (super.noSuchMethod(
         Invocation.method(
           #setSource,
           [arg_msg],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> resume(_i2.PreviewMessage? arg_msg) => (super.noSuchMethod(
+  _i3.Future<void> resume(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #resume,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> pause(_i2.PreviewMessage? arg_msg) => (super.noSuchMethod(
+  _i3.Future<void> pause(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #pause,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
   @override
-  _i4.Future<void> dispose(_i2.PreviewMessage? arg_msg) => (super.noSuchMethod(
+  _i3.Future<void> dispose(int? arg_textureId) => (super.noSuchMethod(
         Invocation.method(
           #dispose,
-          [arg_msg],
+          [arg_textureId],
         ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
 }

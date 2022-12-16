@@ -12,10 +12,13 @@ class CIImagePreview extends StatelessWidget {
 }
 
 class CIImagePreviewController {
-  static final ImagePreviewApi _api = ImagePreviewApi();
+// coverage:ignore-start
+  static final ImagePreviewApi _gApi = ImagePreviewApi();
+// coverage:ignore-end
+  final ImagePreviewApi _api;
   final int _textureId;
 
-  CIImagePreviewController._(this._textureId);
+  CIImagePreviewController._(this._api, this._textureId);
 
   Future<void> setImageSource(InputSource source) async {
     if (source is DataInputSource) {
@@ -41,11 +44,16 @@ class CIImagePreviewController {
     }
   }
 
-  static Future<CIImagePreviewController> initialize() async {
-    final message = await _api.create();
-    return CIImagePreviewController._(message.textureId);
+  static Future<CIImagePreviewController> initialize({
+    @visibleForTesting ImagePreviewApi? previewApi,
+  }) async {
+// coverage:ignore-start
+    final api = previewApi ?? _gApi;
+// coverage:ignore-end
+    final textureId = await api.create();
+    return CIImagePreviewController._(api, textureId);
   }
-
+// coverage:ignore-start
   static Future<CIImagePreviewController> fromFile(File file) async {
     final controller = await initialize();
     await controller.setImageSource(FileInputSource(file));
@@ -63,31 +71,20 @@ class CIImagePreviewController {
     await controller.setImageSource(DataInputSource(data));
     return controller;
   }
-
+// coverage:ignore-end
   Future<void> connect(CIFilterConfiguration configuration) async {
     if (configuration.ready) {
-      await _api.connect(
-        BindPreviewMessage(
-          textureId: _textureId,
-          filterId: configuration._filterId,
-        ),
-      );
+      await _api.connect(_textureId, configuration._filterId);
     } else {
       throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }
   }
 
-  Future<void> disconnect(
-    CIFilterConfiguration configuration,
-  ) async {
-    await _api.disconnect(
-      PreviewMessage(textureId: _textureId),
-    );
+  Future<void> disconnect() async {
+    await _api.disconnect(_textureId);
   }
 
   Future<void> dispose() async {
-    await _api.dispose(
-      PreviewMessage(textureId: _textureId),
-    );
+    await _api.dispose(_textureId);
   }
 }

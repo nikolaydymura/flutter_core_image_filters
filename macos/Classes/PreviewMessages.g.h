@@ -9,19 +9,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FLTBindPreviewMessage;
 @class FLTSourcePreviewMessage;
 @class FLTDataPreviewMessage;
-@class FLTPreviewMessage;
-
-@interface FLTBindPreviewMessage : NSObject
-/// `init` unavailable to enforce nonnull fields, see the `make` class method.
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId
-    filterId:(NSNumber *)filterId;
-@property(nonatomic, strong) NSNumber * textureId;
-@property(nonatomic, strong) NSNumber * filterId;
-@end
 
 @interface FLTSourcePreviewMessage : NSObject
 /// `init` unavailable to enforce nonnull fields, see the `make` class method.
@@ -43,24 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong) FlutterStandardTypedData * data;
 @end
 
-@interface FLTPreviewMessage : NSObject
-/// `init` unavailable to enforce nonnull fields, see the `make` class method.
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId;
-@property(nonatomic, strong) NSNumber * textureId;
-@end
-
 /// The codec used by FLTImagePreviewApi.
 NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void);
 
 @protocol FLTImagePreviewApi
 /// @return `nil` only when `error != nil`.
-- (nullable FLTPreviewMessage *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(FLTBindPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)disconnect:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setData:(FLTDataPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)dispose:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)dispose:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 
 extern void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTImagePreviewApi> *_Nullable api);
@@ -70,13 +52,13 @@ NSObject<FlutterMessageCodec> *FLTVideoPreviewApiGetCodec(void);
 
 @protocol FLTVideoPreviewApi
 /// @return `nil` only when `error != nil`.
-- (nullable FLTPreviewMessage *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(FLTBindPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)disconnect:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)resume:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)pause:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)dispose:(FLTPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)resume:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)pause:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)dispose:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 
 extern void FLTVideoPreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTVideoPreviewApi> *_Nullable api);

@@ -8,31 +8,6 @@ import 'dart:typed_data' show Float64List, Int32List, Int64List, Uint8List;
 import 'package:flutter/foundation.dart' show ReadBuffer, WriteBuffer;
 import 'package:flutter/services.dart';
 
-class BindPreviewMessage {
-  BindPreviewMessage({
-    required this.textureId,
-    required this.filterId,
-  });
-
-  int textureId;
-  int filterId;
-
-  Object encode() {
-    final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
-    pigeonMap['textureId'] = textureId;
-    pigeonMap['filterId'] = filterId;
-    return pigeonMap;
-  }
-
-  static BindPreviewMessage decode(Object message) {
-    final Map<Object?, Object?> pigeonMap = message as Map<Object?, Object?>;
-    return BindPreviewMessage(
-      textureId: pigeonMap['textureId']! as int,
-      filterId: pigeonMap['filterId']! as int,
-    );
-  }
-}
-
 class SourcePreviewMessage {
   SourcePreviewMessage({
     required this.textureId,
@@ -87,65 +62,34 @@ class DataPreviewMessage {
   }
 }
 
-class PreviewMessage {
-  PreviewMessage({
-    required this.textureId,
-  });
-
-  int textureId;
-
-  Object encode() {
-    final Map<Object?, Object?> pigeonMap = <Object?, Object?>{};
-    pigeonMap['textureId'] = textureId;
-    return pigeonMap;
-  }
-
-  static PreviewMessage decode(Object message) {
-    final Map<Object?, Object?> pigeonMap = message as Map<Object?, Object?>;
-    return PreviewMessage(
-      textureId: pigeonMap['textureId']! as int,
-    );
-  }
-}
-
-class _ImagePreviewApiCodec extends StandardMessageCodec {
+class _ImagePreviewApiCodec extends StandardMessageCodec{
   const _ImagePreviewApiCodec();
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
-    if (value is BindPreviewMessage) {
+    if (value is DataPreviewMessage) {
       buffer.putUint8(128);
       writeValue(buffer, value.encode());
-    } else if (value is DataPreviewMessage) {
+    } else 
+    if (value is SourcePreviewMessage) {
       buffer.putUint8(129);
       writeValue(buffer, value.encode());
-    } else if (value is PreviewMessage) {
-      buffer.putUint8(130);
-      writeValue(buffer, value.encode());
-    } else if (value is SourcePreviewMessage) {
-      buffer.putUint8(131);
-      writeValue(buffer, value.encode());
-    } else {
+    } else 
+{
       super.writeValue(buffer, value);
     }
   }
-
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 128:
-        return BindPreviewMessage.decode(readValue(buffer)!);
-
-      case 129:
+      case 128:       
         return DataPreviewMessage.decode(readValue(buffer)!);
-
-      case 130:
-        return PreviewMessage.decode(readValue(buffer)!);
-
-      case 131:
+      
+      case 129:       
         return SourcePreviewMessage.decode(readValue(buffer)!);
-
-      default:
+      
+      default:      
         return super.readValueOfType(type, buffer);
+      
     }
   }
 }
@@ -154,16 +98,14 @@ class ImagePreviewApi {
   /// Constructor for [ImagePreviewApi].  The [binaryMessenger] named argument is
   /// available for dependency injection.  If it is left null, the default
   /// BinaryMessenger will be used which routes to the host platform.
-  ImagePreviewApi({BinaryMessenger? binaryMessenger})
-      : _binaryMessenger = binaryMessenger;
+  ImagePreviewApi({BinaryMessenger? binaryMessenger}) : _binaryMessenger = binaryMessenger;
   final BinaryMessenger? _binaryMessenger;
 
   static const MessageCodec<Object?> codec = _ImagePreviewApiCodec();
 
-  Future<PreviewMessage> create() async {
+  Future<int> create() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.create', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.create', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(null) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -172,8 +114,7 @@ class ImagePreviewApi {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -185,24 +126,22 @@ class ImagePreviewApi {
         message: 'Host platform returned null value for non-null return value.',
       );
     } else {
-      return (replyMap['result'] as PreviewMessage?)!;
+      return (replyMap['result'] as int?)!;
     }
   }
 
-  Future<void> connect(BindPreviewMessage arg_msg) async {
+  Future<void> connect(int arg_textureId, int arg_filterId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.connect', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.connect', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId, arg_filterId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -213,20 +152,18 @@ class ImagePreviewApi {
     }
   }
 
-  Future<void> disconnect(PreviewMessage arg_msg) async {
+  Future<void> disconnect(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.disconnect', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.disconnect', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -239,8 +176,7 @@ class ImagePreviewApi {
 
   Future<void> setSource(SourcePreviewMessage arg_msg) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.setSource', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.setSource', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -249,8 +185,7 @@ class ImagePreviewApi {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -263,8 +198,7 @@ class ImagePreviewApi {
 
   Future<void> setData(DataPreviewMessage arg_msg) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.setData', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.setData', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -273,8 +207,7 @@ class ImagePreviewApi {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -285,20 +218,18 @@ class ImagePreviewApi {
     }
   }
 
-  Future<void> dispose(PreviewMessage arg_msg) async {
+  Future<void> dispose(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.ImagePreviewApi.dispose', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.ImagePreviewApi.dispose', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -310,38 +241,27 @@ class ImagePreviewApi {
   }
 }
 
-class _VideoPreviewApiCodec extends StandardMessageCodec {
+class _VideoPreviewApiCodec extends StandardMessageCodec{
   const _VideoPreviewApiCodec();
   @override
   void writeValue(WriteBuffer buffer, Object? value) {
-    if (value is BindPreviewMessage) {
+    if (value is SourcePreviewMessage) {
       buffer.putUint8(128);
       writeValue(buffer, value.encode());
-    } else if (value is PreviewMessage) {
-      buffer.putUint8(129);
-      writeValue(buffer, value.encode());
-    } else if (value is SourcePreviewMessage) {
-      buffer.putUint8(130);
-      writeValue(buffer, value.encode());
-    } else {
+    } else 
+{
       super.writeValue(buffer, value);
     }
   }
-
   @override
   Object? readValueOfType(int type, ReadBuffer buffer) {
     switch (type) {
-      case 128:
-        return BindPreviewMessage.decode(readValue(buffer)!);
-
-      case 129:
-        return PreviewMessage.decode(readValue(buffer)!);
-
-      case 130:
+      case 128:       
         return SourcePreviewMessage.decode(readValue(buffer)!);
-
-      default:
+      
+      default:      
         return super.readValueOfType(type, buffer);
+      
     }
   }
 }
@@ -350,16 +270,14 @@ class VideoPreviewApi {
   /// Constructor for [VideoPreviewApi].  The [binaryMessenger] named argument is
   /// available for dependency injection.  If it is left null, the default
   /// BinaryMessenger will be used which routes to the host platform.
-  VideoPreviewApi({BinaryMessenger? binaryMessenger})
-      : _binaryMessenger = binaryMessenger;
+  VideoPreviewApi({BinaryMessenger? binaryMessenger}) : _binaryMessenger = binaryMessenger;
   final BinaryMessenger? _binaryMessenger;
 
   static const MessageCodec<Object?> codec = _VideoPreviewApiCodec();
 
-  Future<PreviewMessage> create() async {
+  Future<int> create() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.create', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.create', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(null) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -368,8 +286,7 @@ class VideoPreviewApi {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -381,24 +298,22 @@ class VideoPreviewApi {
         message: 'Host platform returned null value for non-null return value.',
       );
     } else {
-      return (replyMap['result'] as PreviewMessage?)!;
+      return (replyMap['result'] as int?)!;
     }
   }
 
-  Future<void> connect(BindPreviewMessage arg_msg) async {
+  Future<void> connect(int arg_textureId, int arg_filterId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.connect', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.connect', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId, arg_filterId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -409,20 +324,18 @@ class VideoPreviewApi {
     }
   }
 
-  Future<void> disconnect(PreviewMessage arg_msg) async {
+  Future<void> disconnect(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.disconnect', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.disconnect', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -435,8 +348,7 @@ class VideoPreviewApi {
 
   Future<void> setSource(SourcePreviewMessage arg_msg) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.setSource', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.setSource', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
         await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
     if (replyMap == null) {
@@ -445,8 +357,7 @@ class VideoPreviewApi {
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -457,20 +368,18 @@ class VideoPreviewApi {
     }
   }
 
-  Future<void> resume(PreviewMessage arg_msg) async {
+  Future<void> resume(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.resume', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.resume', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -481,20 +390,18 @@ class VideoPreviewApi {
     }
   }
 
-  Future<void> pause(PreviewMessage arg_msg) async {
+  Future<void> pause(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.pause', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.pause', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,
@@ -505,20 +412,18 @@ class VideoPreviewApi {
     }
   }
 
-  Future<void> dispose(PreviewMessage arg_msg) async {
+  Future<void> dispose(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.VideoPreviewApi.dispose', codec,
-        binaryMessenger: _binaryMessenger);
+        'dev.flutter.pigeon.VideoPreviewApi.dispose', codec, binaryMessenger: _binaryMessenger);
     final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_msg]) as Map<Object?, Object?>?;
+        await channel.send(<Object?>[arg_textureId]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
         message: 'Unable to establish connection on channel.',
       );
     } else if (replyMap['error'] != null) {
-      final Map<Object?, Object?> error =
-          (replyMap['error'] as Map<Object?, Object?>?)!;
+      final Map<Object?, Object?> error = (replyMap['error'] as Map<Object?, Object?>?)!;
       throw PlatformException(
         code: (error['code'] as String?)!,
         message: error['message'] as String?,

@@ -37,22 +37,16 @@ class DataPreviewMessage {
   Uint8List data;
 }
 
-class PreviewMessage {
-  PreviewMessage(this.textureId);
-
-  int textureId;
-}
-
 @HostApi()
 abstract class ImagePreviewApi {
   @ObjCSelector('create')
-  PreviewMessage create();
+  int create();
 
-  @ObjCSelector('connect:')
-  void connect(BindPreviewMessage msg);
+  @ObjCSelector('connect: :')
+  void connect(int textureId, int filterId);
 
   @ObjCSelector('disconnect:')
-  void disconnect(PreviewMessage msg);
+  void disconnect(int textureId);
 
   @ObjCSelector('setSource:')
   void setSource(SourcePreviewMessage msg);
@@ -61,29 +55,29 @@ abstract class ImagePreviewApi {
   void setData(DataPreviewMessage msg);
 
   @ObjCSelector('dispose:')
-  void dispose(PreviewMessage msg);
+  void dispose(int textureId);
 }
 
 @HostApi()
 abstract class VideoPreviewApi {
   @ObjCSelector('create')
-  PreviewMessage create();
+  int create();
 
-  @ObjCSelector('connect:')
-  void connect(BindPreviewMessage msg);
+  @ObjCSelector('connect: :')
+  void connect(int textureId, int filterId);
 
   @ObjCSelector('disconnect:')
-  void disconnect(PreviewMessage msg);
+  void disconnect(int textureId);
 
   @ObjCSelector('setSource:')
   void setSource(SourcePreviewMessage msg);
 
   @ObjCSelector('resume:')
-  void resume(PreviewMessage msg);
+  void resume(int textureId);
 
   @ObjCSelector('pause:')
-  void pause(PreviewMessage msg);
+  void pause(int textureId);
 
   @ObjCSelector('dispose:')
-  void dispose(PreviewMessage msg);
+  void dispose(int textureId);
 }

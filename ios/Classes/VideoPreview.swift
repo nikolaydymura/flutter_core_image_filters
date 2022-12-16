@@ -125,29 +125,29 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
         self.registry = registrar.textures()
     }
     
-    func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FLTPreviewMessage? {
+    func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
         let preview = VideoPreviewTexture()
         let textureId = registry.register(preview)
         preview.frameUpdater = FLTFrameUpdater(textureId: textureId, registry: registry)
         previews[textureId] = preview
-        return FLTPreviewMessage.make(withTextureId: NSNumber(value: textureId))
+        return NSNumber(value: textureId)
     }
     
-    func connect(_ msg: FLTBindPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func connect(_ textureId: NSNumber, _ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         
-        guard let filter = filters[msg.filterId.int64Value] else {
+        guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.filter = filter
     }
     
-    func disconnect(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
@@ -174,25 +174,25 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
         preview.setSource(url: url)
     }
     
-    func resume(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func resume(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.play()
     }
     
-    func pause(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func pause(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.pause()
     }
     
-    func dispose(_ msg: FLTPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         
-        let preview = previews.removeValue(forKey: msg.textureId.int64Value)
+        let preview = previews.removeValue(forKey: textureId.int64Value)
         preview?.filter = nil
         preview?.stop()
     }
