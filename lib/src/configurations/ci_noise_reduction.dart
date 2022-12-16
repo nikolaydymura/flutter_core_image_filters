@@ -7,7 +7,7 @@ class CINoiseReductionConfiguration extends CIFilterConfiguration {
   CINoiseReductionConfiguration()
       : _noiseLevel = SliderNSNumberParameter(
           'inputNoiseLevel',
-          'NoiseLevel',
+          'Noise Level',
           0.02,
           min: 0,
           max: 0.1,
