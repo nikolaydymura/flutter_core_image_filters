@@ -27,3 +27,13 @@ void testInputKeys({required CIFilterConfiguration Function() build}) {
     );
   });
 }
+
+void expectEmptyInputKeys(CIFilterConfiguration configuration) {
+  final parameters =
+      configuration.parameters.map((e) => e.name).toSet().sorted();
+  final metadataKeys = inputKeys[configuration.name]
+      ?.whereNot((e) => e == 'inputImage')
+      .sorted();
+  expect(parameters.isEmpty, true);
+  expect(metadataKeys?.isEmpty, true);
+}
