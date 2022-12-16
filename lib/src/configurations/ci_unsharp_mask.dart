@@ -14,7 +14,7 @@ class CIUnsharpMaskConfiguration extends CIFilterConfiguration {
         ),
         _intensity = SliderNSNumberParameter(
           'inputIntensity',
-          'intensity',
+          'Intensity',
           0.5,
           min: 0,
           max: 1,

@@ -21,5 +21,12 @@ void main() {
       configuration.intensity = 0.25;
       expect(parameter.value, 0.25);
     });
+    test('change inputRadius', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      expect(parameter.value, 1);
+      configuration.radius = 1.5;
+      expect(parameter.value, 1.5);
+    });
   });
 }

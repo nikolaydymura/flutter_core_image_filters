@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -28,6 +30,14 @@ void main() {
       expect(parameter.value, 32);
       configuration.barcodeHeight = 20;
       expect(parameter.value, 20);
+    });
+    test('change inputMessage', () {
+      final parameter =
+      configuration.parameters.firstWhere((e) => e.name == 'inputMessage')
+      as DataParameter;
+      expect(parameter.data, isNull);
+      configuration.messageData = Uint8List(0);
+      expect(parameter.data, isNotNull);
     });
   });
 }

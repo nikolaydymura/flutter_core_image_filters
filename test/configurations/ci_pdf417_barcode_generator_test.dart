@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -99,6 +101,14 @@ void main() {
       expect(parameter.value, 13);
       configuration.maxHeight = 135;
       expect(parameter.value, 135);
+    });
+    test('change inputMessage', () {
+      final parameter =
+      configuration.parameters.firstWhere((e) => e.name == 'inputMessage')
+      as DataParameter;
+      expect(parameter.data, isNull);
+      configuration.message = Uint8List(0);
+      expect(parameter.data, isNotNull);
     });
   });
 }

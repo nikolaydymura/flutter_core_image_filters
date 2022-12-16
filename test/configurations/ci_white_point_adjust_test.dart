@@ -17,7 +17,7 @@ void main() {
     testInputKeys(build: () => configuration);
     test('change inputColor', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColor') as NumberParameter;
+          .firstWhere((e) => e.name == 'inputColor') as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(1, 1, 1, 1.0));
       configuration.color = Colors.orange;
       expect(parameter.value, Colors.orange);
