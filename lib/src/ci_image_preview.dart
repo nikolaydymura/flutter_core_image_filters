@@ -53,6 +53,7 @@ class CIImagePreviewController {
     final textureId = await api.create();
     return CIImagePreviewController._(api, textureId);
   }
+
 // coverage:ignore-start
   static Future<CIImagePreviewController> fromFile(File file) async {
     final controller = await initialize();
@@ -71,6 +72,7 @@ class CIImagePreviewController {
     await controller.setImageSource(DataInputSource(data));
     return controller;
   }
+
 // coverage:ignore-end
   Future<void> connect(CIFilterConfiguration configuration) async {
     if (configuration.ready) {
