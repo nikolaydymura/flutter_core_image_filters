@@ -19,7 +19,7 @@ class CIMorphologyRectangleMaximumConfiguration extends CIFilterConfiguration {
           min: 1,
           max: 49,
         ),
-        super('MorphologyRectangleMaximum');
+        super('CIMorphologyRectangleMaximum');
 
   set height(double value) {
     _height.value = value;
