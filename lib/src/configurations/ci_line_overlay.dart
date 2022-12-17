@@ -62,7 +62,7 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
     _edgeIntensity.value = value;
   }
 
-  set nrSharpnessy(double value) {
+  set nrSharpness(double value) {
     _nrSharpness.value = value;
   }
 

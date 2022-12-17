@@ -21,5 +21,12 @@ void main() {
       configuration.scaleFactor = 100;
       expect(parameter.value, 100);
     });
+    test('change inputPadding', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputPadding') as NumberParameter;
+      expect(parameter.value, 0);
+      configuration.scaleFactor = 100;
+      expect(parameter.value, 100);
+    });
   });
 }

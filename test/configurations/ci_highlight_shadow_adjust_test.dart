@@ -34,8 +34,8 @@ void main() {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputShadowAmount') as NumberParameter;
       expect(parameter.value, 0);
-      configuration.shadowAmount = -3;
-      expect(parameter.value, -3);
+      configuration.shadowAmount = -0.5;
+      expect(parameter.value, -0.5);
     });
   });
 }

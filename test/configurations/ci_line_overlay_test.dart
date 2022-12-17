@@ -47,7 +47,7 @@ void main() {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNRSharpness') as NumberParameter;
       expect(parameter.value, 0.71);
-      configuration.nrSharpnessy = 1;
+      configuration.nrSharpness = 1;
       expect(parameter.value, 1);
     });
   });
