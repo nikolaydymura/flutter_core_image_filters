@@ -33,6 +33,7 @@ part 'src/configurations/ci_color_blend_mode.dart';
 part 'src/configurations/ci_color_burn_blend_mode.dart';
 part 'src/configurations/ci_color_controls.dart';
 part 'src/configurations/ci_color_cube.dart';
+part 'src/configurations/ci_color_cube_with_color_space.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
 part 'src/configurations/ci_color_map.dart';
