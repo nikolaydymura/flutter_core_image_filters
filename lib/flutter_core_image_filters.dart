@@ -162,6 +162,8 @@ class FlutterCoreImageFilters {
     'Color Cube': () => CIColorCubeConfiguration(),
     'Color Cubes Mixed With Mask': () =>
         CIColorCubesMixedWithMaskConfiguration(),
+    'Color Cube With Color Space': () =>
+            CIColorCubeWithColorSpaceConfiguration(),
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),
     'Color Invert': () => CIColorInvertConfiguration(),
     'Color Map': () => CIColorMapConfiguration(),
