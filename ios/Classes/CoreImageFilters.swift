@@ -170,11 +170,70 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
     }
     
     func setNSDataParameter(_ filterId: NSNumber, _ key: String, _ data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+        if targetClass == "NSData" {
+            if key.contains("Cube") {
+                guard let image = UIImage(data: data.data) else {
+                    error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                    return
+                }
+                filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                filterDelegate?.didUpdated(filter: filter)
+            }
+        }
     }
     
     func setNSDataSourceParameter(_ filterId: NSNumber, _ key: String, _ asset: NSNumber, _ path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+        if targetClass == "NSData" {
+            if key.contains("Cube") {
+                if asset.boolValue {
+                    #if os(iOS)
+                    let assetKey = registrar.lookupKey(forAsset: path)
+                    
+                    guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
+                        return
+                    }
+                    guard let image = UIImage(contentsOfFile: filePath) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                        return
+                    }
+                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                    filterDelegate?.didUpdated(filter: filter)
+                    #endif
+                } else {
+                    guard let image = UIImage(contentsOfFile: path) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                        return
+                    }
+                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                    filterDelegate?.didUpdated(filter: filter)
+                }
+            }
+        }
     }
     
     func disposeFilter(_ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {

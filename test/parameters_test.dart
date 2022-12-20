@@ -35,11 +35,11 @@ void main() {
     verify(mockFilterApi.setNSNumberParameter(101, 'inputValue', 1.0));
   });
   test('CGRectParameter', () async {
-    final parameter = CGRectParameter('inputValue', 'Value', Size.zero);
-    parameter.value = const Size(200, 100);
+    final parameter = CGRectParameter('inputValue', 'Value', Rect.zero);
+    parameter.value = const Rect.fromLTWH(0, 0, 200, 100);
     await parameter.update(configuration);
     verify(
-      mockFilterApi.setCIVectorParameter(101, 'inputValue', [200.0, 100.0]),
+      mockFilterApi.setCIVectorParameter(101, 'inputValue', [0.0, 0.0, 200.0, 100.0]),
     );
   });
   test('CIColorParameter', () async {

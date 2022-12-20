@@ -2,13 +2,14 @@ part of flutter_core_image_filters;
 
 class CILookupTableConfiguration extends CIFilterConfiguration {
   final NumberParameter _dimension;
-  final SizeParameter _size;
+  final RectParameter _size;
   final RangeNumberParameter _intensity;
   final DataParameter _lut;
 
   CILookupTableConfiguration()
       : _dimension = NSNumberParameter('inputSize', 'Size', 64),
-        _size = CGRectParameter('inputRect', 'Rect', const Size(8, 8)),
+        _size = CGRectParameter(
+            'inputRect', 'Rect', const Rect.fromLTRB(0, 0, 8, 8)),
         _intensity = SliderNSNumberParameter(
           'inputIntensity',
           'Intensity',
@@ -24,11 +25,11 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
   }
 
   set rows(int value) {
-    _size.value = Size(_size.value.width, value.toDouble());
+    _size.value = Rect.fromLTRB(0, 0, _size.value.width, value.toDouble());
   }
 
   set columns(int value) {
-    _size.value = Size(value.toDouble(), _size.value.height);
+    _size.value = Rect.fromLTRB(0, 0, value.toDouble(), _size.value.height);
   }
 
   set intensity(double value) {

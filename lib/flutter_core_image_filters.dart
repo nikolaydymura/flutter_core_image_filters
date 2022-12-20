@@ -125,6 +125,7 @@ part 'src/configurations/utils/shading_image_mixin.dart';
 part 'src/configurations/utils/small_image_mixin.dart';
 part 'src/configurations/utils/target_image_mixin.dart';
 part 'src/configurations/without_parameters.dart';
+part 'src/parameters/cg_position_parameter.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';
 part 'src/parameters/ci_image_parameter.dart';
@@ -163,7 +164,7 @@ class FlutterCoreImageFilters {
     'Color Cubes Mixed With Mask': () =>
         CIColorCubesMixedWithMaskConfiguration(),
     'Color Cube With Color Space': () =>
-            CIColorCubeWithColorSpaceConfiguration(),
+        CIColorCubeWithColorSpaceConfiguration(),
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),
     'Color Invert': () => CIColorInvertConfiguration(),
     'Color Map': () => CIColorMapConfiguration(),
