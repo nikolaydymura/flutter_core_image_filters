@@ -9,7 +9,10 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
   CILookupTableConfiguration()
       : _dimension = NSNumberParameter('inputSize', 'Size', 64),
         _size = CGRectParameter(
-            'inputRect', 'Rect', const Rect.fromLTRB(0, 0, 8, 8)),
+          'inputRect',
+          'Rect',
+          const Rect.fromLTRB(0, 0, 8, 8),
+        ),
         _intensity = SliderNSNumberParameter(
           'inputIntensity',
           'Intensity',
