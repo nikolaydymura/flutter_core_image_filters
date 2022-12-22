@@ -2,6 +2,7 @@ library flutter_core_image_filters;
 
 import 'dart:async';
 import 'dart:io' show File;
+import 'dart:math';
 import 'dart:ui' show Image;
 
 import 'package:flutter/foundation.dart';
@@ -15,6 +16,15 @@ part 'src/ci_image_preview.dart';
 part 'src/ci_video_preview.dart';
 part 'src/configurations/ci_accordion_fold_transition.dart';
 part 'src/configurations/ci_addition_compositing.dart';
+part 'src/configurations/ci_area_average.dart';
+part 'src/configurations/ci_area_histogram.dart';
+part 'src/configurations/ci_area_logarithmic_histogram.dart';
+part 'src/configurations/ci_area_maximum.dart';
+part 'src/configurations/ci_area_maximum_alpha.dart';
+part 'src/configurations/ci_area_minimum.dart';
+part 'src/configurations/ci_area_minimum_alpha.dart';
+part 'src/configurations/ci_area_min_max.dart';
+part 'src/configurations/ci_area_min_max_red.dart';
 part 'src/configurations/ci_attributed_text_image_generator.dart';
 part 'src/configurations/ci_aztec_code_generator.dart';
 part 'src/configurations/ci_barcode_generator.dart';
@@ -27,6 +37,7 @@ part 'src/configurations/ci_blend_with_red_mask.dart';
 part 'src/configurations/ci_bloom.dart';
 part 'src/configurations/ci_bokeh_blur.dart';
 part 'src/configurations/ci_box_blur.dart';
+part 'src/configurations/ci_clamp.dart';
 part 'src/configurations/ci_code_128_barcode_generator.dart';
 part 'src/configurations/ci_color_absolute_difference.dart';
 part 'src/configurations/ci_color_blend_mode.dart';
@@ -40,9 +51,13 @@ part 'src/configurations/ci_color_map.dart';
 part 'src/configurations/ci_color_monochrome.dart';
 part 'src/configurations/ci_color_posterize.dart';
 part 'src/configurations/ci_color_threshold.dart';
+part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
+part 'src/configurations/ci_copy_machine_transition.dart';
+part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_darken_blend_mode.dart';
+part 'src/configurations/ci_depth_blur_effect.dart';
 part 'src/configurations/ci_difference_blend_mode.dart';
 part 'src/configurations/ci_disc_blur.dart';
 part 'src/configurations/ci_displacement_distortion.dart';
@@ -56,6 +71,7 @@ part 'src/configurations/ci_edges.dart';
 part 'src/configurations/ci_exclusion_blend_mode.dart';
 part 'src/configurations/ci_exposure_adjust.dart';
 part 'src/configurations/ci_false_color.dart';
+part 'src/configurations/ci_flash_transition.dart';
 part 'src/configurations/ci_gabor_gradients.dart';
 part 'src/configurations/ci_gamma_adjust.dart';
 part 'src/configurations/ci_gaussian_blur.dart';
@@ -77,6 +93,7 @@ part 'src/configurations/ci_lookup_table.dart';
 part 'src/configurations/ci_luminosity_blend_mode.dart';
 part 'src/configurations/ci_masked_variable_blur.dart';
 part 'src/configurations/ci_maximum_compositing.dart';
+part 'src/configurations/ci_k_means.dart';
 part 'src/configurations/ci_minimum_compositing.dart';
 part 'src/configurations/ci_mix.dart';
 part 'src/configurations/ci_morphology_gradient.dart';
@@ -89,12 +106,18 @@ part 'src/configurations/ci_multiply_blend_mode.dart';
 part 'src/configurations/ci_multiply_compositing.dart';
 part 'src/configurations/ci_noise_reduction.dart';
 part 'src/configurations/ci_overlay_blend_mode.dart';
+part 'src/configurations/ci_page_curl_transition.dart';
+part 'src/configurations/ci_page_curl_with_shadow_transition.dart';
 part 'src/configurations/ci_palette_centroid.dart';
 part 'src/configurations/ci_palettize.dart';
 part 'src/configurations/ci_pdf417_barcode_generator.dart';
 part 'src/configurations/ci_perspective_rotate.dart';
+part 'src/configurations/ci_perspective_transform_with_extent.dart';
 part 'src/configurations/ci_pin_light_blend_mode.dart';
 part 'src/configurations/ci_random_generator.dart';
+part 'src/configurations/ci_ripple_transition.dart';
+part 'src/configurations/ci_rounded_rectangle_generator.dart';
+part 'src/configurations/ci_row_average.dart';
 part 'src/configurations/ci_saliency_map_filter.dart';
 part 'src/configurations/ci_sample_nearest.dart';
 part 'src/configurations/ci_saturation_blend_mode.dart';
@@ -109,6 +132,7 @@ part 'src/configurations/ci_source_out_compositing.dart';
 part 'src/configurations/ci_source_over_compositing.dart';
 part 'src/configurations/ci_straighten_filter.dart';
 part 'src/configurations/ci_subtract_blend_mode.dart';
+part 'src/configurations/ci_swipe_transition.dart';
 part 'src/configurations/ci_unsharp_mask.dart';
 part 'src/configurations/ci_vibrance.dart';
 part 'src/configurations/ci_vignette.dart';
@@ -266,6 +290,33 @@ class FlutterCoreImageFilters {
     'Vignette': () => CIVignetteConfiguration(),
     'White Point Adjust': () => CIWhitePointAdjustConfiguration(),
     'XRay': () => CIXRayConfiguration(),
+    'Area Average': () => CIAreaAverageConfiguration(),
+    'Are Histogram': () => CIAreaHistogramConfiguration(),
+    'Are Logarithmic Histogram': () =>
+        CIAreaLogarithmicHistogramConfiguration(),
+    'Area Maximum': () => CIAreaMaximumConfiguration(),
+    'Area Maximum Alpha': () => CIAreaMaximumAlphaConfiguration(),
+    'Area Minimum': () => CIAreaMinimumConfiguration(),
+    'Area Minimum Alpha': () => CIAreaMinimumAlphaConfiguration(),
+    'Area Min Max': () => CIAreaMinMaxConfiguration(),
+    'Area MinMaxRed': () => CIAreaMinMaxRedConfiguration(),
+    'Clamp': () => CIClampConfiguration(),
+    'Column Average': () => CIColumnAverageConfiguration(),
+    'Copy Machine Transition': () => CICopyMachineTransitionConfiguration(),
+    'Crop': () => CICropConfiguration(),
+    'Depth Blur Effect': () => CIDepthBlurEffectConfiguration(),
+    'Flash Transition': () => CIFlashTransitionConfiguration(),
+    'K Means': () => CIKMeansConfiguration(),
+    'Page Curl Transition': () => CIPageCurlTransitionConfiguration(),
+    'Page Curl With Shadow Transition': () =>
+        CIPageCurlWithShadowTransitionConfiguration(),
+    'Perspective Transform With Extent': () =>
+        CIPerspectiveTransformWithExtentConfiguration(),
+    'Ripple Transition': () => CIRippleTransitionConfiguration(),
+    'Rounded Rectangle Generator': () =>
+        CIRoundedRectangleGeneratorConfiguration(),
+    'Row Average': () => CIRowAverageConfiguration(),
+    'Swipe Transition': () => CISwipeTransitionConfiguration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {
