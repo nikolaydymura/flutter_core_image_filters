@@ -26,7 +26,7 @@ void main() {
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as ColorParameter;
-      expect(parameter.value, const Color.fromRGBO(0, 0, 0, 0.0));
+      expect(parameter.value, const Color.fromRGBO(255, 255, 255, 1.0));
       configuration.color = Colors.orange;
       expect(parameter.value, Colors.orange);
     });

@@ -33,7 +33,7 @@ void main() {
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as ColorParameter;
-      expect(parameter.value, const Color.fromRGBO(255, 225, 225, 1.0));
+      expect(parameter.value, const Color.fromRGBO(153, 225, 204, 1.0));
       configuration.color = Colors.orange;
       expect(parameter.value, Colors.orange);
     });

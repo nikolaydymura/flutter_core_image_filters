@@ -20,7 +20,7 @@ void main() {
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as CIColorParameter;
-      expect(parameter.value, const Color.fromRGBO(255, 255, 255, 1.0));
+      expect(parameter.value, const Color.fromRGBO(255, 204, 153, 1.0));
       configuration.color = Colors.orange;
       expect(parameter.value, Colors.orange);
     });

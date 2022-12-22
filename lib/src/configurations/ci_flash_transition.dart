@@ -14,7 +14,7 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration {
       : _color = CIColorParameter(
           'inputColor',
           'Color',
-          const Color.fromRGBO(255, 255, 255, 1.0),
+          const Color.fromRGBO(255, 204, 153, 1.0),
         ),
         _time = SliderNSNumberParameter(
           'inputTime',

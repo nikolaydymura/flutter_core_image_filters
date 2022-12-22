@@ -26,7 +26,7 @@ class CICopyMachineTransitionConfiguration extends CIFilterConfiguration {
         _color = CIColorParameter(
           'inputColor',
           'Color',
-          const Color.fromRGBO(255, 225, 225, 1.0),
+          const Color.fromRGBO(153, 225, 204, 1.0),
         ),
         _extent = CGRectParameter(
           'inputExtent',

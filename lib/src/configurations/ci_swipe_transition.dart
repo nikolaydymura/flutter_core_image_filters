@@ -18,7 +18,7 @@ class CISwipeTransitionConfiguration extends CIFilterConfiguration {
         _color = CIColorParameter(
           'inputColor',
           'Color',
-          const Color.fromRGBO(0, 0, 0, 0.0),
+          const Color.fromRGBO(255, 255, 255, 1.0),
         ),
         _extent = CGRectParameter(
           'inputExtent',
