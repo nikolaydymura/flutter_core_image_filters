@@ -87,7 +87,7 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration {
     _striationStrength.value = value;
   }
 
-  set nosePositions(double value) {
+  set fadeThreshold(double value) {
     _fadeThreshold.value = value;
   }
 
