@@ -1,7 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIPageCurlWithShadowTransitionConfiguration
-    extends CIFilterConfiguration {
+class CIPageCurlWithShadowTransitionConfiguration extends CIFilterConfiguration
+    with BacksideImageMixin, TargetImageMixin {
   final RectParameter _extent;
   final RectParameter _shadowExtent;
   final NumberParameter _time;
@@ -18,7 +18,7 @@ class CIPageCurlWithShadowTransitionConfiguration
         ),
         _shadowExtent = CGRectParameter(
           'inputShadowExtent',
-          'ShadowExtent',
+          'Shadow Extent',
           const Rect.fromLTRB(0, 0, 0, 0),
         ),
         _time = SliderNSNumberParameter(
@@ -30,14 +30,14 @@ class CIPageCurlWithShadowTransitionConfiguration
         ),
         _shadowAmount = SliderNSNumberParameter(
           'inputShadowAmount',
-          'ShadowAmount',
+          'Shadow Amount',
           0.7,
           min: 0,
           max: 1,
         ),
         _shadowSize = SliderNSNumberParameter(
           'inputShadowSize',
-          'ShadowSize',
+          'Shadow Size',
           0.5,
           min: 0,
           max: 1,
@@ -94,6 +94,8 @@ class CIPageCurlWithShadowTransitionConfiguration
         _time,
         _shadowAmount,
         _angle,
-        _radius
+        _radius,
+        _backsideImage,
+        _targetImage
       ];
 }

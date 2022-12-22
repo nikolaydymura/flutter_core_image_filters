@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIPageCurlTransitionConfiguration extends CIFilterConfiguration {
+class CIPageCurlTransitionConfiguration extends CIFilterConfiguration
+    with ShadingImageMixin, TargetImageMixin, BacksideImageMixin {
   final RectParameter _extent;
   final NumberParameter _time;
   final NumberParameter _radius;
@@ -52,6 +53,13 @@ class CIPageCurlTransitionConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_extent, _time, _radius, _angle];
+  List<ConfigurationParameter> get parameters => [
+        _extent,
+        _time,
+        _radius,
+        _angle,
+        _shadingImage,
+        _targetImage,
+        _backsideImage
+      ];
 }

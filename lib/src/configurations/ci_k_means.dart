@@ -1,6 +1,6 @@
 part of flutter_core_image_filters;
 
-class CIKMeansConfiguration extends CIFilterConfiguration {
+class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
   final RectParameter _extent;
   final NumberParameter _perceptual;
   final NumberParameter _count;
@@ -53,5 +53,5 @@ class CIKMeansConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_extent, _perceptual, _count, _passes];
+      [_extent, _perceptual, _count, _passes, _meansImage];
 }

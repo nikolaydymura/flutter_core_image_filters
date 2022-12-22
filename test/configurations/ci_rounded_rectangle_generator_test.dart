@@ -33,7 +33,7 @@ void main() {
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
-      expect(parameter.value, 0);
+      expect(parameter.value, 10);
       configuration.radius = 50;
       expect(parameter.value, 50);
     });

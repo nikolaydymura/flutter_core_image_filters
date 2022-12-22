@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CISwipeTransitionConfiguration extends CIFilterConfiguration {
+class CISwipeTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _angle;
   final ColorParameter _color;
   final RectParameter _extent;
@@ -74,5 +75,5 @@ class CISwipeTransitionConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_angle, _color, _extent, _opacity, _time, _width];
+      [_angle, _color, _extent, _opacity, _time, _width, _targetImage];
 }

@@ -67,7 +67,7 @@ void main() {
     test('change inputFadeThreshold', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFadeThreshold') as NumberParameter;
-      expect(parameter.value, 0.5);
+      expect(parameter.value, 0.85);
       configuration.fadeThreshold = 1.5;
       expect(parameter.value, 1.5);
     });

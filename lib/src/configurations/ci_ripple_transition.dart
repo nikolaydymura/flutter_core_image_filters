@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIRippleTransitionConfiguration extends CIFilterConfiguration {
+class CIRippleTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin, ShadingImageMixin {
   final RectParameter _extent;
   final NumberParameter _time;
   final NumberParameter _scale;
@@ -73,5 +74,7 @@ class CIRippleTransitionConfiguration extends CIFilterConfiguration {
         _scale,
         _width,
         _center,
+        _shadingImage,
+        _targetImage,
       ];
 }

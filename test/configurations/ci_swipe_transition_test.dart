@@ -53,7 +53,7 @@ void main() {
     test('change inputWidth', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
-      expect(parameter.value, 3000);
+      expect(parameter.value, 300);
       configuration.width = 500;
       expect(parameter.value, 500);
     });

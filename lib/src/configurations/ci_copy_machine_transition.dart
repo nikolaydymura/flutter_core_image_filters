@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CICopyMachineTransitionConfiguration extends CIFilterConfiguration {
+class CICopyMachineTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _time;
   final NumberParameter _opacity;
   final ColorParameter _color;
@@ -75,5 +76,5 @@ class CICopyMachineTransitionConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_time, _opacity, _color, _extent, _width, _angle];
+      [_time, _opacity, _color, _extent, _width, _angle, _targetImage];
 }

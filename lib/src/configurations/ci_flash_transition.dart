@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIFlashTransitionConfiguration extends CIFilterConfiguration {
+class CIFlashTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final ColorParameter _color;
   final NumberParameter _time;
   final PointParameter _center;
@@ -30,7 +31,7 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration {
         ),
         _maxStriationRadius = SliderNSNumberParameter(
           'inputMaxStriationRadius',
-          'MaxStriationRadius',
+          'Maximum Striation Radius',
           2.58,
           min: 0,
           max: 10,
@@ -42,21 +43,21 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration {
         ),
         _striationStrength = SliderNSNumberParameter(
           'inputStriationStrength',
-          'StriationStrength',
+          'Striation Strength',
           0.5,
           min: 0,
           max: 3,
         ),
         _fadeThreshold = SliderNSNumberParameter(
           'inputFadeThreshold',
-          'FadeThreshold',
+          'Fade Threshold',
           0.85,
           min: 0,
           max: 1,
         ),
         _striationContrast = SliderNSNumberParameter(
           'inputStriationContrast',
-          'StriationContrast',
+          'Striation Contrast',
           1.375,
           min: 0,
           max: 5,
@@ -105,5 +106,6 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration {
         _striationStrength,
         _fadeThreshold,
         _striationContrast,
+        _targetImage,
       ];
 }

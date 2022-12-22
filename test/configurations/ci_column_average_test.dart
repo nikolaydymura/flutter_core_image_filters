@@ -12,7 +12,7 @@ void main() {
   });
   group('CIColumnAverage', () {
     test('verify name', () {
-      expect(configuration.name, 'CIAreaAverage');
+      expect(configuration.name, 'CIColumnAverage');
     });
     testInputKeys(build: () => configuration);
     test('change inputExtent', () {

@@ -12,7 +12,7 @@ void main() {
   setUp(() {
     configuration = CIDepthBlurEffectConfiguration();
   });
-  group('CIDepthBlurEffect', () {
+  group('CIDepthBlurEffect', skip: true, () {
     test('verify name', () {
       expect(configuration.name, 'CIDepthBlurEffect');
     });
