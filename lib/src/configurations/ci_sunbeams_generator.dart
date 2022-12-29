@@ -46,9 +46,9 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         _sunRadius = SliderNSNumberParameter(
           'inputSunRadius',
           'SunRadius',
-          2.58,
+          40,
           min: 0,
-          max: 10,
+          max: 800,
         ),
         _color = CIColorParameter(
           'inputColor',

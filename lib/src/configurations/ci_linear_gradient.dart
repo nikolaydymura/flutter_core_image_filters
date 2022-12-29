@@ -23,8 +23,8 @@ class CILinearGradientConfiguration extends CIFilterConfiguration {
           const Point(0.0, 0.0),
         ),
         _color1 = CIColorParameter(
-          'inputColor0',
-          'Color0',
+          'inputColor1',
+          'Color1',
           const Color.fromRGBO(0, 0, 0, 1),
         ),
         super('CILinearGradient');

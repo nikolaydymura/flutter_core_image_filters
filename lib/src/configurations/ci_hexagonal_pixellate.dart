@@ -18,7 +18,7 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIHexagonalPixellate');
-  set radius(double value) {
+  set scale(double value) {
     _scale.value = value;
   }
 

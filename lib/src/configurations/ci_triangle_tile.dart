@@ -3,7 +3,6 @@ part of flutter_core_image_filters;
 class CITriangleTileConfiguration extends CIFilterConfiguration {
   final PointParameter _center;
   final NumberParameter _angle;
-
   final NumberParameter _width;
 
   CITriangleTileConfiguration()

@@ -27,8 +27,8 @@ class CIGlassLozengeConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         _point1 = CGPositionParameter(
-          'inputCenter',
-          'Center',
+          'inputPoint1',
+          'Point1',
           const Point(350.0, 150.0),
         ),
         super('CIGlassLozenge');

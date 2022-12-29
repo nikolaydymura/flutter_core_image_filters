@@ -21,9 +21,9 @@ class CILightTunnelConfiguration extends CIFilterConfiguration {
         _rotation = SliderNSNumberParameter(
           'inputRotation',
           'Rotation',
-          100,
-          min: 1,
-          max: 500,
+          0,
+          min: 0,
+          max: 1.570796326794897,
         ),
         super('CILightTunnel');
 

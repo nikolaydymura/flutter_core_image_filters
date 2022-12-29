@@ -1,8 +1,8 @@
 part of flutter_core_image_filters;
 
 class CILineScreenConfiguration extends CIFilterConfiguration {
-  final PointParameter _center;
   final NumberParameter _sharpness;
+  final PointParameter _center;
   final NumberParameter _angle;
   final NumberParameter _width;
 

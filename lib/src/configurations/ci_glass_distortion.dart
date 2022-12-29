@@ -18,7 +18,7 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIGlassDistortion');
-  set radius(double value) {
+  set scale(double value) {
     _scale.value = value;
   }
 
