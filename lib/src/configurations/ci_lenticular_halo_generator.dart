@@ -1,0 +1,110 @@
+part of flutter_core_image_filters;
+
+class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
+  final NumberParameter _radius;
+  final ColorParameter _color;
+  final PointParameter _center;
+  final NumberParameter _striationContrast;
+  final NumberParameter _haloOverlap;
+  final NumberParameter _time;
+  final NumberParameter _striationStrength;
+  final NumberParameter _haloWidth;
+
+  CILenticularHaloGeneratorConfiguration()
+      : _radius = SliderNSNumberParameter(
+          'inputRadius',
+          'Radius',
+          70,
+          min: 0,
+          max: 1000,
+        ),
+        _color = CIColorParameter(
+          'inputColor',
+          'Color',
+          const Color.fromRGBO(255, 229, 204, 1),
+        ),
+        _center = CGPositionParameter(
+          'inputCenter',
+          'Center',
+          const Point(150.0, 150.0),
+        ),
+        _striationContrast = SliderNSNumberParameter(
+          'inputStriationContrast',
+          'StriationContrast',
+          1,
+          min: 0,
+          max: 5,
+        ),
+        _haloOverlap = SliderNSNumberParameter(
+          'inputHaloOverlap',
+          'HaloOverlap',
+          0.77,
+          min: 0,
+          max: 1,
+        ),
+        _time = SliderNSNumberParameter(
+          'inputTime',
+          'Time',
+          0,
+          min: 0,
+          max: 1,
+        ),
+        _striationStrength = SliderNSNumberParameter(
+          'inputStriationStrength',
+          'StriationStrength',
+          0.5,
+          min: 0,
+          max: 3,
+        ),
+        _haloWidth = SliderNSNumberParameter(
+          'inputHaloWidth',
+          'HaloWidth',
+          87,
+          min: 0,
+          max: 300,
+        ),
+        super('CILenticularHaloGenerator');
+  set radius(double value) {
+    _radius.value = value;
+  }
+
+  set color(Color value) {
+    _color.value = value;
+  }
+
+  set center(Point<double> value) {
+    _center.value = value;
+  }
+
+  set striationContrast(double value) {
+    _striationContrast.value = value;
+  }
+
+  set haloOverlap(double value) {
+    _haloOverlap.value = value;
+  }
+
+  set time(double value) {
+    _time.value = value;
+  }
+
+  set striationStrength(double value) {
+    _striationStrength.value = value;
+  }
+
+  set haloWidth(double value) {
+    _haloWidth.value = value;
+  }
+
+  @override
+  List<ConfigurationParameter> get parameters => [
+        _radius,
+        _color,
+        _center,
+        _striationContrast,
+        _haloOverlap,
+        _time,
+        _striationStrength,
+        _haloWidth
+      ];
+}
