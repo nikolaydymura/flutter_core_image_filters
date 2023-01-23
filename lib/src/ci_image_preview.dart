@@ -14,6 +14,7 @@ class CIImagePreview extends StatelessWidget {
 class CIImagePreviewController {
 // coverage:ignore-start
   static final ImagePreviewApi _gApi = ImagePreviewApi();
+
 // coverage:ignore-end
   final ImagePreviewApi _api;
   final int _textureId;
@@ -74,9 +75,13 @@ class CIImagePreviewController {
   }
 
 // coverage:ignore-end
-  Future<void> connect(CIFilterConfiguration configuration) async {
+  Future<void> connect(
+    CIFilterConfiguration configuration, {
+    CIContext context = CIContext.system,
+  }) async {
     if (configuration.ready) {
-      await _api.connect(_textureId, configuration._filterId);
+      await _api.connect(
+          _textureId, configuration._filterId, context.platformKey);
     } else {
       throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }

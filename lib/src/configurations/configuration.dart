@@ -3,12 +3,15 @@ part of flutter_core_image_filters;
 abstract class CIFilterConfiguration extends FilterConfiguration {
 // coverage:ignore-start
   static final FilterApi _gAPI = FilterApi();
+
 // coverage:ignore-end
 
   int _filterId = -1;
   final String name;
+
 // coverage:ignore-start
   FilterApi get _api => _gAPI;
+
 // coverage:ignore-end
 
   bool get ready => _filterId != -1;
@@ -37,6 +40,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
   Future<Image> export(
     InputSource source, {
     ImageExportFormat format = ImageExportFormat.auto,
+    CIContext context = CIContext.system,
   }) async {
     if (source is DataInputSource) {
       await _api.setInputData(_filterId, source.data);
@@ -61,10 +65,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     late Uint8List bytes;
     switch (format) {
       case ImageExportFormat.png:
-        bytes = await _api.exportData(_filterId, 'png');
+        bytes = await _api.exportData(_filterId, 'png', context.platformKey);
         break;
       case ImageExportFormat.jpeg:
-        bytes = await _api.exportData(_filterId, 'jpeg');
+        bytes = await _api.exportData(_filterId, 'jpeg', context.platformKey);
         break;
       default:
         break;
@@ -73,7 +77,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     return image;
   }
 
-  Future<void> exportImageFile(ImageExportConfig config) async {
+  Future<void> exportImageFile(
+    ImageExportConfig config, {
+    CIContext context = CIContext.system,
+  }) async {
     final source = config.source;
     final output = config.output;
     var format = config.format;
@@ -91,17 +98,23 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     }
     switch (format) {
       case ImageExportFormat.png:
-        await _api.exportImageFile(_filterId, output.absolute.path, 'png');
+        await _api.exportImageFile(
+            _filterId, output.absolute.path, 'png', context.platformKey);
         break;
       case ImageExportFormat.jpeg:
-        await _api.exportImageFile(_filterId, output.absolute.path, 'jpeg');
+        await _api.exportImageFile(
+            _filterId, output.absolute.path, 'jpeg', context.platformKey);
         break;
       default:
         break;
     }
   }
 
-  Future<void> exportVideoFile(VideoExportConfig config) async {
+  Future<void> exportVideoFile(
+    VideoExportConfig config, {
+    CIContext context = CIContext.system,
+    AVAssetExportPreset preset = AVAssetExportPreset.highestQuality,
+  }) async {
     final source = config.source;
     final output = config.output;
     var format = config.format;
@@ -119,6 +132,8 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           source.path,
           output.absolute.path,
           'mp4',
+          context.platformKey,
+          preset.platformKey,
         );
         break;
       case VideoExportFormat.mov:
@@ -128,6 +143,8 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           source.path,
           output.absolute.path,
           'mov',
+          context.platformKey,
+          preset.platformKey,
         );
         break;
       default:

@@ -11,6 +11,7 @@ import Foundation
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
     var filter: CIFilter?
+    lazy var currentContext: CIContext = CIContext.selectImageContext("")
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         guard let image = self.image else {
@@ -33,7 +34,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
         }
         
         if let buffer = pixelBuffer {
-            let context = CIContext.defaultGLContext
+            let context = currentContext
             if let filter = self.filter {
                 filter.setValue(image, forKey: kCIInputImageKey)
                 let processed = filter.outputImage ?? image
@@ -72,7 +73,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         return NSNumber(value: textureId)
     }
     
-    func connect(_ textureId: NSNumber, _ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func connect(_ textureId: NSNumber, _ filterId: NSNumber, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
@@ -82,6 +83,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
+        preview.currentContext = CIContext.selectImageContext(context)
         preview.filter = filter
     }
     
@@ -90,6 +92,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
+        preview.currentContext = CIContext.selectImageContext("")
         preview.filter = nil
     }
     

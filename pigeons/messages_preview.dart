@@ -42,8 +42,8 @@ abstract class ImagePreviewApi {
   @ObjCSelector('create')
   int create();
 
-  @ObjCSelector('connect: :')
-  void connect(int textureId, int filterId);
+  @ObjCSelector('connect: : :')
+  void connect(int textureId, int filterId, String context);
 
   @ObjCSelector('disconnect:')
   void disconnect(int textureId);
@@ -63,8 +63,8 @@ abstract class VideoPreviewApi {
   @ObjCSelector('create')
   int create();
 
-  @ObjCSelector('connect: :')
-  void connect(int textureId, int filterId);
+  @ObjCSelector('connect: : :')
+  void connect(int textureId, int filterId, String context);
 
   @ObjCSelector('disconnect:')
   void disconnect(int textureId);

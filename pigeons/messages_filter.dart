@@ -21,15 +21,15 @@ abstract class FilterApi {
   @ObjCSelector('createFilter:')
   int create(String name);
 
-  @ObjCSelector('exportData: :')
-  Uint8List exportData(int filterId, String format);
+  @ObjCSelector('exportData: : :')
+  Uint8List exportData(int filterId, String format, String context);
 
-  @ObjCSelector('exportImageFile: : :')
-  void exportImageFile(int filterId, String path, String format);
+  @ObjCSelector('exportImageFile: : : :')
+  void exportImageFile(int filterId, String path, String format, String context);
 
-  @ObjCSelector('exportVideoFile: : : : :')
+  @ObjCSelector('exportVideoFile: : : : : : :')
   @async
-  void exportVideoFile(int filterId, bool asset, String input, String output, String format);
+  void exportVideoFile(int filterId, bool asset, String input, String output, String format, String context, String preset);
 
   @ObjCSelector('setInputData: :')
   void setInputData(int filterId, Uint8List data);

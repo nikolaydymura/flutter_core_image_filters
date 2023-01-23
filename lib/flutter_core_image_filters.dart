@@ -151,6 +151,8 @@ part 'src/configurations/utils/shading_image_mixin.dart';
 part 'src/configurations/utils/small_image_mixin.dart';
 part 'src/configurations/utils/target_image_mixin.dart';
 part 'src/configurations/without_parameters.dart';
+part 'src/context/av_export_preset.dart';
+part 'src/context/ci_context.dart';
 part 'src/parameters/cg_position_parameter.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';

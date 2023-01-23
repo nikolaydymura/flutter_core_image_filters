@@ -38,7 +38,7 @@ NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void);
 @protocol FLTImagePreviewApi
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setData:(FLTDataPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
@@ -53,7 +53,7 @@ NSObject<FlutterMessageCodec> *FLTVideoPreviewApiGetCodec(void);
 @protocol FLTVideoPreviewApi
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)resume:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;

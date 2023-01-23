@@ -9,44 +9,70 @@ import Foundation
 import Metal
 
 extension CIContext {
-    class var defaultContext : CIContext {
+    private class var defaultContext : CIContext {
         Context.context.defaultContext
     }
-    
-    class var defaultGLContext : CIContext {
+
+    private class var defaultGLContext : CIContext {
         Context.context.defaultGLContext
+    }
+
+    private class var defaultMLTContext : CIContext {
+        Context.context.defaultMLTContext
+    }
+
+    class func selectImageContext(_ key: String) -> CIContext {
+        switch key {
+        case "openGLES2":
+            return CIContext.defaultGLContext
+        case "MLT":
+            return CIContext.defaultMLTContext
+        default:
+            return CIContext.defaultContext
+        }
+    }
+
+    class func selectVideoContext(_ key: String) -> CIContext? {
+        switch key {
+        case "openGLES2":
+            return CIContext.defaultGLContext
+        case "MLT":
+            return CIContext.defaultMLTContext
+        default:
+            return nil
+        }
     }
 }
 
 fileprivate class Context {
     static let context = Context()
-    
+
     static var options: [CIContextOption : Any] {
         #if targetEnvironment(simulator)
-        return [
-            CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : NSNull()
-        ]
+            return [
+                CIContextOption.priorityRequestLow : true,
+                CIContextOption.workingColorSpace : NSNull()
+            ]
         #else
-        return [
-            CIContextOption.useSoftwareRenderer : false,
-            CIContextOption.workingColorSpace : NSNull()
-        ]
+            return [
+                CIContextOption.useSoftwareRenderer : false,
+                CIContextOption.workingColorSpace : NSNull()
+            ]
         #endif
     }
-    
+
     lazy var defaultContext = {
          CIContext()
     }()
-    
+
     lazy var defaultGLContext = {
-        #if os(iOS)
         CIContext(eaglContext: EAGLContext(api: .openGLES2)!, options: Context.options)
-        #else
-        CIContext(mtlDevice: MTLCreateSystemDefaultDevice()!)
-        #endif
     }()
-    
+
+    lazy var defaultMLTContext = {
+        CIContext(mtlDevice: MTLCreateSystemDefaultDevice()!, options: Context.options)
+    }()
+
     fileprivate init() {
     }
 }

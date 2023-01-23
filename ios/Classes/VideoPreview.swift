@@ -16,6 +16,7 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     var filter: CIFilter?
     var frameUpdater: FLTFrameUpdater?
     var displayLink: CADisplayLink?
+    lazy var currentContext: CIContext? = CIContext.selectVideoContext("")
     
     override init() {
         super.init()
@@ -63,7 +64,7 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
             self.filter?.setValue(source, forKey: kCIInputImageKey)
             let output = self.filter?.outputImage?.cropped(to: request.sourceImage.extent)
             request.finish(with: output ?? source,
-                           context: self.filter != nil ?  CIContext.defaultGLContext : nil)
+                           context: self.filter != nil ?  self.currentContext : nil)
         }
         let item = AVPlayerItem(asset: asset)
         item.add(videoOutput)
@@ -133,7 +134,7 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
         return NSNumber(value: textureId)
     }
     
-    func connect(_ textureId: NSNumber, _ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func connect(_ textureId: NSNumber, _ filterId: NSNumber, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
@@ -143,6 +144,7 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
             error.pointee = FlutterError()
             return
         }
+        preview.currentContext = CIContext.selectVideoContext(context)
         preview.filter = filter
     }
     
@@ -151,6 +153,7 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
             error.pointee = FlutterError()
             return
         }
+        preview.currentContext = nil
         preview.filter = nil
     }
     

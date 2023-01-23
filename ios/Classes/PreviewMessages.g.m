@@ -184,13 +184,14 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         binaryMessenger:binaryMessenger
         codec:FLTImagePreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(connect: :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(connect: :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(connect: : :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(connect: : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId error:&error];
+        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     }
@@ -358,13 +359,14 @@ void FLTVideoPreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         binaryMessenger:binaryMessenger
         codec:FLTVideoPreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(connect: :error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(connect: :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(connect: : :error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(connect: : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId error:&error];
+        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     }

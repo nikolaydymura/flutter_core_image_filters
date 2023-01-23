@@ -14,6 +14,7 @@ class CIVideoPreview extends StatelessWidget {
 class CIVideoPreviewController {
 // coverage:ignore-start
   static final VideoPreviewApi _gApi = VideoPreviewApi();
+
 // coverage:ignore-end
   final VideoPreviewApi _api;
   final int _textureId;
@@ -64,9 +65,16 @@ class CIVideoPreviewController {
   }
 
 // coverage:ignore-end
-  Future<void> connect(CIFilterConfiguration configuration) async {
+  Future<void> connect(
+    CIFilterConfiguration configuration, {
+    CIContext context = CIContext.system,
+  }) async {
     if (configuration.ready) {
-      await _api.connect(_textureId, configuration._filterId);
+      await _api.connect(
+        _textureId,
+        configuration._filterId,
+        context.platformKey,
+      );
     } else {
       throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }

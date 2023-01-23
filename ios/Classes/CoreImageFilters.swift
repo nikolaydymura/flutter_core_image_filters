@@ -244,7 +244,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
 
 
 extension CoreImageFilters {
-    func exportData(_ filterId: NSNumber, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
+    func exportData(_ filterId: NSNumber, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
@@ -254,7 +254,7 @@ extension CoreImageFilters {
             return nil
         }
         
-        let context = CIContext.defaultGLContext
+        let context = CIContext.selectImageContext(context)
         let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
@@ -276,7 +276,7 @@ extension CoreImageFilters {
         
     }
     
-    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         let flutterError = error
         guard let filter = filters[filterId.int64Value] else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -287,7 +287,7 @@ extension CoreImageFilters {
             return
         }
         
-        let context = CIContext.defaultGLContext
+        let context = CIContext.selectImageContext(context)
         let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             do {
@@ -306,7 +306,7 @@ extension CoreImageFilters {
         }
     }
 
-    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, completion: @escaping (FlutterError?) -> Void) {
+    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, completion: @escaping (FlutterError?) -> Void) {
 
         guard let filter = filters[filterId.int64Value] else {
             completion(FlutterError(code: "core-image-filters", message: "Filter not found", details: nil))
@@ -325,13 +325,14 @@ extension CoreImageFilters {
             #endif
         }
         let asset = AVAsset(url: URL(fileURLWithPath: path))
+        let ciContext = CIContext.selectVideoContext(context)
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
             filter.setValue(source, forKey: kCIInputImageKey)
             let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
-            request.finish(with: output ?? source, context: CIContext.defaultGLContext)
+            request.finish(with: output ?? source, context: ciContext)
         }
-        guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
+        guard let exporter = AVAssetExportSession(asset: asset, presetName: preset) else {
             completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))
             return
         }
