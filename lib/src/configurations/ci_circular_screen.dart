@@ -40,6 +40,5 @@ class CICircularScreenConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_center, _sharpness, _width];
+  List<ConfigurationParameter> get parameters => [_center, _sharpness, _width];
 }

@@ -99,7 +99,7 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters => [
-    _haloRadius,
+        _haloRadius,
         _color,
         _center,
         _striationContrast,

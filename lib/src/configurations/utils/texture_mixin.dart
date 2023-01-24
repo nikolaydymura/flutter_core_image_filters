@@ -1,8 +1,7 @@
 part of flutter_core_image_filters;
 
 mixin TextureMixin on CIFilterConfiguration {
-  final DataParameter _texture =
-      CIImageParameter('inputTexture', 'Texture');
+  final DataParameter _texture = CIImageParameter('inputTexture', 'Texture');
 
   set texture(Uint8List value) {
     _texture.data = value;
