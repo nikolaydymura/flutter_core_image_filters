@@ -60,7 +60,7 @@ void main() {
       final configuration = PassthroughFilterConfiguration(mockFilterApi);
       await configuration.prepare();
       await controller.connect(configuration);
-      verify(mockPreviewApi.connect(101, 202)).called(1);
+      verify(mockPreviewApi.connect(101, 202, 'system')).called(1);
       verify(mockFilterApi.create('Passthrough')).called(1);
     });
     testWidgets('CIVideoPreview', (widgetTester) async {

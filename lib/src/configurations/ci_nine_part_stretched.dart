@@ -13,7 +13,7 @@ class CINinePartStretchedConfiguration extends CIFilterConfiguration {
         ),
         _growAmount = CGPositionParameter(
           'inputGrowAmount',
-          'GrowAmount',
+          'Grow Amount',
           const Point(100.0, 100.0),
         ),
         _breakpoint0 = CGPositionParameter(

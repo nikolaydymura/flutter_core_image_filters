@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CITwirlDistortionConfiguration();
   });
-  group('CITwirlDistortion', skip: true, () {
+  group('CITwirlDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CITwirlDistortion');
     });

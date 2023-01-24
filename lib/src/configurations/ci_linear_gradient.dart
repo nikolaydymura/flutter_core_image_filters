@@ -9,22 +9,22 @@ class CILinearGradientConfiguration extends CIFilterConfiguration {
   CILinearGradientConfiguration()
       : _color0 = CIColorParameter(
           'inputColor0',
-          'Color0',
+          'Color 1',
           const Color.fromRGBO(255, 255, 255, 1),
         ),
         _point1 = CGPositionParameter(
           'inputPoint1',
-          'Point1',
+          'Point 1',
           const Point(200.0, 200.0),
         ),
         _point0 = CGPositionParameter(
           'inputPoint0',
-          'Point0',
+          'Point 0',
           const Point(0.0, 0.0),
         ),
         _color1 = CIColorParameter(
           'inputColor1',
-          'Color1',
+          'Color 2',
           const Color.fromRGBO(0, 0, 0, 1),
         ),
         super('CILinearGradient');

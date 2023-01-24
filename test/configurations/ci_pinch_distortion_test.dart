@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIPinchDistortionConfiguration();
   });
-  group('CIPinchDistortion', skip: true, () {
+  group('CIPinchDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CIPinchDistortion');
     });

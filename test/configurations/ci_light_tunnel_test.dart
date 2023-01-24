@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CILightTunnelConfiguration();
   });
-  group('CILightTunnel', skip: true, () {
+  group('CILightTunnel',  () {
     test('verify name', () {
       expect(configuration.name, 'CILightTunnel');
     });
@@ -18,7 +18,7 @@ void main() {
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
-      expect(parameter.value, 110);
+      expect(parameter.value, 100);
       configuration.radius = 300;
       expect(parameter.value, 300);
     });

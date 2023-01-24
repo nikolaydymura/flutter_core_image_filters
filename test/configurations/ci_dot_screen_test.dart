@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIDotScreenConfiguration();
   });
-  group('CIDotScreen', skip: true, () {
+  group('CIDotScreen',  () {
     test('verify name', () {
       expect(configuration.name, 'CIDotScreen');
     });

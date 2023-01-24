@@ -11,7 +11,7 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
   CIDrosteConfiguration()
       : _insetPoint0 = CGPositionParameter(
           'inputInsetPoint0',
-          'InsetPoint0',
+          'Inset Point 0',
           const Point(200.0, 200.0),
         ),
         _strands = SliderNSNumberParameter(
@@ -23,7 +23,7 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
         ),
         _insetPoint1 = CGPositionParameter(
           'inputInsetPoint1',
-          'InsetPoint1',
+          'Inset Point 1',
           const Point(400.0, 400.0),
         ),
         _periodicity = SliderNSNumberParameter(

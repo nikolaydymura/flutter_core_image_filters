@@ -81,7 +81,10 @@ class CIImagePreviewController {
   }) async {
     if (configuration.ready) {
       await _api.connect(
-          _textureId, configuration._filterId, context.platformKey);
+        _textureId,
+        configuration._filterId,
+        context.platformKey,
+      );
     } else {
       throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }

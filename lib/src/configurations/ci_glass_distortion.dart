@@ -1,6 +1,6 @@
 part of flutter_core_image_filters;
 
-class CIGlassDistortionConfiguration extends CIFilterConfiguration {
+class CIGlassDistortionConfiguration extends CIFilterConfiguration with TextureMixin {
   final NumberParameter _scale;
   final PointParameter _center;
 
@@ -27,5 +27,5 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_scale, _center];
+  List<ConfigurationParameter> get parameters => [_scale, _center, _texture];
 }

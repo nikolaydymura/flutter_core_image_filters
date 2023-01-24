@@ -11,27 +11,27 @@ class CIKeystoneCorrectionHorizontalConfiguration
   CIKeystoneCorrectionHorizontalConfiguration()
       : _topRight = CGPositionParameter(
           'inputTopRight',
-          'TopRight',
+          'Top Right',
           const Point(0.0, 0.0),
         ),
         _topLeft = CGPositionParameter(
           'inputTopLeft',
-          'TopLeft',
+          'Top Left',
           const Point(0.0, 0.0),
         ),
         _bottomLeft = CGPositionParameter(
           'inputBottomLeft',
-          'BottomLeft',
+          'Bottom Left',
           const Point(0.0, 0.0),
         ),
         _bottomRight = CGPositionParameter(
           'inputBottomRight',
-          'BottomRight',
+          'Bottom Right',
           const Point(0.0, 0.0),
         ),
         _focalLength = SliderNSNumberParameter(
           'inputFocalLength',
-          'FocalLength',
+          'Focal Length',
           28,
         ),
         super('CIKeystoneCorrectionHorizontal');

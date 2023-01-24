@@ -11,7 +11,7 @@ void main() {
   setUp(() {
     configuration = CICheckerboardGeneratorConfiguration();
   });
-  group('CICheckerboardGenerator', skip: true, () {
+  group('CICheckerboardGenerator', () {
     test('verify name', () {
       expect(configuration.name, 'CICheckerboardGenerator');
     });
@@ -42,7 +42,7 @@ void main() {
     test('change inputWidth', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
-      expect(parameter.value, 90);
+      expect(parameter.value, 80);
       configuration.width = 3.0;
       expect(parameter.value, 3.0);
     });

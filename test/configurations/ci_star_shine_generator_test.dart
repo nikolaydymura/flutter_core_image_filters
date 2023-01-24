@@ -11,7 +11,7 @@ void main() {
   setUp(() {
     configuration = CIStarShineGeneratorConfiguration();
   });
-  group('CIStarShineGenerator', skip: true, () {
+  group('CIStarShineGenerator', () {
     test('verify name', () {
       expect(configuration.name, 'CIStarShineGenerator');
     });

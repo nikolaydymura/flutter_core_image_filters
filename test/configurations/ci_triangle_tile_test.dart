@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CITriangleTileConfiguration();
   });
-  group('CITriangleTile', skip: true, () {
+  group('CITriangleTile',  () {
     test('verify name', () {
       expect(configuration.name, 'CITriangleTile');
     });

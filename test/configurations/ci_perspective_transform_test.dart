@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     configuration = CIPerspectiveTransformConfiguration();
   });
-  group('CIPerspectiveTransform', skip: true, () {
+  group('CIPerspectiveTransform',  () {
     test('verify name', () {
       expect(configuration.name, 'CIPerspectiveTransform');
     });

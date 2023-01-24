@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIHatchedScreenConfiguration();
   });
-  group('CIHatchedScreen', skip: true, () {
+  group('CIHatchedScreen',  () {
     test('verify name', () {
       expect(configuration.name, 'CIHatchedScreen');
     });

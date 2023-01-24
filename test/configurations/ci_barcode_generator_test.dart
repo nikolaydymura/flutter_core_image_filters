@@ -8,10 +8,10 @@ void main() {
   setUp(() {
     configuration = CIBarcodeGeneratorConfiguration();
   });
-  group('CIBarcodeGenerator', skip: true, () {
+  group('CIBarcodeGenerator', () {
     test('verify name', () {
       expect(configuration.name, 'CIBarcodeGenerator');
     });
-    testInputKeys(build: () => configuration);
+    testInputKeys(build: () => configuration, skip: true);
   });
 }

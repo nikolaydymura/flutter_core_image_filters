@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CILinearGradientConfiguration();
   });
-  group('CILinearGradient', skip: true, () {
+  group('CILinearGradient',  () {
     test('verify name', () {
       expect(configuration.name, 'CILinearGradient');
     });

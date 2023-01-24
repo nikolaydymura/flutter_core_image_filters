@@ -10,17 +10,17 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
   CIPerspectiveCorrectionConfiguration()
       : _bottomLeft = CGPositionParameter(
           'inputBottomLeft',
-          'BottomLeft',
+          'Bottom Left',
           const Point(155.0, 153.0),
         ),
         _topRight = CGPositionParameter(
           'inputTopRight',
-          'TopRight',
+          'Top Right',
           const Point(646.0, 507.0),
         ),
         _topLeft = CGPositionParameter(
           'inputTopLeft',
-          'TopLeft',
+          'Top Left',
           const Point(118.0, 484.0),
         ),
         _crop = SliderNSNumberParameter(
@@ -30,7 +30,7 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
         ),
         _bottomRight = CGPositionParameter(
           'inputBottomRight',
-          'BottomRight',
+          'Bottom Right',
           const Point(548.0, 140.0),
         ),
         super('CIPerspectiveCorrection');

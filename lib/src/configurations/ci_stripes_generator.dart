@@ -29,12 +29,12 @@ class CIStripesGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _color0 = CIColorParameter(
           'inputColor0',
-          'Color0',
+          'Color 1',
           const Color.fromRGBO(255, 255, 255, 1),
         ),
         _color1 = CIColorParameter(
           'inputColor1',
-          'Color1',
+          'Color 2',
           const Color.fromRGBO(0, 0, 0, 1),
         ),
         super('CIStripesGenerator');

@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIVignetteEffectConfiguration();
   });
-  group('CIVignetteEffect', skip: true, () {
+  group('CIVignetteEffect',  () {
     test('verify name', () {
       expect(configuration.name, 'CIVignetteEffect');
     });

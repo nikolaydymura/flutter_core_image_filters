@@ -11,12 +11,12 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
   CIDepthOfFieldConfiguration()
       : _point1 = CGPositionParameter(
           'inputPoint1',
-          'Point1',
+          'Point 1',
           const Point(300.0, 300.0),
         ),
         _unsharpMaskRadius = SliderNSNumberParameter(
           'inputUnsharpMaskRadius',
-          'UnsharpMaskRadius',
+          'Unsharp Mask Radius',
           2.5,
           min: 0,
           max: 10,
@@ -37,14 +37,14 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
         ),
         _unsharpMaskIntensity = SliderNSNumberParameter(
           'inputUnsharpMaskIntensity',
-          'UnsharpMaskIntensity',
+          'Unsharp Mask Intensity',
           0.5,
           min: 0,
           max: 10,
         ),
         _point0 = CGPositionParameter(
           'inputPoint0',
-          'Point0',
+          'Point 0',
           const Point(0, 300.0),
         ),
         super('CIDepthOfField');

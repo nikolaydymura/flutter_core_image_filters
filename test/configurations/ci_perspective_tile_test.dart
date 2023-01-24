@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     configuration = CIPerspectiveTileConfiguration();
   });
-  group('CIPerspectiveTile', skip: true, () {
+  group('CIPerspectiveTile', () {
     test('verify name', () {
       expect(configuration.name, 'CIPerspectiveTile');
     });

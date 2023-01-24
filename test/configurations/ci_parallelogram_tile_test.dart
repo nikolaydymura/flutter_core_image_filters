@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIParallelogramTileConfiguration();
   });
-  group('CIParallelogramTile', skip: true, () {
+  group('CIParallelogramTile',  () {
     test('verify name', () {
       expect(configuration.name, 'CIParallelogramTile');
     });

@@ -4,8 +4,11 @@ import 'package:flutter_test/flutter_test.dart';
 
 import 'input_keys_metadata.dart';
 
-void testInputKeys({required CIFilterConfiguration Function() build}) {
-  test('verify inputKeys', () {
+void testInputKeys({
+  required CIFilterConfiguration Function() build,
+  bool skip = false,
+}) {
+  test('verify inputKeys', skip: skip, () {
     final configuration = build();
     final parameters =
         configuration.parameters.map((e) => e.name).toSet().sorted();

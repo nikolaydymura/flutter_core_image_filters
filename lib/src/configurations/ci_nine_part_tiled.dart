@@ -19,14 +19,14 @@ class CINinePartTiledConfiguration extends CIFilterConfiguration {
         ),
         _flipYTiles = SliderNSNumberParameter(
           'inputFlipYTiles',
-          'FlipYTiles',
+          'Flip Y Tiles',
           1,
           min: 0,
           max: 1,
         ),
         _growAmount = CGPositionParameter(
           'inputGrowAmount',
-          'GrowAmount',
+          'Grow Amount',
           const Point(100.0, 100.0),
         ),
         super('CINinePartTiled');

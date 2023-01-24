@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICrystallizeConfiguration();
   });
-  group('CICrystallize', skip: true, () {
+  group('CICrystallize',  () {
     test('verify name', () {
       expect(configuration.name, 'CICrystallize');
     });
@@ -19,7 +19,7 @@ void main() {
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
-      expect(parameter.value, 1);
+      expect(parameter.value, 20);
       configuration.radius = 50;
       expect(parameter.value, 50);
     });

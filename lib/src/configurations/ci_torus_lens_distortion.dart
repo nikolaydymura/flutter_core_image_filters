@@ -28,7 +28,7 @@ class CITorusLensDistortionConfiguration extends CIFilterConfiguration {
         ),
         _radius = SliderNSNumberParameter(
           'inputRadius',
-          'tRadius',
+          'Radius',
           160,
           min: 0,
           max: 500,

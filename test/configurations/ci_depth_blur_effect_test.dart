@@ -12,11 +12,11 @@ void main() {
   setUp(() {
     configuration = CIDepthBlurEffectConfiguration();
   });
-  group('CIDepthBlurEffect', skip: true, () {
+  group('CIDepthBlurEffect', () {
     test('verify name', () {
       expect(configuration.name, 'CIDepthBlurEffect');
     });
-    testInputKeys(build: () => configuration);
+    testInputKeys(build: () => configuration, skip: true);
     test('change inputChinPositions', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputChinPositions')

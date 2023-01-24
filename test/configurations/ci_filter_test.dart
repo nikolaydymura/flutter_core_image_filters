@@ -43,10 +43,10 @@ void main() {
     group('exportData', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportData(101, 'jpeg')).thenAnswer(
+        when(mockFilterApi.exportData(101, 'jpeg', 'system')).thenAnswer(
           (_) async => File('example/images/demo.jpeg').readAsBytesSync(),
         );
-        when(mockFilterApi.exportData(101, 'png')).thenAnswer(
+        when(mockFilterApi.exportData(101, 'png', 'system')).thenAnswer(
           (_) async => File('example/images/demo.jpeg').readAsBytesSync(),
         );
       });
@@ -61,7 +61,7 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputAsset(101, asset));
-        verify(mockFilterApi.exportData(101, 'jpeg')).called(1);
+        verify(mockFilterApi.exportData(101, 'jpeg', 'system')).called(1);
       });
       test('export from data', () async {
         final data = Uint8List.fromList([]);
@@ -69,7 +69,7 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputData(101, data));
-        verify(mockFilterApi.exportData(101, 'png')).called(1);
+        verify(mockFilterApi.exportData(101, 'png', 'system')).called(1);
       });
       test('export from file', () async {
         final file = File('demo.jpeg');
@@ -77,15 +77,15 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputFile(101, file.absolute.path));
-        verify(mockFilterApi.exportData(101, 'jpeg')).called(1);
+        verify(mockFilterApi.exportData(101, 'jpeg', 'system')).called(1);
       });
     });
     group('exportImageFile', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportImageFile(101, any, 'jpeg'))
+        when(mockFilterApi.exportImageFile(101, any, 'jpeg', 'system'))
             .thenAnswer((_) async {});
-        when(mockFilterApi.exportImageFile(101, any, 'png'))
+        when(mockFilterApi.exportImageFile(101, any, 'png', 'system'))
             .thenAnswer((_) async {});
       });
       tearDown(() async {
@@ -99,8 +99,14 @@ void main() {
         final config = ImageExportConfig(AssetInputSource(asset), output);
         await configuration.exportImageFile(config);
         verify(mockFilterApi.setInputAsset(101, asset));
-        verify(mockFilterApi.exportImageFile(101, output.absolute.path, 'jpeg'))
-            .called(1);
+        verify(
+          mockFilterApi.exportImageFile(
+            101,
+            output.absolute.path,
+            'jpeg',
+            'system',
+          ),
+        ).called(1);
       });
       test('export from data', () async {
         final data = Uint8List.fromList([]);
@@ -108,24 +114,36 @@ void main() {
         final config = ImageExportConfig(DataInputSource(data), output);
         await configuration.exportImageFile(config);
         verify(mockFilterApi.setInputData(101, data));
-        verify(mockFilterApi.exportImageFile(101, output.absolute.path, 'png'))
-            .called(1);
+        verify(
+          mockFilterApi.exportImageFile(
+            101,
+            output.absolute.path,
+            'png',
+            'system',
+          ),
+        ).called(1);
       });
       test('export from file', () async {
         final file = File('demo.jpeg');
         final config = ImageExportConfig(FileInputSource(file), file);
         await configuration.exportImageFile(config);
         verify(mockFilterApi.setInputFile(101, file.absolute.path));
-        verify(mockFilterApi.exportImageFile(101, file.absolute.path, 'jpeg'))
-            .called(1);
+        verify(
+          mockFilterApi.exportImageFile(
+            101,
+            file.absolute.path,
+            'jpeg',
+            'system',
+          ),
+        ).called(1);
       });
     });
     group('exportVideoFile', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportImageFile(101, any, 'mov'))
+        when(mockFilterApi.exportImageFile(101, any, 'mov', 'system'))
             .thenAnswer((_) async {});
-        when(mockFilterApi.exportImageFile(101, any, 'mp4'))
+        when(mockFilterApi.exportImageFile(101, any, 'mp4', 'system'))
             .thenAnswer((_) async {});
       });
       tearDown(() async {
@@ -145,6 +163,8 @@ void main() {
             'demo.mov',
             output.absolute.path,
             'mov',
+            'system',
+            'AVAssetExportPresetHighestQuality',
           ),
         ).called(1);
       });
@@ -159,6 +179,8 @@ void main() {
             file.absolute.path,
             file.absolute.path,
             'mp4',
+            'system',
+            'AVAssetExportPresetHighestQuality',
           ),
         ).called(1);
       });

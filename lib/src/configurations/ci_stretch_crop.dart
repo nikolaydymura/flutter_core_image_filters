@@ -8,14 +8,14 @@ class CIStretchCropConfiguration extends CIFilterConfiguration {
   CIStretchCropConfiguration()
       : _centerStretchAmount = SliderNSNumberParameter(
           'inputCenterStretchAmount',
-          'CenterStretchAmount',
+          'Center Stretch Amount',
           0.25,
           min: 0,
           max: 1,
         ),
         _cropAmount = SliderNSNumberParameter(
           'inputCropAmount',
-          'CropAmount',
+          'Crop Amount',
           0.25,
           min: 0,
           max: 1,

@@ -1,7 +1,7 @@
 part of flutter_core_image_filters;
 
 class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
-  final NumberParameter _radius;
+  final NumberParameter _haloRadius;
   final ColorParameter _color;
   final PointParameter _center;
   final NumberParameter _striationContrast;
@@ -11,9 +11,9 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _haloWidth;
 
   CILenticularHaloGeneratorConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
+      : _haloRadius = SliderNSNumberParameter(
+          'inputHaloRadius',
+          'Halo Radius',
           70,
           min: 0,
           max: 1000,
@@ -30,14 +30,14 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _striationContrast = SliderNSNumberParameter(
           'inputStriationContrast',
-          'StriationContrast',
+          'Striation Contrast',
           1,
           min: 0,
           max: 5,
         ),
         _haloOverlap = SliderNSNumberParameter(
           'inputHaloOverlap',
-          'HaloOverlap',
+          'Halo Overlap',
           0.77,
           min: 0,
           max: 1,
@@ -51,21 +51,22 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _striationStrength = SliderNSNumberParameter(
           'inputStriationStrength',
-          'StriationStrength',
+          'Striation Strength',
           0.5,
           min: 0,
           max: 3,
         ),
         _haloWidth = SliderNSNumberParameter(
           'inputHaloWidth',
-          'HaloWidth',
+          'Halo Width',
           87,
           min: 0,
           max: 300,
         ),
         super('CILenticularHaloGenerator');
-  set radius(double value) {
-    _radius.value = value;
+
+  set haloRadius(double value) {
+    _haloRadius.value = value;
   }
 
   set color(Color value) {
@@ -98,13 +99,14 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _radius,
+    _haloRadius,
         _color,
         _center,
         _striationContrast,
         _haloOverlap,
         _time,
         _striationStrength,
-        _haloWidth
+        _haloWidth,
+        _haloRadius,
       ];
 }

@@ -99,11 +99,19 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     switch (format) {
       case ImageExportFormat.png:
         await _api.exportImageFile(
-            _filterId, output.absolute.path, 'png', context.platformKey);
+          _filterId,
+          output.absolute.path,
+          'png',
+          context.platformKey,
+        );
         break;
       case ImageExportFormat.jpeg:
         await _api.exportImageFile(
-            _filterId, output.absolute.path, 'jpeg', context.platformKey);
+          _filterId,
+          output.absolute.path,
+          'jpeg',
+          context.platformKey,
+        );
         break;
       default:
         break;

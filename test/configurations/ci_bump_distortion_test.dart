@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIBumpDistortionConfiguration();
   });
-  group('CIBumpDistortion', skip: true, () {
+  group('CIBumpDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CIBumpDistortion');
     });

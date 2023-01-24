@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICMYKHalftoneConfiguration();
   });
-  group('CICMYKHalftone', skip: true, () {
+  group('CICMYKHalftone',  () {
     test('verify name', () {
       expect(configuration.name, 'CICMYKHalftone');
     });

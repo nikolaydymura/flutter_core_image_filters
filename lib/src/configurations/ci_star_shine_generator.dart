@@ -20,7 +20,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _crossAngle = SliderNSNumberParameter(
           'inputCrossAngle',
-          'CrossAngle',
+          'Cross Angle',
           0.6,
           min: -3.141592653589793,
           max: 3.141592653589793,
@@ -34,14 +34,14 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _crossScale = SliderNSNumberParameter(
           'inputCrossScale',
-          'CrossScale',
+          'Cross Scale',
           15,
           min: 0,
           max: 100,
         ),
         _crossOpacity = SliderNSNumberParameter(
           'inputCrossOpacity',
-          'CrossOpacity',
+          'Cross Opacity',
           -2,
           min: -8,
           max: 0,
@@ -53,7 +53,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _crossWidth = SliderNSNumberParameter(
           'inputCrossWidth',
-          'CrossWidth',
+          'Cross Width',
           2.5,
           min: 0.5,
           max: 10,

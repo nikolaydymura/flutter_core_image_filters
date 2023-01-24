@@ -11,7 +11,7 @@ void main() {
   setUp(() {
     configuration = CISunbeamsGeneratorConfiguration();
   });
-  group('CISunbeamsGenerator', skip: true, () {
+  group('CISunbeamsGenerator',  () {
     test('verify name', () {
       expect(configuration.name, 'CISunbeamsGenerator');
     });

@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIModTransitionConfiguration extends CIFilterConfiguration {
+class CIModTransitionConfiguration extends CIFilterConfiguration
+    with TargetImageMixin {
   final NumberParameter _angle;
   final NumberParameter _compression;
   final NumberParameter _time;
@@ -42,6 +43,7 @@ class CIModTransitionConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIModTransition');
+
   set angle(double value) {
     _angle.value = value;
   }
@@ -64,5 +66,5 @@ class CIModTransitionConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_angle, _compression, _time, _radius, _center];
+      [_angle, _compression, _time, _targetImage, _radius, _center];
 }

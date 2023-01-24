@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIOpTileConfiguration();
   });
-  group('CIOpTile', skip: true, () {
+  group('CIOpTile', () {
     test('verify name', () {
       expect(configuration.name, 'CIOpTile');
     });

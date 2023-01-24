@@ -17,7 +17,7 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _striationContrast = SliderNSNumberParameter(
           'inputStriationContrast',
-          'StriationContrast',
+          'Striation Contrast',
           1.375,
           min: 0,
           max: 5,
@@ -31,21 +31,21 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         ),
         _striationStrength = SliderNSNumberParameter(
           'inputStriationStrength',
-          'StriationStrength',
+          'Striation Strength',
           0.5,
           min: 0,
           max: 3,
         ),
         _maxStriationRadius = SliderNSNumberParameter(
           'inputMaxStriationRadius',
-          'MaxStriationRadius',
+          'Maximum Striation Radius',
           2.58,
           min: 0,
           max: 10,
         ),
         _sunRadius = SliderNSNumberParameter(
           'inputSunRadius',
-          'SunRadius',
+          'Sun Radius',
           40,
           min: 0,
           max: 800,

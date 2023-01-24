@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICircleSplashDistortionConfiguration();
   });
-  group('CICircleSplashDistortion', skip: true, () {
+  group('CICircleSplashDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CICircleSplashDistortion');
     });

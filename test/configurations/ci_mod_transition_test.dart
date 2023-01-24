@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIModTransitionConfiguration();
   });
-  group('CIModTransition', skip: true, () {
+  group('CIModTransition', () {
     test('verify name', () {
       expect(configuration.name, 'CIModTransition');
     });

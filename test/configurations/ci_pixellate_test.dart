@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIPixellateConfiguration();
   });
-  group('CIPixellate', skip: true, () {
+  group('CIPixellate',  () {
     test('verify name', () {
       expect(configuration.name, 'CIPixellate');
     });

@@ -43,6 +43,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
   _i3.Future<_i4.Uint8List> exportData(
     int? arg_filterId,
     String? arg_format,
+    String? arg_context,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -50,6 +51,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
           [
             arg_filterId,
             arg_format,
+            arg_context,
           ],
         ),
         returnValue: _i3.Future<_i4.Uint8List>.value(_i4.Uint8List(0)),
@@ -59,6 +61,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
     int? arg_filterId,
     String? arg_path,
     String? arg_format,
+    String? arg_context,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -67,6 +70,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
             arg_filterId,
             arg_path,
             arg_format,
+            arg_context,
           ],
         ),
         returnValue: _i3.Future<void>.value(),
@@ -79,6 +83,8 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
     String? arg_input,
     String? arg_output,
     String? arg_format,
+    String? arg_context,
+    String? arg_preset,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -89,6 +95,8 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
             arg_input,
             arg_output,
             arg_format,
+            arg_context,
+            arg_preset,
           ],
         ),
         returnValue: _i3.Future<void>.value(),
@@ -303,6 +311,7 @@ class MockImagePreviewApi extends _i1.Mock implements _i5.ImagePreviewApi {
   _i3.Future<void> connect(
     int? arg_textureId,
     int? arg_filterId,
+    String? arg_context,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -310,6 +319,7 @@ class MockImagePreviewApi extends _i1.Mock implements _i5.ImagePreviewApi {
           [
             arg_textureId,
             arg_filterId,
+            arg_context,
           ],
         ),
         returnValue: _i3.Future<void>.value(),
@@ -375,6 +385,7 @@ class MockVideoPreviewApi extends _i1.Mock implements _i5.VideoPreviewApi {
   _i3.Future<void> connect(
     int? arg_textureId,
     int? arg_filterId,
+    String? arg_context,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -382,6 +393,7 @@ class MockVideoPreviewApi extends _i1.Mock implements _i5.VideoPreviewApi {
           [
             arg_textureId,
             arg_filterId,
+            arg_context,
           ],
         ),
         returnValue: _i3.Future<void>.value(),

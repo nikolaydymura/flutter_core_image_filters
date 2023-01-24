@@ -9,7 +9,7 @@ class CIFourfoldReflectedTileConfiguration extends CIFilterConfiguration {
   CIFourfoldReflectedTileConfiguration()
       : _acuteAngle = SliderNSNumberParameter(
           'inputAcuteAngle',
-          'AcuteAngle',
+          'Acute Angle',
           1.570796326794897,
           min: -3.141592653589793,
           max: 3.141592653589793,

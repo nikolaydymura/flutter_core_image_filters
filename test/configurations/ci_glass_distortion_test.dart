@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIGlassDistortionConfiguration();
   });
-  group('CIGlassDistortion', skip: true, () {
+  group('CIGlassDistortion', () {
     test('verify name', () {
       expect(configuration.name, 'CIGlassDistortion');
     });

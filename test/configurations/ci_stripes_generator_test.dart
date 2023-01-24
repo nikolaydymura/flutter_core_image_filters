@@ -11,7 +11,7 @@ void main() {
   setUp(() {
     configuration = CIStripesGeneratorConfiguration();
   });
-  group('CIStripesGenerator', skip: true, () {
+  group('CIStripesGenerator',  () {
     test('verify name', () {
       expect(configuration.name, 'CIStripesGenerator');
     });

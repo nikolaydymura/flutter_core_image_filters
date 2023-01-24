@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CISmoothLinearGradientConfiguration();
   });
-  group('CISmoothLinearGradient', skip: true, () {
+  group('CISmoothLinearGradient', () {
     test('verify name', () {
       expect(configuration.name, 'CISmoothLinearGradient');
     });

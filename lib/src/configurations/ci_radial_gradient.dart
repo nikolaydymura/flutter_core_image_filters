@@ -10,14 +10,14 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
   CIRadialGradientConfiguration()
       : _radius1 = SliderNSNumberParameter(
           'inputRadius1',
-          'Radius1',
+          'Radius 2',
           100,
           min: 0,
           max: 800,
         ),
         _color0 = CIColorParameter(
           'inputColor0',
-          'Color0',
+          'Color 1',
           const Color.fromRGBO(255, 255, 255, 1),
         ),
         _center = CGPositionParameter(
@@ -27,14 +27,14 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
         ),
         _radius0 = SliderNSNumberParameter(
           'inputRadius0',
-          'Radius0',
+          'Radius 1',
           5,
           min: 0,
           max: 800,
         ),
         _color1 = CIColorParameter(
           'inputColor1',
-          'Color1',
+          'Color 2',
           const Color.fromRGBO(0, 0, 0, 1),
         ),
         super('CIRadialGradient');

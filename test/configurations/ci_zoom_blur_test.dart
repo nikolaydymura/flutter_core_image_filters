@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIZoomBlurConfiguration();
   });
-  group('CIZoomBlur', skip: true, () {
+  group('CIZoomBlur',  () {
     test('verify name', () {
       expect(configuration.name, 'CIZoomBlur');
     });

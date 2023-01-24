@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIRadialGradientConfiguration();
   });
-  group('CIRadialGradient', skip: true, () {
+  group('CIRadialGradient',  () {
     test('verify name', () {
       expect(configuration.name, 'CIRadialGradient');
     });

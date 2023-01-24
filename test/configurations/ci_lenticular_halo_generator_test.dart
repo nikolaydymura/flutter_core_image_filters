@@ -11,16 +11,16 @@ void main() {
   setUp(() {
     configuration = CILenticularHaloGeneratorConfiguration();
   });
-  group('CILenticularHaloGenerator', skip: true, () {
+  group('CILenticularHaloGenerator', () {
     test('verify name', () {
       expect(configuration.name, 'CILenticularHaloGenerator');
     });
     testInputKeys(build: () => configuration);
-    test('change inputRadius', () {
+    test('change inputHaloRadius', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+          .firstWhere((e) => e.name == 'inputHaloRadius') as NumberParameter;
       expect(parameter.value, 70);
-      configuration.radius = 500;
+      configuration.haloRadius = 500;
       expect(parameter.value, 500);
     });
 

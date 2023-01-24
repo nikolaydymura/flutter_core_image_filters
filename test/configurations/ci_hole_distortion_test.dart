@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIHoleDistortionConfiguration();
   });
-  group('CIHoleDistortion', skip: true, () {
+  group('CIHoleDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CIHoleDistortion');
     });

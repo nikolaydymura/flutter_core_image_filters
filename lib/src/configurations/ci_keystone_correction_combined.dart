@@ -2,6 +2,7 @@ part of flutter_core_image_filters;
 
 class CIKeystoneCorrectionCombinedConfiguration extends CIFilterConfiguration {
   final PointParameter _topRight;
+  final PointParameter _topLeft;
   final PointParameter _bottomLeft;
   final PointParameter _bottomRight;
   final NumberParameter _focalLength;
@@ -9,28 +10,37 @@ class CIKeystoneCorrectionCombinedConfiguration extends CIFilterConfiguration {
   CIKeystoneCorrectionCombinedConfiguration()
       : _topRight = CGPositionParameter(
           'inputTopRight',
-          'TopRight',
+          'Top Right',
+          const Point(0.0, 0.0),
+        ),
+        _topLeft = CGPositionParameter(
+          'inputTopLeft',
+          'Top Left',
           const Point(0.0, 0.0),
         ),
         _bottomLeft = CGPositionParameter(
           'inputBottomLeft',
-          'BottomLeft',
+          'Bottom Left',
           const Point(0.0, 0.0),
         ),
         _bottomRight = CGPositionParameter(
           'inputBottomRight',
-          'BottomRight',
+          'Bottom Right',
           const Point(0.0, 0.0),
         ),
         _focalLength = SliderNSNumberParameter(
           'inputFocalLength',
-          'FocalLength',
+          'Focal Length',
           28,
         ),
         super('CIKeystoneCorrectionCombined');
 
   set topRight(Point<double> value) {
     _topRight.value = value;
+  }
+
+  set topLeft(Point<double> value) {
+    _topLeft.value = value;
   }
 
   set bottomLeft(Point<double> value) {
@@ -47,5 +57,5 @@ class CIKeystoneCorrectionCombinedConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_topRight, _bottomLeft, _bottomRight, _focalLength];
+      [_topRight, _topLeft, _bottomLeft, _bottomRight, _focalLength];
 }

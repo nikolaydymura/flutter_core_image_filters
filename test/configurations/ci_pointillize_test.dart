@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIPointillizeConfiguration();
   });
-  group('CIPointillize', skip: true, () {
+  group('CIPointillize', () {
     test('verify name', () {
       expect(configuration.name, 'CIPointillize');
     });

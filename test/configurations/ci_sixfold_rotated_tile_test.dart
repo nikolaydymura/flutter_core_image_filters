@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CISixfoldRotatedTileConfiguration();
   });
-  group('CISixfoldRotatedTile', skip: true, () {
+  group('CISixfoldRotatedTile',  () {
     test('verify name', () {
       expect(configuration.name, 'CISixfoldRotatedTile');
     });

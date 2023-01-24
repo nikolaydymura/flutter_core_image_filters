@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICircularWrapConfiguration();
   });
-  group('CICircularWrap', skip: true, () {
+  group('CICircularWrap',  () {
     test('verify name', () {
       expect(configuration.name, 'CICircularWrap');
     });

@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CITorusLensDistortionConfiguration();
   });
-  group('CITorusLensDistortion', skip: true, () {
+  group('CITorusLensDistortion',  () {
     test('verify name', () {
       expect(configuration.name, 'CITorusLensDistortion');
     });

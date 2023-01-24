@@ -6,18 +6,19 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
   final NumberParameter _width;
   final PointParameter _center;
   final NumberParameter _angle;
+  final NumberParameter _sharpness;
 
   CICMYKHalftoneConfiguration()
       : _gCR = SliderNSNumberParameter(
           'inputGCR',
-          'GCR',
+          'Gray Component Replacement',
           1,
           min: 0,
           max: 1,
         ),
         _uCR = SliderNSNumberParameter(
           'inputUCR',
-          'UCR',
+          'Under Color Removal',
           0.5,
           min: 0,
           max: 1,
@@ -41,6 +42,13 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
           min: -3.141592653589793,
           max: 3.141592653589793,
         ),
+        _sharpness = SliderNSNumberParameter(
+          'inputSharpness',
+          'Sharpness',
+          0.7,
+          min: 0.0,
+          max: 1,
+        ),
         super('CICMYKHalftone');
 
   set gCR(double value) {
@@ -63,7 +71,11 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
     _angle.value = value;
   }
 
+  set sharpness(double value) {
+    _sharpness.value = value;
+  }
+
   @override
   List<ConfigurationParameter> get parameters =>
-      [_gCR, _uCR, _width, _center, _angle];
+      [_gCR, _uCR, _width, _center, _angle, _sharpness];
 }
