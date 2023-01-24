@@ -106,6 +106,21 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
     }
     
+    func setNSValueParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+    }
+    
     func setCIImageDataParameter(_ filterId: NSNumber, _ key: String, _ data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
