@@ -46,6 +46,9 @@ abstract class FilterApi {
   @ObjCSelector('setCIColorParameter: : :')
   void setCIColorParameter(int filterId, String key, List<double?> value);
 
+  @ObjCSelector('setNSValueParameter: : :')
+  void setNSValueParameter(int filterId, String key, List<double?> value);
+
   @ObjCSelector('setCIVectorParameter: : :')
   void setCIVectorParameter(int filterId, String key, List<double?> value);
 

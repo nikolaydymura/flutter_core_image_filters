@@ -16,6 +16,7 @@ part 'src/ci_image_preview.dart';
 part 'src/ci_video_preview.dart';
 part 'src/configurations/ci_accordion_fold_transition.dart';
 part 'src/configurations/ci_addition_compositing.dart';
+part 'src/configurations/ci_affine_clamp.dart';
 part 'src/configurations/ci_area_average.dart';
 part 'src/configurations/ci_area_histogram.dart';
 part 'src/configurations/ci_area_logarithmic_histogram.dart';
@@ -61,6 +62,7 @@ part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
+part 'src/configurations/ci_convolution_3x3.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -93,8 +95,8 @@ part 'src/configurations/ci_gaussian_blur.dart';
 part 'src/configurations/ci_gaussian_gradient.dart';
 part 'src/configurations/ci_glass_distortion.dart';
 part 'src/configurations/ci_glass_lozenge.dart';
-part 'src/configurations/ci_gloom.dart';
 part 'src/configurations/ci_glide_reflected_tile.dart';
+part 'src/configurations/ci_gloom.dart';
 part 'src/configurations/ci_guided_filter.dart';
 part 'src/configurations/ci_hard_light_blend_mode.dart';
 part 'src/configurations/ci_hatched_screen.dart';
@@ -113,10 +115,10 @@ part 'src/configurations/ci_keystone_correction_vertical.dart';
 part 'src/configurations/ci_lab_delta_e.dart';
 part 'src/configurations/ci_lanczos_scale_transform.dart';
 part 'src/configurations/ci_lenticular_halo_generator.dart';
+part 'src/configurations/ci_light_tunnel.dart';
 part 'src/configurations/ci_lighten_blend_mode.dart';
 part 'src/configurations/ci_line_overlay.dart';
 part 'src/configurations/ci_line_screen.dart';
-part 'src/configurations/ci_light_tunnel.dart';
 part 'src/configurations/ci_linear_burn_blend_mode.dart';
 part 'src/configurations/ci_linear_dodge_blend_mode.dart';
 part 'src/configurations/ci_linear_gradient.dart';
@@ -146,11 +148,11 @@ part 'src/configurations/ci_palette_centroid.dart';
 part 'src/configurations/ci_palettize.dart';
 part 'src/configurations/ci_parallelogram_tile.dart';
 part 'src/configurations/ci_pdf417_barcode_generator.dart';
-part 'src/configurations/ci_perspective_rotate.dart';
 part 'src/configurations/ci_perspective_correction.dart';
+part 'src/configurations/ci_perspective_rotate.dart';
 part 'src/configurations/ci_perspective_tile.dart';
-part 'src/configurations/ci_perspective_transform_with_extent.dart';
 part 'src/configurations/ci_perspective_transform.dart';
+part 'src/configurations/ci_perspective_transform_with_extent.dart';
 part 'src/configurations/ci_pin_light_blend_mode.dart';
 part 'src/configurations/ci_pinch_distortion.dart';
 part 'src/configurations/ci_pixellate.dart';
@@ -189,8 +191,8 @@ part 'src/configurations/ci_twelvefold_reflected_tile.dart';
 part 'src/configurations/ci_twirl_distortion.dart';
 part 'src/configurations/ci_unsharp_mask.dart';
 part 'src/configurations/ci_vibrance.dart';
-part 'src/configurations/ci_vignette_effect.dart';
 part 'src/configurations/ci_vignette.dart';
+part 'src/configurations/ci_vignette_effect.dart';
 part 'src/configurations/ci_vortex_distortion.dart';
 part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/ci_zoom_blur.dart';
@@ -211,10 +213,12 @@ part 'src/configurations/utils/texture_mixin.dart';
 part 'src/configurations/without_parameters.dart';
 part 'src/context/av_export_preset.dart';
 part 'src/context/ci_context.dart';
+part 'src/parameters/cg_affine_transform_parameter.dart';
 part 'src/parameters/cg_position_parameter.dart';
 part 'src/parameters/cg_rect_parameter.dart';
 part 'src/parameters/ci_color_parameter.dart';
 part 'src/parameters/ci_image_parameter.dart';
+part 'src/parameters/ci_vector_parameter.dart';
 part 'src/parameters/ns_bool_parameter.dart';
 part 'src/parameters/ns_data_parameter.dart';
 part 'src/parameters/ns_number_parameter.dart';
@@ -439,6 +443,8 @@ class FlutterCoreImageFilters {
     'Vignette Effect': () => CIVignetteEffectConfiguration(),
     'Vortex Distortion': () => CIVortexDistortionConfiguration(),
     'Zoom Blur': () => CIZoomBlurConfiguration(),
+    'Affine Clamp': () => CIAffineClampConfiguration(),
+    '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {

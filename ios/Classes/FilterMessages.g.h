@@ -25,6 +25,7 @@ NSObject<FlutterMessageCodec> *FLTFilterApiGetCodec(void);
 - (void)setInputFile:(NSNumber *)filterId  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setNSNumberParameter:(NSNumber *)filterId  :(NSString *)key  :(NSNumber *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIColorParameter:(NSNumber *)filterId  :(NSString *)key  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setNSValueParameter:(NSNumber *)filterId  :(NSString *)key  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIVectorParameter:(NSNumber *)filterId  :(NSString *)key  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIImageDataParameter:(NSNumber *)filterId  :(NSString *)key  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIImageSourceParameter:(NSNumber *)filterId  :(NSString *)key  :(NSNumber *)asset  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
