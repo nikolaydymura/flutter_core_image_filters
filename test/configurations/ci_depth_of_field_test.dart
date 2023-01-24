@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIDepthOfFieldConfiguration();
   });
-  group('CIDepthOfField',  () {
+  group('CIDepthOfField', () {
     test('verify name', () {
       expect(configuration.name, 'CIDepthOfField');
     });

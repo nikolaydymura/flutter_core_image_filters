@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     configuration = CINinePartStretchedConfiguration();
   });
-  group('CINinePartStretched',  () {
+  group('CINinePartStretched', () {
     test('verify name', () {
       expect(configuration.name, 'CINinePartStretched');
     });

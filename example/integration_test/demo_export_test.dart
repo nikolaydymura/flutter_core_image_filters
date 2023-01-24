@@ -10,6 +10,8 @@ import 'package:path_provider/path_provider.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
   final inputSource = AssetInputSource('images/demo.jpeg');
+  const demosFolder =
+      '/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos';
   late final Directory tmpDirectory;
   setUpAll(() async {
     tmpDirectory = await getTemporaryDirectory();
@@ -22,9 +24,6 @@ void main() {
       }
       final configuration =
           FlutterCoreImageFilters.createFilter(displayName: name);
-      if (configuration == null) {
-        continue;
-      }
       try {
         await configuration.prepare();
         final watch = Stopwatch();
@@ -50,14 +49,13 @@ void main() {
           'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
         );
         debugPrint('Exported: ${output.absolute}');
-        await output.copy(
-            '/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos/$name.jpeg');
+        await output.copy('$demosFolder/$name.jpeg');
       } finally {
         await configuration.dispose();
       }
     }
   });
-  test('export video', skip: true, () async {
+  test('export video', () async {
     final configuration = CIPhotoEffectNoirConfiguration();
     try {
       await configuration.prepare();
@@ -71,8 +69,7 @@ void main() {
         'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
       );
       debugPrint('Exported: ${output.absolute}');
-      await output.copy(
-          '/Users/nd/IdeaProjects/home/flutter_gpu_filters/image_filters_example/gpu_flutter_dependencies/flutter_core_image_filters/demos/${configuration.name}.mp4');
+      await output.copy('$demosFolder/${configuration.name}.mp4');
     } finally {
       await configuration.dispose();
     }

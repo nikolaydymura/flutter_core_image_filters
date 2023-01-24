@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIGlideReflectedTileConfiguration();
   });
-  group('CIGlideReflectedTile',  () {
+  group('CIGlideReflectedTile', () {
     test('verify name', () {
       expect(configuration.name, 'CIGlideReflectedTile');
     });

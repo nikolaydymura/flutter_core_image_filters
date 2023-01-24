@@ -51,8 +51,7 @@ void main() {
   group('inputTargetImage', () {
     test('change data', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTargetImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputTargetImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -64,8 +63,7 @@ void main() {
     });
     test('change asset', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTargetImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputTargetImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -77,8 +75,7 @@ void main() {
     });
     test('change file', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTargetImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputTargetImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);

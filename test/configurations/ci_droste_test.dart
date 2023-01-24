@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIDrosteConfiguration();
   });
-  group('CIDroste',  () {
+  group('CIDroste', () {
     test('verify name', () {
       expect(configuration.name, 'CIDroste');
     });

@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIEightfoldReflectedTileConfiguration();
   });
-  group('CIEightfoldReflectedTile',  () {
+  group('CIEightfoldReflectedTile', () {
     test('verify name', () {
       expect(configuration.name, 'CIEightfoldReflectedTile');
     });

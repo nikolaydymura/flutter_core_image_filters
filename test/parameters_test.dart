@@ -39,7 +39,8 @@ void main() {
     parameter.value = const Rect.fromLTWH(0, 0, 200, 100);
     await parameter.update(configuration);
     verify(
-      mockFilterApi.setCIVectorParameter(101, 'inputValue', [0.0, 0.0, 200.0, 100.0]),
+      mockFilterApi
+          .setCIVectorParameter(101, 'inputValue', [0.0, 0.0, 200.0, 100.0]),
     );
   });
   test('CIColorParameter', () async {

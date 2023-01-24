@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     configuration = CIPerspectiveCorrectionConfiguration();
   });
-  group('CIPerspectiveCorrection',  () {
+  group('CIPerspectiveCorrection', () {
     test('verify name', () {
       expect(configuration.name, 'CIPerspectiveCorrection');
     });
