@@ -447,7 +447,9 @@ class FlutterCoreImageFilters {
     '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
   };
 
-  static CIFilterConfiguration? createFilter({required String displayName}) {
-    return _availableFilters[displayName]?.call();
+  static T createFilter<T extends CIFilterConfiguration>({
+    required String displayName,
+  }) {
+    return _availableFilters[displayName]?.call() as T;
   }
 }
