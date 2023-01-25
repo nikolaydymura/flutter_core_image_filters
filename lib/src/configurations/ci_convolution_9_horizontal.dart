@@ -1,17 +1,17 @@
 part of flutter_core_image_filters;
 
-class CIConvolutionHorizontalConfiguration extends CIFilterConfiguration {
+class CIConvolution9HorizontalConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final VectorParameter _weights;
 
-  CIConvolutionHorizontalConfiguration()
+  CIConvolution9HorizontalConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
         _weights = CIVectorParameter(
           'inputWeights',
           'Weights',
           [0, 0, 0, 0, 1, 0, 0, 0, 0],
         ),
-        super('CIConvolutionHorizontal');
+        super('CIConvolution9Horizontal');
 
   set bias(double value) {
     _bias.value = value;

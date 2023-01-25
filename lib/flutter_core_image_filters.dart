@@ -71,7 +71,11 @@ part 'src/configurations/ci_constant_color_generator.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
 part 'src/configurations/ci_convolution_5x5.dart';
 part 'src/configurations/ci_convolution_7x7.dart';
-part 'src/configurations/ci_convolution_horizontal.dart';
+part 'src/configurations/ci_convolution_9_horizontal.dart';
+part 'src/configurations/ci_convolution_9_vertical.dart';
+part 'src/configurations/ci_convolution_rgb_3X3.dart';
+part 'src/configurations/ci_convolution_rgb_5X5.dart';
+part 'src/configurations/ci_convolution_rgb_7X7.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -458,12 +462,15 @@ class FlutterCoreImageFilters {
     '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
     'Color Clamp': () => CIColorClampConfiguration(),
     'Color Cross Polynomial': () => CIColorCrossPolynomialConfiguration(),
-        'Color Matrix': () => CIColorMatrixConfiguration(),
-        'Color Polynomial': () => CIColorPolynomialConfiguration(),
-        '5 by 5 Convolution': () => CIConvolution5x5Configuration(),
-        '7 by 7 Convolution': () => CIConvolution7x7Configuration(),
-        'Convolution Horizontal': () => CIConvolutionHorizontalConfiguration(),
-
+    'Color Matrix': () => CIColorMatrixConfiguration(),
+    'Color Polynomial': () => CIColorPolynomialConfiguration(),
+    '5 by 5 Convolution': () => CIConvolution5x5Configuration(),
+    '7 by 7 Convolution': () => CIConvolution7x7Configuration(),
+    'Convolution 9 Horizontal': () => CIConvolution9HorizontalConfiguration(),
+    'Convolution 9 Vertical': () => CIConvolution9VerticalConfiguration(),
+        '3 by 3 RGB Convolution': () => CIConvolutionRGB3X3Configuration(),
+        '5 by 5 RGB Convolution': () => CIConvolutionRGB5X5Configuration(),
+        '7 by 7 RGB Convolution': () => CIConvolutionRGB7X7Configuration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {
