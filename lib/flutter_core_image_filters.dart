@@ -17,6 +17,8 @@ part 'src/ci_video_preview.dart';
 part 'src/configurations/ci_accordion_fold_transition.dart';
 part 'src/configurations/ci_addition_compositing.dart';
 part 'src/configurations/ci_affine_clamp.dart';
+part 'src/configurations/ci_affine_tile.dart';
+part 'src/configurations/ci_affine_transform.dart';
 part 'src/configurations/ci_area_average.dart';
 part 'src/configurations/ci_area_histogram.dart';
 part 'src/configurations/ci_area_logarithmic_histogram.dart';
@@ -444,6 +446,8 @@ class FlutterCoreImageFilters {
     'Vortex Distortion': () => CIVortexDistortionConfiguration(),
     'Zoom Blur': () => CIZoomBlurConfiguration(),
     'Affine Clamp': () => CIAffineClampConfiguration(),
+    'Affine Tile': () => CIAffineTileConfiguration(),
+    'Affine Transform': () => CIAffineTransformConfiguration(),
     '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
   };
 
