@@ -60,13 +60,18 @@ part 'src/configurations/ci_color_cube_with_color_space.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
 part 'src/configurations/ci_color_map.dart';
+part 'src/configurations/ci_color_matrix.dart';
 part 'src/configurations/ci_color_monochrome.dart';
+part 'src/configurations/ci_color_polynomial.dart';
 part 'src/configurations/ci_color_posterize.dart';
 part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
+part 'src/configurations/ci_convolution_5x5.dart';
+part 'src/configurations/ci_convolution_7x7.dart';
+part 'src/configurations/ci_convolution_horizontal.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -453,6 +458,12 @@ class FlutterCoreImageFilters {
     '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
     'Color Clamp': () => CIColorClampConfiguration(),
     'Color Cross Polynomial': () => CIColorCrossPolynomialConfiguration(),
+        'Color Matrix': () => CIColorMatrixConfiguration(),
+        'Color Polynomial': () => CIColorPolynomialConfiguration(),
+        '5 by 5 Convolution': () => CIConvolution5x5Configuration(),
+        '7 by 7 Convolution': () => CIConvolution7x7Configuration(),
+        'Convolution Horizontal': () => CIConvolutionHorizontalConfiguration(),
+
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {
