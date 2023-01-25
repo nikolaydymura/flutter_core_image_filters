@@ -52,7 +52,9 @@ part 'src/configurations/ci_code_128_barcode_generator.dart';
 part 'src/configurations/ci_color_absolute_difference.dart';
 part 'src/configurations/ci_color_blend_mode.dart';
 part 'src/configurations/ci_color_burn_blend_mode.dart';
+part 'src/configurations/ci_color_clamp.dart';
 part 'src/configurations/ci_color_controls.dart';
+part 'src/configurations/ci_color_cross_polynomial.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_color_cube_with_color_space.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
@@ -449,6 +451,8 @@ class FlutterCoreImageFilters {
     'Affine Tile': () => CIAffineTileConfiguration(),
     'Affine Transform': () => CIAffineTransformConfiguration(),
     '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
+    'Color Clamp': () => CIColorClampConfiguration(),
+    'Color Cross Polynomial': () => CIColorCrossPolynomialConfiguration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {
