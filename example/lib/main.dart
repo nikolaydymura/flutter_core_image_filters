@@ -1,4 +1,6 @@
-import 'package:flutter/material.dart';
+import 'dart:ui';
+
+import 'package:flutter/material.dart' hide Rect;
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 
 import 'filters.dart';
@@ -108,12 +110,24 @@ class _FilterPageState extends State<FilterPage> {
   }
 
   Future<void> _prepare() async {
-    destinationSystemController =
-        await CIImagePreviewController.fromAsset(_assetPath);
-    destinationOpenGLController =
-        await CIImagePreviewController.fromAsset(_assetPath);
-    destinationMetalController =
-        await CIImagePreviewController.fromAsset(_assetPath);
+    if (widget.configuration.hasInputImage) {
+      destinationSystemController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+      destinationOpenGLController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+      destinationMetalController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+    } else {
+      destinationSystemController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationOpenGLController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationMetalController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+    }
     await widget.configuration.prepare();
     await widget.configuration.update();
     await destinationSystemController.connect(widget.configuration);

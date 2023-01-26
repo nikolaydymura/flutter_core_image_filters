@@ -11,12 +11,39 @@ import Foundation
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
     var filter: CIFilter?
+    lazy var outputRect = CGRect(x: 0, y: 0, width: 100, height: 100)
     lazy var currentContext: CIContext = CIContext.selectImageContext("")
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
-        guard let image = self.image else {
-            return nil
+        let context = currentContext
+        guard let filter = filter else {
+            if let image = image, let buffer = createPixelBuffer(from: image) {
+                context.render(image, to: buffer)
+                return Unmanaged.passRetained(buffer)
+            } else {
+                return nil
+            }
         }
+        if filter.inputKeys.contains(kCIInputImageKey) {
+            if let image = image, let buffer = createPixelBuffer(from: image) {
+                filter.setValue(image, forKey: kCIInputImageKey)
+                let processed = filter.outputImage ?? image
+                context.render(processed, to: buffer)
+                return Unmanaged.passRetained(buffer)
+            } else {
+                return nil
+            }
+        } else {
+            if let image = filter.outputImage?.cropped(to: outputRect), let buffer = createPixelBuffer(from: image) {
+                context.render(image, to: buffer)
+                return Unmanaged.passRetained(buffer)
+            } else {
+                return nil
+            }
+        }
+    }
+    
+    private func createPixelBuffer(from image: CIImage) -> CVPixelBuffer? {
         var pixelBuffer: CVPixelBuffer?
         let attrs = [ kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32RGBA,
                        kCVPixelBufferIOSurfacePropertiesKey as String : [:]] as CFDictionary
@@ -32,19 +59,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
         guard status == kCVReturnSuccess else {
              return nil
         }
-        
-        if let buffer = pixelBuffer {
-            let context = currentContext
-            if let filter = self.filter {
-                filter.setValue(image, forKey: kCIInputImageKey)
-                let processed = filter.outputImage ?? image
-                context.render(processed, to: buffer)
-            } else {
-                context.render(image, to: buffer)
-            }
-            return Unmanaged.passRetained(buffer)
-        }
-        return nil
+        return pixelBuffer
     }
 }
 
@@ -94,6 +109,17 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         }
         preview.currentContext = CIContext.selectImageContext("")
         preview.filter = nil
+    }
+    
+    func setOutput(_ textureId: NSNumber, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
+            error.pointee = FlutterError()
+            return
+        }
+        preview.outputRect = CGRect(x: CGFloat(value[0].floatValue),
+                                    y: CGFloat(value[1].floatValue),
+                                    width: CGFloat(value[2].floatValue),
+                                    height: CGFloat(value[3].floatValue))
     }
     
     func setSource(_ msg: FLTSourcePreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {

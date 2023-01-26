@@ -16,6 +16,8 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
 
   bool get ready => _filterId != -1;
 
+  bool get hasInputImage => true;
+
   CIFilterConfiguration(this.name);
 
   Future<void> prepare() async {
@@ -217,6 +219,8 @@ class VideoExportConfig {
 }
 
 enum VideoExportFormat { mp4, mov, auto }
+
+abstract class NoInputCIFilterConfiguration {}
 
 @visibleForTesting
 class PassthroughFilterConfiguration extends CIFilterConfiguration {

@@ -54,6 +54,9 @@ abstract class ImagePreviewApi {
   @ObjCSelector('setData:')
   void setData(DataPreviewMessage msg);
 
+  @ObjCSelector('setOutput: :')
+  void setOutput(int textureId, List<double?> value);
+
   @ObjCSelector('dispose:')
   void dispose(int textureId);
 }

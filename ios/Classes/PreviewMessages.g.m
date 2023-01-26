@@ -262,6 +262,27 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.ImagePreviewApi.setOutput"
+        binaryMessenger:binaryMessenger
+        codec:FLTImagePreviewApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setOutput: :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setOutput: :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        [api setOutput:arg_textureId  :arg_value error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
         initWithName:@"dev.flutter.pigeon.ImagePreviewApi.dispose"
         binaryMessenger:binaryMessenger
         codec:FLTImagePreviewApiGetCodec()];

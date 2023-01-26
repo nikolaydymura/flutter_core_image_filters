@@ -42,6 +42,7 @@ NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void);
 - (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setData:(FLTDataPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setOutput:(NSNumber *)textureId  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)dispose:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 @end
 

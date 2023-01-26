@@ -11,6 +11,9 @@ class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CIConstantColorGenerator');
 
+  @override
+  bool get hasInputImage => false;
+
   set color(Color value) {
     _color.value = value;
   }
