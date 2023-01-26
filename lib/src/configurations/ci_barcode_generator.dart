@@ -4,4 +4,7 @@ class CIBarcodeGeneratorConfiguration extends CIFilterConfiguration {
   CIBarcodeGeneratorConfiguration() : super('CIBarcodeGenerator');
   @override
   List<ConfigurationParameter> get parameters => [];
+
+  @override
+  bool get hasInputImage => false;
 }

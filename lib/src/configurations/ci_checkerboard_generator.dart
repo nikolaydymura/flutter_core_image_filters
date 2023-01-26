@@ -62,4 +62,7 @@ class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_sharpness, _color0, _center, _width, _color1];
+
+  @override
+  bool get hasInputImage => false;
 }

@@ -156,4 +156,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
         _maxHeight,
         _message,
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

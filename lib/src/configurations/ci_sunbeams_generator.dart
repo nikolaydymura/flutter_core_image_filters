@@ -95,4 +95,7 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         _sunRadius,
         _color
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

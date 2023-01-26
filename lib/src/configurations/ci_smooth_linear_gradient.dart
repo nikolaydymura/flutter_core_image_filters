@@ -48,4 +48,7 @@ class CISmoothLinearGradientConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_point1, _color1, _color0, _point0];
+
+  @override
+  bool get hasInputImage => false;
 }

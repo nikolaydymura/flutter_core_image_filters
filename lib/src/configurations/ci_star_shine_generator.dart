@@ -108,4 +108,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         _crossWidth,
         _center
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

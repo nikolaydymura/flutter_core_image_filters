@@ -4,4 +4,7 @@ class CIRandomGeneratorConfiguration extends CIFilterConfiguration {
   CIRandomGeneratorConfiguration() : super('CIRandomGenerator');
   @override
   List<ConfigurationParameter> get parameters => [];
+
+  @override
+  bool get hasInputImage => false;
 }
