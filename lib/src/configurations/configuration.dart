@@ -182,6 +182,12 @@ class DataInputSource extends InputSource {
   DataInputSource(this.data);
 }
 
+class RectInputSource extends InputSource {
+  final Rect output;
+
+  RectInputSource(this.output);
+}
+
 class FileInputSource extends PathInputSource {
   final File file;
 
@@ -219,8 +225,6 @@ class VideoExportConfig {
 }
 
 enum VideoExportFormat { mp4, mov, auto }
-
-abstract class NoInputCIFilterConfiguration {}
 
 @visibleForTesting
 class PassthroughFilterConfiguration extends CIFilterConfiguration {

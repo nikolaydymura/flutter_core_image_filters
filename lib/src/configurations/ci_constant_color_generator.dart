@@ -7,7 +7,7 @@ class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
       : _color = CIColorParameter(
           'inputColor',
           'Color',
-          const Color.fromRGBO(1, 0, 0, 1.0),
+          const Color.fromRGBO(255, 0, 0, 1.0),
         ),
         super('CIConstantColorGenerator');
 

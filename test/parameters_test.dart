@@ -51,7 +51,7 @@ void main() {
       mockFilterApi.setCIColorParameter(
         101,
         'inputValue',
-        [1.0, 0.596078431372549, 0.0],
+        [1.0, 0.596078431372549, 0.0, 1.0],
       ),
     );
   });

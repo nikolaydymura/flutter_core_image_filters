@@ -7,7 +7,7 @@ class CIWhitePointAdjustConfiguration extends CIFilterConfiguration {
       : _color = CIColorParameter(
           'inputColor',
           'Color',
-          const Color.fromRGBO(1, 1, 1, 1.0),
+          const Color.fromRGBO(255, 255, 255, 1.0),
         ),
         super('CIWhitePointAdjust');
 
