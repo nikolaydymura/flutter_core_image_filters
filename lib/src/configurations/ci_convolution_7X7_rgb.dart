@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CIConvolutionRGB7X7Configuration extends CIFilterConfiguration {
+class CIConvolution7X7RGBConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final VectorParameter _weights;
 
-  CIConvolutionRGB7X7Configuration()
+  CIConvolution7X7RGBConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
         _weights = CIVectorParameter(
           'inputWeights',
@@ -61,7 +61,7 @@ class CIConvolutionRGB7X7Configuration extends CIFilterConfiguration {
             0,
           ],
         ),
-        super('CIConvolutionRGB7X7');
+        super('CIConvolution7X7RGB');
 
   set bias(double value) {
     _bias.value = value;

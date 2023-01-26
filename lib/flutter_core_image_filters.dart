@@ -68,14 +68,16 @@ part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
+part 'src/configurations/ci_convolution_3X3_rgb.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
+part 'src/configurations/ci_convolution_5X5_rgb.dart';
 part 'src/configurations/ci_convolution_5x5.dart';
+part 'src/configurations/ci_convolution_7X7_rgb.dart';
 part 'src/configurations/ci_convolution_7x7.dart';
 part 'src/configurations/ci_convolution_9_horizontal.dart';
+part 'src/configurations/ci_convolution_9_rgb_horizontal.dart';
+part 'src/configurations/ci_convolution_9_rgb_vertical.dart';
 part 'src/configurations/ci_convolution_9_vertical.dart';
-part 'src/configurations/ci_convolution_rgb_3X3.dart';
-part 'src/configurations/ci_convolution_rgb_5X5.dart';
-part 'src/configurations/ci_convolution_rgb_7X7.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -84,6 +86,7 @@ part 'src/configurations/ci_depth_blur_effect.dart';
 part 'src/configurations/ci_depth_of_field.dart';
 part 'src/configurations/ci_difference_blend_mode.dart';
 part 'src/configurations/ci_disc_blur.dart';
+part 'src/configurations/ci_disintegrate_with_mask_transition.dart';
 part 'src/configurations/ci_displacement_distortion.dart';
 part 'src/configurations/ci_dissolve_transition.dart';
 part 'src/configurations/ci_dither.dart';
@@ -135,10 +138,12 @@ part 'src/configurations/ci_line_screen.dart';
 part 'src/configurations/ci_linear_burn_blend_mode.dart';
 part 'src/configurations/ci_linear_dodge_blend_mode.dart';
 part 'src/configurations/ci_linear_gradient.dart';
+part 'src/configurations/ci_linear_light_blend_mode.dart';
 part 'src/configurations/ci_lookup_table.dart';
 part 'src/configurations/ci_luminosity_blend_mode.dart';
 part 'src/configurations/ci_masked_variable_blur.dart';
 part 'src/configurations/ci_maximum_compositing.dart';
+part 'src/configurations/ci_mesh_generator.dart';
 part 'src/configurations/ci_minimum_compositing.dart';
 part 'src/configurations/ci_mix.dart';
 part 'src/configurations/ci_mod_transition.dart';
@@ -468,9 +473,17 @@ class FlutterCoreImageFilters {
     '7 by 7 Convolution': () => CIConvolution7x7Configuration(),
     'Convolution 9 Horizontal': () => CIConvolution9HorizontalConfiguration(),
     'Convolution 9 Vertical': () => CIConvolution9VerticalConfiguration(),
-        '3 by 3 RGB Convolution': () => CIConvolutionRGB3X3Configuration(),
-        '5 by 5 RGB Convolution': () => CIConvolutionRGB5X5Configuration(),
-        '7 by 7 RGB Convolution': () => CIConvolutionRGB7X7Configuration(),
+    '3 by 3 RGB Convolution': () => CIConvolution3X3RGBConfiguration(),
+    '5 by 5 RGB Convolution': () => CIConvolution5X5RGBConfiguration(),
+    '7 by 7 RGB Convolution': () => CIConvolution7X7RGBConfiguration(),
+    'Convolution 9 RGB Horizontal': () =>
+        CIConvolution9RGBHorizontalConfiguration(),
+    'Convolution 9 RGB Vertical': () =>
+        CIConvolution9RGBVerticalConfiguration(),
+    'Disintegrate With Mask Transition': () =>
+        CIDisintegrateWithMaskTransitionConfiguration(),
+    'Linear Light Blend Mode': () => CILinearLightBlendModeConfiguration(),
+    'Mesh Generator': () => CIMeshGeneratorConfiguration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {

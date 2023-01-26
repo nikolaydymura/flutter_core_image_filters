@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CIConvolutionRGB5X5Configuration extends CIFilterConfiguration {
+class CIConvolution5X5RGBConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final VectorParameter _weights;
 
-  CIConvolutionRGB5X5Configuration()
+  CIConvolution5X5RGBConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
         _weights = CIVectorParameter(
           'inputWeights',
@@ -37,7 +37,7 @@ class CIConvolutionRGB5X5Configuration extends CIFilterConfiguration {
             0
           ],
         ),
-        super('CIConvolutionRGB5X5');
+        super('CIConvolution5X5RGB');
 
   set bias(double value) {
     _bias.value = value;

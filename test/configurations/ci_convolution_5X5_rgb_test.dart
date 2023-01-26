@@ -4,13 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 import '../helpers.dart';
 
 void main() {
-  late CIConvolutionRGB5X5Configuration configuration;
+  late CIConvolution5X5RGBConfiguration configuration;
   setUp(() {
-    configuration = CIConvolutionRGB5X5Configuration();
+    configuration = CIConvolution5X5RGBConfiguration();
   });
-  group('CIConvolutionRGB5X5', () {
+  group('CIConvolution5X5RGB', () {
     test('verify name', () {
-      expect(configuration.name, 'CIConvolutionRGB5X5');
+      expect(configuration.name, 'CIConvolution5X5RGB');
     });
     testInputKeys(build: () => configuration);
     test('change inputBias', () {
