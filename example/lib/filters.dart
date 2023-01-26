@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 
 class FilterItem {
@@ -8,12 +9,46 @@ class FilterItem {
   FilterItem(this.name, this.configuration);
 }
 
-final kFilters = [
+final kFailedFilters = [
   FilterItem(
-    'White Point Adjust',
-    FlutterCoreImageFilters.createFilter<CIWhitePointAdjustConfiguration>(
-      displayName: 'White Point Adjust',
-    )..color = const Color.fromRGBO(100, 100, 100, 1.0),
+    'Saliency Map Filter',
+    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
+      displayName: 'Saliency Map Filter',
+    ),
+  ),
+  FilterItem(
+    'Mask to Alpha',
+    FlutterCoreImageFilters.createFilter<CIMaskToAlphaConfiguration>(
+      displayName: 'Mask to Alpha',
+    ),
+  ),
+  FilterItem(
+    'Edge Work',
+    FlutterCoreImageFilters.createFilter<CIEdgeWorkConfiguration>(
+      displayName: 'Edge Work',
+    )..radius = 12,
+  ),
+  FilterItem(
+    'Disparity To Depth',
+    FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
+      displayName: 'Disparity To Depth',
+    ),
+  ),
+  FilterItem(
+    'Depth To Disparity',
+    FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
+      displayName: 'Depth To Disparity',
+    ),
+  ),
+  FilterItem(
+    'Bicubic Scale Transform',
+    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
+      displayName: 'Bicubic Scale Transform',
+    )
+      ..b = 0.5
+      ..scale = 50
+      ..c = 0.5
+      ..aspectRatio = 1,
   ),
   /* FilterItem(
     'Spot Color',
@@ -22,6 +57,45 @@ final kFilters = [
     ),
   ),
  */
+  /*  FilterItem(
+    'Spot Color',
+    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
+      displayName: 'Spot Color',
+    )
+      ..color0 = const Color.fromRGBO(0, 0, 0, 1.0)
+      ..color1 = const Color.fromRGBO(0, 0, 0, 1.0),
+  ),
+*/
+  /* FilterItem(
+    'Random Generator',
+    FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
+      displayName: 'Random Generator',
+    ),
+  ),
+ */
+  /*  FilterItem(
+    'Person Segmentation',
+    FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
+      displayName: 'Person Segmentation',
+    ),
+  ),
+ */
+  /* FilterItem(
+    'Convert Lab to RGB',
+    FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
+      displayName: 'Convert Lab to RGB',
+    ),
+  ),
+*/
+].sorted((a, b) => a.name.compareTo(b.name));
+
+final kFilters = [
+  FilterItem(
+    'White Point Adjust',
+    FlutterCoreImageFilters.createFilter<CIWhitePointAdjustConfiguration>(
+      displayName: 'White Point Adjust',
+    )..color = const Color.fromRGBO(100, 100, 100, 1.0),
+  ),
   FilterItem(
     'False Color',
     FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
@@ -58,15 +132,6 @@ final kFilters = [
       displayName: 'White Point Adjust',
     )..color = const Color.fromRGBO(100, 100, 100, 1.0),
   ),
-/*  FilterItem(
-    'Spot Color',
-    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
-      displayName: 'Spot Color',
-    )
-      ..color0 = const Color.fromRGBO(0, 0, 0, 1.0)
-      ..color1 = const Color.fromRGBO(0, 0, 0, 1.0),
-  ),
-*/
   FilterItem(
     'False Color',
     FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
@@ -80,14 +145,6 @@ final kFilters = [
     FlutterCoreImageFilters.createFilter<CIConstantColorGeneratorConfiguration>(
       displayName: 'Constant Color',
     )..color = const Color.fromRGBO(255, 0, 0, 1.0),
-  ),
-  FilterItem(
-    'Color Monochrome',
-    FlutterCoreImageFilters.createFilter<CIColorMonochromeConfiguration>(
-      displayName: 'Color Monochrome',
-    )
-      ..intensity = 0.5
-      ..color = const Color.fromRGBO(100, 70, 34, 0.5),
   ),
   FilterItem(
     'X-Ray',
@@ -150,19 +207,6 @@ final kFilters = [
     ),
   ),
   FilterItem(
-    'Saliency Map Filter',
-    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
-      displayName: 'Saliency Map Filter',
-    ),
-  ),
-  /* FilterItem(
-    'Random Generator',
-    FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
-      displayName: 'Random Generator',
-    ),
-  ),
- */
-  FilterItem(
     'Photo Effect Transfer',
     FlutterCoreImageFilters.createFilter<CIPhotoEffectTransferConfiguration>(
       displayName: 'Photo Effect Transfer',
@@ -214,13 +258,6 @@ final kFilters = [
       ..pitch = 0
       ..yaw = 0,
   ),
-  /*  FilterItem(
-    'Person Segmentation',
-    FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
-      displayName: 'Person Segmentation',
-    ),
-  ),
- */
   FilterItem(
     'Noise Reduction',
     FlutterCoreImageFilters.createFilter<CINoiseReductionConfiguration>(
@@ -289,12 +326,6 @@ final kFilters = [
     'Maximum Component',
     FlutterCoreImageFilters.createFilter<CIMaximumComponentConfiguration>(
       displayName: 'Maximum Component',
-    ),
-  ),
-  FilterItem(
-    'Mask to Alpha',
-    FlutterCoreImageFilters.createFilter<CIMaskToAlphaConfiguration>(
-      displayName: 'Mask to Alpha',
     ),
   ),
   FilterItem(
@@ -385,12 +416,6 @@ final kFilters = [
     )..eV = 0,
   ),
   FilterItem(
-    'Edge Work',
-    FlutterCoreImageFilters.createFilter<CIEdgeWorkConfiguration>(
-      displayName: 'Edge Work',
-    )..radius = 12,
-  ),
-  FilterItem(
     'Edges',
     FlutterCoreImageFilters.createFilter<CIEdgesConfiguration>(
       displayName: 'Edges',
@@ -409,30 +434,11 @@ final kFilters = [
     )..intensity = 0.5,
   ),
   FilterItem(
-    'Disparity To Depth',
-    FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
-      displayName: 'Disparity To Depth',
-    ),
-  ),
-  FilterItem(
     'Disc Blur',
     FlutterCoreImageFilters.createFilter<CIDiscBlurConfiguration>(
       displayName: 'Disc Blur',
     )..radius = 50,
   ),
-  FilterItem(
-    'Depth To Disparity',
-    FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
-      displayName: 'Depth To Disparity',
-    ),
-  ),
-  /* FilterItem(
-    'Convert Lab to RGB',
-    FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
-      displayName: 'Convert Lab to RGB',
-    ),
-  ),
-*/
   FilterItem(
     'Comic Effect',
     FlutterCoreImageFilters.createFilter<CIComicEffectConfiguration>(
@@ -497,16 +503,6 @@ final kFilters = [
       ..intensity = 0.5,
   ),
   FilterItem(
-    'Bicubic Scale Transform',
-    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
-      displayName: 'Bicubic Scale Transform',
-    )
-      ..b = 0.5
-      ..scale = 50
-      ..c = 0.5
-      ..aspectRatio = 1,
-  ),
-  FilterItem(
     'Sepia Tone',
     FlutterCoreImageFilters.createFilter<CISepiaToneConfiguration>(
       displayName: 'Sepia Tone',
@@ -518,12 +514,4 @@ final kFilters = [
       displayName: 'Photo Effect Noir',
     ),
   ),
-  FilterItem(
-    'Color Monochrome',
-    FlutterCoreImageFilters.createFilter<CIColorMonochromeConfiguration>(
-      displayName: 'Color Monochrome',
-    )
-      ..intensity = 0.5
-      ..color = Colors.orange,
-  )
-].whereType<FilterItem>().toList();
+].sorted((a, b) => a.name.compareTo(b.name));

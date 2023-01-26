@@ -45,33 +45,69 @@ class ListPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            final item = kFilters[index];
-
-            return Card(
-              child: ListTile(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return FilterPage(
-                          configuration: item.configuration,
+        child: CustomScrollView(
+          slivers: [
+            SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final item = kFailedFilters[index];
+                  return Card(
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return FilterPage(
+                                configuration: item.configuration,
+                              );
+                            },
+                          ),
                         );
                       },
+                      title: Text(item.name),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Theme.of(context).errorColor,
+                      ),
                     ),
                   );
                 },
-                title: Text(item.name),
-                trailing: Icon(
-                  Icons.navigate_next,
-                  color: Theme.of(context).primaryColor,
-                ),
+                childCount: kFailedFilters.length,
               ),
-            );
-          },
-          itemCount: kFilters.length,
+              itemExtent: 64,
+            ),
+            SliverFixedExtentList(
+              delegate: SliverChildBuilderDelegate(
+                (context, index) {
+                  final item = kFilters[index];
+                  return Card(
+                    child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return FilterPage(
+                                configuration: item.configuration,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                      title: Text(item.name),
+                      trailing: Icon(
+                        Icons.navigate_next,
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  );
+                },
+                childCount: kFilters.length,
+              ),
+              itemExtent: 64,
+            ),
+          ],
         ),
       ),
     );
