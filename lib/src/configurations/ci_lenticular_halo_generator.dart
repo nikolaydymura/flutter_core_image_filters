@@ -118,4 +118,7 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
         _haloWidth,
         _haloRadius,
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

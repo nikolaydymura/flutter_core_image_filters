@@ -44,4 +44,7 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_quietSpace, _barcodeHeight, _message];
+
+  @override
+  bool get hasInputImage => false;
 }

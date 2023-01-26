@@ -71,4 +71,7 @@ class CIStripesGeneratorConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_width, _center, _sharpness, _color0, _color1];
+
+  @override
+  bool get hasInputImage => false;
 }

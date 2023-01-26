@@ -52,4 +52,7 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters => [_extent, _color, _radius];
+
+  @override
+  bool get hasInputImage => false;
 }

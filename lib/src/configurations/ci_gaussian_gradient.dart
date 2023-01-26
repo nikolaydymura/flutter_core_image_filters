@@ -59,4 +59,7 @@ class CIGaussianGradientConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_radius, _center, _color1, _color0];
+
+  @override
+  bool get hasInputImage => false;
 }

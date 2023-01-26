@@ -47,4 +47,7 @@ class CIAttributedTextImageGeneratorConfiguration
   @override
   List<ConfigurationParameter> get parameters =>
       [_scaleFactor, _padding, _text];
+
+  @override
+  bool get hasInputImage => false;
 }

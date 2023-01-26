@@ -56,4 +56,7 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_compactStyle, _correctionLevel, _layers, _message];
+
+  @override
+  bool get hasInputImage => false;
 }

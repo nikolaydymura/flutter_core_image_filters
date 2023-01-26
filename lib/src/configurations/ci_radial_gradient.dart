@@ -71,4 +71,7 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
   @override
   List<ConfigurationParameter> get parameters =>
       [_radius1, _color0, _center, _radius0, _color1];
+
+  @override
+  bool get hasInputImage => false;
 }
