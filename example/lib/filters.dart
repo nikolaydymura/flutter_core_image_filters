@@ -15,6 +15,49 @@ final kFilters = [
       displayName: 'White Point Adjust',
     )..color = const Color.fromRGBO(100, 100, 100, 1.0),
   ),
+  /* FilterItem(
+    'Spot Color',
+    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
+      displayName: 'Spot Color',
+    ),
+  ),
+ */
+  FilterItem(
+    'False Color',
+    FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
+      displayName: 'False Color',
+    )
+      ..color0 = const Color.fromRGBO(10, 20, 50, 1.0)
+      ..color1 = const Color.fromRGBO(2, 18, 11, 1.0),
+  ),
+  FilterItem(
+    'Constant Color',
+    FlutterCoreImageFilters.createFilter<CIConstantColorGeneratorConfiguration>(
+      displayName: 'Constant Color',
+    )..color = const Color.fromRGBO(100, 150, 100, 1.0),
+  ),
+  FilterItem(
+    'Color Monochrome',
+    FlutterCoreImageFilters.createFilter<CIColorMonochromeConfiguration>(
+      displayName: 'Color Monochrome',
+    )
+      ..intensity = 0.5
+      ..color = const Color.fromRGBO(255, 100, 30, 1.0),
+  ),
+  FilterItem(
+    'False Color',
+    FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
+      displayName: 'False Color',
+    )
+      ..color0 = const Color.fromRGBO(255, 0, 0, 1.0)
+      ..color1 = const Color.fromRGBO(0, 255, 0, 1.0),
+  ),
+  FilterItem(
+    'White Point Adjust',
+    FlutterCoreImageFilters.createFilter<CIWhitePointAdjustConfiguration>(
+      displayName: 'White Point Adjust',
+    )..color = const Color.fromRGBO(100, 100, 100, 1.0),
+  ),
 /*  FilterItem(
     'Spot Color',
     FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
