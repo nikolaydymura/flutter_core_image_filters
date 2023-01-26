@@ -18,6 +18,8 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
 
   bool get hasInputImage => true;
 
+  Iterable<CICategory> get categories;
+
   CIFilterConfiguration(this.name);
 
   Future<void> prepare() async {
@@ -232,4 +234,7 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
   final FilterApi _api;
 
   PassthroughFilterConfiguration(this._api) : super('Passthrough');
+
+  @override
+  Iterable<CICategory> get categories => {};
 }

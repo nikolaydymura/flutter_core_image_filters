@@ -34,6 +34,7 @@ class CITriangleKaleidoscopeConfiguration extends CIFilterConfiguration {
           max: 1000,
         ),
         super('CITriangleKaleidoscope');
+
   set decay(double value) {
     _decay.value = value;
   }
@@ -49,6 +50,15 @@ class CITriangleKaleidoscopeConfiguration extends CIFilterConfiguration {
   set size(double value) {
     _size.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

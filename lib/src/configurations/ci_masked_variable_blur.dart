@@ -6,6 +6,7 @@ class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration
 
   @override
   String get _maskImageInputKey => 'inputMask';
+
   @override
   String get _maskImageInputName => 'Mask';
 
@@ -22,6 +23,15 @@ class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration
   set radius(double value) {
     _radius.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.blur,
+        CICategory.stillImage,
+        CICategory.video,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _maskImage];

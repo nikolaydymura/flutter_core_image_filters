@@ -65,6 +65,15 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.transition,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_angle, _compression, _time, _targetImage, _radius, _center];
 }

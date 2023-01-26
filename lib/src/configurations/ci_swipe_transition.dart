@@ -8,6 +8,7 @@ class CISwipeTransitionConfiguration extends CIFilterConfiguration
   final NumberParameter _opacity;
   final NumberParameter _time;
   final NumberParameter _width;
+
   CISwipeTransitionConfiguration()
       : _angle = SliderNSNumberParameter(
           'inputAngle',
@@ -72,6 +73,15 @@ class CISwipeTransitionConfiguration extends CIFilterConfiguration
   set width(double value) {
     _width.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.transition,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

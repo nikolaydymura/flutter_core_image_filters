@@ -34,6 +34,7 @@ class CIVignetteEffectConfiguration extends CIFilterConfiguration {
           max: 2000,
         ),
         super('CIVignetteEffect');
+
   set falloff(double value) {
     _falloff.value = value;
   }
@@ -49,6 +50,16 @@ class CIVignetteEffectConfiguration extends CIFilterConfiguration {
   set radius(double value) {
     _radius.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorEffect,
+        CICategory.video,
+        CICategory.interlaced,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

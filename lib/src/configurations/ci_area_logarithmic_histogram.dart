@@ -60,6 +60,15 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.reduction,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_minimumStop, _maximumStop, _extent, _count, _scale];
 }

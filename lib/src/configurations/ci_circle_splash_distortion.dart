@@ -28,5 +28,14 @@ class CICircleSplashDistortionConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_radius, _center];
 }

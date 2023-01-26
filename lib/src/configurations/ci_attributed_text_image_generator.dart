@@ -37,6 +37,14 @@ class CIAttributedTextImageGeneratorConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_scaleFactor, _padding, _text];
 }

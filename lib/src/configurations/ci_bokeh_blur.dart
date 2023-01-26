@@ -54,6 +54,15 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.blur,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_softness, _ringSize, _radius, _ringAmount];
 }

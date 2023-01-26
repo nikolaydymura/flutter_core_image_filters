@@ -18,6 +18,7 @@ class CIHoleDistortionConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIHoleDistortion');
+
   set radius(double value) {
     _radius.value = value;
   }
@@ -25,6 +26,15 @@ class CIHoleDistortionConfiguration extends CIFilterConfiguration {
   set center(Point<double> value) {
     _center.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _center];

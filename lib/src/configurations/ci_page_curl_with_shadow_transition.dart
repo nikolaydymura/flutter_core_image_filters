@@ -87,6 +87,15 @@ class CIPageCurlWithShadowTransitionConfiguration extends CIFilterConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.transition,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _extent,
         _shadowExtent,

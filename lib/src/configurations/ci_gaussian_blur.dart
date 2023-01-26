@@ -18,5 +18,14 @@ class CIGaussianBlurConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.blur,
+        CICategory.stillImage,
+        CICategory.video,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_radius];
 }

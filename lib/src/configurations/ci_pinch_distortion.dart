@@ -26,6 +26,7 @@ class CIPinchDistortionConfiguration extends CIFilterConfiguration {
           max: 1000,
         ),
         super('CIPinchDistortion');
+
   set center(Point<double> value) {
     _center.value = value;
   }
@@ -37,6 +38,15 @@ class CIPinchDistortionConfiguration extends CIFilterConfiguration {
   set radius(double value) {
     _radius.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _scale, _radius];

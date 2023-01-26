@@ -46,6 +46,15 @@ class CISmoothLinearGradientConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.gradient,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_point1, _color1, _color0, _point0];
 }

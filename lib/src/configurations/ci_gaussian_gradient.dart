@@ -30,6 +30,7 @@ class CIGaussianGradientConfiguration extends CIFilterConfiguration {
           const Color.fromRGBO(255, 255, 255, 1),
         ),
         super('CIGaussianGradient');
+
   set radius(double value) {
     _radius.value = value;
   }
@@ -45,6 +46,15 @@ class CIGaussianGradientConfiguration extends CIFilterConfiguration {
   set color0(Color value) {
     _color0.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.gradient,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

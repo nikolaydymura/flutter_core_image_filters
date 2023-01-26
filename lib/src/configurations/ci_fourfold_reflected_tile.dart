@@ -34,6 +34,7 @@ class CIFourfoldReflectedTileConfiguration extends CIFilterConfiguration {
           max: 200,
         ),
         super('CIFourfoldReflectedTile');
+
   set acuteAngle(double value) {
     _acuteAngle.value = value;
   }
@@ -49,6 +50,15 @@ class CIFourfoldReflectedTileConfiguration extends CIFilterConfiguration {
   set width(double value) {
     _width.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

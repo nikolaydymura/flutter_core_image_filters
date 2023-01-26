@@ -26,6 +26,7 @@ class CITriangleTileConfiguration extends CIFilterConfiguration {
           max: 200,
         ),
         super('CITriangleTile');
+
   set angle(double value) {
     _angle.value = value;
   }
@@ -37,6 +38,15 @@ class CITriangleTileConfiguration extends CIFilterConfiguration {
   set width(double value) {
     _width.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _width];

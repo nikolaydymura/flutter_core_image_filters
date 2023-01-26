@@ -74,6 +74,15 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_insetPoint0, _strands, _insetPoint1, _periodicity, _zoom, _rotation];
 }

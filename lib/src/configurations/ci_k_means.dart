@@ -52,6 +52,15 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.reduction,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_extent, _perceptual, _count, _passes, _meansImage];
 }

@@ -32,6 +32,7 @@ class CIGlassLozengeConfiguration extends CIFilterConfiguration {
           const Point(350.0, 150.0),
         ),
         super('CIGlassLozenge');
+
   set refraction(double value) {
     _refraction.value = value;
   }
@@ -47,6 +48,15 @@ class CIGlassLozengeConfiguration extends CIFilterConfiguration {
   set point1(Point<double> value) {
     _point1.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

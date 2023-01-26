@@ -62,6 +62,15 @@ class CIPerspectiveTransformWithExtentConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.geometryAdjustment,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _bottomLeft,
         _topRight,

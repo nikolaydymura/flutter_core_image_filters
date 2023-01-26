@@ -46,6 +46,17 @@ class CIColorCubeWithColorSpaceConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorEffect,
+        CICategory.video,
+        CICategory.interlaced,
+        CICategory.nonSquarePixels,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_cubeDimension, _cubeData, _extrapolate, _colorSpace];
 }

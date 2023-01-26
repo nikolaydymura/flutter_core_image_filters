@@ -22,6 +22,7 @@ class CINinePartStretchedConfiguration extends CIFilterConfiguration {
           const Point(50.0, 50.0),
         ),
         super('CINinePartStretched');
+
   set breakpoint1(Point<double> value) {
     _breakpoint1.value = value;
   }
@@ -33,6 +34,15 @@ class CINinePartStretchedConfiguration extends CIFilterConfiguration {
   set breakpoint0(Point<double> value) {
     _breakpoint0.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

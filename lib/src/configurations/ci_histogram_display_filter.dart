@@ -42,6 +42,14 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.reduction,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_lowLimit, _highLimit, _height];
 }

@@ -28,6 +28,7 @@ class CIPerspectiveTileConfiguration extends CIFilterConfiguration {
           const Point(548.0, 140.0),
         ),
         super('CIPerspectiveTile');
+
   set bottomLeft(Point<double> value) {
     _bottomLeft.value = value;
   }
@@ -43,6 +44,15 @@ class CIPerspectiveTileConfiguration extends CIFilterConfiguration {
   set bottomRight(Point<double> value) {
     _bottomRight.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

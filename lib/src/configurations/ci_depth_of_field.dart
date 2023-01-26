@@ -74,6 +74,14 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.stylize,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _point1,
         _unsharpMaskRadius,

@@ -34,6 +34,7 @@ class CITorusLensDistortionConfiguration extends CIFilterConfiguration {
           max: 500,
         ),
         super('CITorusLensDistortion');
+
   set width(double value) {
     _width.value = value;
   }
@@ -49,6 +50,15 @@ class CITorusLensDistortionConfiguration extends CIFilterConfiguration {
   set radius(double value) {
     _radius.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

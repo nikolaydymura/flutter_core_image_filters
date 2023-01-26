@@ -50,6 +50,10 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories =>
+      {CICategory.generator, CICategory.stillImage, CICategory.builtIn};
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_compactStyle, _correctionLevel, _layers, _message];
 }
