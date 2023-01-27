@@ -10,22 +10,22 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
   CIColorPolynomialConfiguration()
       : _redCoefficients = CIVectorParameter(
           'inputRedCoefficients',
-          'RedCoefficients',
+          'Red Coefficients',
           [0, 1, 0, 0],
         ),
         _greenCoefficients = CIVectorParameter(
           'inputGreenCoefficients',
-          'GreenCoefficients',
+          'Green Coefficients',
           [0, 1, 0, 0],
         ),
         _alphaCoefficients = CIVectorParameter(
           'inputAlphaCoefficients',
-          'AlphaCoefficients',
+          'Alpha Coefficients',
           [0, 1, 0, 0],
         ),
         _blueCoefficients = CIVectorParameter(
           'inputBlueCoefficients',
-          'BlueCoefficients',
+          'Blue Coefficients',
           [0, 1, 0, 0],
         ),
         super('CIColorPolynomial');

@@ -10,7 +10,7 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
   CISpotLightConfiguration()
       : _lightPointsAt = CIVectorParameter(
           'inputLightPointsAt',
-          'LightPointsAt',
+          'Light Points At',
           const [200, 200, 0],
         ),
         _color = CIColorParameter(
@@ -34,10 +34,10 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
         ),
         _lightPosition = CIVectorParameter(
           'inputLightPosition',
-          'LightPosition',
+          'Light Position',
           [400, 600, 150],
         ),
-        super('CISpotColor');
+        super('CISpotLight');
 
   set lightPointsAt(List<double> value) {
     _lightPointsAt.value = value;

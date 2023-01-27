@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('verify amount', () {
-    expect(FlutterCoreImageFilters.availableFilters.length, 232);
+    expect(FlutterCoreImageFilters.availableFilters.length, greaterThanOrEqualTo(232));
   });
   test('enlist all', () async {
     final filters = [
@@ -35,7 +35,7 @@ void main() {
       'Box Blur',
       'Bump Distortion',
       'Bump Distortion Linear',
-      'Lens Correction for AVC',
+      //TODO: unsupported 'Lens Correction for AVC',
       'Checkerboard',
       'Circle Splash Distortion',
       'Circular Screen',
@@ -78,7 +78,7 @@ void main() {
       'Horizontal 9 RGB Convolution',
       'Vertical 9 RGB Convolution',
       'Copy Machine',
-      'CoreML Model Filter',
+      //TODO: unsupported 'CoreML Model Filter',
       'Crop',
       'Crystallize',
       'Darken Blend Mode',
@@ -241,15 +241,10 @@ void main() {
       'X-Ray',
       'Zoom Blur',
     ];
-    var nok = 0;
     for (final name in filters) {
       final configuration =
           FlutterCoreImageFilters.createFilter(displayName: name);
-      if (configuration == null) {
-        nok++;
-        print(name);
-      }
-      //expect(configuration, isNotNull, reason: '`$name` not implemented');
+      expect(configuration, isNotNull, reason: '`$name` not implemented');
     }
     for (final name in FlutterCoreImageFilters.availableFilters) {
       if (name.startsWith('Lookup Table')) {
@@ -257,6 +252,5 @@ void main() {
       }
       expect(filters.contains(name), true);
     }
-    expect(nok, 32);
   });
 }

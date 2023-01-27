@@ -7,12 +7,12 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
   CIColorClampConfiguration()
       : _maxComponents = CIVectorParameter(
           'inputMaxComponents',
-          'MaxComponents',
+          'Max Components',
           [1, 1, 1, 1],
         ),
         _minComponents = CIVectorParameter(
           'inputMinComponents',
-          'MinComponents',
+          'Min Components',
           [0, 0, 0, 0],
         ),
         super('CIColorClamp');

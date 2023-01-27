@@ -7,7 +7,7 @@ class CIQRCodeGeneratorConfiguration extends CIFilterConfiguration {
   CIQRCodeGeneratorConfiguration()
       : _correctionLevel = NSStringParameter(
           'inputCorrectionLevel',
-          'CorrectionLevel',
+          'Correction Level',
           'M',
         ),
         _message = NSDataParameter(

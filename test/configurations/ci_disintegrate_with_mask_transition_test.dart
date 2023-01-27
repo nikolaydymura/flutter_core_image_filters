@@ -25,7 +25,7 @@ void main() {
     });
     test('change inputShadowOffset', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputShadowOffset') as NumberParameter;
+          .firstWhere((e) => e.name == 'inputShadowOffset') as PointParameter;
       expect(parameter.value, const Point(0, -10));
       configuration.shadowOffset = const Point(1, -9);
       expect(parameter.value, const Point(1, -9));

@@ -10,27 +10,27 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
   CIColorMatrixConfiguration()
       : _gVector = CIVectorParameter(
           'inputGVector',
-          'GVector',
+          'Green Vector',
           [0, 1, 0, 0],
         ),
         _biasVector = CIVectorParameter(
           'inputBiasVector',
-          'BiasVector',
+          'Bias Vector',
           [0, 0, 0, 0],
         ),
         _rVector = CIVectorParameter(
           'inputRVector',
-          'RVector',
+          'Red Vector',
           [1, 0, 0, 0],
         ),
         _aVector = CIVectorParameter(
           'inputAVector',
-          'AVector',
+          'Alpha Vector',
           [0, 0, 0, 1],
         ),
         _bVector = CIVectorParameter(
           'inputBVector',
-          'BVector',
+          'Blue Vector',
           [0, 0, 1, 0],
         ),
         super('CIColorMatrix');
@@ -48,11 +48,11 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
   }
 
   set aVector(List<double> value) {
-    _rVector.value = value;
+    _aVector.value = value;
   }
 
   set bVector(List<double> value) {
-    _rVector.value = value;
+    _bVector.value = value;
   }
 
   @override

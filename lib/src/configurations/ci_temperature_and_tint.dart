@@ -7,7 +7,7 @@ class CITemperatureAndTintConfiguration extends CIFilterConfiguration {
   CITemperatureAndTintConfiguration()
       : _targetNeutral = CIVectorParameter(
           'inputTargetNeutral',
-          'TargetNeutral',
+          'Target Neutral',
           [6500, 0],
         ),
         _neutral = CIVectorParameter(

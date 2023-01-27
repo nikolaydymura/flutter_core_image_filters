@@ -35,7 +35,7 @@ void main() {
               .firstWhere((e) => e.name == 'inputBlueCoefficients')
           as CIVectorParameter;
       expect(parameter.value, [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]);
-      configuration.greenCoefficients = [0, 0, 0.9, 0, 0, 0, 0, 0, 0, 0];
+      configuration.blueCoefficients = [0, 0, 0.9, 0, 0, 0, 0, 0, 0, 0];
       expect(parameter.value, [0, 0, 0.9, 0, 0, 0, 0, 0, 0, 0]);
     });
   });

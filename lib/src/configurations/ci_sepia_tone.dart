@@ -1,7 +1,6 @@
 part of flutter_core_image_filters;
 
-class CISepiaToneConfiguration extends CIFilterConfiguration
-    with ShadingImageMixin {
+class CISepiaToneConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
 
   CISepiaToneConfiguration()
@@ -31,5 +30,5 @@ class CISepiaToneConfiguration extends CIFilterConfiguration
       };
 
   @override
-  List<ConfigurationParameter> get parameters => [_intensity, _shadingImage];
+  List<ConfigurationParameter> get parameters => [_intensity];
 }

@@ -69,16 +69,18 @@ part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
+part 'src/configurations/ci_convert_lab_to_rgb.dart';
+part 'src/configurations/ci_convert_rgb_to_lab.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
-part 'src/configurations/ci_convolution_3x3_rgb.dart';
 part 'src/configurations/ci_convolution_5x5.dart';
-part 'src/configurations/ci_convolution_5x5_rgb.dart';
 part 'src/configurations/ci_convolution_7x7.dart';
-part 'src/configurations/ci_convolution_7x7_rgb.dart';
 part 'src/configurations/ci_convolution_9_horizontal.dart';
-part 'src/configurations/ci_convolution_9_rgb_horizontal.dart';
-part 'src/configurations/ci_convolution_9_rgb_vertical.dart';
 part 'src/configurations/ci_convolution_9_vertical.dart';
+part 'src/configurations/ci_convolution_rgb_3x3.dart';
+part 'src/configurations/ci_convolution_rgb_5x5.dart';
+part 'src/configurations/ci_convolution_rgb_7x7.dart';
+part 'src/configurations/ci_convolution_rgb_9_horizontal.dart';
+part 'src/configurations/ci_convolution_rgb_9_vertical.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -482,16 +484,16 @@ class FlutterCoreImageFilters {
     'Color Polynomial': () => CIColorPolynomialConfiguration(),
     '5 by 5 Convolution': () => CIConvolution5X5Configuration(),
     '7 by 7 Convolution': () => CIConvolution7X7Configuration(),
-    'Convolution 9 Horizontal': () => CIConvolution9HorizontalConfiguration(),
-    'Convolution 9 Vertical': () => CIConvolution9VerticalConfiguration(),
-    '3 by 3 RGB Convolution': () => CIConvolution3X3RGBConfiguration(),
-    '5 by 5 RGB Convolution': () => CIConvolution5X5RGBConfiguration(),
-    '7 by 7 RGB Convolution': () => CIConvolution7X7RGBConfiguration(),
-    'Convolution 9 RGB Horizontal': () =>
-        CIConvolution9RGBHorizontalConfiguration(),
-    'Convolution 9 RGB Vertical': () =>
-        CIConvolution9RGBVerticalConfiguration(),
-    'Disintegrate With Mask Transition': () =>
+    'Horizontal 9 Convolution': () => CIConvolution9HorizontalConfiguration(),
+    'Vertical 9 Convolution': () => CIConvolution9VerticalConfiguration(),
+    '3 by 3 RGB Convolution': () => CIConvolutionRGB3X3Configuration(),
+    '5 by 5 RGB Convolution': () => CIConvolutionRGB5X5Configuration(),
+    '7 by 7 RGB Convolution': () => CIConvolutionRGB7X7Configuration(),
+    'Horizontal 9 RGB Convolution': () =>
+        CIConvolutionRGB9HorizontalConfiguration(),
+    'Vertical 9 RGB Convolution': () =>
+        CIConvolutionRGB9VerticalConfiguration(),
+    'Disintegrate With Mask': () =>
         CIDisintegrateWithMaskTransitionConfiguration(),
     'Linear Light Blend Mode': () => CILinearLightBlendModeConfiguration(),
     'Mesh Generator': () => CIMeshGeneratorConfiguration(),
@@ -499,18 +501,24 @@ class FlutterCoreImageFilters {
     'QR Code Generator': () => CIQRCodeGeneratorConfiguration(),
     'Spot Color': () => CISpotColorConfiguration(),
     'Spot Light': () => CISpotLightConfiguration(),
-    'Temperature And Tint': () => CITemperatureAndTintConfiguration(),
-    ' Text Image Generator': () => CITextImageGeneratorConfiguration(),
+    'Temperature and Tint': () => CITemperatureAndTintConfiguration(),
+    'Text Image Generator': () => CITextImageGeneratorConfiguration(),
     'Tone Curve': () => CIToneCurveConfiguration(),
     'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
     'Color Curves': () => CIColorCurvesConfiguration(),
-    'Hue Saturation ValueGradient': () =>
+    'Hue/Saturation/Value Gradient': () =>
         CIHueSaturationValueGradientConfiguration(),
+    'Convert Lab to RGB': () => CIConvertLabToRGBConfiguration(),
+    'Convert RGB to Lab': () => CIConvertRGBToLabConfiguration(),
   };
 
   static T createFilter<T extends CIFilterConfiguration>({
     required String displayName,
   }) {
-    return _availableFilters[displayName]?.call() as T;
+    final configuration = _availableFilters[displayName]?.call();
+    if (configuration == null) {
+      debugPrint('Configuration not found for $displayName');
+    }
+    return configuration as T;
   }
 }

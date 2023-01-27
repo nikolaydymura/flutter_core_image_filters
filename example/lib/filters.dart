@@ -50,43 +50,24 @@ final kFailedFilters = [
       ..c = 0.5
       ..aspectRatio = 1,
   ),
-  /* FilterItem(
-    'Spot Color',
-    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
-      displayName: 'Spot Color',
-    ),
-  ),
- */
-  /*  FilterItem(
-    'Spot Color',
-    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
-      displayName: 'Spot Color',
-    )
-      ..color0 = const Color.fromRGBO(0, 0, 0, 1.0)
-      ..color1 = const Color.fromRGBO(0, 0, 0, 1.0),
-  ),
-*/
-  /* FilterItem(
+   FilterItem(
     'Random Generator',
     FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
       displayName: 'Random Generator',
     ),
   ),
- */
-  /*  FilterItem(
+    FilterItem(
     'Person Segmentation',
     FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
       displayName: 'Person Segmentation',
     ),
   ),
- */
-  /* FilterItem(
+   FilterItem(
     'Convert Lab to RGB',
     FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
       displayName: 'Convert Lab to RGB',
     ),
   ),
-*/
 ].sorted((a, b) => a.name.compareTo(b.name));
 
 final kFilters = [

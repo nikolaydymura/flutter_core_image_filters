@@ -68,7 +68,7 @@ void main() {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputContrast2') as NumberParameter;
       expect(parameter.value, 0.98);
-      configuration.contrast3 = 0.5;
+      configuration.contrast2 = 0.5;
       expect(parameter.value, 0.5);
     });
     test('change inputReplacementColor1', () {

@@ -6,7 +6,7 @@ class CIPersonSegmentationConfiguration extends CIFilterConfiguration {
   CIPersonSegmentationConfiguration()
       : _qualityLevel = SliderNSNumberParameter(
           'inputQualityLevel',
-          'QualityLevel',
+          'Quality Level',
           1,
           min: 0,
           max: 2,

@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CILinearLightBlendModeConfiguration extends CIFilterConfiguration {
+class CILinearLightBlendModeConfiguration extends CIFilterConfiguration
+    with BackgroundImageMixin {
   CILinearLightBlendModeConfiguration() : super('CILinearLightBlendMode');
 
   @override

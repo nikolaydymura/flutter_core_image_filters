@@ -9,7 +9,7 @@ class CIAffineTransformConfiguration extends CIFilterConfiguration {
           'Transform',
           const CGAffineTransform().storage,
         ),
-        super('CIAffineClamp');
+        super('CIAffineTransform');
 
   set transform(CGAffineTransform value) {
     _transform.value = value.storage;

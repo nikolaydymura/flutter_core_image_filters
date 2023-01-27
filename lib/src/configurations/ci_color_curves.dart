@@ -3,6 +3,7 @@ part of flutter_core_image_filters;
 class CIColorCurvesConfiguration extends CIFilterConfiguration {
   final StringParameter _colorSpace;
   final DataParameter _curvesData;
+  final VectorParameter _curvesDomain;
 
   CIColorCurvesConfiguration()
       : _colorSpace = NSStringParameter(
@@ -14,10 +15,16 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration {
           'inputCurvesData',
           'Curves Data',
         ),
+        _curvesDomain =
+            CIVectorParameter('inputCurvesDomain', 'Curves Domain', [0.0, 1.0]),
         super('CIColorCurves');
 
   set colorSpace(String value) {
     _colorSpace.value = value;
+  }
+
+  set curvesDomain(List<double> value) {
+    _curvesDomain.value = value;
   }
 
   set curvesData0(Uint8List value) {
@@ -49,5 +56,6 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration {
       };
 
   @override
-  List<ConfigurationParameter> get parameters => [_colorSpace, _curvesData];
+  List<ConfigurationParameter> get parameters =>
+      [_colorSpace, _curvesData, _curvesDomain];
 }

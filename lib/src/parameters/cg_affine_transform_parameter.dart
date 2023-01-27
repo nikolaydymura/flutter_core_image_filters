@@ -3,6 +3,15 @@ part of flutter_core_image_filters;
 class CGAffineTransformParameter extends VectorParameter {
   CGAffineTransformParameter(super.name, super.displayName, super.value);
 
+  CGAffineTransform get affineTransform => CGAffineTransform(
+        a: value[0],
+        b: value[1],
+        c: value[2],
+        d: value[3],
+        tx: value[4],
+        ty: value[5],
+      );
+
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
     await configuration._api.setNSValueParameter(
@@ -49,4 +58,25 @@ class CGAffineTransform {
       ty: ty ?? this.ty,
     );
   }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is CGAffineTransform &&
+          runtimeType == other.runtimeType &&
+          a == other.a &&
+          b == other.b &&
+          c == other.c &&
+          d == other.d &&
+          tx == other.tx &&
+          ty == other.ty;
+
+  @override
+  int get hashCode =>
+      a.hashCode ^
+      b.hashCode ^
+      c.hashCode ^
+      d.hashCode ^
+      tx.hashCode ^
+      ty.hashCode;
 }

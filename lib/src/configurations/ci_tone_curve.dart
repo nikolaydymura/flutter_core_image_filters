@@ -1,57 +1,57 @@
 part of flutter_core_image_filters;
 
 class CIToneCurveConfiguration extends CIFilterConfiguration {
-  final VectorParameter _point0;
-  final VectorParameter _point1;
-  final VectorParameter _point2;
-  final VectorParameter _point3;
-  final VectorParameter _point4;
+  final PointParameter _point0;
+  final PointParameter _point1;
+  final PointParameter _point2;
+  final PointParameter _point3;
+  final PointParameter _point4;
 
   CIToneCurveConfiguration()
-      : _point0 = CIVectorParameter(
+      : _point0 = CGPositionParameter(
           'inputPoint0',
-          'Point0',
-          [0, 0],
+          'Point 0',
+          const Point(0.0, 0.0),
         ),
-        _point1 = CIVectorParameter(
+        _point1 = CGPositionParameter(
           'inputPoint1',
-          'Point1',
-          [0.25, 0.25],
+          'Point 1',
+          const Point(0.25, 0.25),
         ),
-        _point2 = CIVectorParameter(
+        _point2 = CGPositionParameter(
           'inputPoint2',
-          'Point2',
-          [0.5, 0.5],
+          'Point 2',
+          const Point(0.5, 0.5),
         ),
-        _point3 = CIVectorParameter(
+        _point3 = CGPositionParameter(
           'inputPoint3',
-          'Point3',
-          [0.75, 0.75],
+          'Point 3',
+          const Point(0.75, 0.75),
         ),
-        _point4 = CIVectorParameter(
+        _point4 = CGPositionParameter(
           'inputPoint4',
-          'Point4',
-          [1, 1],
+          'Point 4',
+          const Point(1.0, 1.0),
         ),
         super('CIToneCurve');
 
-  set point0(List<double> value) {
+  set point0(Point<double> value) {
     _point0.value = value;
   }
 
-  set point1(List<double> value) {
+  set point1(Point<double> value) {
     _point1.value = value;
   }
 
-  set point2(List<double> value) {
+  set point2(Point<double> value) {
     _point2.value = value;
   }
 
-  set point3(List<double> value) {
+  set point3(Point<double> value) {
     _point3.value = value;
   }
 
-  set point4(List<double> value) {
+  set point4(Point<double> value) {
     _point4.value = value;
   }
 

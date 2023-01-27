@@ -8,20 +8,23 @@ class CIColorCrossPolynomialConfiguration extends CIFilterConfiguration {
   CIColorCrossPolynomialConfiguration()
       : _redCoefficients = CIVectorParameter(
           'inputRedCoefficients',
-          'RedCoefficients',
+          'Red Coefficients',
           [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+          10,
         ),
         _greenCoefficients = CIVectorParameter(
           'inputGreenCoefficients',
-          'GreenCoefficients',
+          'Green Coefficients',
           [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+          10,
         ),
         _blueCoefficients = CIVectorParameter(
           'inputBlueCoefficients',
-          'BlueCoefficients',
+          'Blue Coefficients',
           [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+          10,
         ),
-        super('ColorCrossPolynomial');
+        super('CIColorCrossPolynomial');
 
   set redCoefficients(List<double> value) {
     _redCoefficients.value = value;

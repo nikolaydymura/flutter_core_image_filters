@@ -34,7 +34,7 @@ void main() {
           .firstWhere((e) => e.name == 'inputColor') as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(255, 255, 255, 1));
       configuration.color = const Color.fromRGBO(226, 159, 59, 1.0);
-      expect(parameter.value, 0.5);
+      expect(parameter.value, const Color.fromRGBO(226, 159, 59, 1.0));
     });
   });
 }
