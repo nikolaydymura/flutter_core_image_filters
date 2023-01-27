@@ -122,7 +122,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     }
   }
 
-  Future<void> exportVideoFile(
+  Future<Stream<double>> exportVideoFile(
     VideoExportConfig config, {
     CIContext context = CIContext.system,
     AVAssetExportPreset preset = AVAssetExportPreset.highestQuality,
@@ -138,7 +138,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
     final bool asset = source is AssetInputSource;
     switch (format) {
       case VideoExportFormat.mp4:
-        await _api.exportVideoFile(
+        final sessionId = await _api.exportVideoFile(
           _filterId,
           asset,
           source.path,
@@ -147,9 +147,12 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           context.platformKey,
           preset.platformKey,
         );
-        break;
+        return EventChannel('AVAssetExportSession_$sessionId')
+            .receiveBroadcastStream()
+            .map((event) => event as double)
+            .distinct();
       case VideoExportFormat.mov:
-        await _api.exportVideoFile(
+        final sessionId = await _api.exportVideoFile(
           _filterId,
           asset,
           source.path,
@@ -158,9 +161,12 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           context.platformKey,
           preset.platformKey,
         );
-        break;
+        return EventChannel('AVAssetExportSession_$sessionId')
+            .receiveBroadcastStream()
+            .map((event) => event as double)
+            .distinct();
       default:
-        break;
+        throw 'Unsupported format $output';
     }
   }
 

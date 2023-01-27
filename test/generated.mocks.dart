@@ -77,7 +77,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
   @override
-  _i3.Future<void> exportVideoFile(
+  _i3.Future<int> exportVideoFile(
     int? arg_filterId,
     bool? arg_asset,
     String? arg_input,
@@ -99,9 +99,8 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
             arg_preset,
           ],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i3.Future<int>.value(0),
+      ) as _i3.Future<int>);
   @override
   _i3.Future<void> setInputData(
     int? arg_filterId,
@@ -177,6 +176,24 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
       (super.noSuchMethod(
         Invocation.method(
           #setCIColorParameter,
+          [
+            arg_filterId,
+            arg_key,
+            arg_value,
+          ],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+  @override
+  _i3.Future<void> setNSValueParameter(
+    int? arg_filterId,
+    String? arg_key,
+    List<double?>? arg_value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setNSValueParameter,
           [
             arg_filterId,
             arg_key,
@@ -350,6 +367,22 @@ class MockImagePreviewApi extends _i1.Mock implements _i5.ImagePreviewApi {
         Invocation.method(
           #setData,
           [arg_msg],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+  @override
+  _i3.Future<void> setOutput(
+    int? arg_textureId,
+    List<double?>? arg_value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setOutput,
+          [
+            arg_textureId,
+            arg_value,
+          ],
         ),
         returnValue: _i3.Future<void>.value(),
         returnValueForMissingStub: _i3.Future<void>.value(),

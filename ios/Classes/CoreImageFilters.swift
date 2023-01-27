@@ -20,6 +20,7 @@ protocol FilterDelegate {
 class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
     private var filters: [Int64: CIFilter] = [:]
     private var filterSequenceId: Int64 = 0
+    private var exporterSequenceId: Int64 = 0
     private let registrar: FlutterPluginRegistrar
     var filterDelegate: FilterDelegate?
     
@@ -322,11 +323,11 @@ extension CoreImageFilters {
         }
     }
 
-    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, completion: @escaping (FlutterError?) -> Void) {
+    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
 
         guard let filter = filters[filterId.int64Value] else {
-            completion(FlutterError(code: "core-image-filters", message: "Filter not found", details: nil))
-            return
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return nil
         }
         var path = input
         if asset.boolValue {
@@ -334,8 +335,8 @@ extension CoreImageFilters {
             let assetKey = registrar.lookupKey(forAsset: path)
             
             guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                completion(FlutterError(code: "core-image-filters", message: "Asset not found", details: nil))
-                return
+                error.pointee = FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
+                return nil
             }
             path = filePath
             #endif
@@ -349,8 +350,8 @@ extension CoreImageFilters {
             request.finish(with: output ?? source, context: ciContext)
         }
         guard let exporter = AVAssetExportSession(asset: asset, presetName: preset) else {
-            completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))
-            return
+            error.pointee = FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil)
+            return nil
         }
         
         exporter.videoComposition = videoComposition
@@ -361,20 +362,61 @@ extension CoreImageFilters {
         } else if format == "mov" {
             exporter.outputFileType = .mov
         } else {
-            completion(FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil))
-            return
+            error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
+            return nil
         }
-        exporter.exportAsynchronously { () -> Void in
-            if exporter.error == nil && exporter.status == .completed {
-                completion(nil)
+        
+        let exportId = exporterSequenceId
+        exporterSequenceId += 1
+        
+        let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
+                                               binaryMessenger: registrar.messenger())
+        
+        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter))
+        return NSNumber(value: exportId)
+    
+    }
+    
+}
 
-            } else {
-                let message = String(describing: exporter.error)
-                completion(FlutterError.init(code: "core-image-filters",
-                                             message: message,
-                                             details: nil))
-            }
+class AVAssetExportSessionStreamHandler: NSObject, FlutterStreamHandler {
+    private let session: AVAssetExportSession
+    private var eventSink: FlutterEventSink?
+    private var timer: Timer?
+    
+    init(session: AVAssetExportSession) {
+        self.session = session
+    }
+    
+    func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        eventSink = events
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateProgess(_:))
+        session.exportAsynchronously(completionHandler: export)
+        return nil
+    }
+    
+    func updateProgess(_ timer: Timer) {
+        eventSink?(session.progress)
+    }
+    
+    func export() {
+        timer?.invalidate()
+        if session.error == nil && session.status == .completed {
+            eventSink?(-100.0)
+            
+        } else {
+            let message = String(describing: session.error)
+            eventSink?(FlutterError.init(code: "core-image-filters",
+                                         message: message,
+                                         details: nil))
         }
     }
     
+    func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        timer?.invalidate()
+        session.cancelExport()
+        eventSink = nil
+        timer = nil
+        return nil
+    }
 }

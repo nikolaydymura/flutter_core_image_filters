@@ -16,3 +16,5 @@ sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/ImagePreview.
 sed -i '' -e 's/import UIKit//' macos/Classes/ImagePreview.swift
 sed -i '' -e 's:#import <Flutter/Flutter.h>:#import <FlutterMacOS/FlutterMacOS.h>:' macos/Classes/PreviewMessages.g.m
 sed -i '' -e 's:#import <Flutter/Flutter.h>:#import <FlutterMacOS/FlutterMacOS.h>:' macos/Classes/FilterMessages.g.m
+
+flutter pub run build_runner build --delete-conflicting-outputs

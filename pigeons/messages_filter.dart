@@ -28,8 +28,7 @@ abstract class FilterApi {
   void exportImageFile(int filterId, String path, String format, String context);
 
   @ObjCSelector('exportVideoFile: : : : : : :')
-  @async
-  void exportVideoFile(int filterId, bool asset, String input, String output, String format, String context, String preset);
+  int exportVideoFile(int filterId, bool asset, String input, String output, String format, String context, String preset);
 
   @ObjCSelector('setInputData: :')
   void setInputData(int filterId, Uint8List data);

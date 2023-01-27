@@ -7,6 +7,7 @@ import 'dart:ui' show Image;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
+import 'package:flutter/services.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 import 'src/messages/filter_messages.g.dart';

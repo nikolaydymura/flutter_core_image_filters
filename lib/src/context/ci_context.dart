@@ -14,3 +14,7 @@ extension _CIContext on CIContext {
     }
   }
 }
+
+extension ProcessingDouble on double {
+  bool get isProcessingCompleted => this == -100;
+}

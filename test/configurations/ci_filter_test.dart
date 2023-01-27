@@ -141,10 +141,28 @@ void main() {
     group('exportVideoFile', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportImageFile(101, any, 'mov', 'system'))
-            .thenAnswer((_) async {});
-        when(mockFilterApi.exportImageFile(101, any, 'mp4', 'system'))
-            .thenAnswer((_) async {});
+        when(
+          mockFilterApi.exportVideoFile(
+            101,
+            true,
+            any,
+            any,
+            'mov',
+            'system',
+            'AVAssetExportPresetHighestQuality',
+          ),
+        ).thenAnswer((_) async => 201);
+        when(
+          mockFilterApi.exportVideoFile(
+            101,
+            false,
+            any,
+            any,
+            'mp4',
+            'system',
+            'AVAssetExportPresetHighestQuality',
+          ),
+        ).thenAnswer((_) async => 201);
       });
       tearDown(() async {
         await configuration.dispose();
@@ -169,15 +187,16 @@ void main() {
         ).called(1);
       });
       test('export from file', () async {
-        final file = File('demo.mp4');
-        final config = VideoExportConfig(FileInputSource(file), file);
+        final fileIn = File('demo.mp4');
+        final fileOut = File('output.mp4');
+        final config = VideoExportConfig(FileInputSource(fileIn), fileOut);
         await configuration.exportVideoFile(config);
         verify(
           mockFilterApi.exportVideoFile(
             101,
             false,
-            file.absolute.path,
-            file.absolute.path,
+            fileIn.absolute.path,
+            fileOut.absolute.path,
             'mp4',
             'system',
             'AVAssetExportPresetHighestQuality',
