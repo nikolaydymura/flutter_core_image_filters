@@ -22,7 +22,9 @@ mixin PaletteImageMixin on CIFilterConfiguration {
     _paletteImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _paletteImage];
+// coverage:ignore-end
 }

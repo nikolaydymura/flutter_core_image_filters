@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
+class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
+    with MessageMixin {
   final NumberParameter _compactStyle;
   final NumberParameter _correctionLevel;
   final NumberParameter _layers;
-  final DataParameter _message;
 
   CIAztecCodeGeneratorConfiguration()
       : _compactStyle = SliderNSNumberParameter(
@@ -28,7 +28,6 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
           min: 1,
           max: 32,
         ),
-        _message = NSDataParameter('inputMessage', 'Message'),
         super('CIAztecCodeGenerator');
 
   set compactStyle(double value) {
@@ -41,24 +40,6 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
 
   set layers(double value) {
     _layers.value = value;
-  }
-
-  set messageData(Uint8List value) {
-    _message.data = value;
-    _message.asset = null;
-    _message.file = null;
-  }
-
-  set messageAsset(String value) {
-    _message.data = null;
-    _message.asset = value;
-    _message.file = null;
-  }
-
-  set messageFile(File value) {
-    _message.data = null;
-    _message.asset = null;
-    _message.file = value;
   }
 
   @override

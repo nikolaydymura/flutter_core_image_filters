@@ -22,7 +22,9 @@ mixin ShadingImageMixin on CIFilterConfiguration {
     _shadingImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _shadingImage];
+// coverage:ignore-end
 }

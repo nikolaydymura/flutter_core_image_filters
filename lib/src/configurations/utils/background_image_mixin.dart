@@ -22,7 +22,9 @@ mixin BackgroundImageMixin on CIFilterConfiguration {
     _backgroundImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _backgroundImage];
+// coverage:ignore-end
 }

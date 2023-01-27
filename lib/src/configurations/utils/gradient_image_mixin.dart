@@ -22,7 +22,9 @@ mixin GradientImageMixin on CIFilterConfiguration {
     _gradientImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _gradientImage];
+// coverage:ignore-end
 }

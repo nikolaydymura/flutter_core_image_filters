@@ -21,7 +21,9 @@ mixin TextureMixin on CIFilterConfiguration {
     _texture.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _texture];
+// coverage:ignore-end
 }

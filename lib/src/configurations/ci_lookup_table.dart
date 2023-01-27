@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CILookupTableConfiguration extends CIFilterConfiguration {
+class CILookupTableConfiguration extends CIFilterConfiguration
+    with Image2Mixin {
   final NumberParameter _dimension;
   final RectParameter _size;
   final RangeNumberParameter _intensity;
-  final DataParameter _lut;
 
   CILookupTableConfiguration()
       : _dimension = NSNumberParameter('inputSize', 'Size', 64),
@@ -20,7 +20,6 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
           min: 0.0,
           max: 1.0,
         ),
-        _lut = CIImageParameter('inputImage2', 'Image 2'),
         super('CILookupTable');
 
   set size(int value) {
@@ -39,24 +38,6 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
     _intensity.value = value;
   }
 
-  set lutData(Uint8List value) {
-    _lut.data = value;
-    _lut.asset = null;
-    _lut.file = null;
-  }
-
-  set lutAsset(String value) {
-    _lut.data = null;
-    _lut.asset = value;
-    _lut.file = null;
-  }
-
-  set lutFile(File value) {
-    _lut.data = null;
-    _lut.asset = null;
-    _lut.file = value;
-  }
-
   @override
   Iterable<CICategory> get categories => {
         CICategory.colorEffect,
@@ -70,5 +51,5 @@ class CILookupTableConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_size, _dimension, _intensity, _lut];
+      [_size, _dimension, _intensity, _image2];
 }

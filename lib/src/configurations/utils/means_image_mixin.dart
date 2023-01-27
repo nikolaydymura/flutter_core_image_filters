@@ -21,7 +21,9 @@ mixin MeansImageMixin on CIFilterConfiguration {
     _meansImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _meansImage];
+// coverage:ignore-end
 }

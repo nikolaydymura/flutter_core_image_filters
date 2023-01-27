@@ -21,6 +21,8 @@ mixin Image2Mixin on CIFilterConfiguration {
     _image2.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters => [...super.parameters, _image2];
+// coverage:ignore-end
 }

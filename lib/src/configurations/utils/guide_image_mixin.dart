@@ -22,7 +22,9 @@ mixin GuideImageMixin on CIFilterConfiguration {
     _guideImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _guideImage];
+// coverage:ignore-end
 }

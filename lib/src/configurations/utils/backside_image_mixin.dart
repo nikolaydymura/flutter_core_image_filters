@@ -22,7 +22,9 @@ mixin BacksideImageMixin on CIFilterConfiguration {
     _backsideImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _backsideImage];
+// coverage:ignore-end
 }

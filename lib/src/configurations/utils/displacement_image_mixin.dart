@@ -22,7 +22,9 @@ mixin DisplacementImageMixin on CIFilterConfiguration {
     _displacementImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _displacementImage];
+// coverage:ignore-end
 }

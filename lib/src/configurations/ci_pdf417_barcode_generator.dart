@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
+class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
+    with MessageMixin {
   final NumberParameter _minHeight;
   final BoolParameter _alwaysSpecifyCompaction;
   final NumberParameter _dataColumns;
@@ -12,7 +13,6 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
   final BoolParameter _compactStyle;
   final NumberParameter _preferredAspectRatio;
   final NumberParameter _maxHeight;
-  final DataParameter _message;
 
   CIPDF417BarcodeGeneratorConfiguration()
       : _minHeight = SliderNSNumberParameter(
@@ -88,26 +88,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
           min: 13,
           max: 283,
         ),
-        _message = NSDataParameter('inputMessage', 'Message'),
         super('CIPDF417BarcodeGenerator');
-
-  set messageData(Uint8List value) {
-    _message.data = value;
-    _message.asset = null;
-    _message.file = null;
-  }
-
-  set messageAsset(String value) {
-    _message.data = null;
-    _message.asset = value;
-    _message.file = null;
-  }
-
-  set messageFile(File value) {
-    _message.data = null;
-    _message.asset = null;
-    _message.file = value;
-  }
 
   set minHeight(double value) {
     _minHeight.value = value;

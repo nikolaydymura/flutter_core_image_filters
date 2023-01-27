@@ -1,9 +1,9 @@
 part of flutter_core_image_filters;
 
-class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration {
+class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
+    with MessageMixin {
   final NumberParameter _quietSpace;
   final NumberParameter _barcodeHeight;
-  final DataParameter _message;
 
   CICode128BarcodeGeneratorConfiguration()
       : _quietSpace = SliderNSNumberParameter(
@@ -20,7 +20,6 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration {
           min: 1,
           max: 50,
         ),
-        _message = NSDataParameter('inputMessage', 'Message'),
         super('CICode128BarcodeGenerator');
 
   set quietSpace(double value) {
@@ -29,24 +28,6 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration {
 
   set barcodeHeight(double value) {
     _barcodeHeight.value = value;
-  }
-
-  set messageData(Uint8List value) {
-    _message.data = value;
-    _message.asset = null;
-    _message.file = null;
-  }
-
-  set cubeData0Asset(String value) {
-    _message.data = null;
-    _message.asset = value;
-    _message.file = null;
-  }
-
-  set cubeData0File(File value) {
-    _message.data = null;
-    _message.asset = null;
-    _message.file = value;
   }
 
   @override

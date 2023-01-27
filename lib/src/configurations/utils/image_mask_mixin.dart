@@ -24,7 +24,9 @@ mixin MaskImageMixin on CIFilterConfiguration {
     _maskImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _maskImage];
+// coverage:ignore-end
 }

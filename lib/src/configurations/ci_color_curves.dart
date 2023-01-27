@@ -27,19 +27,19 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration {
     _curvesDomain.value = value;
   }
 
-  set curvesData0(Uint8List value) {
+  set curvesData(Uint8List value) {
     _curvesData.data = value;
     _curvesData.asset = null;
     _curvesData.file = null;
   }
 
-  set curvesData0Asset(String value) {
+  set curvesDataAsset(String value) {
     _curvesData.data = null;
     _curvesData.asset = value;
     _curvesData.file = null;
   }
 
-  set curvesData0File(File value) {
+  set curvesDataFile(File value) {
     _curvesData.data = null;
     _curvesData.asset = null;
     _curvesData.file = value;

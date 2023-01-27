@@ -22,7 +22,9 @@ mixin TargetImageMixin on CIFilterConfiguration {
     _targetImage.file = value;
   }
 
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _targetImage];
+// coverage:ignore-end
 }

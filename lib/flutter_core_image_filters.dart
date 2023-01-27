@@ -25,6 +25,8 @@ part 'src/configurations/ci_area_histogram.dart';
 part 'src/configurations/ci_area_logarithmic_histogram.dart';
 part 'src/configurations/ci_area_maximum.dart';
 part 'src/configurations/ci_area_maximum_alpha.dart';
+part 'src/configurations/utils/message_mixin.dart';
+part 'src/configurations/utils/cube_data_mixin.dart';
 part 'src/configurations/ci_area_min_max.dart';
 part 'src/configurations/ci_area_min_max_red.dart';
 part 'src/configurations/ci_area_minimum.dart';
