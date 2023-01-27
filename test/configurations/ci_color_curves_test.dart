@@ -7,28 +7,28 @@ import 'package:flutter_test/flutter_test.dart';
 import '../helpers.dart';
 
 void main() {
-  late CIQRCodeGeneratorConfiguration configuration;
+  late CIColorCurvesConfiguration configuration;
   setUp(() {
-    configuration = CIQRCodeGeneratorConfiguration();
+    configuration = CIColorCurvesConfiguration();
   });
-  group('CIQRCodeGenerator', () {
+  group('CIColorCurves', () {
     test('verify name', () {
-      expect(configuration.name, 'CIQRCodeGenerator');
+      expect(configuration.name, 'CIColorCurves');
     });
     testInputKeys(build: () => configuration);
-    test('change inputCorrectionLevel', () {
+    test('change inputColorSpace', () {
       final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputCorrectionLevel')
+              .firstWhere((e) => e.name == 'inputColorSpace')
           as StringParameter;
-      expect(parameter.value, 'M');
-      configuration.correctionLevel = 'L';
-      expect(parameter.value, 'L');
+      expect(parameter.value, '');
+      configuration.colorSpace = 'a';
+      expect(parameter.value, 'a');
     });
-    test('change inputMessage', () {
+    test('change inputCurvesData', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMessage') as DataParameter;
+          .firstWhere((e) => e.name == 'inputCurvesData') as DataParameter;
       expect(parameter.data, isNull);
-      configuration.messageData = Uint8List(0);
+      configuration.curvesData0 = Uint8List(0);
       expect(parameter.data, isNotNull);
     });
   });

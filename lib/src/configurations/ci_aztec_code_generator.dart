@@ -49,6 +49,18 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration {
     _message.file = null;
   }
 
+  set messageAsset(String value) {
+    _message.data = null;
+    _message.asset = value;
+    _message.file = null;
+  }
+
+  set messageFile(File value) {
+    _message.data = null;
+    _message.asset = null;
+    _message.file = value;
+  }
+
   @override
   Iterable<CICategory> get categories =>
       {CICategory.generator, CICategory.stillImage, CICategory.builtIn};

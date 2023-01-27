@@ -58,6 +58,7 @@ part 'src/configurations/ci_color_cross_polynomial.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_color_cube_with_color_space.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
+part 'src/configurations/ci_color_curves.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
 part 'src/configurations/ci_color_map.dart';
 part 'src/configurations/ci_color_matrix.dart';
@@ -123,6 +124,7 @@ part 'src/configurations/ci_histogram_display_filter.dart';
 part 'src/configurations/ci_hole_distortion.dart';
 part 'src/configurations/ci_hue_adjust.dart';
 part 'src/configurations/ci_hue_blend_mode.dart';
+part 'src/configurations/ci_hue_saturation_value_gradient.dart';
 part 'src/configurations/ci_k_means.dart';
 part 'src/configurations/ci_kaleidoscope.dart';
 part 'src/configurations/ci_keystone_correction_combined.dart';
@@ -501,6 +503,9 @@ class FlutterCoreImageFilters {
     ' Text Image Generator': () => CITextImageGeneratorConfiguration(),
     'Tone Curve': () => CIToneCurveConfiguration(),
     'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
+    'Color Curves': () => CIColorCurvesConfiguration(),
+    'Hue Saturation ValueGradient': () =>
+        CIHueSaturationValueGradientConfiguration(),
   };
 
   static T createFilter<T extends CIFilterConfiguration>({
