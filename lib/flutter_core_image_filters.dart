@@ -17,6 +17,8 @@ part 'src/ci_video_preview.dart';
 part 'src/configurations/ci_accordion_fold_transition.dart';
 part 'src/configurations/ci_addition_compositing.dart';
 part 'src/configurations/ci_affine_clamp.dart';
+part 'src/configurations/ci_affine_tile.dart';
+part 'src/configurations/ci_affine_transform.dart';
 part 'src/configurations/ci_area_average.dart';
 part 'src/configurations/ci_area_histogram.dart';
 part 'src/configurations/ci_area_logarithmic_histogram.dart';
@@ -50,19 +52,33 @@ part 'src/configurations/ci_code_128_barcode_generator.dart';
 part 'src/configurations/ci_color_absolute_difference.dart';
 part 'src/configurations/ci_color_blend_mode.dart';
 part 'src/configurations/ci_color_burn_blend_mode.dart';
+part 'src/configurations/ci_color_clamp.dart';
 part 'src/configurations/ci_color_controls.dart';
+part 'src/configurations/ci_color_cross_polynomial.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_color_cube_with_color_space.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
+part 'src/configurations/ci_color_curves.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
 part 'src/configurations/ci_color_map.dart';
+part 'src/configurations/ci_color_matrix.dart';
 part 'src/configurations/ci_color_monochrome.dart';
+part 'src/configurations/ci_color_polynomial.dart';
 part 'src/configurations/ci_color_posterize.dart';
 part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
+part 'src/configurations/ci_convolution_3x3_rgb.dart';
+part 'src/configurations/ci_convolution_5x5.dart';
+part 'src/configurations/ci_convolution_5x5_rgb.dart';
+part 'src/configurations/ci_convolution_7x7.dart';
+part 'src/configurations/ci_convolution_7x7_rgb.dart';
+part 'src/configurations/ci_convolution_9_horizontal.dart';
+part 'src/configurations/ci_convolution_9_rgb_horizontal.dart';
+part 'src/configurations/ci_convolution_9_rgb_vertical.dart';
+part 'src/configurations/ci_convolution_9_vertical.dart';
 part 'src/configurations/ci_copy_machine_transition.dart';
 part 'src/configurations/ci_crop.dart';
 part 'src/configurations/ci_crystallize.dart';
@@ -71,6 +87,7 @@ part 'src/configurations/ci_depth_blur_effect.dart';
 part 'src/configurations/ci_depth_of_field.dart';
 part 'src/configurations/ci_difference_blend_mode.dart';
 part 'src/configurations/ci_disc_blur.dart';
+part 'src/configurations/ci_disintegrate_with_mask_transition.dart';
 part 'src/configurations/ci_displacement_distortion.dart';
 part 'src/configurations/ci_dissolve_transition.dart';
 part 'src/configurations/ci_dither.dart';
@@ -107,6 +124,7 @@ part 'src/configurations/ci_histogram_display_filter.dart';
 part 'src/configurations/ci_hole_distortion.dart';
 part 'src/configurations/ci_hue_adjust.dart';
 part 'src/configurations/ci_hue_blend_mode.dart';
+part 'src/configurations/ci_hue_saturation_value_gradient.dart';
 part 'src/configurations/ci_k_means.dart';
 part 'src/configurations/ci_kaleidoscope.dart';
 part 'src/configurations/ci_keystone_correction_combined.dart';
@@ -122,10 +140,12 @@ part 'src/configurations/ci_line_screen.dart';
 part 'src/configurations/ci_linear_burn_blend_mode.dart';
 part 'src/configurations/ci_linear_dodge_blend_mode.dart';
 part 'src/configurations/ci_linear_gradient.dart';
+part 'src/configurations/ci_linear_light_blend_mode.dart';
 part 'src/configurations/ci_lookup_table.dart';
 part 'src/configurations/ci_luminosity_blend_mode.dart';
 part 'src/configurations/ci_masked_variable_blur.dart';
 part 'src/configurations/ci_maximum_compositing.dart';
+part 'src/configurations/ci_mesh_generator.dart';
 part 'src/configurations/ci_minimum_compositing.dart';
 part 'src/configurations/ci_mix.dart';
 part 'src/configurations/ci_mod_transition.dart';
@@ -148,6 +168,7 @@ part 'src/configurations/ci_palette_centroid.dart';
 part 'src/configurations/ci_palettize.dart';
 part 'src/configurations/ci_parallelogram_tile.dart';
 part 'src/configurations/ci_pdf417_barcode_generator.dart';
+part 'src/configurations/ci_person_segmentation.dart';
 part 'src/configurations/ci_perspective_correction.dart';
 part 'src/configurations/ci_perspective_rotate.dart';
 part 'src/configurations/ci_perspective_tile.dart';
@@ -157,6 +178,7 @@ part 'src/configurations/ci_pin_light_blend_mode.dart';
 part 'src/configurations/ci_pinch_distortion.dart';
 part 'src/configurations/ci_pixellate.dart';
 part 'src/configurations/ci_pointillize.dart';
+part 'src/configurations/ci_qr_code_generator.dart';
 part 'src/configurations/ci_radial_gradient.dart';
 part 'src/configurations/ci_random_generator.dart';
 part 'src/configurations/ci_ripple_transition.dart';
@@ -177,6 +199,8 @@ part 'src/configurations/ci_source_atop_compositing.dart';
 part 'src/configurations/ci_source_in_compositing.dart';
 part 'src/configurations/ci_source_out_compositing.dart';
 part 'src/configurations/ci_source_over_compositing.dart';
+part 'src/configurations/ci_spot_color.dart';
+part 'src/configurations/ci_spot_light.dart';
 part 'src/configurations/ci_star_shine_generator.dart';
 part 'src/configurations/ci_straighten_filter.dart';
 part 'src/configurations/ci_stretch_crop.dart';
@@ -184,6 +208,9 @@ part 'src/configurations/ci_stripes_generator.dart';
 part 'src/configurations/ci_subtract_blend_mode.dart';
 part 'src/configurations/ci_sunbeams_generator.dart';
 part 'src/configurations/ci_swipe_transition.dart';
+part 'src/configurations/ci_temperature_and_tint.dart';
+part 'src/configurations/ci_text_image_generator.dart';
+part 'src/configurations/ci_tone_curve.dart';
 part 'src/configurations/ci_torus_lens_distortion.dart';
 part 'src/configurations/ci_triangle_kaleidoscope.dart';
 part 'src/configurations/ci_triangle_tile.dart';
@@ -193,6 +220,7 @@ part 'src/configurations/ci_unsharp_mask.dart';
 part 'src/configurations/ci_vibrance.dart';
 part 'src/configurations/ci_vignette.dart';
 part 'src/configurations/ci_vignette_effect.dart';
+part 'src/configurations/ci_vivid_light_blend_mode.dart';
 part 'src/configurations/ci_vortex_distortion.dart';
 part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/ci_zoom_blur.dart';
@@ -445,7 +473,39 @@ class FlutterCoreImageFilters {
     'Vortex Distortion': () => CIVortexDistortionConfiguration(),
     'Zoom Blur': () => CIZoomBlurConfiguration(),
     'Affine Clamp': () => CIAffineClampConfiguration(),
-    '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
+    'Affine Tile': () => CIAffineTileConfiguration(),
+    'Affine Transform': () => CIAffineTransformConfiguration(),
+    '3 by 3 Convolution': () => CIConvolution3X3Configuration(),
+    'Color Clamp': () => CIColorClampConfiguration(),
+    'Color Cross Polynomial': () => CIColorCrossPolynomialConfiguration(),
+    'Color Matrix': () => CIColorMatrixConfiguration(),
+    'Color Polynomial': () => CIColorPolynomialConfiguration(),
+    '5 by 5 Convolution': () => CIConvolution5X5Configuration(),
+    '7 by 7 Convolution': () => CIConvolution7X7Configuration(),
+    'Convolution 9 Horizontal': () => CIConvolution9HorizontalConfiguration(),
+    'Convolution 9 Vertical': () => CIConvolution9VerticalConfiguration(),
+    '3 by 3 RGB Convolution': () => CIConvolution3X3RGBConfiguration(),
+    '5 by 5 RGB Convolution': () => CIConvolution5X5RGBConfiguration(),
+    '7 by 7 RGB Convolution': () => CIConvolution7X7RGBConfiguration(),
+    'Convolution 9 RGB Horizontal': () =>
+        CIConvolution9RGBHorizontalConfiguration(),
+    'Convolution 9 RGB Vertical': () =>
+        CIConvolution9RGBVerticalConfiguration(),
+    'Disintegrate With Mask Transition': () =>
+        CIDisintegrateWithMaskTransitionConfiguration(),
+    'Linear Light Blend Mode': () => CILinearLightBlendModeConfiguration(),
+    'Mesh Generator': () => CIMeshGeneratorConfiguration(),
+    'Person Segmentation': () => CIPersonSegmentationConfiguration(),
+    'QR Code Generator': () => CIQRCodeGeneratorConfiguration(),
+    'Spot Color': () => CISpotColorConfiguration(),
+    'Spot Light': () => CISpotLightConfiguration(),
+    'Temperature And Tint': () => CITemperatureAndTintConfiguration(),
+    ' Text Image Generator': () => CITextImageGeneratorConfiguration(),
+    'Tone Curve': () => CIToneCurveConfiguration(),
+    'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
+    'Color Curves': () => CIColorCurvesConfiguration(),
+    'Hue Saturation ValueGradient': () =>
+        CIHueSaturationValueGradientConfiguration(),
   };
 
   static T createFilter<T extends CIFilterConfiguration>({

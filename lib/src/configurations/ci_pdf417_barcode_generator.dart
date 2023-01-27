@@ -91,10 +91,22 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
         _message = NSDataParameter('inputMessage', 'Message'),
         super('CIPDF417BarcodeGenerator');
 
-  set message(Uint8List value) {
+  set messageData(Uint8List value) {
     _message.data = value;
     _message.asset = null;
     _message.file = null;
+  }
+
+  set messageAsset(String value) {
+    _message.data = null;
+    _message.asset = value;
+    _message.file = null;
+  }
+
+  set messageFile(File value) {
+    _message.data = null;
+    _message.asset = null;
+    _message.file = value;
   }
 
   set minHeight(double value) {
