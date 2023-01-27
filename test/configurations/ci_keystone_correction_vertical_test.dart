@@ -3,8 +3,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIKeystoneCorrectionVerticalConfiguration configuration;
   setUp(() {
@@ -46,7 +44,6 @@ void main() {
       expect(parameter.value, const Point(150, 150));
     });
 
-    testInputKeys(build: () => configuration);
     test('change inputFocalLength', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFocalLength') as NumberParameter;

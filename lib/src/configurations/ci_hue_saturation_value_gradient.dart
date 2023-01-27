@@ -43,6 +43,9 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration {
         ),
         super('CIHueSaturationValueGradient');
 
+  @override
+  bool get hasInputImage => false;
+
   set colorSpace(String value) {
     _colorSpace.value = value;
   }

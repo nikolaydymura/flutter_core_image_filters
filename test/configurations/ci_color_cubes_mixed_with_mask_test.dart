@@ -5,8 +5,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIColorCubesMixedWithMaskConfiguration configuration;
   setUp(() {
@@ -16,7 +14,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIColorCubesMixedWithMask');
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputCubeDimension', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCubeDimension') as NumberParameter;

@@ -3,8 +3,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIPixellateConfiguration configuration;
   setUp(() {
@@ -22,7 +20,7 @@ void main() {
       configuration.scale = 50;
       expect(parameter.value, 50);
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

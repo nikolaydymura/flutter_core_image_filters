@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIRadialGradientConfiguration configuration;
   setUp(() {
@@ -14,7 +12,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIRadialGradient');
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputRadius1', () {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputRadius1')

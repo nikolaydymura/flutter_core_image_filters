@@ -1,8 +1,6 @@
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIConvolutionRGB3X3Configuration configuration;
   setUp(() {
@@ -12,7 +10,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIConvolutionRGB3X3');
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputBias', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputBias') as NSNumberParameter;

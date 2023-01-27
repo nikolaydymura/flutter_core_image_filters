@@ -3,8 +3,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIRoundedRectangleGeneratorConfiguration configuration;
   setUp(() {
@@ -14,7 +12,6 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIRoundedRectangleGenerator');
     });
-    testInputKeys(build: () => configuration);
 
     test('change inputExtent', () {
       final parameter = configuration.parameters

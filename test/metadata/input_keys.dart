@@ -1,4 +1,4 @@
-const Map<String, List<String>> inputKeys = {
+const Map<String, List<String>> kInputKeys = {
   'CIAccordionFoldTransition': [
     'inputImage',
     'inputTargetImage',
@@ -820,7 +820,7 @@ const Map<String, List<String>> inputKeys = {
   'CIZoomBlur': ['inputImage', 'inputCenter', 'inputAmount']
 };
 
-const Map<String, List<String>> inputKeysDisplayNames = {
+const Map<String, List<String>> kInputKeysDisplayNames = {
   'CIAccordionFoldTransition': [
     'Image',
     'Target Image',

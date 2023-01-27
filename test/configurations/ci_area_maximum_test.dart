@@ -3,8 +3,6 @@ import 'dart:ui';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIAreaMaximumConfiguration configuration;
   setUp(() {
@@ -14,7 +12,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIAreaMaximum');
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

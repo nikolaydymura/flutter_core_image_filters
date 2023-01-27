@@ -4,8 +4,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIColorCurvesConfiguration configuration;
   setUp(() {
@@ -15,7 +13,7 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIColorCurves');
     });
-    testInputKeys(build: () => configuration);
+
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;

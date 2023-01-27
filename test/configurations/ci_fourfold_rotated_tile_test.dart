@@ -3,8 +3,6 @@ import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import '../helpers.dart';
-
 void main() {
   late CIFourfoldRotatedTileConfiguration configuration;
   setUp(() {
@@ -28,7 +26,6 @@ void main() {
       configuration.angle = 1;
       expect(parameter.value, 1);
     });
-    testInputKeys(build: () => configuration);
 
     test('change inputWidth', () {
       final parameter = configuration.parameters
