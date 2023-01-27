@@ -166,6 +166,7 @@ part 'src/configurations/ci_palette_centroid.dart';
 part 'src/configurations/ci_palettize.dart';
 part 'src/configurations/ci_parallelogram_tile.dart';
 part 'src/configurations/ci_pdf417_barcode_generator.dart';
+part 'src/configurations/ci_person_segmentation.dart';
 part 'src/configurations/ci_perspective_correction.dart';
 part 'src/configurations/ci_perspective_rotate.dart';
 part 'src/configurations/ci_perspective_tile.dart';
@@ -175,6 +176,7 @@ part 'src/configurations/ci_pin_light_blend_mode.dart';
 part 'src/configurations/ci_pinch_distortion.dart';
 part 'src/configurations/ci_pixellate.dart';
 part 'src/configurations/ci_pointillize.dart';
+part 'src/configurations/ci_qr_code_generator.dart';
 part 'src/configurations/ci_radial_gradient.dart';
 part 'src/configurations/ci_random_generator.dart';
 part 'src/configurations/ci_ripple_transition.dart';
@@ -195,6 +197,8 @@ part 'src/configurations/ci_source_atop_compositing.dart';
 part 'src/configurations/ci_source_in_compositing.dart';
 part 'src/configurations/ci_source_out_compositing.dart';
 part 'src/configurations/ci_source_over_compositing.dart';
+part 'src/configurations/ci_spot_color.dart';
+part 'src/configurations/ci_spot_light.dart';
 part 'src/configurations/ci_star_shine_generator.dart';
 part 'src/configurations/ci_straighten_filter.dart';
 part 'src/configurations/ci_stretch_crop.dart';
@@ -202,6 +206,9 @@ part 'src/configurations/ci_stripes_generator.dart';
 part 'src/configurations/ci_subtract_blend_mode.dart';
 part 'src/configurations/ci_sunbeams_generator.dart';
 part 'src/configurations/ci_swipe_transition.dart';
+part 'src/configurations/ci_temperature_and_tint.dart';
+part 'src/configurations/ci_text_image_generator.dart';
+part 'src/configurations/ci_tone_curve.dart';
 part 'src/configurations/ci_torus_lens_distortion.dart';
 part 'src/configurations/ci_triangle_kaleidoscope.dart';
 part 'src/configurations/ci_triangle_tile.dart';
@@ -211,6 +218,7 @@ part 'src/configurations/ci_unsharp_mask.dart';
 part 'src/configurations/ci_vibrance.dart';
 part 'src/configurations/ci_vignette.dart';
 part 'src/configurations/ci_vignette_effect.dart';
+part 'src/configurations/ci_vivid_light_blend_mode.dart';
 part 'src/configurations/ci_vortex_distortion.dart';
 part 'src/configurations/ci_white_point_adjust.dart';
 part 'src/configurations/ci_zoom_blur.dart';
@@ -484,6 +492,14 @@ class FlutterCoreImageFilters {
         CIDisintegrateWithMaskTransitionConfiguration(),
     'Linear Light Blend Mode': () => CILinearLightBlendModeConfiguration(),
     'Mesh Generator': () => CIMeshGeneratorConfiguration(),
+    'Person Segmentation': () => CIPersonSegmentationConfiguration(),
+    'QR Code Generator': () => CIQRCodeGeneratorConfiguration(),
+    'Spot Color': () => CISpotColorConfiguration(),
+    'Spot Light': () => CISpotLightConfiguration(),
+    'Temperature And Tint': () => CITemperatureAndTintConfiguration(),
+    ' Text Image Generator': () => CITextImageGeneratorConfiguration(),
+        'Tone Curve': () => CIToneCurveConfiguration(),
+        'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
   };
 
   static CIFilterConfiguration? createFilter({required String displayName}) {

@@ -1,7 +1,7 @@
 part of flutter_core_image_filters;
 
 class CIDisintegrateWithMaskTransitionConfiguration
-    extends CIFilterConfiguration {
+    extends CIFilterConfiguration with TargetImageMixin {
   final NumberParameter _time;
   final PointParameter _shadowOffset;
   final NumberParameter _shadowDensity;
@@ -54,5 +54,5 @@ class CIDisintegrateWithMaskTransitionConfiguration
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_time, _shadowOffset, _shadowDensity, _shadowRadius];
+      [_time, _shadowOffset, _shadowDensity, _shadowRadius, _targetImage];
 }
