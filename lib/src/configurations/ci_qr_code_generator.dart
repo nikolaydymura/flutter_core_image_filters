@@ -16,6 +16,9 @@ class CIQRCodeGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CIQRCodeGenerator');
 
+  @override
+  bool get hasInputImage => false;
+
   set correctionLevel(String value) {
     _correctionLevel.value = value;
   }
@@ -25,6 +28,10 @@ class CIQRCodeGeneratorConfiguration extends CIFilterConfiguration {
     _message.asset = null;
     _message.file = null;
   }
+
+  @override
+  Iterable<CICategory> get categories =>
+      {CICategory.generator, CICategory.stillImage, CICategory.builtIn};
 
   @override
   List<ConfigurationParameter> get parameters => [_correctionLevel, _message];

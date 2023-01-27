@@ -138,6 +138,15 @@ class CISpotColorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.builtIn,
+        CICategory.stillImage,
+        CICategory.video,
+        CICategory.highDynamicRange,
+        CICategory.stylize
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _centerColor2,
         _closeness2,

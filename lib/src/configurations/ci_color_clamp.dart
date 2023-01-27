@@ -26,5 +26,16 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  List<ConfigurationParameter> get parameters => [_maxComponents, _minComponents];
+  Iterable<CICategory> get categories => {
+        CICategory.colorAdjustment,
+        CICategory.video,
+        CICategory.interlaced,
+        CICategory.nonSquarePixels,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
+  List<ConfigurationParameter> get parameters =>
+      [_maxComponents, _minComponents];
 }

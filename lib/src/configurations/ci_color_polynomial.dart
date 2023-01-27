@@ -28,7 +28,6 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
           'BlueCoefficients',
           [0, 1, 0, 0],
         ),
-
         super('CIColorPolynomial');
 
   set redCoefficients(List<double> value) {
@@ -42,11 +41,27 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
   set blueCoefficients(List<double> value) {
     _blueCoefficients.value = value;
   }
+
   set alphaCoefficients(List<double> value) {
     _alphaCoefficients.value = value;
   }
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_redCoefficients, _greenCoefficients,_alphaCoefficients, _blueCoefficients];
+  Iterable<CICategory> get categories => {
+        CICategory.colorAdjustment,
+        CICategory.video,
+        CICategory.interlaced,
+        CICategory.nonSquarePixels,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
+  List<ConfigurationParameter> get parameters => [
+        _redCoefficients,
+        _greenCoefficients,
+        _alphaCoefficients,
+        _blueCoefficients
+      ];
 }

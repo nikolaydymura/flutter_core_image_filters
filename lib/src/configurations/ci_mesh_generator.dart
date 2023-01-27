@@ -25,6 +25,9 @@ class CIMeshGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CIMeshGenerator');
 
+  @override
+  bool get hasInputImage => false;
+
   set mesh(List<double> value) {
     _mesh.value = value;
   }
@@ -36,6 +39,15 @@ class CIMeshGeneratorConfiguration extends CIFilterConfiguration {
   set color(Color value) {
     _color.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_mesh, _width, _color];

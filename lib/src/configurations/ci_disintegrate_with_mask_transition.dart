@@ -53,6 +53,15 @@ class CIDisintegrateWithMaskTransitionConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.transition,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_time, _shadowOffset, _shadowDensity, _shadowRadius, _targetImage];
 }

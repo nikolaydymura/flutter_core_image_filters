@@ -56,6 +56,16 @@ class CIToneCurveConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorAdjustment,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.interlaced,
+        CICategory.nonSquarePixels,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_point0, _point1, _point2, _point3, _point4];
 }

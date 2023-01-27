@@ -1,10 +1,10 @@
 part of flutter_core_image_filters;
 
-class CIConvolution3x3Configuration extends CIFilterConfiguration {
+class CIConvolution3X3Configuration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final VectorParameter _weights;
 
-  CIConvolution3x3Configuration()
+  CIConvolution3X3Configuration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
         _weights = CIVectorParameter(
           'inputWeights',

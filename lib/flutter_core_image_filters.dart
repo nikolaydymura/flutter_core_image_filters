@@ -68,12 +68,12 @@ part 'src/configurations/ci_color_threshold.dart';
 part 'src/configurations/ci_column_average.dart';
 part 'src/configurations/ci_comic_effect.dart';
 part 'src/configurations/ci_constant_color_generator.dart';
-part 'src/configurations/ci_convolution_3X3_rgb.dart';
 part 'src/configurations/ci_convolution_3x3.dart';
-part 'src/configurations/ci_convolution_5X5_rgb.dart';
+part 'src/configurations/ci_convolution_3x3_rgb.dart';
 part 'src/configurations/ci_convolution_5x5.dart';
-part 'src/configurations/ci_convolution_7X7_rgb.dart';
+part 'src/configurations/ci_convolution_5x5_rgb.dart';
 part 'src/configurations/ci_convolution_7x7.dart';
+part 'src/configurations/ci_convolution_7x7_rgb.dart';
 part 'src/configurations/ci_convolution_9_horizontal.dart';
 part 'src/configurations/ci_convolution_9_rgb_horizontal.dart';
 part 'src/configurations/ci_convolution_9_rgb_vertical.dart';
@@ -473,13 +473,13 @@ class FlutterCoreImageFilters {
     'Affine Clamp': () => CIAffineClampConfiguration(),
     'Affine Tile': () => CIAffineTileConfiguration(),
     'Affine Transform': () => CIAffineTransformConfiguration(),
-    '3 by 3 Convolution': () => CIConvolution3x3Configuration(),
+    '3 by 3 Convolution': () => CIConvolution3X3Configuration(),
     'Color Clamp': () => CIColorClampConfiguration(),
     'Color Cross Polynomial': () => CIColorCrossPolynomialConfiguration(),
     'Color Matrix': () => CIColorMatrixConfiguration(),
     'Color Polynomial': () => CIColorPolynomialConfiguration(),
-    '5 by 5 Convolution': () => CIConvolution5x5Configuration(),
-    '7 by 7 Convolution': () => CIConvolution7x7Configuration(),
+    '5 by 5 Convolution': () => CIConvolution5X5Configuration(),
+    '7 by 7 Convolution': () => CIConvolution7X7Configuration(),
     'Convolution 9 Horizontal': () => CIConvolution9HorizontalConfiguration(),
     'Convolution 9 Vertical': () => CIConvolution9VerticalConfiguration(),
     '3 by 3 RGB Convolution': () => CIConvolution3X3RGBConfiguration(),
@@ -499,8 +499,8 @@ class FlutterCoreImageFilters {
     'Spot Light': () => CISpotLightConfiguration(),
     'Temperature And Tint': () => CITemperatureAndTintConfiguration(),
     ' Text Image Generator': () => CITextImageGeneratorConfiguration(),
-        'Tone Curve': () => CIToneCurveConfiguration(),
-        'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
+    'Tone Curve': () => CIToneCurveConfiguration(),
+    'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
   };
 
   static T createFilter<T extends CIFilterConfiguration>({

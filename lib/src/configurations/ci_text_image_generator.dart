@@ -25,6 +25,9 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CITextImageGenerator');
 
+  @override
+  bool get hasInputImage => false;
+
   set fontName(String value) {
     _fontName.value = value;
   }
@@ -36,6 +39,14 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
   set fontSize(double value) {
     _fontSize.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_fontName, _text, _fontSize];

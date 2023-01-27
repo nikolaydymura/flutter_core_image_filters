@@ -1,27 +1,15 @@
 part of flutter_core_image_filters;
 
-class CIConvolution7X7RGBConfiguration extends CIFilterConfiguration {
+class CIConvolution5X5RGBConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final VectorParameter _weights;
 
-  CIConvolution7X7RGBConfiguration()
+  CIConvolution5X5RGBConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
         _weights = CIVectorParameter(
           'inputWeights',
           'Weights',
           [
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
             0,
             0,
             0,
@@ -46,22 +34,10 @@ class CIConvolution7X7RGBConfiguration extends CIFilterConfiguration {
             0,
             0,
             0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
+            0
           ],
         ),
-        super('CIConvolution7X7RGB');
+        super('CIConvolution5X5RGB');
 
   set bias(double value) {
     _bias.value = value;
@@ -70,6 +46,15 @@ class CIConvolution7X7RGBConfiguration extends CIFilterConfiguration {
   set weights(List<double> value) {
     _weights.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.stylize,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_bias, _weights];
