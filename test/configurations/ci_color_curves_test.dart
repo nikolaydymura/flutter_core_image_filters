@@ -18,8 +18,7 @@ void main() {
     testInputKeys(build: () => configuration);
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputColorSpace')
-          as StringParameter;
+          .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;
       expect(parameter.value, '');
       configuration.colorSpace = 'a';
       expect(parameter.value, 'a');

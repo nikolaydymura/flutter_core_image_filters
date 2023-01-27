@@ -32,8 +32,8 @@ void main() {
     });
     test('change inputAlphaCoefficients', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAlphaCoefficients')
-      as CIVectorParameter;
+              .firstWhere((e) => e.name == 'inputAlphaCoefficients')
+          as CIVectorParameter;
       expect(parameter.value, [0, 1, 0, 0]);
       configuration.alphaCoefficients = [0, 0.9, 0, 0];
       expect(parameter.value, [0, 0.9, 0, 0]);

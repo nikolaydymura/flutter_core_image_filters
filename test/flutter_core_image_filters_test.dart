@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('verify amount', () {
-    expect(FlutterCoreImageFilters.availableFilters.length, greaterThanOrEqualTo(232));
+    expect(FlutterCoreImageFilters.availableFilters.length,
+        greaterThanOrEqualTo(232));
   });
   test('enlist all', () async {
     final filters = [

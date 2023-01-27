@@ -37,16 +37,14 @@ void main() {
     });
     test('change inputAVector', () {
       final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputAVector')
-          as CIVectorParameter;
+          .firstWhere((e) => e.name == 'inputAVector') as CIVectorParameter;
       expect(parameter.value, [0, 0, 0, 1]);
       configuration.aVector = [0, 0, 0, 0.9];
       expect(parameter.value, [0, 0, 0, 0.9]);
     });
     test('change inputBVector', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBVector')
-      as CIVectorParameter;
+          .firstWhere((e) => e.name == 'inputBVector') as CIVectorParameter;
       expect(parameter.value, [0, 0, 1, 0]);
       configuration.bVector = [0, 0, 0.9, 0];
       expect(parameter.value, [0, 0, 0.9, 0]);

@@ -38,7 +38,8 @@ void main() {
     });
     test('change inputReplacementColor2', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputReplacementColor2') as ColorParameter;
+              .firstWhere((e) => e.name == 'inputReplacementColor2')
+          as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(233, 143, 129, 1));
       configuration.replacementColor2 = Colors.orangeAccent;
       expect(parameter.value, Colors.orangeAccent);
@@ -73,7 +74,8 @@ void main() {
     });
     test('change inputReplacementColor1', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputReplacementColor1') as ColorParameter;
+              .firstWhere((e) => e.name == 'inputReplacementColor1')
+          as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(112, 49, 50, 1));
       configuration.replacementColor1 = Colors.orangeAccent;
       expect(parameter.value, Colors.orangeAccent);
@@ -94,7 +96,8 @@ void main() {
     });
     test('change inputReplacementColor3', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputReplacementColor3') as ColorParameter;
+              .firstWhere((e) => e.name == 'inputReplacementColor3')
+          as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(232, 192, 155, 1));
       configuration.replacementColor3 = Colors.orangeAccent;
       expect(parameter.value, Colors.orangeAccent);
