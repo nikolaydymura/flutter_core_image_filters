@@ -18,6 +18,7 @@ class CIZoomBlurConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIZoomBlur');
+
   set amount(double value) {
     _amount.value = value;
   }
@@ -25,6 +26,15 @@ class CIZoomBlurConfiguration extends CIFilterConfiguration {
   set center(Point<double> value) {
     _center.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.blur,
+        CICategory.stillImage,
+        CICategory.video,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_amount, _center];

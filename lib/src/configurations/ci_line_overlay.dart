@@ -67,6 +67,14 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.builtIn,
+        CICategory.stillImage,
+        CICategory.video,
+        CICategory.stylize
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_noiseLevel, _contrast, _threshold, _edgeIntensity, _nrSharpness];
 }

@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICrystallizeConfiguration();
   });
-  group('CICrystallize',  () {
+  group('CICrystallize', () {
     test('verify name', () {
       expect(configuration.name, 'CICrystallize');
     });

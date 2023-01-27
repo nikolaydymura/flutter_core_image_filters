@@ -98,6 +98,15 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _haloRadius,
         _color,
@@ -109,4 +118,7 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
         _haloWidth,
         _haloRadius,
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

@@ -26,6 +26,7 @@ class CITwirlDistortionConfiguration extends CIFilterConfiguration {
           max: 500,
         ),
         super('CITwirlDistortion');
+
   set angle(double value) {
     _angle.value = value;
   }
@@ -37,6 +38,15 @@ class CITwirlDistortionConfiguration extends CIFilterConfiguration {
   set radius(double value) {
     _radius.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _radius];

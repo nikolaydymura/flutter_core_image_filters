@@ -19,5 +19,13 @@ class CIPalettizeConfiguration extends CIFilterConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_perceptual, _paletteImage];
 }

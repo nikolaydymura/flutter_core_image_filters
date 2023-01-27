@@ -52,6 +52,14 @@ class CIHatchedScreenConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.halftoneEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_width, _sharpness, _angle, _center];
 }

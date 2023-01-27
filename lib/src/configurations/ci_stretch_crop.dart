@@ -26,6 +26,7 @@ class CIStretchCropConfiguration extends CIFilterConfiguration {
           const Point(1280.0, 720.0),
         ),
         super('CIStretchCrop');
+
   set centerStretchAmount(double value) {
     _centerStretchAmount.value = value;
   }
@@ -37,6 +38,15 @@ class CIStretchCropConfiguration extends CIFilterConfiguration {
   set size(Point<double> value) {
     _size.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

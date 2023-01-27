@@ -30,6 +30,7 @@ class CINinePartTiledConfiguration extends CIFilterConfiguration {
           const Point(100.0, 100.0),
         ),
         super('CINinePartTiled');
+
   set breakpoint1(Point<double> value) {
     _breakpoint1.value = value;
   }
@@ -45,6 +46,15 @@ class CINinePartTiledConfiguration extends CIFilterConfiguration {
   set growAmount(Point<double> value) {
     _growAmount.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

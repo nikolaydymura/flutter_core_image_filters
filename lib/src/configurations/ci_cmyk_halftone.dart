@@ -76,6 +76,14 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.halftoneEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_gCR, _uCR, _width, _center, _angle, _sharpness];
 }

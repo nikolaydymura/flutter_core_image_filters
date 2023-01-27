@@ -11,7 +11,7 @@ void main() {
   setUp(() {
     configuration = CIGaussianGradientConfiguration();
   });
-  group('CIGaussianGradient',  () {
+  group('CIGaussianGradient', () {
     test('verify name', () {
       expect(configuration.name, 'CIGaussianGradient');
     });

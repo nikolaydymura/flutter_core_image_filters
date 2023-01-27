@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIHexagonalPixellateConfiguration();
   });
-  group('CIHexagonalPixellate',  () {
+  group('CIHexagonalPixellate', () {
     test('verify name', () {
       expect(configuration.name, 'CIHexagonalPixellate');
     });

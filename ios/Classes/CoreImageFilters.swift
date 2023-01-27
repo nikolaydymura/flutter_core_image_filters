@@ -85,7 +85,8 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         if targetClass == "CIColor" {
             let color = CIColor(red: CGFloat(truncating: value[0]),
                                 green: CGFloat(truncating: value[1]),
-                                blue: CGFloat(truncating: value[2]))
+                                blue: CGFloat(truncating: value[2]),
+                                alpha: CGFloat(truncating: value[3]))
             filter.setValue(color, forKey: key)
             filterDelegate?.didUpdated(filter: filter)
         }

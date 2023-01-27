@@ -57,6 +57,15 @@ class CIKeystoneCorrectionVerticalConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.geometryAdjustment,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_topRight, _topLeft, _bottomRight, _bottomLeft, _focalLength];
 }

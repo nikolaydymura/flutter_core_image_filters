@@ -18,5 +18,16 @@ class CIGammaAdjustConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorAdjustment,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.interlaced,
+        CICategory.nonSquarePixels,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_power];
 }

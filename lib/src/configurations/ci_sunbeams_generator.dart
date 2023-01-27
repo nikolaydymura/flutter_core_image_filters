@@ -86,6 +86,15 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _center,
         _striationContrast,
@@ -95,4 +104,7 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         _sunRadius,
         _color
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

@@ -8,7 +8,12 @@ class CIColorParameter extends ColorParameter {
     await configuration._api.setCIColorParameter(
       configuration._filterId,
       name,
-      [value.red / 255.0, value.green / 255.0, value.blue / 255.0],
+      [
+        value.red / 255.0,
+        value.green / 255.0,
+        value.blue / 255.0,
+        value.alpha / 255.0
+      ],
     );
   }
 }

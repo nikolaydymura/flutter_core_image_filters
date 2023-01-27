@@ -142,6 +142,14 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [
         _minHeight,
         _alwaysSpecifyCompaction,
@@ -156,4 +164,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration {
         _maxHeight,
         _message,
       ];
+
+  @override
+  bool get hasInputImage => false;
 }

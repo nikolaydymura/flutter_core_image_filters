@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CILightTunnelConfiguration();
   });
-  group('CILightTunnel',  () {
+  group('CILightTunnel', () {
     test('verify name', () {
       expect(configuration.name, 'CILightTunnel');
     });

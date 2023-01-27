@@ -1,9 +1,9 @@
-import 'dart:io';
+import 'dart:ui';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter/material.dart' hide Rect;
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
-import 'package:path_provider/path_provider.dart';
+
+import 'filters.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Filters Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -29,24 +29,70 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: VideoExportPage(
-        configuration: CIPhotoEffectNoirConfiguration(),
+      home: const ListPage(),
+    );
+  }
+}
+
+class ListPage extends StatelessWidget {
+  const ListPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Filters'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: ListView.builder(
+          itemBuilder: (context, index) {
+            final item = kFilters[index];
+
+            return Card(
+              child: ListTile(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return FilterPage(
+                          configuration: item.configuration,
+                        );
+                      },
+                    ),
+                  );
+                },
+                title: Text(item.name),
+                trailing: Icon(
+                  Icons.navigate_next,
+                  color: Theme.of(context).primaryColor,
+                ),
+              ),
+            );
+          },
+          itemCount: kFilters.length,
+        ),
       ),
     );
   }
 }
 
-class VideoExportPage extends StatefulWidget {
+class FilterPage extends StatefulWidget {
   final CIFilterConfiguration configuration;
 
-  const VideoExportPage({super.key, required this.configuration});
+  const FilterPage({super.key, required this.configuration});
 
   @override
-  State<VideoExportPage> createState() => _CIFilterDetailsPageState();
+  State<FilterPage> createState() => _FilterPageState();
 }
 
-class _CIFilterDetailsPageState extends State<VideoExportPage> {
+class _FilterPageState extends State<FilterPage> {
+  late final CIImagePreviewController destinationSystemController;
+  late final CIImagePreviewController destinationOpenGLController;
+  late final CIImagePreviewController destinationMetalController;
   var _controllersReady = false;
+  static const _assetPath = 'images/demo.jpeg';
 
   @override
   void initState() {
@@ -56,12 +102,43 @@ class _CIFilterDetailsPageState extends State<VideoExportPage> {
 
   @override
   void dispose() {
+    destinationSystemController.dispose();
+    destinationOpenGLController.dispose();
+    destinationMetalController.dispose();
     widget.configuration.dispose();
     super.dispose();
   }
 
   Future<void> _prepare() async {
+    if (widget.configuration.hasInputImage) {
+      destinationSystemController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+      destinationOpenGLController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+      destinationMetalController =
+          await CIImagePreviewController.fromAsset(_assetPath);
+    } else {
+      destinationSystemController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationOpenGLController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationMetalController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+    }
     await widget.configuration.prepare();
+    await widget.configuration.update();
+    await destinationSystemController.connect(widget.configuration);
+    await destinationOpenGLController.connect(
+      widget.configuration,
+      context: CIContext.egl,
+    );
+    await destinationMetalController.connect(
+      widget.configuration,
+      context: CIContext.mlt,
+    );
     _controllersReady = true;
   }
 
@@ -69,31 +146,37 @@ class _CIFilterDetailsPageState extends State<VideoExportPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Export'),
+        title: const Text('Preview'),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _exportVideo();
-        },
-        child: const Icon(Icons.save),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: _controllersReady
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Expanded(
+                    child: CIImagePreview(
+                      controller: destinationSystemController,
+                    ),
+                  ),
+                  const SizedBox(height: 8.0),
+                  Expanded(
+                    child: CIImagePreview(
+                      controller: destinationOpenGLController,
+                    ),
+                  ),
+                  const SizedBox(height: 8.0),
+                  Expanded(
+                    child: CIImagePreview(
+                      controller: destinationMetalController,
+                    ),
+                  ),
+                ],
+              )
+            : const Center(
+                child: CircularProgressIndicator(),
+              ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
-  }
-
-  Future<void> _exportVideo() async {
-    final data = await rootBundle.load('images/demo.jpeg');
-    final directory = await getTemporaryDirectory();
-    final output =
-        File('${directory.path}/${DateTime.now().millisecondsSinceEpoch}.jpeg');
-    final watch = Stopwatch();
-    watch.start();
-    await widget.configuration.exportImageFile(
-      ImageExportConfig(
-        DataInputSource(data.buffer.asUint8List()),
-        output,
-      ),
-    );
-    debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
-    debugPrint('Exported: ${output.absolute}');
   }
 }

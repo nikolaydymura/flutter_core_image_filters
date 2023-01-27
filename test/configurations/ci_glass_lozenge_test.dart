@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIGlassLozengeConfiguration();
   });
-  group('CIGlassLozenge',  () {
+  group('CIGlassLozenge', () {
     test('verify name', () {
       expect(configuration.name, 'CIGlassLozenge');
     });

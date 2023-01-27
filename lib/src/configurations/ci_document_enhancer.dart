@@ -18,5 +18,13 @@ class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.colorEffect,
+        CICategory.nonSquarePixels,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_amount];
 }

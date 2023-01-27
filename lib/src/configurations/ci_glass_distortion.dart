@@ -19,6 +19,7 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration
           const Point(150.0, 150.0),
         ),
         super('CIGlassDistortion');
+
   set scale(double value) {
     _scale.value = value;
   }
@@ -26,6 +27,15 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration
   set center(Point<double> value) {
     _center.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.distortionEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _center, _texture];

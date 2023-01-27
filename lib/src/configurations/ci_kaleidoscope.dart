@@ -26,6 +26,7 @@ class CIKaleidoscopeConfiguration extends CIFilterConfiguration {
           max: 64,
         ),
         super('CIKaleidoscope');
+
   set angle(double value) {
     _angle.value = value;
   }
@@ -37,6 +38,15 @@ class CIKaleidoscopeConfiguration extends CIFilterConfiguration {
   set count(double value) {
     _count.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _count];

@@ -103,9 +103,8 @@ void main() {
       expect(parameter.value, 135);
     });
     test('change inputMessage', () {
-      final parameter =
-      configuration.parameters.firstWhere((e) => e.name == 'inputMessage')
-      as DataParameter;
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputMessage') as DataParameter;
       expect(parameter.data, isNull);
       configuration.message = Uint8List(0);
       expect(parameter.data, isNotNull);

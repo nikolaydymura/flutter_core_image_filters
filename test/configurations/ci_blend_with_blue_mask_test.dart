@@ -20,8 +20,8 @@ void main() {
   group('inputBackgroundImage', () {
     test('change data', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBackgroundImage')
-      as CIImageParameter;
+              .firstWhere((e) => e.name == 'inputBackgroundImage')
+          as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -33,8 +33,8 @@ void main() {
     });
     test('change asset', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBackgroundImage')
-      as CIImageParameter;
+              .firstWhere((e) => e.name == 'inputBackgroundImage')
+          as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -46,8 +46,8 @@ void main() {
     });
     test('change file', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBackgroundImage')
-      as CIImageParameter;
+              .firstWhere((e) => e.name == 'inputBackgroundImage')
+          as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -61,8 +61,7 @@ void main() {
   group('inputMaskImage', () {
     test('change data', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMaskImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputMaskImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -74,8 +73,7 @@ void main() {
     });
     test('change asset', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMaskImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputMaskImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);
@@ -87,8 +85,7 @@ void main() {
     });
     test('change file', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMaskImage')
-      as CIImageParameter;
+          .firstWhere((e) => e.name == 'inputMaskImage') as CIImageParameter;
       expect(parameter.data, isNull);
       expect(parameter.file, isNull);
       expect(parameter.asset, isNull);

@@ -2,6 +2,7 @@ part of flutter_core_image_filters;
 
 class CIClampConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
+
   CIClampConfiguration()
       : _extent = CGRectParameter(
           'inputExtent',
@@ -13,6 +14,15 @@ class CIClampConfiguration extends CIFilterConfiguration {
   set extent(Rect value) {
     _extent.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_extent];

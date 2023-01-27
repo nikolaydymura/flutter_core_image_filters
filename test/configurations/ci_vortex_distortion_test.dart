@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIVortexDistortionConfiguration();
   });
-  group('CIVortexDistortion',  () {
+  group('CIVortexDistortion', () {
     test('verify name', () {
       expect(configuration.name, 'CIVortexDistortion');
     });

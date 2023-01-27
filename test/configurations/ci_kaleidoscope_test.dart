@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIKaleidoscopeConfiguration();
   });
-  group('CIKaleidoscope',  () {
+  group('CIKaleidoscope', () {
     test('verify name', () {
       expect(configuration.name, 'CIKaleidoscope');
     });

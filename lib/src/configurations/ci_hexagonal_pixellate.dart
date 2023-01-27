@@ -18,6 +18,7 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
           const Point(150.0, 150.0),
         ),
         super('CIHexagonalPixellate');
+
   set scale(double value) {
     _scale.value = value;
   }
@@ -25,6 +26,15 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
   set center(Point<double> value) {
     _center.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.stylize,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _center];

@@ -43,5 +43,16 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.generator,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_extent, _color, _radius];
+
+  @override
+  bool get hasInputImage => false;
 }

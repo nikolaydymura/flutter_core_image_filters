@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIKeystoneCorrectionVerticalConfiguration();
   });
-  group('CIKeystoneCorrectionVertical',  () {
+  group('CIKeystoneCorrectionVertical', () {
     test('verify name', () {
       expect(configuration.name, 'CIKeystoneCorrectionVertical');
     });

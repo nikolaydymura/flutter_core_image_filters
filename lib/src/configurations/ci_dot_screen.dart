@@ -34,6 +34,7 @@ class CIDotScreenConfiguration extends CIFilterConfiguration {
           max: 1,
         ),
         super('CIDotScreen');
+
   set angle(double value) {
     _angle.value = value;
   }
@@ -49,6 +50,14 @@ class CIDotScreenConfiguration extends CIFilterConfiguration {
   set sharpness(double value) {
     _sharpness.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.halftoneEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn
+      };
 
   @override
   List<ConfigurationParameter> get parameters =>

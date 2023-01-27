@@ -238,6 +238,7 @@ part 'src/configurations/utils/target_image_mixin.dart';
 part 'src/configurations/utils/texture_mixin.dart';
 part 'src/configurations/without_parameters.dart';
 part 'src/context/av_export_preset.dart';
+part 'src/context/ci_category.dart';
 part 'src/context/ci_context.dart';
 part 'src/parameters/cg_affine_transform_parameter.dart';
 part 'src/parameters/cg_position_parameter.dart';
@@ -502,7 +503,9 @@ class FlutterCoreImageFilters {
         'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
   };
 
-  static CIFilterConfiguration? createFilter({required String displayName}) {
-    return _availableFilters[displayName]?.call();
+  static T createFilter<T extends CIFilterConfiguration>({
+    required String displayName,
+  }) {
+    return _availableFilters[displayName]?.call() as T;
   }
 }

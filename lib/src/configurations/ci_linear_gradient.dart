@@ -46,6 +46,18 @@ class CILinearGradientConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.gradient,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_color0, _point1, _point0, _color1];
+
+  @override
+  bool get hasInputImage => false;
 }

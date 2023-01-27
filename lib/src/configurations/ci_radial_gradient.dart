@@ -38,6 +38,7 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
           const Color.fromRGBO(0, 0, 0, 1),
         ),
         super('CIRadialGradient');
+
   set radius1(double value) {
     _radius1.value = value;
   }
@@ -59,6 +60,18 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.gradient,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters =>
       [_radius1, _color0, _center, _radius0, _color1];
+
+  @override
+  bool get hasInputImage => false;
 }

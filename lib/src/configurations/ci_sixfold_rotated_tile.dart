@@ -4,6 +4,7 @@ class CISixfoldRotatedTileConfiguration extends CIFilterConfiguration {
   final PointParameter _center;
   final NumberParameter _width;
   final NumberParameter _angle;
+
   CISixfoldRotatedTileConfiguration()
       : _center = CGPositionParameter(
           'inputCenter',
@@ -37,6 +38,15 @@ class CISixfoldRotatedTileConfiguration extends CIFilterConfiguration {
   set angle(double value) {
     _angle.value = value;
   }
+
+  @override
+  Iterable<CICategory> get categories => {
+        CICategory.tileEffect,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _width, _angle];

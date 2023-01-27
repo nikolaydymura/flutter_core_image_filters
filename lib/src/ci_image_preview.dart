@@ -45,6 +45,13 @@ class CIImagePreviewController {
     }
   }
 
+  Future<void> setOutputSurface(Rect rect) async {
+    await _api.setOutput(
+      _textureId,
+      [rect.left, rect.top, rect.width, rect.height],
+    );
+  }
+
   static Future<CIImagePreviewController> initialize({
     @visibleForTesting ImagePreviewApi? previewApi,
   }) async {
@@ -71,6 +78,12 @@ class CIImagePreviewController {
   static Future<CIImagePreviewController> fromMemory(Uint8List data) async {
     final controller = await initialize();
     await controller.setImageSource(DataInputSource(data));
+    return controller;
+  }
+
+  static Future<CIImagePreviewController> fromRect(Rect rect) async {
+    final controller = await initialize();
+    await controller.setOutputSurface(rect);
     return controller;
   }
 

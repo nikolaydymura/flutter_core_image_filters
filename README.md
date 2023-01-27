@@ -187,9 +187,9 @@ await output.writeAsBytes(data);
 | :x:                | CIBlendWithBlueMask               | Blend With Blue Mask              |
 | :x:                | CIBlendWithMask                   | Blend With Mask                   |
 | :x:                | CIBlendWithRedMask                | Blend With Red Mask               |
-| :x:                | CIBloom                           | Bloom                             |
-| :x:                | CIBokehBlur                       | Bokeh Blur                        |
-| :x:                | CIBoxBlur                         | Box Blur                          |
+| :white_check_mark: | CIBloom                           | Bloom                             |
+| :white_check_mark: | CIBokehBlur                       | Bokeh Blur                        |
+| :white_check_mark: | CIBoxBlur                         | Box Blur                          |
 | :x:                | CIBumpDistortion                  | Bump Distortion                   |
 | :x:                | CIBumpDistortionLinear            | Bump Distortion Linear            |
 | :x:                | CICameraCalibrationLensCorrection | Lens Correction for AVC           |
@@ -204,26 +204,26 @@ await output.writeAsBytes(data);
 | :x:                | CIColorBlendMode                  | Color Blend Mode                  |
 | :x:                | CIColorBurnBlendMode              | Color Burn Blend Mode             |
 | :x:                | CIColorClamp                      | Color Clamp                       |
-| :x:                | CIColorControls                   | Color Controls                    |
+| :white_check_mark: | CIColorControls                   | Color Controls                    |
 | :x:                | CIColorCrossPolynomial            | Color Cross Polynomial            |
 | :x:                | CIColorCube                       | Color Cube                        |
 | :x:                | CIColorCubesMixedWithMask         | Color Cubes Mixed With Mask       |
 | :x:                | CIColorCubeWithColorSpace         | Color Cube with ColorSpace        |
 | :x:                | CIColorCurves                     | Color Curves                      |
 | :x:                | CIColorDodgeBlendMode             | Color Dodge Blend Mode            |
-| :x:                | CIColorInvert                     | Color Invert                      |
+| :white_check_mark: | CIColorInvert                     | Color Invert                      |
 | :x:                | CIColorMap                        | Color Map                         |
 | :x:                | CIColorMatrix                     | Color Matrix                      |
-| :x:                | CIColorMonochrome                 | Color Monochrome                  |
+| :white_check_mark: | CIColorMonochrome                 | Color Monochrome                  |
 | :x:                | CIColorPolynomial                 | Color Polynomial                  |
-| :x:                | CIColorPosterize                  | Color Posterize                   |
-| :x:                | CIColorThreshold                  | Color Threshold                   |
-| :x:                | CIColorThresholdOtsu              | Color Threshold Otsu              |
+| :white_check_mark: | CIColorPosterize                  | Color Posterize                   |
+| :white_check_mark: | CIColorThreshold                  | Color Threshold                   |
+| :white_check_mark: | CIColorThresholdOtsu              | Color Threshold Otsu              |
 | :x:                | CIColumnAverage                   | Column Average                    |
-| :x:                | CIComicEffect                     | Comic Effect                      |
+| :white_check_mark: | CIComicEffect                     | Comic Effect                      |
 | :x:                | CIConstantColorGenerator          | Constant Color                    |
 | :x:                | CIConvertLabToRGB                 | Convert Lab to RGB                |
-| :x:                | CIConvertRGBtoLab                 | Convert RGB to Lab                |
+| :white_check_mark: | CIConvertRGBtoLab                 | Convert RGB to Lab                |
 | :x:                | CIConvolution3X3                  | 3 by 3 Convolution                |
 | :x:                | CIConvolution5X5                  | 5 by 5 Convolution                |
 | :x:                | CIConvolution7X7                  | 7 by 7 Convolution                |
@@ -243,44 +243,44 @@ await output.writeAsBytes(data);
 | :x:                | CIDepthOfField                    | Depth of Field                    |
 | :x:                | CIDepthToDisparity                | Depth To Disparity                |
 | :x:                | CIDifferenceBlendMode             | Difference Blend Mode             |
-| :x:                | CIDiscBlur                        | Disc Blur                         |
+| :white_check_mark: | CIDiscBlur                        | Disc Blur                         |
 | :x:                | CIDisintegrateWithMaskTransition  | Disintegrate With Mask            |
 | :x:                | CIDisparityToDepth                | Disparity To Depth                |
 | :x:                | CIDisplacementDistortion          | Displacement Distortion           |
 | :x:                | CIDissolveTransition              | Dissolve                          |
-| :x:                | CIDither                          | Dither                            |
+| :white_check_mark: | CIDither                          | Dither                            |
 | :x:                | CIDivideBlendMode                 | Divide Blend Mode                 |
-| :x:                | CIDocumentEnhancer                | Document Enhancer                 |
+| :white_check_mark: | CIDocumentEnhancer                | Document Enhancer                 |
 | :x:                | CIDotScreen                       | Dot Screen                        |
 | :x:                | CIDroste                          | Droste                            |
 | :x:                | CIEdgePreserveUpsampleFilter      | Edge Preserve Upsample Filter     |
-| :x:                | CIEdges                           | Edges                             |
+| :white_check_mark: | CIEdges                           | Edges                             |
 | :x:                | CIEdgeWork                        | Edge Work                         |
 | :x:                | CIEightfoldReflectedTile          | Eightfold Reflected Tile          |
 | :x:                | CIExclusionBlendMode              | Exclusion Blend Mode              |
-| :x:                | CIExposureAdjust                  | Exposure Adjust                   |
+| :white_check_mark: | CIExposureAdjust                  | Exposure Adjust                   |
 | :x:                | CIFalseColor                      | False Color                       |
 | :x:                | CIFlashTransition                 | Flash                             |
 | :x:                | CIFourfoldReflectedTile           | Fourfold Reflected Tile           |
 | :x:                | CIFourfoldRotatedTile             | Fourfold Rotated Tile             |
 | :x:                | CIFourfoldTranslatedTile          | Fourfold Translated Tile          |
-| :x:                | CIGaborGradients                  | Gabor Gradients                   |
-| :x:                | CIGammaAdjust                     | Gamma Adjust                      |
-| :x:                | CIGaussianBlur                    | Gaussian Blur                     |
+| :white_check_mark: | CIGaborGradients                  | Gabor Gradients                   |
+| :white_check_mark: | CIGammaAdjust                     | Gamma Adjust                      |
+| :white_check_mark: | CIGaussianBlur                    | Gaussian Blur                     |
 | :x:                | CIGaussianGradient                | Gaussian Gradient                 |
 | :x:                | CIGlassDistortion                 | Glass Distortion                  |
 | :x:                | CIGlassLozenge                    | Glass Lozenge                     |
 | :x:                | CIGlideReflectedTile              | Glide Reflected Tile              |
-| :x:                | CIGloom                           | Gloom                             |
+| :white_check_mark: | CIGloom                           | Gloom                             |
 | :x:                | CIGuidedFilter                    | Guided Filter                     |
 | :x:                | CIHardLightBlendMode              | Hard Light Blend Mode             |
 | :x:                | CIHatchedScreen                   | Hatched Screen                    |
-| :x:                | CIHeightFieldFromMask             | Height Field From Mask            |
+| :white_check_mark: | CIHeightFieldFromMask             | Height Field From Mask            |
 | :x:                | CIHexagonalPixellate              | Hexagonal Pixelate                |
-| :x:                | CIHighlightShadowAdjust           | Highlight and Shadow Adjust       |
-| :x:                | CIHistogramDisplayFilter          | Histogram Display                 |
+| :white_check_mark: | CIHighlightShadowAdjust           | Highlight and Shadow Adjust       |
+| :white_check_mark: | CIHistogramDisplayFilter          | Histogram Display                 |
 | :x:                | CIHoleDistortion                  | Hole Distortion                   |
-| :x:                | CIHueAdjust                       | Hue Adjust                        |
+| :white_check_mark: | CIHueAdjust                       | Hue Adjust                        |
 | :x:                | CIHueBlendMode                    | Hue Blend Mode                    |
 | :x:                | CIHueSaturationValueGradient      | Hue/Saturation/Value Gradient     |
 | :x:                | CIKaleidoscope                    | Kaleidoscope                      |
@@ -289,7 +289,7 @@ await output.writeAsBytes(data);
 | :x:                | CIKeystoneCorrectionVertical      | Vertical Keystone Correction      |
 | :x:                | CIKMeans                          | KMeans                            |
 | :x:                | CILabDeltaE                       | Lab ∆E                            |
-| :x:                | CILanczosScaleTransform           | Lanczos Scale Transform           |
+| :white_check_mark: | CILanczosScaleTransform           | Lanczos Scale Transform           |
 | :x:                | CILenticularHaloGenerator         | Lenticular Halo                   |
 | :x:                | CILightenBlendMode                | Lighten Blend Mode                |
 | :x:                | CILightTunnel                     | Light Tunnel Distortion           |
@@ -297,31 +297,31 @@ await output.writeAsBytes(data);
 | :x:                | CILinearDodgeBlendMode            | Linear Dodge Blend Mode           |
 | :x:                | CILinearGradient                  | Linear Gradient                   |
 | :x:                | CILinearLightBlendMode            | Linear Light Blend Mode           |
-| :x:                | CILinearToSRGBToneCurve           | Linear to sRGB Tone Curve         |
-| :x:                | CILineOverlay                     | Line Overlay                      |
+| :white_check_mark: | CILinearToSRGBToneCurve           | Linear to sRGB Tone Curve         |
+| :white_check_mark: | CILineOverlay                     | Line Overlay                      |
 | :x:                | CILineScreen                      | Line Screen                       |
 | :x:                | CILuminosityBlendMode             | Luminosity Blend Mode             |
 | :x:                | CIMaskedVariableBlur              | Masked Variable Blur              |
 | :x:                | CIMaskToAlpha                     | Mask to Alpha                     |
-| :x:                | CIMaximumComponent                | Maximum Component                 |
+| :white_check_mark: | CIMaximumComponent                | Maximum Component                 |
 | :x:                | CIMaximumCompositing              | Maximum                           |
-| :x:                | CIMedianFilter                    | Median                            |
+| :white_check_mark: | CIMedianFilter                    | Median                            |
 | :x:                | CIMeshGenerator                   | Mesh Generator                    |
-| :x:                | CIMinimumComponent                | Minimum Component                 |
+| :white_check_mark: | CIMinimumComponent                | Minimum Component                 |
 | :x:                | CIMinimumCompositing              | Minimum                           |
 | :x:                | CIMix                             | Mix                               |
 | :x:                | CIModTransition                   | Mod                               |
-| :x:                | CIMorphologyGradient              | Morphology Gradient               |
-| :x:                | CIMorphologyMaximum               | Morphology Maximum                |
-| :x:                | CIMorphologyMinimum               | Morphology Minimum                |
-| :x:                | CIMorphologyRectangleMaximum      | Morphology Rectangle Maximum      |
-| :x:                | CIMorphologyRectangleMinimum      | Morphology Rectangle Minimum      |
-| :x:                | CIMotionBlur                      | Motion Blur                       |
+| :white_check_mark: | CIMorphologyGradient              | Morphology Gradient               |
+| :white_check_mark: | CIMorphologyMaximum               | Morphology Maximum                |
+| :white_check_mark: | CIMorphologyMinimum               | Morphology Minimum                |
+| :white_check_mark: | CIMorphologyRectangleMaximum      | Morphology Rectangle Maximum      |
+| :white_check_mark: | CIMorphologyRectangleMinimum      | Morphology Rectangle Minimum      |
+| :white_check_mark: | CIMotionBlur                      | Motion Blur                       |
 | :x:                | CIMultiplyBlendMode               | Multiply Blend Mode               |
 | :x:                | CIMultiplyCompositing             | Multiply                          |
 | :x:                | CINinePartStretched               | Nine Part Stretched               |
 | :x:                | CINinePartTiled                   | Nine Part Tiled                   |
-| :x:                | CINoiseReduction                  | Noise Reduction                   |
+| :white_check_mark: | CINoiseReduction                  | Noise Reduction                   |
 | :x:                | CIOpTile                          | Op Tile                           |
 | :x:                | CIOverlayBlendMode                | Overlay Blend Mode                |
 | :x:                | CIPageCurlTransition              | Page Curl                         |
@@ -332,7 +332,7 @@ await output.writeAsBytes(data);
 | :x:                | CIPDF417BarcodeGenerator          | PDF417 Barcode Generator          |
 | :x:                | CIPersonSegmentation              | Person Segmentation               |
 | :x:                | CIPerspectiveCorrection           | Perspective Correction            |
-| :x:                | CIPerspectiveRotate               | Perspective Rotate                |
+| :white_check_mark: | CIPerspectiveRotate               | Perspective Rotate                |
 | :x:                | CIPerspectiveTile                 | Perspective Tile                  |
 | :x:                | CIPerspectiveTransform            | Perspective Transform             |
 | :x:                | CIPerspectiveTransformWithExtent  | Perspective Transform with Extent |
@@ -355,12 +355,12 @@ await output.writeAsBytes(data);
 | :x:                | CIRoundedRectangleGenerator       | Rounded Rectangle Generator       |
 | :x:                | CIRowAverage                      | Row Average                       |
 | :x:                | CISaliencyMapFilter               | Saliency Map Filter               |
-| :x:                | CISampleNearest                   | Sample Nearest                    |
+| :white_check_mark: | CISampleNearest                   | Sample Nearest                    |
 | :x:                | CISaturationBlendMode             | Saturation Blend Mode             |
 | :x:                | CIScreenBlendMode                 | Screen Blend Mode                 |
-| :x:                | CISepiaTone                       | Sepia Tone                        |
+| :white_check_mark: | CISepiaTone                       | Sepia Tone                        |
 | :x:                | CIShadedMaterial                  | Shaded Material                   |
-| :x:                | CISharpenLuminance                | Sharpen Luminance                 |
+| :white_check_mark: | CISharpenLuminance                | Sharpen Luminance                 |
 | :x:                | CISixfoldReflectedTile            | Sixfold Reflected Tile            |
 | :x:                | CISixfoldRotatedTile              | Sixfold Rotated Tile              |
 | :x:                | CISmoothLinearGradient            | Smooth Linear Gradient            |
@@ -371,9 +371,9 @@ await output.writeAsBytes(data);
 | :x:                | CISourceOverCompositing           | Source Over                       |
 | :x:                | CISpotColor                       | Spot Color                        |
 | :x:                | CISpotLight                       | Spot Light                        |
-| :x:                | CISRGBToneCurveToLinear           | sRGB Tone Curve to Linear         |
+| :white_check_mark: | CISRGBToneCurveToLinear           | sRGB Tone Curve to Linear         |
 | :x:                | CIStarShineGenerator              | Star Shine                        |
-| :x:                | CIStraightenFilter                | Straighten                        |
+| :white_check_mark: | CIStraightenFilter                | Straighten                        |
 | :x:                | CIStretchCrop                     | Stretch Crop                      |
 | :x:                | CIStripesGenerator                | Stripes                           |
 | :x:                | CISubtractBlendMode               | Subtract Blend Mode               |
@@ -381,21 +381,21 @@ await output.writeAsBytes(data);
 | :x:                | CISwipeTransition                 | Swipe                             |
 | :x:                | CITemperatureAndTint              | Temperature and Tint              |
 | :x:                | CITextImageGenerator              | Text Image Generator              |
-| :x:                | CIThermal                         | Thermal                           |
+| :white_check_mark: | CIThermal                         | Thermal                           |
 | :x:                | CIToneCurve                       | Tone Curve                        |
 | :x:                | CITorusLensDistortion             | Torus Lens Distortion             |
 | :x:                | CITriangleKaleidoscope            | Triangle Kaleidoscope             |
 | :x:                | CITriangleTile                    | Triangle Tile                     |
 | :x:                | CITwelvefoldReflectedTile         | Twelvefold Reflected Tile         |
 | :x:                | CITwirlDistortion                 | Twirl Distortion                  |
-| :x:                | CIUnsharpMask                     | Unsharp Mask                      |
-| :x:                | CIVibrance                        | Vibrance                          |
-| :x:                | CIVignette                        | Vignette                          |
+| :white_check_mark: | CIUnsharpMask                     | Unsharp Mask                      |
+| :white_check_mark: | CIVibrance                        | Vibrance                          |
+| :white_check_mark: | CIVignette                        | Vignette                          |
 | :x:                | CIVignetteEffect                  | Vignette Effect                   |
 | :x:                | CIVividLightBlendMode             | Vivid Light Blend Mode            |
 | :x:                | CIVortexDistortion                | Vortex Distortion                 |
 | :x:                | CIWhitePointAdjust                | White Point Adjust                |
-| :x:                | CIXRay                            | X-Ray                             |
+| :white_check_mark: | CIXRay                            | X-Ray                             |
 | :x:                | CIZoomBlur                        | Zoom Blur                         |
 
 ### Sample results

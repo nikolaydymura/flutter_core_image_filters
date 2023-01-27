@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CISixfoldReflectedTileConfiguration();
   });
-  group('CISixfoldReflectedTile',  () {
+  group('CISixfoldReflectedTile', () {
     test('verify name', () {
       expect(configuration.name, 'CISixfoldReflectedTile');
     });

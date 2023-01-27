@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CILineScreenConfiguration();
   });
-  group('CILineScreen',  () {
+  group('CILineScreen', () {
     test('verify name', () {
       expect(configuration.name, 'CILineScreen');
     });

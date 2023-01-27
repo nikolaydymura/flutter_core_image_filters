@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CICircularScreenConfiguration();
   });
-  group('CICircularScreen',  () {
+  group('CICircularScreen', () {
     test('verify name', () {
       expect(configuration.name, 'CICircularScreen');
     });

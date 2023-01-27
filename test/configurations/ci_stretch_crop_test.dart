@@ -10,7 +10,7 @@ void main() {
   setUp(() {
     configuration = CIStretchCropConfiguration();
   });
-  group('CIStretchCrop',  () {
+  group('CIStretchCrop', () {
     test('verify name', () {
       expect(configuration.name, 'CIStretchCrop');
     });

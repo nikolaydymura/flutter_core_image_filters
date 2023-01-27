@@ -18,7 +18,7 @@ void main() {
     when(mockFilterApi.create(any)).thenAnswer((_) async => 202);
     when(mockPreviewApi.create()).thenAnswer((_) async => 101);
     controller =
-    await CIImagePreviewController.initialize(previewApi: mockPreviewApi);
+        await CIImagePreviewController.initialize(previewApi: mockPreviewApi);
   });
   tearDown(() {
     verify(mockPreviewApi.create()).called(1);
@@ -48,8 +48,7 @@ void main() {
     });
     test('connect when configuration not ready', () async {
       expect(
-            () =>
-            controller.connect(PassthroughFilterConfiguration(mockFilterApi)),
+        () => controller.connect(PassthroughFilterConfiguration(mockFilterApi)),
         throwsA(isA<String>()),
       );
     });

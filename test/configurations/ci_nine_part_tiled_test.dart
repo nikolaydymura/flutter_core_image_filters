@@ -9,7 +9,7 @@ void main() {
   setUp(() {
     configuration = CINinePartTiledConfiguration();
   });
-  group('CINinePartTiled',  () {
+  group('CINinePartTiled', () {
     test('verify name', () {
       expect(configuration.name, 'CINinePartTiled');
     });

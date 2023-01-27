@@ -16,6 +16,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
 
   bool get ready => _filterId != -1;
 
+  bool get hasInputImage => true;
+
+  Iterable<CICategory> get categories;
+
   CIFilterConfiguration(this.name);
 
   Future<void> prepare() async {
@@ -180,6 +184,12 @@ class DataInputSource extends InputSource {
   DataInputSource(this.data);
 }
 
+class RectInputSource extends InputSource {
+  final Rect output;
+
+  RectInputSource(this.output);
+}
+
 class FileInputSource extends PathInputSource {
   final File file;
 
@@ -224,4 +234,7 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
   final FilterApi _api;
 
   PassthroughFilterConfiguration(this._api) : super('Passthrough');
+
+  @override
+  Iterable<CICategory> get categories => {};
 }

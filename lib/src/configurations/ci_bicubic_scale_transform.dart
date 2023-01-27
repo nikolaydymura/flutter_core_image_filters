@@ -54,5 +54,15 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.geometryAdjustment,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.nonSquarePixels,
+        CICategory.builtIn,
+        CICategory.highDynamicRange
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_b, _scale, _c, _aspectRatio];
 }

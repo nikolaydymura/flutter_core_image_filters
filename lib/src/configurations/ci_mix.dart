@@ -19,5 +19,14 @@ class CIMixConfiguration extends CIFilterConfiguration
   }
 
   @override
+  Iterable<CICategory> get categories => {
+        CICategory.stylize,
+        CICategory.video,
+        CICategory.stillImage,
+        CICategory.highDynamicRange,
+        CICategory.builtIn
+      };
+
+  @override
   List<ConfigurationParameter> get parameters => [_amount, _backgroundImage];
 }
