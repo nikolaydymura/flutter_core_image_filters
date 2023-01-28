@@ -4,13 +4,13 @@ import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  late CITriangleTileConfiguration configuration;
+  late CITwelvefoldReflectedTileConfiguration configuration;
   setUp(() {
-    configuration = CITriangleTileConfiguration();
+    configuration = CITwelvefoldReflectedTileConfiguration();
   });
-  group('CITriangleTile', () {
+  group('CITwelvefoldReflectedTile', () {
     test('verify name', () {
-      expect(configuration.name, 'CITriangleTile');
+      expect(configuration.name, 'CITwelvefoldReflectedTile');
     });
 
     test('change inputCenter', () {

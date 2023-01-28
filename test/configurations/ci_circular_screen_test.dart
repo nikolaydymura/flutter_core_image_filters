@@ -27,5 +27,12 @@ void main() {
       configuration.sharpness = 0.5;
       expect(parameter.value, 0.5);
     });
+    test('change inputWidth', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
+      expect(parameter.value, 6);
+      configuration.sharpness = 25;
+      expect(parameter.value, 25);
+    });
   });
 }

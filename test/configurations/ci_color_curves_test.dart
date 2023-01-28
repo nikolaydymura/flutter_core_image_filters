@@ -11,13 +11,19 @@ void main() {
     test('verify name', () {
       expect(configuration.name, 'CIColorCurves');
     });
-
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;
       expect(parameter.value, '');
       configuration.colorSpace = 'a';
       expect(parameter.value, 'a');
+    });
+    test('change inputCurvesDomain', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputCurvesDomain') as VectorParameter;
+      expect(parameter.value, [0.0, 1.0]);
+      configuration.curvesDomain = [0.5, 0.9];
+      expect(parameter.value, [0.5, 0.9]);
     });
   });
 }

@@ -20,6 +20,13 @@ void main() {
       configuration.topRight = const Point(100, 100);
       expect(parameter.value, const Point(100, 100));
     });
+    test('change inputTopLeft', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputTopLeft') as NumberParameter;
+      expect(parameter.value, const Point(0, 0));
+      configuration.topLeft = const Point(100, 100);
+      expect(parameter.value, const Point(100, 100));
+    });
 
     test('change inputBottomLeft', () {
       final parameter = configuration.parameters
@@ -45,5 +52,6 @@ void main() {
       configuration.focalLength = 10;
       expect(parameter.value, 10);
     });
+
   });
 }
