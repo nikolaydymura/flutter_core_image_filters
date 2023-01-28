@@ -15,7 +15,7 @@ void main() {
     test('change inputFocalLength', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFocalLength') as NumberParameter;
-      expect(parameter.value, 20);
+      expect(parameter.value, 28);
       configuration.focalLength = 10;
       expect(parameter.value, 10);
     });

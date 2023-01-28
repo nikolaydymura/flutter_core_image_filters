@@ -15,7 +15,7 @@ void main() {
     test('change inputScaleFactor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
-      expect(parameter.value, 50.0);
+      expect(parameter.value, 1.0);
       configuration.scaleFactor = 100;
       expect(parameter.value, 100);
     });

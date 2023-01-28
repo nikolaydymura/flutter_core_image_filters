@@ -10,9 +10,9 @@ class CIAttributedTextImageGeneratorConfiguration
       : _scaleFactor = SliderNSNumberParameter(
           'inputScaleFactor',
           'Scale Factor',
-          50,
+          1,
           min: 0,
-          max: 200,
+          max: 4,
         ),
         _padding = SliderNSNumberParameter(
           'inputPadding',

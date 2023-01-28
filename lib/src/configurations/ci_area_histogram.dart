@@ -9,7 +9,7 @@ class CIAreaHistogramConfiguration extends CIFilterConfiguration {
       : _scale = SliderNSNumberParameter(
           'inputScale',
           'Scale',
-          0,
+          1,
           min: 0,
           max: 1,
         ),

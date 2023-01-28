@@ -15,7 +15,7 @@ void main() {
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
-      expect(parameter.value, 3.141592653589793);
+      expect(parameter.value, 0.0);
       configuration.angle = 4;
       expect(parameter.value, 4);
     });

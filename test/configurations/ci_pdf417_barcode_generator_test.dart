@@ -18,7 +18,7 @@ void main() {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputMinHeight')
               as SliderNSNumberParameter;
-      expect(parameter.value, 13);
+      expect(parameter.value.isNaN, true);
       configuration.minHeight = 135;
       expect(parameter.value, 135);
     });
@@ -34,7 +34,7 @@ void main() {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputDataColumns')
           as SliderNSNumberParameter;
-      expect(parameter.value, 0.0);
+      expect(parameter.value.isNaN, true);
       configuration.dataColumns = 0.5;
       expect(parameter.value, 0.5);
     });
@@ -42,7 +42,7 @@ void main() {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputMinWidth')
               as SliderNSNumberParameter;
-      expect(parameter.value, 56);
+      expect(parameter.value.isNaN, true);
       configuration.minWidth = 263;
       expect(parameter.value, 263);
     });
@@ -50,7 +50,7 @@ void main() {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputMaxWidth')
               as SliderNSNumberParameter;
-      expect(parameter.value, 56);
+      expect(parameter.value.isNaN, true);
       configuration.maxWidth = 263;
       expect(parameter.value, 263);
     });
@@ -58,7 +58,7 @@ void main() {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputCorrectionLevel')
           as SliderNSNumberParameter;
-      expect(parameter.value, 0);
+      expect(parameter.value.isNaN, true);
       configuration.correctionLevel = 4;
       expect(parameter.value, 4);
     });
@@ -66,14 +66,14 @@ void main() {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputCompactionMode')
           as SliderNSNumberParameter;
-      expect(parameter.value, 0);
+      expect(parameter.value.isNaN, true);
       configuration.compactionMode = 1.5;
       expect(parameter.value, 1.5);
     });
     test('change inputRows', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRows') as SliderNSNumberParameter;
-      expect(parameter.value, 3);
+      expect(parameter.value.isNaN, true);
       configuration.rows = 43;
       expect(parameter.value, 43);
     });
@@ -88,7 +88,7 @@ void main() {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputPreferredAspectRatio')
           as SliderNSNumberParameter;
-      expect(parameter.value, 0);
+      expect(parameter.value.isNaN, true);
       configuration.preferredAspectRatio = 1;
       expect(parameter.value, 1);
     });
@@ -96,7 +96,7 @@ void main() {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputMaxHeight')
               as SliderNSNumberParameter;
-      expect(parameter.value, 13);
+      expect(parameter.value.isNaN, true);
       configuration.maxHeight = 135;
       expect(parameter.value, 135);
     });

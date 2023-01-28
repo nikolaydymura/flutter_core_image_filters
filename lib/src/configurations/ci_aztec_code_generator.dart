@@ -2,17 +2,15 @@ part of flutter_core_image_filters;
 
 class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
     with MessageMixin {
-  final NumberParameter _compactStyle;
+  final BoolParameter _compactStyle;
   final NumberParameter _correctionLevel;
   final NumberParameter _layers;
 
   CIAztecCodeGeneratorConfiguration()
-      : _compactStyle = SliderNSNumberParameter(
+      : _compactStyle = NSBoolParameter(
           'inputCompactStyle',
           'Compact Style',
-          0,
-          min: 0,
-          max: 1,
+          false,
         ),
         _correctionLevel = SliderNSNumberParameter(
           'inputCorrectionLevel',
@@ -24,13 +22,13 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
         _layers = SliderNSNumberParameter(
           'inputLayers',
           'Layers',
-          1,
+          double.nan,
           min: 1,
           max: 32,
         ),
         super('CIAztecCodeGenerator');
 
-  set compactStyle(double value) {
+  set compactStyle(bool value) {
     _compactStyle.value = value;
   }
 

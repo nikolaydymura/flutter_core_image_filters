@@ -16,10 +16,10 @@ void main() {
 
     test('change inputCompactStyle', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCompactStyle') as NumberParameter;
-      expect(parameter.value, 0.0);
-      configuration.compactStyle = 0.5;
-      expect(parameter.value, 0.5);
+          .firstWhere((e) => e.name == 'inputCompactStyle') as BoolParameter;
+      expect(parameter.value, false);
+      configuration.compactStyle = true;
+      expect(parameter.value, true);
     });
 
     test('change inputCorrectionLevel', () {
@@ -33,7 +33,7 @@ void main() {
     test('change inputLayers', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputLayers') as NumberParameter;
-      expect(parameter.value, 1);
+      expect(parameter.value.isNaN, true);
       configuration.layers = 20;
       expect(parameter.value, 20);
     });

@@ -42,9 +42,9 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
         _lumaNoiseScale = SliderNSNumberParameter(
           'inputLumaNoiseScale',
           'LumaNoiseScale',
-          1,
+          0,
           min: 0,
-          max: 1,
+          max: 0.1,
         ),
         _nosePositions = CGPositionParameter(
           'inputNosePositions',
@@ -54,19 +54,14 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
         _aperture = SliderNSNumberParameter(
           'inputAperture',
           'Aperture',
-          22,
-          min: 1,
+          0,
+          min: 0,
           max: 22,
         ),
         _focusRect = CGRectParameter(
           'inputFocusRect',
           'FocusRect',
-          const Rect.fromLTRB(
-            -8.98847e+307,
-            -8.98847e+307,
-            1.79769e+308,
-            1.79769e+308,
-          ),
+          const Rect.fromLTRB(0.0, 0.0, 0.0, 0.0),
         ),
         super('CIDepthBlurEffect');
 

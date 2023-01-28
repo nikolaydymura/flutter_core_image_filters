@@ -48,7 +48,7 @@ void main() {
     test('change inputZoom', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputZoom') as NumberParameter;
-      expect(parameter.value, 0.7);
+      expect(parameter.value, 1.0);
       configuration.zoom = 0.5;
       expect(parameter.value, 0.5);
     });

@@ -7,9 +7,9 @@ class CIStraightenFilterConfiguration extends CIFilterConfiguration {
       : _angle = SliderNSNumberParameter(
           'inputAngle',
           'Angle',
-          3.141592653589793,
-          min: 0,
-          max: 6.283185307179586,
+          0,
+          min: -3.141592653589793,
+          max: 3.141592653589793,
         ),
         super('CIStraightenFilter');
 

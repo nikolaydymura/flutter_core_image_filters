@@ -32,8 +32,8 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
         _barOffset = SliderNSNumberParameter(
           'inputBarOffset',
           'Bar Offset',
-          1,
-          min: 0,
+          10,
+          min: 1,
           max: 100,
         ),
         super('CIBarsSwipeTransition');

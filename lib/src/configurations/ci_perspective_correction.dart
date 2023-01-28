@@ -26,7 +26,7 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
         _crop = SliderNSNumberParameter(
           'inputCrop',
           'Crop',
-          28,
+          1,
         ),
         _bottomRight = CGPositionParameter(
           'inputBottomRight',

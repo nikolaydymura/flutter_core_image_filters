@@ -58,7 +58,7 @@ void main() {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputLumaNoiseScale')
           as NumberParameter;
-      expect(parameter.value, 1);
+      expect(parameter.value, 0);
       configuration.lumaNoiseScale = 0.5;
       expect(parameter.value, 0.5);
     });
@@ -73,7 +73,7 @@ void main() {
     test('change inputAperture', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAperture') as NumberParameter;
-      expect(parameter.value, 22);
+      expect(parameter.value, 0);
       configuration.aperture = 10;
       expect(parameter.value, 10);
     });
@@ -82,12 +82,7 @@ void main() {
           .firstWhere((e) => e.name == 'inputFocusRect') as CGRectParameter;
       expect(
         parameter.value,
-        const Rect.fromLTRB(
-          -8.98847e+307,
-          -8.98847e+307,
-          1.79769e+308,
-          1.79769e+308,
-        ),
+        const Rect.fromLTRB(0.0, 0.0, 0.0, 0.0),
       );
       configuration.focusRect = const Rect.fromLTRB(0, 0, 0, 0);
       expect(parameter.value, const Rect.fromLTRB(0, 0, 0, 0));

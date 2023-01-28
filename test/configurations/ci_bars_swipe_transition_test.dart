@@ -37,7 +37,7 @@ void main() {
     test('change inputBarOffset', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputBarOffset') as NumberParameter;
-      expect(parameter.value, 1);
+      expect(parameter.value, 10);
       configuration.barOffset = 50;
       expect(parameter.value, 50);
     });

@@ -37,7 +37,7 @@ void main() {
     test('change inputCrop', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCrop') as SliderNSNumberParameter;
-      expect(parameter.value, 28);
+      expect(parameter.value, 1);
       configuration.crop = 10;
       expect(parameter.value, 10);
     });

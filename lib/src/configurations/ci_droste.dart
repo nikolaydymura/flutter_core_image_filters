@@ -36,9 +36,9 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
         _zoom = SliderNSNumberParameter(
           'inputZoom',
           'Zoom',
-          0.7,
-          min: 0,
-          max: 1,
+          1,
+          min: 0.01,
+          max: 5,
         ),
         _rotation = SliderNSNumberParameter(
           'inputRotation',
