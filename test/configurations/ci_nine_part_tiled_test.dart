@@ -31,8 +31,7 @@ void main() {
     });
     test('change inputFlipYTiles', () {
       final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputFlipYTiles')
-          as BoolParameter;
+          .firstWhere((e) => e.name == 'inputFlipYTiles') as BoolParameter;
       expect(parameter.value, true);
       configuration.flipYTiles = false;
       expect(parameter.value, false);

@@ -35,6 +35,12 @@ void main() {
     await parameter.update(configuration);
     verify(mockFilterApi.setNSNumberParameter(101, 'inputValue', 1.0));
   });
+  test('SliderNSIntegerParameter', () async {
+    final parameter = SliderNSIntegerParameter('inputValue', 'Value', 0);
+    parameter.value = 1.5;
+    await parameter.update(configuration);
+    verify(mockFilterApi.setNSNumberParameter(101, 'inputValue', 1.0));
+  });
   test('CGRectParameter', () async {
     final parameter = CGRectParameter('inputValue', 'Value', Rect.zero);
     parameter.value = const Rect.fromLTWH(0, 0, 200, 100);

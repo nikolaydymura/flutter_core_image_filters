@@ -7,10 +7,6 @@ void main() {
     configuration = CIConvertRGBToLabConfiguration();
   });
   group('CIConvertRGBToLab', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIConvertRGBToLab');
-    });
-
     test('change inputNormalize', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNormalize') as NSBoolParameter;

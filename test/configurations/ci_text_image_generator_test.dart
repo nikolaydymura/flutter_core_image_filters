@@ -44,7 +44,7 @@ void main() {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
       expect(parameter.value, 1);
-      configuration.padding = 2;
+      configuration.scaleFactor = 2;
       expect(parameter.value, 2);
     });
   });

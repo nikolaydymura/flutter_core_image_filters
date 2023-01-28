@@ -31,7 +31,7 @@ void main() {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
       expect(parameter.value, 6);
-      configuration.sharpness = 25;
+      configuration.width = 25;
       expect(parameter.value, 25);
     });
   });

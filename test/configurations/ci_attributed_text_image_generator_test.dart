@@ -28,7 +28,7 @@ void main() {
     });
     test('change inputText', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputText') as NumberParameter;
+          .firstWhere((e) => e.name == 'inputText') as StringParameter;
       expect(parameter.value, '');
       configuration.text = 'a';
       expect(parameter.value, 'a');

@@ -15,9 +15,8 @@ void main() {
     });
 
     test('change inputMinHeight', () {
-      final parameter =
-          configuration.parameters.firstWhere((e) => e.name == 'inputMinHeight')
-              as NumberParameter;
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputMinHeight') as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.minHeight = 135;
       expect(parameter.value, 135);
@@ -32,24 +31,21 @@ void main() {
     });
     test('change inputDataColumns', () {
       final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputDataColumns')
-          as NumberParameter;
+          .firstWhere((e) => e.name == 'inputDataColumns') as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.dataColumns = 2;
       expect(parameter.value, 2);
     });
     test('change inputMinWidth', () {
-      final parameter =
-          configuration.parameters.firstWhere((e) => e.name == 'inputMinWidth')
-              as NumberParameter;
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputMinWidth') as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.minWidth = 263;
       expect(parameter.value, 263);
     });
     test('change inputMaxWidth', () {
-      final parameter =
-          configuration.parameters.firstWhere((e) => e.name == 'inputMaxWidth')
-              as NumberParameter;
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputMaxWidth') as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.maxWidth = 263;
       expect(parameter.value, 263);
@@ -93,9 +89,8 @@ void main() {
       expect(parameter.value, 1);
     });
     test('change inputMaxHeight', () {
-      final parameter =
-          configuration.parameters.firstWhere((e) => e.name == 'inputMaxHeight')
-              as NumberParameter;
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputMaxHeight') as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.maxHeight = 135;
       expect(parameter.value, 135);

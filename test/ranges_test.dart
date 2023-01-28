@@ -74,8 +74,7 @@ void main() {
           expect(
             number,
             isNotNull,
-            reason:
-                '${numParam.name} in ${configuration.name}',
+            reason: '${numParam.name} in ${configuration.name}',
           );
           expect(
             numParam.min,
