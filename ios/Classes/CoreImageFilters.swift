@@ -69,7 +69,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
             filterDelegate?.didUpdated(filter: filter)
         }
     }
-
+    
     func setCIColorParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -161,7 +161,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "CIImage" {
             if asset.boolValue {
-                #if os(iOS)
+#if os(iOS)
                 let assetKey = registrar.lookupKey(forAsset: path)
                 
                 guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -174,7 +174,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
-                #endif
+#endif
             } else {
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else {
                     error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
@@ -201,12 +201,14 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "NSData" {
             if key.contains("Cube") {
+#if os(iOS)
                 guard let image = UIImage(data: data.data) else {
                     error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
                     return
                 }
                 filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
+#endif
             }
         }
     }
@@ -227,7 +229,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         if targetClass == "NSData" {
             if key.contains("Cube") {
                 if asset.boolValue {
-                    #if os(iOS)
+#if os(iOS)
                     let assetKey = registrar.lookupKey(forAsset: path)
                     
                     guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -240,14 +242,17 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
                     }
                     filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
                     filterDelegate?.didUpdated(filter: filter)
-                    #endif
+#endif
                 } else {
+#if os(iOS)
                     guard let image = UIImage(contentsOfFile: path) else {
                         error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
                         return
                     }
                     filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                    
                     filterDelegate?.didUpdated(filter: filter)
+#endif
                 }
             }
         }
@@ -322,16 +327,16 @@ extension CoreImageFilters {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
         }
     }
-
+    
     func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
-
+        
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
         }
         var path = input
         if asset.boolValue {
-            #if os(iOS)
+#if os(iOS)
             let assetKey = registrar.lookupKey(forAsset: path)
             
             guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -339,7 +344,7 @@ extension CoreImageFilters {
                 return nil
             }
             path = filePath
-            #endif
+#endif
         }
         let asset = AVAsset(url: URL(fileURLWithPath: path))
         let ciContext = CIContext.selectVideoContext(context)
@@ -368,13 +373,17 @@ extension CoreImageFilters {
         
         let exportId = exporterSequenceId
         exporterSequenceId += 1
-        
+#if os(iOS)
         let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
                                                binaryMessenger: registrar.messenger())
         
+#else
+        let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
+                                               binaryMessenger: registrar.messenger)
+#endif
         eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter))
         return NSNumber(value: exportId)
-    
+        
     }
     
 }

@@ -184,13 +184,14 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         binaryMessenger:binaryMessenger
         codec:FLTImagePreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(connect: :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(connect: :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(connect: : :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(connect: : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId error:&error];
+        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     }
@@ -251,6 +252,27 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         FLTDataPreviewMessage *arg_msg = GetNullableObjectAtIndex(args, 0);
         FlutterError *error;
         [api setData:arg_msg error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.ImagePreviewApi.setOutput"
+        binaryMessenger:binaryMessenger
+        codec:FLTImagePreviewApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setOutput: :error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setOutput: :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        [api setOutput:arg_textureId  :arg_value error:&error];
         callback(wrapResult(nil, error));
       }];
     }
@@ -358,13 +380,14 @@ void FLTVideoPreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         binaryMessenger:binaryMessenger
         codec:FLTVideoPreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(connect: :error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(connect: :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(connect: : :error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(connect: : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId error:&error];
+        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     }

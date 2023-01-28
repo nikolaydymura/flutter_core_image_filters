@@ -20,6 +20,7 @@ protocol FilterDelegate {
 class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
     private var filters: [Int64: CIFilter] = [:]
     private var filterSequenceId: Int64 = 0
+    private var exporterSequenceId: Int64 = 0
     private let registrar: FlutterPluginRegistrar
     var filterDelegate: FilterDelegate?
     
@@ -68,7 +69,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
             filterDelegate?.didUpdated(filter: filter)
         }
     }
-
+    
     func setCIColorParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -85,13 +86,29 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         if targetClass == "CIColor" {
             let color = CIColor(red: CGFloat(truncating: value[0]),
                                 green: CGFloat(truncating: value[1]),
-                                blue: CGFloat(truncating: value[2]))
+                                blue: CGFloat(truncating: value[2]),
+                                alpha: CGFloat(truncating: value[3]))
             filter.setValue(color, forKey: key)
             filterDelegate?.didUpdated(filter: filter)
         }
     }
     
     func setCIVectorParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+    }
+    
+    func setNSValueParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return
@@ -144,7 +161,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "CIImage" {
             if asset.boolValue {
-                #if os(iOS)
+#if os(iOS)
                 let assetKey = registrar.lookupKey(forAsset: path)
                 
                 guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
@@ -157,7 +174,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
-                #endif
+#endif
             } else {
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else {
                     error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
@@ -170,11 +187,75 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
     }
     
     func setNSDataParameter(_ filterId: NSNumber, _ key: String, _ data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+        if targetClass == "NSData" {
+            if key.contains("Cube") {
+#if os(iOS)
+                guard let image = UIImage(data: data.data) else {
+                    error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                    return
+                }
+                filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                filterDelegate?.didUpdated(filter: filter)
+#endif
+            }
+        }
     }
     
     func setNSDataSourceParameter(_ filterId: NSNumber, _ key: String, _ asset: NSNumber, _ path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+        if targetClass == "NSData" {
+            if key.contains("Cube") {
+                if asset.boolValue {
+#if os(iOS)
+                    let assetKey = registrar.lookupKey(forAsset: path)
+                    
+                    guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
+                        return
+                    }
+                    guard let image = UIImage(contentsOfFile: filePath) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                        return
+                    }
+                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                    filterDelegate?.didUpdated(filter: filter)
+#endif
+                } else {
+#if os(iOS)
+                    guard let image = UIImage(contentsOfFile: path) else {
+                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                        return
+                    }
+                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
+                    
+                    filterDelegate?.didUpdated(filter: filter)
+#endif
+                }
+            }
+        }
     }
     
     func disposeFilter(_ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -185,7 +266,7 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
 
 
 extension CoreImageFilters {
-    func exportData(_ filterId: NSNumber, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
+    func exportData(_ filterId: NSNumber, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
@@ -195,7 +276,7 @@ extension CoreImageFilters {
             return nil
         }
         
-        let context = CIContext.defaultGLContext
+        let context = CIContext.selectImageContext(context)
         let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
@@ -217,7 +298,7 @@ extension CoreImageFilters {
         
     }
     
-    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         let flutterError = error
         guard let filter = filters[filterId.int64Value] else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -228,7 +309,7 @@ extension CoreImageFilters {
             return
         }
         
-        let context = CIContext.defaultGLContext
+        let context = CIContext.selectImageContext(context)
         let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
         if format == "png" {
             do {
@@ -246,35 +327,36 @@ extension CoreImageFilters {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
         }
     }
-
-    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, completion: @escaping (FlutterError?) -> Void) {
-
+    
+    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
+        
         guard let filter = filters[filterId.int64Value] else {
-            completion(FlutterError(code: "core-image-filters", message: "Filter not found", details: nil))
-            return
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return nil
         }
         var path = input
         if asset.boolValue {
-            #if os(iOS)
+#if os(iOS)
             let assetKey = registrar.lookupKey(forAsset: path)
             
             guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                completion(FlutterError(code: "core-image-filters", message: "Asset not found", details: nil))
-                return
+                error.pointee = FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
+                return nil
             }
             path = filePath
-            #endif
+#endif
         }
         let asset = AVAsset(url: URL(fileURLWithPath: path))
+        let ciContext = CIContext.selectVideoContext(context)
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
             filter.setValue(source, forKey: kCIInputImageKey)
             let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
-            request.finish(with: output ?? source, context: CIContext.defaultGLContext)
+            request.finish(with: output ?? source, context: ciContext)
         }
-        guard let exporter = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetHighestQuality) else {
-            completion(FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil))
-            return
+        guard let exporter = AVAssetExportSession(asset: asset, presetName: preset) else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Invalid exporter", details: nil)
+            return nil
         }
         
         exporter.videoComposition = videoComposition
@@ -285,20 +367,65 @@ extension CoreImageFilters {
         } else if format == "mov" {
             exporter.outputFileType = .mov
         } else {
-            completion(FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil))
-            return
+            error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
+            return nil
         }
-        exporter.exportAsynchronously { () -> Void in
-            if exporter.error == nil && exporter.status == .completed {
-                completion(nil)
+        
+        let exportId = exporterSequenceId
+        exporterSequenceId += 1
+#if os(iOS)
+        let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
+                                               binaryMessenger: registrar.messenger())
+        
+#else
+        let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
+                                               binaryMessenger: registrar.messenger)
+#endif
+        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter))
+        return NSNumber(value: exportId)
+        
+    }
+    
+}
 
-            } else {
-                let message = String(describing: exporter.error)
-                completion(FlutterError.init(code: "core-image-filters",
-                                             message: message,
-                                             details: nil))
-            }
+class AVAssetExportSessionStreamHandler: NSObject, FlutterStreamHandler {
+    private let session: AVAssetExportSession
+    private var eventSink: FlutterEventSink?
+    private var timer: Timer?
+    
+    init(session: AVAssetExportSession) {
+        self.session = session
+    }
+    
+    func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        eventSink = events
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateProgess(_:))
+        session.exportAsynchronously(completionHandler: export)
+        return nil
+    }
+    
+    func updateProgess(_ timer: Timer) {
+        eventSink?(session.progress)
+    }
+    
+    func export() {
+        timer?.invalidate()
+        if session.error == nil && session.status == .completed {
+            eventSink?(-100.0)
+            
+        } else {
+            let message = String(describing: session.error)
+            eventSink?(FlutterError.init(code: "core-image-filters",
+                                         message: message,
+                                         details: nil))
         }
     }
     
+    func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        timer?.invalidate()
+        session.cancelExport()
+        eventSink = nil
+        timer = nil
+        return nil
+    }
 }

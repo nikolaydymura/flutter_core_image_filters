@@ -1,3 +1,4 @@
+import 'dart:io' show Platform, File;
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide Rect;
@@ -49,7 +50,7 @@ class ListPage extends StatelessWidget {
           slivers: [
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) {
+                    (context, index) {
                   final item = kFailedFilters[index];
                   return Card(
                     child: ListTile(
@@ -79,7 +80,7 @@ class ListPage extends StatelessWidget {
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                (context, index) {
+                    (context, index) {
                   final item = kFilters[index];
                   return Card(
                     child: ListTile(
@@ -129,6 +130,7 @@ class _FilterPageState extends State<FilterPage> {
   late final CIImagePreviewController destinationMetalController;
   var _controllersReady = false;
   static const _assetPath = 'images/demo.jpeg';
+  static final _file = File('images/demo.jpeg');
 
   @override
   void initState() {
@@ -146,6 +148,47 @@ class _FilterPageState extends State<FilterPage> {
   }
 
   Future<void> _prepare() async {
+    if (Platform.isMacOS) {
+      await _prepareMacOs();
+    } else if (Platform.isIOS) {
+      await _prepareIOS();
+    }
+  }
+
+  Future<void> _prepareMacOs() async {
+    if (widget.configuration.hasInputImage) {
+      destinationSystemController =
+          await CIImagePreviewController.fromFile(_file);
+      destinationOpenGLController =
+          await CIImagePreviewController.fromFile(_file);
+      destinationMetalController =
+          await CIImagePreviewController.fromFile(_file);
+    } else {
+      destinationSystemController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationOpenGLController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+      destinationMetalController = await CIImagePreviewController.fromRect(
+        const Rect.fromLTWH(0, 0, 200, 200),
+      );
+    }
+    await widget.configuration.prepare();
+    await widget.configuration.update();
+    await destinationSystemController.connect(widget.configuration);
+    await destinationOpenGLController.connect(
+      widget.configuration,
+      context: CIContext.mlt,
+    );
+    await destinationMetalController.connect(
+      widget.configuration,
+      context: CIContext.mlt,
+    );
+    _controllersReady = true;
+  }
+
+  Future<void> _prepareIOS() async {
     if (widget.configuration.hasInputImage) {
       destinationSystemController =
           await CIImagePreviewController.fromAsset(_assetPath);
