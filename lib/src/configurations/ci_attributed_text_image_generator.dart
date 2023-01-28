@@ -14,7 +14,7 @@ class CIAttributedTextImageGeneratorConfiguration
           min: 0,
           max: 4,
         ),
-        _padding = SliderNSNumberParameter(
+        _padding = SliderNSIntegerParameter(
           'inputPadding',
           'Padding',
           0,
@@ -32,7 +32,7 @@ class CIAttributedTextImageGeneratorConfiguration
     _scaleFactor.value = value;
   }
 
-  set padding(double value) {
+  set padding(int value) {
     _padding.value = value;
   }
 

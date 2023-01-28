@@ -10,7 +10,7 @@ class CIGuidedFilterConfiguration extends CIFilterConfiguration
           'inputEpsilon',
           'Epsilon',
           0.0001,
-          min: -0.000000001,
+          min: 0.000000001,
           max: 0.1,
         ),
         _radius = SliderNSNumberParameter(

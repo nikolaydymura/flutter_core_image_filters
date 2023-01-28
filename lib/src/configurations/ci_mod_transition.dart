@@ -20,7 +20,7 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
           'inputCompression',
           'Compression',
           300,
-          min: 100,
+          min: 1,
           max: 800,
         ),
         _time = SliderNSNumberParameter(

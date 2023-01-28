@@ -15,7 +15,7 @@ class CIEightfoldReflectedTileConfiguration extends CIFilterConfiguration {
           'inputWidth',
           'Width',
           100,
-          min: 1,
+          min: 0,
           max: 200,
         ),
         _angle = SliderNSNumberParameter(

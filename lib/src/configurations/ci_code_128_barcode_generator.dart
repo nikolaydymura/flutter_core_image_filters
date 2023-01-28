@@ -6,27 +6,27 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
   final NumberParameter _barcodeHeight;
 
   CICode128BarcodeGeneratorConfiguration()
-      : _quietSpace = SliderNSNumberParameter(
+      : _quietSpace = SliderNSIntegerParameter(
           'inputQuietSpace',
           'Quiet Space',
           10,
           min: 0,
-          max: 20,
+          max: 100,
         ),
-        _barcodeHeight = SliderNSNumberParameter(
+        _barcodeHeight = SliderNSIntegerParameter(
           'inputBarcodeHeight',
           'Barcode Height',
           32,
           min: 1,
-          max: 50,
+          max: 500,
         ),
         super('CICode128BarcodeGenerator');
 
-  set quietSpace(double value) {
+  set quietSpace(int value) {
     _quietSpace.value = value;
   }
 
-  set barcodeHeight(double value) {
+  set barcodeHeight(int value) {
     _barcodeHeight.value = value;
   }
 

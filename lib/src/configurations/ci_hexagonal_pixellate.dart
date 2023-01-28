@@ -10,7 +10,7 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
           'Scale',
           8,
           min: 1,
-          max: 500,
+          max: 100,
         ),
         _center = CGPositionParameter(
           'inputCenter',

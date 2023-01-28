@@ -14,10 +14,10 @@ void main() {
 
     test('change inputPerceptual', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputPerceptual') as NumberParameter;
-      expect(parameter.value, 0);
-      configuration.perceptual = 0.5;
-      expect(parameter.value, 0.5);
+          .firstWhere((e) => e.name == 'inputPerceptual') as BoolParameter;
+      expect(parameter.value, false);
+      configuration.perceptual = true;
+      expect(parameter.value, true);
     });
   });
 }

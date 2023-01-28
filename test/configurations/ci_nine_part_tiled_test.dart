@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -31,10 +32,10 @@ void main() {
     test('change inputFlipYTiles', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputFlipYTiles')
-          as SliderNSNumberParameter;
-      expect(parameter.value, 1);
-      configuration.flipYTiles = 0.5;
-      expect(parameter.value, 0.5);
+          as BoolParameter;
+      expect(parameter.value, true);
+      configuration.flipYTiles = false;
+      expect(parameter.value, false);
     });
     test('change inputGrowAmount', () {
       final parameter = configuration.parameters

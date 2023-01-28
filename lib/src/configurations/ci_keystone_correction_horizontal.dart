@@ -29,7 +29,7 @@ class CIKeystoneCorrectionHorizontalConfiguration
           'Bottom Right',
           const Point(0.0, 0.0),
         ),
-        _focalLength = SliderNSNumberParameter(
+        _focalLength = NSNumberParameter(
           'inputFocalLength',
           'Focal Length',
           28,

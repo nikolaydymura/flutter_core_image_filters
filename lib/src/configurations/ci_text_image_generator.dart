@@ -22,10 +22,10 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
           'inputFontSize',
           'Font Size',
           12,
-          min: 9,
+          min: 0,
           max: 128,
         ),
-        _padding = SliderNSNumberParameter(
+        _padding = SliderNSIntegerParameter(
           'inputPadding',
           'Padding',
           0,
@@ -56,7 +56,7 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
     _fontSize.value = value;
   }
 
-  set padding(double value) {
+  set padding(int value) {
     _padding.value = value;
   }
 

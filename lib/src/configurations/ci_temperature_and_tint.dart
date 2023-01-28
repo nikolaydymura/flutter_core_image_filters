@@ -1,27 +1,27 @@
 part of flutter_core_image_filters;
 
 class CITemperatureAndTintConfiguration extends CIFilterConfiguration {
-  final VectorParameter _targetNeutral;
-  final VectorParameter _neutral;
+  final PointParameter _targetNeutral;
+  final PointParameter _neutral;
 
   CITemperatureAndTintConfiguration()
-      : _targetNeutral = CIVectorParameter(
+      : _targetNeutral = CGPositionParameter(
           'inputTargetNeutral',
           'Target Neutral',
-          [6500, 0],
+          const Point(6500.0, 0.0),
         ),
-        _neutral = CIVectorParameter(
+        _neutral = CGPositionParameter(
           'inputNeutral',
           'Neutral',
-          [6500, 0],
+          const Point(6500.0, 0.0),
         ),
         super('CITemperatureAndTint');
 
-  set targetNeutral(List<double> value) {
+  set targetNeutral(Point<double> value) {
     _targetNeutral.value = value;
   }
 
-  set neutral(List<double> value) {
+  set neutral(Point<double> value) {
     _neutral.value = value;
   }
 

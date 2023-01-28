@@ -2,7 +2,7 @@ part of flutter_core_image_filters;
 
 class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
   final RectParameter _extent;
-  final NumberParameter _perceptual;
+  final BoolParameter _perceptual;
   final NumberParameter _count;
   final NumberParameter _passes;
 
@@ -12,21 +12,19 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
           'Extent',
           const Rect.fromLTRB(0, 0, 640, 80),
         ),
-        _perceptual = SliderNSNumberParameter(
+        _perceptual = NSBoolParameter(
           'inputPerceptual',
           'Perceptual',
-          0,
-          min: 0,
-          max: 1,
+          false,
         ),
-        _count = SliderNSNumberParameter(
+        _count = SliderNSIntegerParameter(
           'inputCount',
           'Count',
           8,
           min: 0,
           max: 128,
         ),
-        _passes = SliderNSNumberParameter(
+        _passes = SliderNSIntegerParameter(
           'inputPasses',
           'Passes',
           5,
@@ -39,15 +37,15 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
     _extent.value = value;
   }
 
-  set perceptual(double value) {
+  set perceptual(bool value) {
     _perceptual.value = value;
   }
 
-  set count(double value) {
+  set count(int value) {
     _count.value = value;
   }
 
-  set passes(double value) {
+  set passes(int value) {
     _passes.value = value;
   }
 

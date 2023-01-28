@@ -2,19 +2,17 @@ part of flutter_core_image_filters;
 
 class CIPalettizeConfiguration extends CIFilterConfiguration
     with PaletteImageMixin {
-  final NumberParameter _perceptual;
+  final BoolParameter _perceptual;
 
   CIPalettizeConfiguration()
-      : _perceptual = SliderNSNumberParameter(
+      : _perceptual = NSBoolParameter(
           'inputPerceptual',
           'Perceptual',
-          0,
-          min: 0,
-          max: 1,
+          false,
         ),
         super('CIPalettize');
 
-  set perceptual(double value) {
+  set perceptual(bool value) {
     _perceptual.value = value;
   }
 

@@ -37,7 +37,7 @@ class CIRippleTransitionConfiguration extends CIFilterConfiguration
           'inputWidth',
           'Width',
           100,
-          min: 10,
+          min: 1,
           max: 300,
         ),
         _center = CGPositionParameter(

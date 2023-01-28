@@ -16,7 +16,7 @@ class CIOpTileConfiguration extends CIFilterConfiguration {
           'inputWidth',
           'Width',
           65,
-          min: 1,
+          min: 0,
           max: 1000,
         ),
         _angle = SliderNSNumberParameter(
@@ -30,7 +30,7 @@ class CIOpTileConfiguration extends CIFilterConfiguration {
           'inputScale',
           'Scale',
           2.8,
-          min: 0.1,
+          min: 0.0,
           max: 10,
         ),
         super('CIOpTile');

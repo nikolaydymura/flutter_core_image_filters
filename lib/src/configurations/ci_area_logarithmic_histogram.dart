@@ -38,8 +38,8 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
           'inputCount',
           'Count',
           64,
-          min: 10,
-          max: 1000,
+          min: 1,
+          max: 2048,
         ),
         super('CIAreaLogarithmicHistogram');
 

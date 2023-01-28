@@ -6,8 +6,13 @@ class CIColorCubeConfiguration extends CIFilterConfiguration
   final BoolParameter _extrapolate;
 
   CIColorCubeConfiguration()
-      : _cubeDimension =
-            NSNumberParameter('inputCubeDimension', 'Cube Dimension', 2),
+      : _cubeDimension = SliderNSIntegerParameter(
+          'inputCubeDimension',
+          'Cube Dimension',
+          2,
+          min: 2,
+          max: 64,
+        ),
         _extrapolate =
             NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
         super('CIColorCube');

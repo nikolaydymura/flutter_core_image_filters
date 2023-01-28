@@ -15,7 +15,7 @@ class CIMeshGeneratorConfiguration extends CIFilterConfiguration {
           'inputWidth',
           'Width',
           1.5,
-          min: 1,
+          min: 0,
           max: 10,
         ),
         _color = CIColorParameter(

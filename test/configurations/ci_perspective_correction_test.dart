@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -36,10 +37,10 @@ void main() {
     });
     test('change inputCrop', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCrop') as SliderNSNumberParameter;
-      expect(parameter.value, 1);
-      configuration.crop = 10;
-      expect(parameter.value, 10);
+          .firstWhere((e) => e.name == 'inputCrop') as BoolParameter;
+      expect(parameter.value, true);
+      configuration.crop = false;
+      expect(parameter.value, false);
     });
     test('change inputBottomRight', () {
       final parameter = configuration.parameters

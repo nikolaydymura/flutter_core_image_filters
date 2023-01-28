@@ -8,7 +8,7 @@ class CIColorPosterizeConfiguration extends CIFilterConfiguration {
           'inputLevels',
           'Levels',
           6,
-          min: 2,
+          min: 1,
           max: 30,
         ),
         super('CIColorPosterize');

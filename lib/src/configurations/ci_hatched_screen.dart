@@ -11,7 +11,7 @@ class CIHatchedScreenConfiguration extends CIFilterConfiguration {
           'inputWidth',
           'Width',
           6,
-          min: 2,
+          min: 1,
           max: 50,
         ),
         _sharpness = SliderNSNumberParameter(

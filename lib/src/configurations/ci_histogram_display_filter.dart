@@ -25,7 +25,7 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
           'Height',
           100,
           min: 1,
-          max: 100,
+          max: 200,
         ),
         super('CIHistogramDisplayFilter');
 

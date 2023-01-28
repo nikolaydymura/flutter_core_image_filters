@@ -24,7 +24,7 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
           'inputContrast',
           'Contrast',
           1,
-          min: 0.25,
+          min: 0.0,
           max: 4,
         ),
         super('CIColorControls');

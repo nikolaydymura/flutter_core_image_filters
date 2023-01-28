@@ -20,7 +20,7 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
           'Number of Folds',
           3,
           min: 1,
-          max: 10,
+          max: 50,
         ),
         _bottomHeight = SliderNSNumberParameter(
           'inputBottomHeight',

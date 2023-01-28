@@ -7,22 +7,22 @@ class CIPerspectiveRotateConfiguration extends CIFilterConfiguration {
   final NumberParameter _yaw;
 
   CIPerspectiveRotateConfiguration()
-      : _focalLength = SliderNSNumberParameter(
+      : _focalLength = NSNumberParameter(
           'inputFocalLength',
           'Focal Length',
           28,
         ),
-        _roll = SliderNSNumberParameter(
+        _roll = NSNumberParameter(
           'inputRoll',
           'Roll',
           0,
         ),
-        _pitch = SliderNSNumberParameter(
+        _pitch = NSNumberParameter(
           'inputPitch',
           'Pitch',
           0,
         ),
-        _yaw = SliderNSNumberParameter(
+        _yaw = NSNumberParameter(
           'inputYaw',
           'Yaw',
           0,

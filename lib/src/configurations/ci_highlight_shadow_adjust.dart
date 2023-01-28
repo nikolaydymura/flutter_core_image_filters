@@ -10,7 +10,7 @@ class CIHighlightShadowAdjustConfiguration extends CIFilterConfiguration {
           'inputHighlightAmount',
           'Highlight Amount',
           1,
-          min: 0.3,
+          min: 0.0,
           max: 1,
         ),
         _radius = SliderNSNumberParameter(

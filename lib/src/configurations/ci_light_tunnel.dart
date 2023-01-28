@@ -23,7 +23,7 @@ class CILightTunnelConfiguration extends CIFilterConfiguration {
           'Rotation',
           0,
           min: 0,
-          max: 1.570796326794897,
+          max: 1.5707963267948966,
         ),
         super('CILightTunnel');
 

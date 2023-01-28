@@ -9,7 +9,7 @@ class CIShadedMaterialConfiguration extends CIFilterConfiguration
           'inputScale',
           'Scale',
           10,
-          min: 0.5,
+          min: 0.0,
           max: 200,
         ),
         super('CIShadedMaterial');

@@ -9,8 +9,13 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
   final StringParameter _colorSpace;
 
   CIColorCubesMixedWithMaskConfiguration()
-      : _cubeDimension =
-            NSNumberParameter('inputCubeDimension', 'Cube Dimension', 2),
+      : _cubeDimension = SliderNSIntegerParameter(
+          'inputCubeDimension',
+          'Cube Dimension',
+          2,
+          min: 2,
+          max: 64,
+        ),
         _cubeData0 = NSDataParameter('inputCube0Data', 'Cube 0 Data'),
         _cubeData1 = NSDataParameter('inputCube1Data', 'Cube 1 Data'),
         _colorSpace = NSStringParameter('inputColorSpace', 'Color Space', ''),

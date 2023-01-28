@@ -4,7 +4,7 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
   final PointParameter _bottomLeft;
   final PointParameter _topRight;
   final PointParameter _topLeft;
-  final NumberParameter _crop;
+  final BoolParameter _crop;
   final PointParameter _bottomRight;
 
   CIPerspectiveCorrectionConfiguration()
@@ -23,10 +23,10 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
           'Top Left',
           const Point(118.0, 484.0),
         ),
-        _crop = SliderNSNumberParameter(
+        _crop = NSBoolParameter(
           'inputCrop',
           'Crop',
-          1,
+          true,
         ),
         _bottomRight = CGPositionParameter(
           'inputBottomRight',
@@ -47,7 +47,7 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
     _topLeft.value = value;
   }
 
-  set crop(double value) {
+  set crop(bool value) {
     _crop.value = value;
   }
 

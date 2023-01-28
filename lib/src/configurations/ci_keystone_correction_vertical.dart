@@ -29,7 +29,7 @@ class CIKeystoneCorrectionVerticalConfiguration extends CIFilterConfiguration {
           'Bottom Left',
           const Point(0.0, 0.0),
         ),
-        _focalLength = SliderNSNumberParameter(
+        _focalLength = NSNumberParameter(
           'inputFocalLength',
           'Focal Length',
           28,

@@ -12,14 +12,14 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
           'Compact Style',
           false,
         ),
-        _correctionLevel = SliderNSNumberParameter(
+        _correctionLevel = SliderNSIntegerParameter(
           'inputCorrectionLevel',
           'Correction Level',
           23,
           min: 5,
           max: 95,
         ),
-        _layers = SliderNSNumberParameter(
+        _layers = SliderNSIntegerParameter(
           'inputLayers',
           'Layers',
           double.nan,
@@ -32,11 +32,11 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
     _compactStyle.value = value;
   }
 
-  set correctionLevel(double value) {
+  set correctionLevel(int value) {
     _correctionLevel.value = value;
   }
 
-  set layers(double value) {
+  set layers(int value) {
     _layers.value = value;
   }
 

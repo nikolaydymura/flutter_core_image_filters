@@ -5,14 +5,14 @@ class CIMorphologyRectangleMinimumConfiguration extends CIFilterConfiguration {
   final NumberParameter _width;
 
   CIMorphologyRectangleMinimumConfiguration()
-      : _height = SliderNSNumberParameter(
+      : _height = SliderNSIntegerParameter(
           'inputHeight',
           'Height',
           5,
           min: 1,
           max: 49,
         ),
-        _width = SliderNSNumberParameter(
+        _width = SliderNSIntegerParameter(
           'inputWidth',
           'Width',
           5,
@@ -21,11 +21,11 @@ class CIMorphologyRectangleMinimumConfiguration extends CIFilterConfiguration {
         ),
         super('CIMorphologyRectangleMinimum');
 
-  set height(double value) {
+  set height(int value) {
     _height.value = value;
   }
 
-  set width(double value) {
+  set width(int value) {
     _width.value = value;
   }
 

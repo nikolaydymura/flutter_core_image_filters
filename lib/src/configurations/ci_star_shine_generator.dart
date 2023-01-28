@@ -55,7 +55,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
           'inputCrossWidth',
           'Cross Width',
           2.5,
-          min: 0.5,
+          min: 0.0,
           max: 10,
         ),
         _center = CGPositionParameter(

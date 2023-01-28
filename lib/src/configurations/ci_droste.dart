@@ -18,8 +18,8 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
           'inputStrands',
           'Strands',
           1,
-          min: -2,
-          max: 2,
+          min: -10,
+          max: 10,
         ),
         _insetPoint1 = CGPositionParameter(
           'inputInsetPoint1',

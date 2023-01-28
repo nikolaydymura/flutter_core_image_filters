@@ -3,7 +3,7 @@ part of flutter_core_image_filters;
 class CINinePartTiledConfiguration extends CIFilterConfiguration {
   final PointParameter _breakpoint1;
   final PointParameter _breakpoint0;
-  final NumberParameter _flipYTiles;
+  final BoolParameter _flipYTiles;
   final PointParameter _growAmount;
 
   CINinePartTiledConfiguration()
@@ -17,12 +17,10 @@ class CINinePartTiledConfiguration extends CIFilterConfiguration {
           'Breakpoint0',
           const Point(50.0, 50.0),
         ),
-        _flipYTiles = SliderNSNumberParameter(
+        _flipYTiles = NSBoolParameter(
           'inputFlipYTiles',
           'Flip Y Tiles',
-          1,
-          min: 0,
-          max: 1,
+          true,
         ),
         _growAmount = CGPositionParameter(
           'inputGrowAmount',
@@ -39,7 +37,7 @@ class CINinePartTiledConfiguration extends CIFilterConfiguration {
     _breakpoint0.value = value;
   }
 
-  set flipYTiles(double value) {
+  set flipYTiles(bool value) {
     _flipYTiles.value = value;
   }
 

@@ -2,19 +2,17 @@ part of flutter_core_image_filters;
 
 class CIPaletteCentroidConfiguration extends CIFilterConfiguration
     with PaletteImageMixin {
-  final NumberParameter _perceptual;
+  final BoolParameter _perceptual;
 
   CIPaletteCentroidConfiguration()
-      : _perceptual = SliderNSNumberParameter(
+      : _perceptual = NSBoolParameter(
           'inputPerceptual',
           'Perceptual',
-          0,
-          min: 0,
-          max: 1,
+          false,
         ),
         super('CIPaletteCentroid');
 
-  set perceptual(double value) {
+  set perceptual(bool value) {
     _perceptual.value = value;
   }
 

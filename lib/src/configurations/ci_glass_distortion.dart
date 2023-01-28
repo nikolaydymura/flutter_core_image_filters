@@ -10,7 +10,7 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration
           'inputScale',
           'Scale',
           200,
-          min: 0.01,
+          min: 0.0,
           max: 500,
         ),
         _center = CGPositionParameter(

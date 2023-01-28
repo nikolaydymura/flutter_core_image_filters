@@ -23,7 +23,7 @@ class CIBumpDistortionLinearConfiguration extends CIFilterConfiguration {
           'inputScale',
           'Scale',
           0.5,
-          min: 0,
+          min: -1,
           max: 1,
         ),
         _angle = SliderNSNumberParameter(

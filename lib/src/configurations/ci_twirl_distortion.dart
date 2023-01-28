@@ -10,8 +10,8 @@ class CITwirlDistortionConfiguration extends CIFilterConfiguration {
           'inputAngle',
           'Angle',
           3.141592653589793,
-          min: -12.56637061435917,
-          max: 12.56637061435917,
+          min: -12.566370614359172,
+          max: 12.566370614359172,
         ),
         _center = CGPositionParameter(
           'inputCenter',

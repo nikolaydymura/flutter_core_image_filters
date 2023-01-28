@@ -15,7 +15,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
   final NumberParameter _maxHeight;
 
   CIPDF417BarcodeGeneratorConfiguration()
-      : _minHeight = SliderNSNumberParameter(
+      : _minHeight = SliderNSIntegerParameter(
           'inputMinHeight',
           'Min Height',
           double.nan,
@@ -27,42 +27,42 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
           'Always Specify Compaction',
           false,
         ),
-        _dataColumns = SliderNSNumberParameter(
+        _dataColumns = SliderNSIntegerParameter(
           'inputDataColumns',
           'Data Columns',
           double.nan,
           min: 1,
           max: 30,
         ),
-        _minWidth = SliderNSNumberParameter(
+        _minWidth = SliderNSIntegerParameter(
           'inputMinWidth',
           'Min Width',
           double.nan,
           min: 56,
           max: 583,
         ),
-        _maxWidth = SliderNSNumberParameter(
+        _maxWidth = SliderNSIntegerParameter(
           'inputMaxWidth',
           'Max Width',
           double.nan,
           min: 56,
           max: 583,
         ),
-        _correctionLevel = SliderNSNumberParameter(
+        _correctionLevel = SliderNSIntegerParameter(
           'inputCorrectionLevel',
           'Correction Level',
           double.nan,
           min: 0,
           max: 8,
         ),
-        _compactionMode = SliderNSNumberParameter(
+        _compactionMode = SliderNSIntegerParameter(
           'inputCompactionMode',
           'Compaction Mode',
           double.nan,
           min: 0,
           max: 3,
         ),
-        _rows = SliderNSNumberParameter(
+        _rows = SliderNSIntegerParameter(
           'inputRows',
           'Rows',
           double.nan,
@@ -79,9 +79,9 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
           'Preferred Aspect Ratio',
           double.nan,
           min: 0,
-          max: double.maxFinite,
+          max: 9223372036854776000.0,
         ),
-        _maxHeight = SliderNSNumberParameter(
+        _maxHeight = SliderNSIntegerParameter(
           'inputMaxHeight',
           'Max Height',
           double.nan,
@@ -90,7 +90,7 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
         ),
         super('CIPDF417BarcodeGenerator');
 
-  set minHeight(double value) {
+  set minHeight(int value) {
     _minHeight.value = value;
   }
 
@@ -98,27 +98,27 @@ class CIPDF417BarcodeGeneratorConfiguration extends CIFilterConfiguration
     _alwaysSpecifyCompaction.value = value;
   }
 
-  set dataColumns(double value) {
+  set dataColumns(int value) {
     _dataColumns.value = value;
   }
 
-  set minWidth(double value) {
+  set minWidth(int value) {
     _minWidth.value = value;
   }
 
-  set maxWidth(double value) {
+  set maxWidth(int value) {
     _maxWidth.value = value;
   }
 
-  set correctionLevel(double value) {
+  set correctionLevel(int value) {
     _correctionLevel.value = value;
   }
 
-  set compactionMode(double value) {
+  set compactionMode(int value) {
     _compactionMode.value = value;
   }
 
-  set rows(double value) {
+  set rows(int value) {
     _rows.value = value;
   }
 

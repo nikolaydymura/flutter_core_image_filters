@@ -27,7 +27,7 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
           'inputWidth',
           'Width',
           6,
-          min: 2,
+          min: -2,
           max: 100,
         ),
         _center = CGPositionParameter(
