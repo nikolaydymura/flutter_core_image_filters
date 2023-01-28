@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,75 @@ void main() {
         101,
         'inputValue',
         [1.0, 0.596078431372549, 0.0, 1.0],
+      ),
+    );
+  });
+  test('CGPositionParameter', () async {
+    final parameter = CGPositionParameter(
+      'inputValue',
+      'Value',
+      const Point(
+        0.0,
+        0.0,
+      ),
+    );
+    parameter.value = const Point(640.0, 80.0);
+    await parameter.update(configuration);
+    verify(
+      mockFilterApi.setCIVectorParameter(
+        101,
+        'inputValue',
+        [640.0, 80.0],
+      ),
+    );
+  });
+  test('CIVectorParameter', () async {
+    final parameter = CIVectorParameter(
+      'inputValue',
+      'Value',
+      [0.0, 0.0],
+    );
+    parameter.value = [640.0, 80.0];
+    await parameter.update(configuration);
+    verify(
+      mockFilterApi.setCIVectorParameter(
+        101,
+        'inputValue',
+        [640.0, 80.0],
+      ),
+    );
+  });
+  test('CIVectorParameter', () async {
+    final parameter = CIVectorParameter(
+      'inputValue',
+      'Value',
+      [0.0, 0.0, 0.0],
+      3,
+    );
+    parameter.value = [640.0, 80.0];
+    verifyNever(
+      mockFilterApi.setCIVectorParameter(
+        101,
+        'inputValue',
+        [0.0, 0.0, 0.0],
+      ),
+    );
+  });
+  test('CGAffineTransformParameter', () async {
+    final parameter = CGAffineTransformParameter(
+      'inputValue',
+      'Value',
+      const CGAffineTransform(),
+    );
+    final affineTransform = const CGAffineTransform().copyWith();
+    parameter.transform = affineTransform;
+    await parameter.update(configuration);
+    expect(parameter.transform, affineTransform);
+    verify(
+      mockFilterApi.setNSValueParameter(
+        101,
+        'inputValue',
+        [1.0, 0.0, 0.0, 1.0, 0.0, 0.0],
       ),
     );
   });

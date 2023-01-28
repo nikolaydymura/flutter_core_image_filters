@@ -160,7 +160,7 @@ void main() {
             any,
             'mp4',
             'system',
-            'AVAssetExportPresetHighestQuality',
+            any,
           ),
         ).thenAnswer((_) async => 201);
       });
@@ -186,23 +186,25 @@ void main() {
           ),
         ).called(1);
       });
-      test('export from file', () async {
-        final fileIn = File('demo.mp4');
-        final fileOut = File('output.mp4');
-        final config = VideoExportConfig(FileInputSource(fileIn), fileOut);
-        await configuration.exportVideoFile(config);
-        verify(
-          mockFilterApi.exportVideoFile(
-            101,
-            false,
-            fileIn.absolute.path,
-            fileOut.absolute.path,
-            'mp4',
-            'system',
-            'AVAssetExportPresetHighestQuality',
-          ),
-        ).called(1);
-      });
+      for (final preset in AVAssetExportPreset.values) {
+        test('export video file from file', () async {
+          final fileIn = File('demo.mp4');
+          final fileOut = File('output.mp4');
+          final config = VideoExportConfig(FileInputSource(fileIn), fileOut);
+          await configuration.exportVideoFile(config, preset: preset);
+          verify(
+            mockFilterApi.exportVideoFile(
+              101,
+              false,
+              fileIn.absolute.path,
+              fileOut.absolute.path,
+              'mp4',
+              'system',
+              preset.platformKey,
+            ),
+          ).called(1);
+        });
+      }
     });
   });
 }

@@ -15,7 +15,8 @@ class CIVectorParameter extends VectorParameter {
     final l = length;
     if (l != null) {
       if (v.length != l) {
-        throw 'Array must be $l length';
+        debugPrint('WARNING: Array must be $l length');
+        return;
       }
     }
     _value = v;

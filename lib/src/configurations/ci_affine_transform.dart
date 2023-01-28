@@ -1,18 +1,18 @@
 part of flutter_core_image_filters;
 
 class CIAffineTransformConfiguration extends CIFilterConfiguration {
-  final VectorParameter _transform;
+  final CGAffineTransformParameter _transform;
 
   CIAffineTransformConfiguration()
       : _transform = CGAffineTransformParameter(
           'inputTransform',
           'Transform',
-          const CGAffineTransform().storage,
+          const CGAffineTransform(),
         ),
         super('CIAffineTransform');
 
   set transform(CGAffineTransform value) {
-    _transform.value = value.storage;
+    _transform.transform = value;
   }
 
   @override

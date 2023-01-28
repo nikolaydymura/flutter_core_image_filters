@@ -38,6 +38,11 @@ void main() {
       await controller.setImageSource(FileInputSource(File('image.jpeg')));
       verify(mockPreviewApi.setSource(any)).called(1);
     });
+    test('no image source', () async {
+      await controller
+          .setOutputSurface(const Rect.fromLTWH(0.0, 0.0, 640.0, 480.0));
+      verify(mockPreviewApi.setOutput(any, [0.0, 0.0, 640.0, 480.0])).called(1);
+    });
     test('dispose', () async {
       await controller.dispose();
       verify(mockPreviewApi.dispose(101)).called(1);

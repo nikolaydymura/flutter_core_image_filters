@@ -42,7 +42,8 @@ enum AVAssetExportPreset {
   appleM4A,
 }
 
-extension on AVAssetExportPreset {
+extension AVAssetExportPresetX on AVAssetExportPreset {
+  @visibleForTesting
   String get platformKey {
     switch (this) {
       case AVAssetExportPreset.lowQuality:
