@@ -5,3 +5,13 @@ scripts/
 pigeons/
 test/
 *.iml
+example/images
+example/integration_test
+example/ios
+example/macos
+example/videos
+example/pubspec.yaml
+example/README.md
+example/analysis_options.yaml
+analysis_options.yaml
+pigeons_generator.sh
