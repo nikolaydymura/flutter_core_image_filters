@@ -33,9 +33,6 @@ class CILookupTableFilterRegister: CIFilterConstructor {
 class CILookupTableFilter: CIFilter {
     @objc dynamic var inputImage: CIImage?
     @objc dynamic var inputIntensity: NSNumber?
-    @objc dynamic var inputSize: NSNumber?
-    @objc dynamic var inputRows: NSNumber?
-    @objc dynamic var inputColumns: NSNumber?
     @objc dynamic var inputImage2: CIImage?
     
     let pseudoColorKernel = CIKernel(source:
@@ -82,7 +79,7 @@ class CILookupTableFilter: CIFilter {
         }
         let intensity = inputIntensity ?? 1.0
         let extent = image.extent
-        let arguments = [image, lutImage, inputSize ?? 8, inputRows ?? 8, inputColumns ?? 8, intensity] as [Any]
+        let arguments = [image, lutImage, 8, 64, 8, intensity] as [Any]
         
         return pseudoColorKernel.apply(extent: extent,
                                        roiCallback:
@@ -94,7 +91,7 @@ class CILookupTableFilter: CIFilter {
     }
     
     override var inputKeys: [String] {
-        return [kCIInputImageKey, "inputIntensity", "inputSize","inputRows", "inputColumns" , "inputImage2"]
+        return [kCIInputImageKey, "inputIntensity", "inputImage2"]
     }
     
     override var attributes: [String : Any] {
@@ -117,27 +114,6 @@ class CILookupTableFilter: CIFilter {
                 kCIAttributeClass: "CIImage",
                 kCIAttributeDisplayName: "LUT Image",
                 kCIAttributeType: kCIAttributeTypeImage
-            ],
-            #keyPath(inputSize): [
-                kCIAttributeIdentity: 0,
-                kCIAttributeClass: "NSNumber",
-                kCIAttributeDisplayName: "Size",
-                kCIAttributeDefault: 8,
-                kCIAttributeType: kCIAttributeTypeScalar
-            ],
-            #keyPath(inputRows): [
-                kCIAttributeIdentity: 0,
-                kCIAttributeClass: "NSNumber",
-                kCIAttributeDisplayName: "Rows",
-                kCIAttributeDefault: 8,
-                kCIAttributeType: kCIAttributeTypeScalar
-            ],
-            #keyPath(inputColumns): [
-                kCIAttributeIdentity: 0,
-                kCIAttributeClass: "NSNumber",
-                kCIAttributeDisplayName: "Columns",
-                kCIAttributeDefault: 8,
-                kCIAttributeType: kCIAttributeTypeScalar
             ],
             #keyPath(inputIntensity): [
                 kCIAttributeIdentity: 0,

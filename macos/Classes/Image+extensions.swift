@@ -16,7 +16,7 @@ extension NSImage {
         case unableToGetBitmpaDataBuffer
     }
     
-    public func colorCubeData(cubeDimension: Int) throws -> NSData {
+    /*public func colorCubeData(cubeDimension: Int) throws -> NSData {
         
         // Set up some variables for calculating memory size.
         let imageSize = size
@@ -63,5 +63,5 @@ extension NSImage {
         
         return cubeData
         
-    }
+    }*/
 }

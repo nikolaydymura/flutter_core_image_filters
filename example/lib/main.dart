@@ -1,4 +1,4 @@
-import 'dart:io' show Platform, File;
+import 'dart:io' show File, Platform;
 import 'dart:ui';
 
 import 'package:flutter/material.dart' hide Rect;
@@ -130,7 +130,8 @@ class _FilterPageState extends State<FilterPage> {
   late final CIImagePreviewController destinationMetalController;
   var _controllersReady = false;
   static const _assetPath = 'images/demo.jpeg';
-  static final _file = File('images/demo.jpeg');
+  static final _imageFile = File('images/demo.jpeg');
+  static final _videoFile = File('videos/demo.mp4');
 
   @override
   void initState() {
@@ -158,11 +159,11 @@ class _FilterPageState extends State<FilterPage> {
   Future<void> _prepareMacOs() async {
     if (widget.configuration.hasInputImage) {
       destinationSystemController =
-          await CIImagePreviewController.fromFile(_file);
+          await CIImagePreviewController.fromFile(_imageFile);
       destinationOpenGLController =
-          await CIImagePreviewController.fromFile(_file);
+          await CIImagePreviewController.fromFile(_imageFile);
       destinationMetalController =
-          await CIImagePreviewController.fromFile(_file);
+          await CIImagePreviewController.fromFile(_imageFile);
     } else {
       destinationSystemController = await CIImagePreviewController.fromRect(
         const Rect.fromLTWH(0, 0, 200, 200),
@@ -227,6 +228,32 @@ class _FilterPageState extends State<FilterPage> {
       appBar: AppBar(
         title: const Text('Preview'),
       ),
+      floatingActionButton: ConstrainedBox(
+        constraints:
+            BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            FloatingActionButton(
+              heroTag: null,
+              onPressed: () {
+                _exportVideo();
+              },
+              tooltip: 'Export video',
+              child: const Icon(Icons.video_file),
+            ),
+            FloatingActionButton(
+              heroTag: null,
+              tooltip: 'Export image',
+              onPressed: () {
+                _exportImage();
+              },
+              child: const Icon(Icons.photo),
+            ),
+          ],
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: _controllersReady
@@ -257,5 +284,46 @@ class _FilterPageState extends State<FilterPage> {
               ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
+  }
+
+  Future<void> _exportVideo() async {
+    final file = _videoFile;
+    final output = File(
+      '${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
+    );
+    final watch = Stopwatch();
+    watch.start();
+    final processStream = await widget.configuration.exportVideoFile(
+      VideoExportConfig(
+        FileInputSource(file),
+        output,
+      ),
+    );
+    await for (final progress in processStream) {
+      if (progress.isProcessingCompleted) {
+        break;
+      }
+      debugPrint('Exporting file ${(progress * 100).toInt()}%');
+    }
+    debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
+    debugPrint('Exported: ${output.absolute}');
+  }
+
+  Future<void> _exportImage() async {
+    final file = _imageFile;
+    final output = File(
+      '${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
+    );
+    final watch = Stopwatch();
+    watch.start();
+    await widget.configuration.exportImageFile(
+      ImageExportConfig(
+        FileInputSource(file),
+        output,
+        format: ImageExportFormat.jpeg,
+      ),
+    );
+    debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
+    debugPrint('Exported: ${output.absolute}');
   }
 }
