@@ -21,7 +21,11 @@ class CIAttributedTextImageGeneratorConfiguration
           min: 0,
           max: 200,
         ),
-        _text = NSStringParameter('inputText', 'Text', ''),
+        _text = NSStringParameter(
+          'inputText',
+          'Text',
+          '',
+        ),
         super('CIAttributedTextImageGenerator');
 
   set scaleFactor(double value) {

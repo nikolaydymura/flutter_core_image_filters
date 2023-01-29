@@ -33,5 +33,19 @@ void main() {
       configuration.fontSize = 16;
       expect(parameter.value, 16);
     });
+    test('change inputPadding', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputPadding') as NumberParameter;
+      expect(parameter.value, 0);
+      configuration.padding = 100;
+      expect(parameter.value, 100);
+    });
+    test('change inputScaleFactor', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
+      expect(parameter.value, 1);
+      configuration.padding = 2;
+      expect(parameter.value, 2);
+    });
   });
 }

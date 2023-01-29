@@ -15,8 +15,11 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration {
           'inputCurvesData',
           'Curves Data',
         ),
-        _curvesDomain =
-            CIVectorParameter('inputCurvesDomain', 'Curves Domain', [0.0, 1.0]),
+        _curvesDomain = CIVectorParameter(
+          'inputCurvesDomain',
+          'Curves Domain',
+          [0.0, 1.0],
+        ),
         super('CIColorCurves');
 
   set colorSpace(String value) {

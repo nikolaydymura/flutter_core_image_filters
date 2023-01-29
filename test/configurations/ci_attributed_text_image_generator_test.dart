@@ -26,5 +26,12 @@ void main() {
       configuration.padding = 100;
       expect(parameter.value, 100);
     });
+    test('change inputText', () {
+      final parameter = configuration.parameters
+          .firstWhere((e) => e.name == 'inputText') as NumberParameter;
+      expect(parameter.value, '');
+      configuration.text = 'a';
+      expect(parameter.value, 'a');
+    });
   });
 }
