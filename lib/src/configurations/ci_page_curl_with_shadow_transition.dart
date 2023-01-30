@@ -14,12 +14,12 @@ class CIPageCurlWithShadowTransitionConfiguration extends CIFilterConfiguration
       : _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(0, 0, 0, 0),
+          const Rect.fromLTWH(0, 0, 0, 0),
         ),
         _shadowExtent = CGRectParameter(
           'inputShadowExtent',
           'Shadow Extent',
-          const Rect.fromLTRB(0, 0, 0, 0),
+          const Rect.fromLTWH(0, 0, 0, 0),
         ),
         _time = SliderNSNumberParameter(
           'inputTime',

@@ -1,7 +1,7 @@
 library flutter_core_image_filters;
 
 import 'dart:async';
-import 'dart:io' show File;
+import 'dart:io' show File, Platform;
 import 'dart:math';
 import 'dart:ui' show Image;
 
@@ -261,7 +261,10 @@ part 'src/parameters/slider_ns_integer_parameter.dart';
 part 'src/parameters/slider_ns_number_parameter.dart';
 
 class FlutterCoreImageFilters {
-  static Iterable<String> get availableFilters => _availableFilters.keys;
+  static Iterable<String> get availableFilters =>
+      kDebugMode || (Platform.isIOS || Platform.isMacOS)
+          ? _availableFilters.keys
+          : {};
   static final Map<String, CIFilterConfiguration Function()> _availableFilters =
       {
     'Accordion Fold Transition': () => CIAccordionFoldTransitionConfiguration(),

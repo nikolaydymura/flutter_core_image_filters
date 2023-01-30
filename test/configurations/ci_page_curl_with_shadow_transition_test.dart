@@ -12,16 +12,16 @@ void main() {
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;
-      expect(parameter.value, const Rect.fromLTRB(0, 0, 0, 0));
-      configuration.extent = const Rect.fromLTRB(0, 0, 300, 300);
-      expect(parameter.value, const Rect.fromLTRB(0, 0, 300, 300));
+      expect(parameter.value, const Rect.fromLTWH(0, 0, 0, 0));
+      configuration.extent = const Rect.fromLTWH(0, 0, 300, 300);
+      expect(parameter.value, const Rect.fromLTWH(0, 0, 300, 300));
     });
     test('change inputShadowExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputShadowExtent') as CGRectParameter;
-      expect(parameter.value, const Rect.fromLTRB(0, 0, 0, 0));
-      configuration.shadowExtent = const Rect.fromLTRB(0, 0, 300, 300);
-      expect(parameter.value, const Rect.fromLTRB(0, 0, 300, 300));
+      expect(parameter.value, const Rect.fromLTWH(0, 0, 0, 0));
+      configuration.shadowExtent = const Rect.fromLTWH(0, 0, 300, 300);
+      expect(parameter.value, const Rect.fromLTWH(0, 0, 300, 300));
     });
     test('change inputTime', () {
       final parameter = configuration.parameters

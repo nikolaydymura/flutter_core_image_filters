@@ -139,7 +139,7 @@ void main() {
           if (array == null) {
             expect(
               rectParam.value,
-              const Rect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+              const Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
               reason:
                   '${rectParam.name} in ${configuration.name} has invalid default value',
             );
@@ -185,7 +185,7 @@ void main() {
 }
 
 extension on List<num> {
-  Rect get rect => Rect.fromLTRB(
+  Rect get rect => Rect.fromLTWH(
         this[0].toDouble(),
         this[1].toDouble(),
         this[2].toDouble(),

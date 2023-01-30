@@ -23,7 +23,7 @@ class CIAreaHistogramConfiguration extends CIFilterConfiguration {
         _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(0, 0, 640, 80),
+          const Rect.fromLTWH(0, 0, 640, 80),
         ),
         super('CIAreaHistogram');
 

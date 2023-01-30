@@ -9,7 +9,7 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
       : _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(
+          const Rect.fromLTWH(
             0,
             0,
             100,

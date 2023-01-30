@@ -10,7 +10,7 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
       : _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(0, 0, 640, 80),
+          const Rect.fromLTWH(0, 0, 640, 80),
         ),
         _perceptual = NSBoolParameter(
           'inputPerceptual',

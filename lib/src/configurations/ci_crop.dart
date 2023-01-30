@@ -7,7 +7,7 @@ class CICropConfiguration extends CIFilterConfiguration {
       : _rectangle = CGRectParameter(
           'inputRectangle',
           'Rectangle',
-          const Rect.fromLTRB(
+          const Rect.fromLTWH(
             -8.98847e+307,
             -8.98847e+307,
             1.79769e+308,

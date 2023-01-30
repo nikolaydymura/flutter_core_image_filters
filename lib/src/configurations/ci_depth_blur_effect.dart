@@ -61,7 +61,7 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
         _focusRect = CGRectParameter(
           'inputFocusRect',
           'FocusRect',
-          const Rect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+          const Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
         ),
         super('CIDepthBlurEffect');
 

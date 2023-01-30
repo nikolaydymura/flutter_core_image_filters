@@ -32,7 +32,7 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
         _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(0, 0, 640, 80),
+          const Rect.fromLTWH(0, 0, 640, 80),
         ),
         _count = SliderNSNumberParameter(
           'inputCount',

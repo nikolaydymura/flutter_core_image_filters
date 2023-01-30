@@ -39,7 +39,7 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration
         _extent = CGRectParameter(
           'inputExtent',
           'Extent',
-          const Rect.fromLTRB(0, 0, 300, 300),
+          const Rect.fromLTWH(0, 0, 300, 300),
         ),
         _striationStrength = SliderNSNumberParameter(
           'inputStriationStrength',

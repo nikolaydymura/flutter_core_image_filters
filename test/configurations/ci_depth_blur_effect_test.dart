@@ -79,10 +79,10 @@ void main() {
           .firstWhere((e) => e.name == 'inputFocusRect') as CGRectParameter;
       expect(
         parameter.value,
-        const Rect.fromLTRB(0.0, 0.0, 0.0, 0.0),
+        const Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
       );
-      configuration.focusRect = const Rect.fromLTRB(0, 0, 0, 0);
-      expect(parameter.value, const Rect.fromLTRB(0, 0, 0, 0));
+      configuration.focusRect = const Rect.fromLTWH(0, 0, 0, 0);
+      expect(parameter.value, const Rect.fromLTWH(0, 0, 0, 0));
     });
   });
 }
