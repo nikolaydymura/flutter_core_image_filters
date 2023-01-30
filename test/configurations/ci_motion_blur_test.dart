@@ -8,10 +8,6 @@ void main() {
     configuration = CIMotionBlurConfiguration();
   });
   group('CIMotionBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMotionBlur');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

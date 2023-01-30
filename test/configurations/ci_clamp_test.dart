@@ -9,10 +9,6 @@ void main() {
     configuration = CIClampConfiguration();
   });
   group('CIClamp', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIClamp');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

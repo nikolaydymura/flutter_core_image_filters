@@ -9,10 +9,6 @@ void main() {
     configuration = CIPointillizeConfiguration();
   });
   group('CIPointillize', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPointillize');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

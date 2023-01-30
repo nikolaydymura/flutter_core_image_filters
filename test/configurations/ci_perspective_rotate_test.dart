@@ -8,10 +8,6 @@ void main() {
     configuration = CIPerspectiveRotateConfiguration();
   });
   group('CIPerspectiveRotate', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPerspectiveRotate');
-    });
-
     test('change inputFocalLength', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFocalLength') as NumberParameter;

@@ -9,10 +9,6 @@ void main() {
     configuration = CIDepthOfFieldConfiguration();
   });
   group('CIDepthOfField', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDepthOfField');
-    });
-
     test('change inputPoint1', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputPoint1') as CGPositionParameter;

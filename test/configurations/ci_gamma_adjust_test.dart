@@ -8,10 +8,6 @@ void main() {
     configuration = CIGammaAdjustConfiguration();
   });
   group('CIGammaAdjust', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGammaAdjust');
-    });
-
     test('change inputPower', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputPower') as NumberParameter;

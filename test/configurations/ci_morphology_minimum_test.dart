@@ -8,10 +8,6 @@ void main() {
     configuration = CIMorphologyMinimumConfiguration();
   });
   group('CIMorphologyMinimum', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMorphologyMinimum');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

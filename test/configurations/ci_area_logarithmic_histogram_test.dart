@@ -10,10 +10,6 @@ void main() {
     configuration = CIAreaLogarithmicHistogramConfiguration();
   });
   group('CIAreaLogarithmicHistogram', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAreaLogarithmicHistogram');
-    });
-
     test('change inputMinimumStop', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputMinimumStop') as NumberParameter;

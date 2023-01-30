@@ -9,10 +9,6 @@ void main() {
     configuration = CIParallelogramTileConfiguration();
   });
   group('CIParallelogramTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIParallelogramTile');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

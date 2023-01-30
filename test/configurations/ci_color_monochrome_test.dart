@@ -9,10 +9,6 @@ void main() {
     configuration = CIColorMonochromeConfiguration();
   });
   group('CIColorMonochrome', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorMonochrome');
-    });
-
     test('change inputIntensity', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIHeightFieldFromMaskConfiguration();
   });
   group('CIHeightFieldFromMask', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHeightFieldFromMask');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

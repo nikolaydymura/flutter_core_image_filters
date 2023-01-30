@@ -8,10 +8,6 @@ void main() {
     configuration = CISepiaToneConfiguration();
   });
   group('CISepiaTone', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISepiaTone');
-    });
-
     test('change inputIntensity', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;

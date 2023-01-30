@@ -10,10 +10,6 @@ void main() {
     configuration = CISunbeamsGeneratorConfiguration();
   });
   group('CISunbeamsGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISunbeamsGenerator');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

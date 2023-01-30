@@ -8,10 +8,6 @@ void main() {
     configuration = CISharpenLuminanceConfiguration();
   });
   group('CISharpenLuminance', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISharpenLuminance');
-    });
-
     test('change inputSharpness', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputSharpness') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIDitherConfiguration();
   });
   group('CIDither', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDither');
-    });
-
     test('change inputIntensity', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;

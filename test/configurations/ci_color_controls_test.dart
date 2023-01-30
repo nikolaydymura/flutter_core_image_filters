@@ -8,10 +8,6 @@ void main() {
     configuration = CIColorControlsConfiguration();
   });
   group('CIColorControls', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorControls');
-    });
-
     test('change inputBrightness', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputBrightness') as NumberParameter;

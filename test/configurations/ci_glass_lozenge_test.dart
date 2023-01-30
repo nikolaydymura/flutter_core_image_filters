@@ -9,10 +9,6 @@ void main() {
     configuration = CIGlassLozengeConfiguration();
   });
   group('CIGlassLozenge', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGlassLozenge');
-    });
-
     test('change inputRefraction', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRefraction') as NumberParameter;

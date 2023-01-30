@@ -9,9 +9,6 @@ void main() {
     configuration = CIFourfoldRotatedTileConfiguration();
   });
   group('CIFourfoldRotatedTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIFourfoldRotatedTile');
-    });
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

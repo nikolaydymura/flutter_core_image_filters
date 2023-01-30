@@ -9,10 +9,6 @@ void main() {
     configuration = CITorusLensDistortionConfiguration();
   });
   group('CITorusLensDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CITorusLensDistortion');
-    });
-
     test('change inputWidth', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;

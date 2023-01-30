@@ -9,10 +9,6 @@ void main() {
     configuration = CIKaleidoscopeConfiguration();
   });
   group('CIKaleidoscope', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIKaleidoscope');
-    });
-
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;

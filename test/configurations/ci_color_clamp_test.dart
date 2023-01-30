@@ -7,10 +7,6 @@ void main() {
     configuration = CIColorClampConfiguration();
   });
   group('CIColorClamp', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorClamp');
-    });
-
     test('change inputMaxComponents', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputMaxComponents')

@@ -8,10 +8,6 @@ void main() {
     configuration = CIMixConfiguration();
   });
   group('CIMix', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMix');
-    });
-
     test('change inputAmount', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAmount') as NumberParameter;

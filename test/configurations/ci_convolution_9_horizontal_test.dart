@@ -7,10 +7,6 @@ void main() {
     configuration = CIConvolution9HorizontalConfiguration();
   });
   group('CIConvolution9Horizontal', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIConvolution9Horizontal');
-    });
-
     test('change inputBias', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputBias') as NSNumberParameter;

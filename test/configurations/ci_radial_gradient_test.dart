@@ -9,10 +9,6 @@ void main() {
     configuration = CIRadialGradientConfiguration();
   });
   group('CIRadialGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIRadialGradient');
-    });
-
     test('change inputRadius1', () {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputRadius1')

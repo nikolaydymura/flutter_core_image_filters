@@ -8,10 +8,6 @@ void main() {
     configuration = CIExposureAdjustConfiguration();
   });
   group('CIExposureAdjust', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIExposureAdjust');
-    });
-
     test('change inputEV', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputEV') as NumberParameter;

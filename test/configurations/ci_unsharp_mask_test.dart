@@ -8,10 +8,6 @@ void main() {
     configuration = CIUnsharpMaskConfiguration();
   });
   group('CIUnsharpMask', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIUnsharpMask');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

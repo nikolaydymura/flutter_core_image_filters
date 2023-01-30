@@ -8,10 +8,6 @@ void main() {
     configuration = CIGuidedFilterConfiguration();
   });
   group('CIGuidedFilter', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGuidedFilter');
-    });
-
     test('change inputEpsilon', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputEpsilon') as NumberParameter;

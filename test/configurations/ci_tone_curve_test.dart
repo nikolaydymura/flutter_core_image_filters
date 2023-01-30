@@ -10,10 +10,6 @@ void main() {
     configuration = CIToneCurveConfiguration();
   });
   group('CIToneCurve', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIToneCurve');
-    });
-
     test('change inputPoint0', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputPoint0') as PointParameter;

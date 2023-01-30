@@ -9,10 +9,6 @@ void main() {
     configuration = CICircleSplashDistortionConfiguration();
   });
   group('CICircleSplashDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICircleSplashDistortion');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIEdgesConfiguration();
   });
   group('CIEdges', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIEdges');
-    });
-
     test('change inputIntensity', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;

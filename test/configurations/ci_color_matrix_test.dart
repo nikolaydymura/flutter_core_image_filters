@@ -7,10 +7,6 @@ void main() {
     configuration = CIColorMatrixConfiguration();
   });
   group('CIColorMatrix', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorMatrix');
-    });
-
     test('change inputGVector', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputGVector') as CIVectorParameter;

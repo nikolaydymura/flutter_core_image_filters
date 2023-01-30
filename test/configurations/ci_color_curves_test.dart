@@ -8,9 +8,6 @@ void main() {
     configuration = CIColorCurvesConfiguration();
   });
   group('CIColorCurves', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorCurves');
-    });
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;

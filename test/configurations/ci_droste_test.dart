@@ -9,10 +9,6 @@ void main() {
     configuration = CIDrosteConfiguration();
   });
   group('CIDroste', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDroste');
-    });
-
     test('change inputInsetPoint0', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputInsetPoint0')

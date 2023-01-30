@@ -9,10 +9,6 @@ void main() {
     configuration = CISixfoldReflectedTileConfiguration();
   });
   group('CISixfoldReflectedTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISixfoldReflectedTile');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

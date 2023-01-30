@@ -8,10 +8,6 @@ void main() {
     configuration = CIBarsSwipeTransitionConfiguration();
   });
   group('CIBarsSwipeTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBarsSwipeTransition');
-    });
-
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;

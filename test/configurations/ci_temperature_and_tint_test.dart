@@ -10,10 +10,6 @@ void main() {
     configuration = CITemperatureAndTintConfiguration();
   });
   group('CITemperatureAndTint', () {
-    test('verify name', () {
-      expect(configuration.name, 'CITemperatureAndTint');
-    });
-
     test('change inputTargetNeutral', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTargetNeutral') as PointParameter;

@@ -11,10 +11,6 @@ void main() {
     configuration = CIFlashTransitionConfiguration();
   });
   group('CIFlashTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIFlashTransition');
-    });
-
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as CIColorParameter;

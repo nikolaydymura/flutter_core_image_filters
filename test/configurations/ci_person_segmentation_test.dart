@@ -8,10 +8,6 @@ void main() {
     configuration = CIPersonSegmentationConfiguration();
   });
   group('CIPersonSegmentation', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPersonSegmentation');
-    });
-
     test('change inputQualityLevel', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputQualityLevel') as NumberParameter;

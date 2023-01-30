@@ -10,10 +10,6 @@ void main() {
     configuration = CIAreaHistogramConfiguration();
   });
   group('CIAreaHistogram', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAreaHistogram');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

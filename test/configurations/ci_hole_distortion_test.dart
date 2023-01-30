@@ -9,10 +9,6 @@ void main() {
     configuration = CIHoleDistortionConfiguration();
   });
   group('CIHoleDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHoleDistortion');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

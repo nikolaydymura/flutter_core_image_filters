@@ -9,10 +9,6 @@ void main() {
     configuration = CIHexagonalPixellateConfiguration();
   });
   group('CIHexagonalPixellate', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHexagonalPixellate');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

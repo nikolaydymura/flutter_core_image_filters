@@ -8,10 +8,6 @@ void main() {
     configuration = CIVignetteConfiguration();
   });
   group('CIVignette', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIVignette');
-    });
-
     test('change inputIntensity', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;

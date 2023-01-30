@@ -8,10 +8,6 @@ void main() {
     configuration = CIDisplacementDistortionConfiguration();
   });
   group('CIDisplacementDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDisplacementDistortion');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

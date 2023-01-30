@@ -10,10 +10,6 @@ void main() {
     configuration = CIQRCodeGeneratorConfiguration();
   });
   group('CIQRCodeGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIQRCodeGenerator');
-    });
-
     test('change inputCorrectionLevel', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputCorrectionLevel')

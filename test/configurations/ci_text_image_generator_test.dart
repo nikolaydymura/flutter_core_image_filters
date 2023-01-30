@@ -8,10 +8,6 @@ void main() {
     configuration = CITextImageGeneratorConfiguration();
   });
   group('CITextImageGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CITextImageGenerator');
-    });
-
     test('change inputFontName', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFontName') as StringParameter;

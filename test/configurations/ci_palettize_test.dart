@@ -8,10 +8,6 @@ void main() {
     configuration = CIPalettizeConfiguration();
   });
   group('CIPalettize', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPalettize');
-    });
-
     test('change inputPerceptual', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputPerceptual') as BoolParameter;

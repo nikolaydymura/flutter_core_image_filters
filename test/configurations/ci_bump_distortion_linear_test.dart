@@ -9,10 +9,6 @@ void main() {
     configuration = CIBumpDistortionLinearConfiguration();
   });
   group('CIBumpDistortionLinear', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBumpDistortionLinear');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

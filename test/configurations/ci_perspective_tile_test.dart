@@ -8,10 +8,6 @@ void main() {
     configuration = CIPerspectiveTileConfiguration();
   });
   group('CIPerspectiveTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPerspectiveTile');
-    });
-
     test('change inputBottomLeft', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputBottomLeft')

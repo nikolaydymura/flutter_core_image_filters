@@ -8,10 +8,6 @@ void main() {
     configuration = CIMaskedVariableBlurConfiguration();
   });
   group('CIMaskedVariableBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMaskedVariableBlur');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

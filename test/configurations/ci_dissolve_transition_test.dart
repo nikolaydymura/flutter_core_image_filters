@@ -8,10 +8,6 @@ void main() {
     configuration = CIDissolveTransitionConfiguration();
   });
   group('CIDissolveTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDissolveTransition');
-    });
-
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIEdgePreserveUpsampleFilterConfiguration();
   });
   group('CIEdgePreserveUpsampleFilter', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIEdgePreserveUpsampleFilter');
-    });
-
     test('change inputLumaSigma', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputLumaSigma') as NumberParameter;

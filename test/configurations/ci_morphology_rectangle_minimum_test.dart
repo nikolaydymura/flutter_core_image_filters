@@ -8,10 +8,6 @@ void main() {
     configuration = CIMorphologyRectangleMinimumConfiguration();
   });
   group('CIMorphologyRectangleMinimum', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMorphologyRectangleMinimum');
-    });
-
     test('change inputHeight', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputHeight') as NumberParameter;

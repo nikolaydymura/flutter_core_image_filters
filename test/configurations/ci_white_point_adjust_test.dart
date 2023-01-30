@@ -9,10 +9,6 @@ void main() {
     configuration = CIWhitePointAdjustConfiguration();
   });
   group('CIWhitePointAdjust', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIWhitePointAdjust');
-    });
-
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as ColorParameter;

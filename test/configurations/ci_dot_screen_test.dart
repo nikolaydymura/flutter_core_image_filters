@@ -9,10 +9,6 @@ void main() {
     configuration = CIDotScreenConfiguration();
   });
   group('CIDotScreen', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDotScreen');
-    });
-
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;

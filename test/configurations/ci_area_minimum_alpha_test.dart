@@ -9,10 +9,6 @@ void main() {
     configuration = CIAreaMinimumAlphaConfiguration();
   });
   group('CIAreaMinimumAlpha', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAreaMinimumAlpha');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

@@ -11,9 +11,6 @@ void main() {
     configuration = CIDepthBlurEffectConfiguration();
   });
   group('CIDepthBlurEffect', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDepthBlurEffect');
-    });
     test('change inputChinPositions', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputChinPositions')

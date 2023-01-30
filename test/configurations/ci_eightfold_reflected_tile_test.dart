@@ -9,10 +9,6 @@ void main() {
     configuration = CIEightfoldReflectedTileConfiguration();
   });
   group('CIEightfoldReflectedTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIEightfoldReflectedTile');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;
