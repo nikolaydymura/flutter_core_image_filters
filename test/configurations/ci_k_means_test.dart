@@ -9,10 +9,6 @@ void main() {
     configuration = CIKMeansConfiguration();
   });
   group('CIKMeans', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIKMeans');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

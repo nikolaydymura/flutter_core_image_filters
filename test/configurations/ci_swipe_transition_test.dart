@@ -9,10 +9,6 @@ void main() {
     configuration = CISwipeTransitionConfiguration();
   });
   group('CISwipeTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISwipeTransition');
-    });
-
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;

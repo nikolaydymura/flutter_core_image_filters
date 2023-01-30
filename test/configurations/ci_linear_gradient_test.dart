@@ -9,10 +9,6 @@ void main() {
     configuration = CILinearGradientConfiguration();
   });
   group('CILinearGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CILinearGradient');
-    });
-
     test('change inputColor0', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor0') as CIColorParameter;

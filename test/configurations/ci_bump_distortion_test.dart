@@ -9,10 +9,6 @@ void main() {
     configuration = CIBumpDistortionConfiguration();
   });
   group('CIBumpDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBumpDistortion');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

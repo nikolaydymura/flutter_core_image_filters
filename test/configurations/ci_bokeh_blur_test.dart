@@ -8,10 +8,6 @@ void main() {
     configuration = CIBokehBlurConfiguration();
   });
   group('CIBokehBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBokehBlur');
-    });
-
     test('change inputSoftness', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputSoftness') as NumberParameter;

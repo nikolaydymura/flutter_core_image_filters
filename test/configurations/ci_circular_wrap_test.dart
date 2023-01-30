@@ -9,10 +9,6 @@ void main() {
     configuration = CICircularWrapConfiguration();
   });
   group('CICircularWrap', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICircularWrap');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

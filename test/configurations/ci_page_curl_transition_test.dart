@@ -9,10 +9,6 @@ void main() {
     configuration = CIPageCurlTransitionConfiguration();
   });
   group('CIPageCurlTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPageCurlTransition');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

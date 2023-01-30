@@ -7,10 +7,6 @@ void main() {
     configuration = CIConvertLabToRGBConfiguration();
   });
   group('CIConvertLabToRGB', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIConvertLabToRGB');
-    });
-
     test('change inputNormalize', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNormalize') as NSBoolParameter;

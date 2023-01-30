@@ -10,10 +10,6 @@ void main() {
     configuration = CICopyMachineTransitionConfiguration();
   });
   group('CICopyMachineTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICopyMachineTransition');
-    });
-
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;

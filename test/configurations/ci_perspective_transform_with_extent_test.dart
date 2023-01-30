@@ -9,10 +9,6 @@ void main() {
     configuration = CIPerspectiveTransformWithExtentConfiguration();
   });
   group('CIPerspectiveTransformWithExtent', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPerspectiveTransformWithExtent');
-    });
-
     test('change inputBottomLeft', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputBottomLeft')

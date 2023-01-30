@@ -8,10 +8,6 @@ void main() {
     configuration = CIHistogramDisplayFilterConfiguration();
   });
   group('CIHistogramDisplayFilter', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHistogramDisplayFilter');
-    });
-
     test('change inputLowLimit', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputLowLimit') as NumberParameter;

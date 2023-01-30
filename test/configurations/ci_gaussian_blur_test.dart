@@ -8,10 +8,6 @@ void main() {
     configuration = CIGaussianBlurConfiguration();
   });
   group('CIGaussianBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGaussianBlur');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

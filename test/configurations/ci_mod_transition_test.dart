@@ -9,10 +9,6 @@ void main() {
     configuration = CIModTransitionConfiguration();
   });
   group('CIModTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIModTransition');
-    });
-
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;

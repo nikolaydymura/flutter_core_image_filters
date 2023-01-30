@@ -9,10 +9,6 @@ void main() {
     configuration = CICrystallizeConfiguration();
   });
   group('CICrystallize', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICrystallize');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

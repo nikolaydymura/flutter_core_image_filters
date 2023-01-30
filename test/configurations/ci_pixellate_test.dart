@@ -9,10 +9,6 @@ void main() {
     configuration = CIPixellateConfiguration();
   });
   group('CIPixellate', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPixellate');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

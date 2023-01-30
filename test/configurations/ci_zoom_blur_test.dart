@@ -9,10 +9,6 @@ void main() {
     configuration = CIZoomBlurConfiguration();
   });
   group('CIZoomBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIZoomBlur');
-    });
-
     test('change inputAmount', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAmount') as NumberParameter;

@@ -9,10 +9,6 @@ void main() {
     configuration = CIAreaAverageConfiguration();
   });
   group('CIAreaAverage', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAreaAverage');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

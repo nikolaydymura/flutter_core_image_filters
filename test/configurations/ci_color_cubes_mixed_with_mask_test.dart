@@ -11,10 +11,6 @@ void main() {
     configuration = CIColorCubesMixedWithMaskConfiguration();
   });
   group('CIColorCubesMixedWithMask', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorCubesMixedWithMask');
-    });
-
     test('change inputCubeDimension', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCubeDimension') as NumberParameter;

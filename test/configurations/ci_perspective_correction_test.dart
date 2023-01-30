@@ -9,10 +9,6 @@ void main() {
     configuration = CIPerspectiveCorrectionConfiguration();
   });
   group('CIPerspectiveCorrection', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPerspectiveCorrection');
-    });
-
     test('change inputBottomLeft', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputBottomLeft')

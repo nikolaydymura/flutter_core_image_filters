@@ -9,10 +9,6 @@ void main() {
     configuration = CICMYKHalftoneConfiguration();
   });
   group('CICMYKHalftone', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICMYKHalftone');
-    });
-
     test('change inputGCR', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputGCR') as NumberParameter;

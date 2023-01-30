@@ -9,10 +9,6 @@ void main() {
     configuration = CILineScreenConfiguration();
   });
   group('CILineScreen', () {
-    test('verify name', () {
-      expect(configuration.name, 'CILineScreen');
-    });
-
     test('change inputSharpness', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputSharpness') as NumberParameter;

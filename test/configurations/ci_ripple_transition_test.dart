@@ -11,10 +11,6 @@ void main() {
     configuration = CIRippleTransitionConfiguration();
   });
   group('CIRippleTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIRippleTransition');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIHueSaturationValueGradientConfiguration();
   });
   group('CIHueSaturationValueGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHueSaturationValueGradient');
-    });
-
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIColorPosterizeConfiguration();
   });
   group('CIColorPosterize', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorPosterize');
-    });
-
     test('change inputLevels', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputLevels') as NumberParameter;

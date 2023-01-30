@@ -10,10 +10,6 @@ void main() {
     configuration = CIStarShineGeneratorConfiguration();
   });
   group('CIStarShineGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIStarShineGenerator');
-    });
-
     test('change inputEpsilon', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputEpsilon') as NumberParameter;

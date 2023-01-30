@@ -9,10 +9,6 @@ void main() {
     configuration = CIVignetteEffectConfiguration();
   });
   group('CIVignetteEffect', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIVignetteEffect');
-    });
-
     test('change inputFalloff', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputFalloff') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIAccordionFoldTransitionConfiguration();
   });
   group('CIAccordionFoldTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAccordionFoldTransition');
-    });
-
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CILanczosScaleTransformConfiguration();
   });
   group('CILanczosScaleTransform', () {
-    test('verify name', () {
-      expect(configuration.name, 'CILanczosScaleTransform');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

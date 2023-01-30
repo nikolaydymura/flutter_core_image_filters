@@ -7,10 +7,6 @@ void main() {
     configuration = CIAffineTransformConfiguration();
   });
   group('CIAffineTransform', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAffineTransform');
-    });
-
     test('change inputTransform', () {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputTransform')

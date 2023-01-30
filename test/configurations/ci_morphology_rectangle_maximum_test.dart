@@ -8,10 +8,6 @@ void main() {
     configuration = CIMorphologyRectangleMaximumConfiguration();
   });
   group('CIMorphologyRectangleMaximum', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMorphologyRectangleMaximum');
-    });
-
     test('change inputHeight', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputHeight') as NumberParameter;

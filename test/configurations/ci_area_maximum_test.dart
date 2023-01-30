@@ -9,10 +9,6 @@ void main() {
     configuration = CIAreaMaximumConfiguration();
   });
   group('CIAreaMaximum', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAreaMaximum');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

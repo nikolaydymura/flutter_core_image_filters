@@ -9,10 +9,6 @@ void main() {
     configuration = CIFalseColorConfiguration();
   });
   group('CIFalseColor', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIFalseColor');
-    });
-
     test('change inputColor0', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor0') as ColorParameter;

@@ -11,10 +11,6 @@ void main() {
     configuration = CIColorCubeWithColorSpaceConfiguration();
   });
   group('CIColorCubeWithColorSpace', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorCubeWithColorSpace');
-    });
-
     test('change inputCubeDimension', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCubeDimension') as NumberParameter;

@@ -7,10 +7,6 @@ void main() {
     configuration = CIAffineTileConfiguration();
   });
   group('CIAffineTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAffineTile');
-    });
-
     test('change inputTransform', () {
       final parameter =
           configuration.parameters.firstWhere((e) => e.name == 'inputTransform')

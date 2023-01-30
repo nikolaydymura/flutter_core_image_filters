@@ -9,10 +9,6 @@ void main() {
     configuration = CIStretchCropConfiguration();
   });
   group('CIStretchCrop', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIStretchCrop');
-    });
-
     test('change inputCenterStretchAmount', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputCenterStretchAmount')

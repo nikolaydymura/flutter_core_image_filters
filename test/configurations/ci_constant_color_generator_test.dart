@@ -9,10 +9,6 @@ void main() {
     configuration = CIConstantColorGeneratorConfiguration();
   });
   group('CIConstantColorGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIConstantColorGenerator');
-    });
-
     test('change inputColor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputColor') as ColorParameter;

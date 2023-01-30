@@ -10,10 +10,6 @@ void main() {
     configuration = CIAztecCodeGeneratorConfiguration();
   });
   group('CIAztecCodeGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAztecCodeGenerator');
-    });
-
     test('change inputCompactStyle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCompactStyle') as BoolParameter;

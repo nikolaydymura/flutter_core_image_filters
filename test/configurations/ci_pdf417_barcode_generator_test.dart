@@ -10,10 +10,6 @@ void main() {
     configuration = CIPDF417BarcodeGeneratorConfiguration();
   });
   group('CIPDF417BarcodeGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPDF417BarcodeGenerator');
-    });
-
     test('change inputMinHeight', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputMinHeight') as NumberParameter;

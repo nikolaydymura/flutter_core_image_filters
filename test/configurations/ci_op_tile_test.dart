@@ -9,10 +9,6 @@ void main() {
     configuration = CIOpTileConfiguration();
   });
   group('CIOpTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIOpTile');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

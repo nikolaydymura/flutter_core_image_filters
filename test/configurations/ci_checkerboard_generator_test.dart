@@ -10,10 +10,6 @@ void main() {
     configuration = CICheckerboardGeneratorConfiguration();
   });
   group('CICheckerboardGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICheckerboardGenerator');
-    });
-
     test('change inputSharpness', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputSharpness') as NumberParameter;

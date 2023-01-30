@@ -8,10 +8,6 @@ void main() {
     configuration = CIMorphologyGradientConfiguration();
   });
   group('CIMorphologyGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMorphologyGradient');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

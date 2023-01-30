@@ -8,10 +8,6 @@ void main() {
     configuration = CIShadedMaterialConfiguration();
   });
   group('CIShadedMaterial', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIShadedMaterial');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

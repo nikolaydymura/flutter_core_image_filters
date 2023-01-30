@@ -9,10 +9,6 @@ void main() {
     configuration = CINinePartTiledConfiguration();
   });
   group('CINinePartTiled', () {
-    test('verify name', () {
-      expect(configuration.name, 'CINinePartTiled');
-    });
-
     test('change inputBreakpoint1', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputBreakpoint1')

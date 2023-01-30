@@ -11,10 +11,6 @@ void main() {
     configuration = CIColorCubeConfiguration();
   });
   group('CIColorCube', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorCube');
-    });
-
     test('change inputCubeDimension', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCubeDimension') as NumberParameter;

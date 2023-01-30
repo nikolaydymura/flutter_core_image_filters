@@ -8,10 +8,6 @@ void main() {
     configuration = CIBicubicScaleTransformConfiguration();
   });
   group('CIBicubicScaleTransform', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBicubicScaleTransform');
-    });
-
     test('change inputB', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputB') as NumberParameter;

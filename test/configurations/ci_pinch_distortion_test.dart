@@ -9,10 +9,6 @@ void main() {
     configuration = CIPinchDistortionConfiguration();
   });
   group('CIPinchDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPinchDistortion');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

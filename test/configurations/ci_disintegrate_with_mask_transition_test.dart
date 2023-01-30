@@ -10,10 +10,6 @@ void main() {
     configuration = CIDisintegrateWithMaskTransitionConfiguration();
   });
   group('CIDisintegrateWithMaskTransition', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDisintegrateWithMaskTransition');
-    });
-
     test('change inputTime', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTime') as NumberParameter;

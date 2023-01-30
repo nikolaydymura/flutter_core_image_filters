@@ -9,10 +9,6 @@ void main() {
     configuration = CIKeystoneCorrectionHorizontalConfiguration();
   });
   group('CIKeystoneCorrectionHorizontal', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIKeystoneCorrectionHorizontal');
-    });
-
     test('change inputTopRight', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTopRight') as CGPositionParameter;

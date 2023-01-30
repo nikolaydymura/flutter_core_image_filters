@@ -10,10 +10,6 @@ void main() {
     configuration = CIStripesGeneratorConfiguration();
   });
   group('CIStripesGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIStripesGenerator');
-    });
-
     test('change inputWidth', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;

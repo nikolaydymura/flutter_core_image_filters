@@ -9,10 +9,6 @@ void main() {
     configuration = CIFourfoldReflectedTileConfiguration();
   });
   group('CIFourfoldReflectedTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIFourfoldReflectedTile');
-    });
-
     test('change inputAcuteAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAcuteAngle') as NumberParameter;

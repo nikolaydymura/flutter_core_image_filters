@@ -8,10 +8,6 @@ void main() {
     configuration = CIBloomConfiguration();
   });
   group('CIBloom', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBloom');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

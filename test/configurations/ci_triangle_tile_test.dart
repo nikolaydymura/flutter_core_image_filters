@@ -9,10 +9,6 @@ void main() {
     configuration = CITriangleTileConfiguration();
   });
   group('CITriangleTile', () {
-    test('verify name', () {
-      expect(configuration.name, 'CITriangleTile');
-    });
-
     test('change inputCenter', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;

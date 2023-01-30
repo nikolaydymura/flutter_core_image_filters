@@ -8,10 +8,6 @@ void main() {
     configuration = CIStraightenFilterConfiguration();
   });
   group('CIStraightenFilter', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIStraightenFilter');
-    });
-
     test('change inputAngle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;

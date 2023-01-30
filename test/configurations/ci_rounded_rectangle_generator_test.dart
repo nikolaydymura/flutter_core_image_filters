@@ -9,10 +9,6 @@ void main() {
     configuration = CIRoundedRectangleGeneratorConfiguration();
   });
   group('CIRoundedRectangleGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIRoundedRectangleGenerator');
-    });
-
     test('change inputExtent', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;

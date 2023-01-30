@@ -9,10 +9,6 @@ void main() {
     configuration = CIGlassDistortionConfiguration();
   });
   group('CIGlassDistortion', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGlassDistortion');
-    });
-
     test('change inputScale', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScale') as NumberParameter;

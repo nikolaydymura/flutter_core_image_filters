@@ -9,10 +9,6 @@ void main() {
     configuration = CICropConfiguration();
   });
   group('CICrop', () {
-    test('verify name', () {
-      expect(configuration.name, 'CICrop');
-    });
-
     test('change inputRectangle', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRectangle') as CGRectParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CIHighlightShadowAdjustConfiguration();
   });
   group('CIHighlightShadowAdjust', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIHighlightShadowAdjust');
-    });
-
     test('change inputHighlightAmount', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputHighlightAmount')

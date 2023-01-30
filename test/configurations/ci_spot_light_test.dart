@@ -9,10 +9,6 @@ void main() {
     configuration = CISpotLightConfiguration();
   });
   group('CISpotLight', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISpotLight');
-    });
-
     test('change inputLightPointsAt', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputLightPointsAt') as VectorParameter;

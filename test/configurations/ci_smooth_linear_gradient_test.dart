@@ -9,10 +9,6 @@ void main() {
     configuration = CISmoothLinearGradientConfiguration();
   });
   group('CISmoothLinearGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISmoothLinearGradient');
-    });
-
     test('change inputPoint1', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputPoint1') as CGPositionParameter;

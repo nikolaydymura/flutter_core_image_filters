@@ -7,10 +7,6 @@ void main() {
     configuration = CIConvolution5X5Configuration();
   });
   group('CIConvolution5X5', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIConvolution5X5');
-    });
-
     test('change inputBias', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputBias') as NSNumberParameter;

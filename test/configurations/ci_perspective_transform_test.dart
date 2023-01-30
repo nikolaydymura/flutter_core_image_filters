@@ -8,10 +8,6 @@ void main() {
     configuration = CIPerspectiveTransformConfiguration();
   });
   group('CIPerspectiveTransform', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIPerspectiveTransform');
-    });
-
     test('change inputTopRight', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputTopRight') as CGPositionParameter;

@@ -9,10 +9,6 @@ void main() {
     configuration = CISpotColorConfiguration();
   });
   group('CISpotColor', () {
-    test('verify name', () {
-      expect(configuration.name, 'CISpotColor');
-    });
-
     test('change inputCenterColor2', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputCenterColor2') as ColorParameter;

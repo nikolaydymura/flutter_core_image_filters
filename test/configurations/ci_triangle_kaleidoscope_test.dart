@@ -9,10 +9,6 @@ void main() {
     configuration = CITriangleKaleidoscopeConfiguration();
   });
   group('CITriangleKaleidoscope', () {
-    test('verify name', () {
-      expect(configuration.name, 'CITriangleKaleidoscope');
-    });
-
     test('change inputDecay', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputDecay') as NumberParameter;

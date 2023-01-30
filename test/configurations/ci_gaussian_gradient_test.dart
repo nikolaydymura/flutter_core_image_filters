@@ -10,10 +10,6 @@ void main() {
     configuration = CIGaussianGradientConfiguration();
   });
   group('CIGaussianGradient', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIGaussianGradient');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

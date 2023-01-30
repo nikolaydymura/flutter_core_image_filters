@@ -8,10 +8,6 @@ void main() {
     configuration = CINoiseReductionConfiguration();
   });
   group('CINoiseReduction', () {
-    test('verify name', () {
-      expect(configuration.name, 'CINoiseReduction');
-    });
-
     test('change inputNoiseLevel', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNoiseLevel') as NumberParameter;

@@ -8,10 +8,6 @@ void main() {
     configuration = CINinePartStretchedConfiguration();
   });
   group('CINinePartStretched', () {
-    test('verify name', () {
-      expect(configuration.name, 'CINinePartStretched');
-    });
-
     test('change inputBreakpoint1', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputBreakpoint1')

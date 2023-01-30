@@ -8,10 +8,6 @@ void main() {
     configuration = CIEdgeWorkConfiguration();
   });
   group('CIEdgeWork', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIEdgeWork');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

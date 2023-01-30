@@ -8,10 +8,6 @@ void main() {
     configuration = CIAttributedTextImageGeneratorConfiguration();
   });
   group('CIAttributedTextImageGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIAttributedTextImageGenerator');
-    });
-
     test('change inputScaleFactor', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;

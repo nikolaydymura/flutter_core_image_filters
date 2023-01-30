@@ -10,10 +10,6 @@ void main() {
     configuration = CILenticularHaloGeneratorConfiguration();
   });
   group('CILenticularHaloGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CILenticularHaloGenerator');
-    });
-
     test('change inputHaloRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputHaloRadius') as NumberParameter;

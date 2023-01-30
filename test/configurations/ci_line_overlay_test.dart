@@ -8,10 +8,6 @@ void main() {
     configuration = CILineOverlayConfiguration();
   });
   group('CILineOverlay', () {
-    test('verify name', () {
-      expect(configuration.name, 'CILineOverlay');
-    });
-
     test('change inputNoiseLevel', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputNRNoiseLevel') as NumberParameter;

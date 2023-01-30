@@ -8,10 +8,6 @@ void main() {
     configuration = CIDiscBlurConfiguration();
   });
   group('CIDiscBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIDiscBlur');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

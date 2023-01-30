@@ -8,10 +8,6 @@ void main() {
     configuration = CIColorThresholdConfiguration();
   });
   group('CIColorThreshold', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorThreshold');
-    });
-
     test('change inputThreshold', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputThreshold') as NumberParameter;

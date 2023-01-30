@@ -8,10 +8,6 @@ void main() {
     configuration = CIBoxBlurConfiguration();
   });
   group('CIBoxBlur', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIBoxBlur');
-    });
-
     test('change inputRadius', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;

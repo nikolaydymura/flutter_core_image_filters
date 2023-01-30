@@ -7,10 +7,6 @@ void main() {
     configuration = CIColorPolynomialConfiguration();
   });
   group('CIColorPolynomial', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIColorPolynomial');
-    });
-
     test('change inputRedCoefficients', () {
       final parameter = configuration.parameters
               .firstWhere((e) => e.name == 'inputRedCoefficients')

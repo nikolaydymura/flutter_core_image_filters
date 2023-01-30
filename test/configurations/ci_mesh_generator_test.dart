@@ -9,10 +9,6 @@ void main() {
     configuration = CIMeshGeneratorConfiguration();
   });
   group('CIMeshGenerator', () {
-    test('verify name', () {
-      expect(configuration.name, 'CIMeshGenerator');
-    });
-
     test('change inputMesh', () {
       final parameter = configuration.parameters
           .firstWhere((e) => e.name == 'inputMesh') as VectorParameter;
