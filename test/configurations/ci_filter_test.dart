@@ -176,9 +176,7 @@ void main() {
         const asset = 'demo.mov';
         final output = File(asset);
         final config = VideoExportConfig(AssetInputSource(asset), output);
-        configuration.exportVideoFile(config).listen((event) {
-
-        });
+        configuration.exportVideoFile(config).listen((event) {});
         await Future.delayed(const Duration(milliseconds: 100));
         verify(
           mockFilterApi.exportVideoFile(
@@ -197,10 +195,9 @@ void main() {
         test('export video file from file', () async {
           final fileIn = File('demo.mp4');
           final fileOut = File('output.mp4');
-          final config = CIVideoExportConfig(FileInputSource(fileIn), fileOut, preset: preset);
-          configuration.exportVideoFile(config).listen((event) {
-
-          });
+          final config = CIVideoExportConfig(FileInputSource(fileIn), fileOut,
+              preset: preset);
+          configuration.exportVideoFile(config).listen((event) {});
           await Future.delayed(const Duration(milliseconds: 100));
           verify(
             mockFilterApi.exportVideoFile(
