@@ -1,6 +1,7 @@
 part of flutter_core_image_filters;
 
-abstract class CIFilterConfiguration extends FilterConfiguration {
+abstract class CIFilterConfiguration extends FilterConfiguration
+    with VideoFilterConfiguration {
 // coverage:ignore-start
   static final FilterApi _gAPI = FilterApi();
 
@@ -66,17 +67,11 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
             : ImageExportFormat.jpeg;
       }
     }
-    late Uint8List bytes;
-    switch (format) {
-      case ImageExportFormat.png:
-        bytes = await _api.exportData(_filterId, 'png', context.platformKey);
-        break;
-      case ImageExportFormat.jpeg:
-        bytes = await _api.exportData(_filterId, 'jpeg', context.platformKey);
-        break;
-      default:
-        break;
-    }
+    Uint8List bytes = await _api.exportData(
+      _filterId,
+      format.platformKey,
+      context.platformKey,
+    );
     final Image image = await decodeImageFromList(bytes);
     return image;
   }
@@ -100,33 +95,22 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           ? ImageExportFormat.png
           : ImageExportFormat.jpeg;
     }
-    switch (format) {
-      case ImageExportFormat.png:
-        await _api.exportImageFile(
-          _filterId,
-          output.absolute.path,
-          'png',
-          context.platformKey,
-        );
-        break;
-      case ImageExportFormat.jpeg:
-        await _api.exportImageFile(
-          _filterId,
-          output.absolute.path,
-          'jpeg',
-          context.platformKey,
-        );
-        break;
-      default:
-        break;
-    }
+    await _api.exportImageFile(
+      _filterId,
+      output.absolute.path,
+      format.platformKey,
+      context.platformKey,
+    );
   }
 
-  Future<Stream<double>> exportVideoFile(
+  @override
+  Stream<double> exportVideoFile(
     VideoExportConfig config, {
-    CIContext context = CIContext.system,
-    AVAssetExportPreset preset = AVAssetExportPreset.highestQuality,
-  }) async {
+    Duration period = const Duration(seconds: 1),
+  }) async* {
+    if (config is! CIVideoExportConfig) {
+      config = CIVideoExportConfig.copy(config);
+    }
     final source = config.source;
     final output = config.output;
     var format = config.format;
@@ -136,37 +120,26 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
           : VideoExportFormat.mov;
     }
     final bool asset = source is AssetInputSource;
-    switch (format) {
-      case VideoExportFormat.mp4:
-        final sessionId = await _api.exportVideoFile(
-          _filterId,
-          asset,
-          source.path,
-          output.absolute.path,
-          'mp4',
-          context.platformKey,
-          preset.platformKey,
-        );
-        return EventChannel('AVAssetExportSession_$sessionId')
-            .receiveBroadcastStream()
-            .map((event) => event as double)
-            .distinct();
-      case VideoExportFormat.mov:
-        final sessionId = await _api.exportVideoFile(
-          _filterId,
-          asset,
-          source.path,
-          output.absolute.path,
-          'mov',
-          context.platformKey,
-          preset.platformKey,
-        );
-        return EventChannel('AVAssetExportSession_$sessionId')
-            .receiveBroadcastStream()
-            .map((event) => event as double)
-            .distinct();
-      default:
-        throw 'Unsupported format $output';
+
+    final sessionId = await _api.exportVideoFile(
+      _filterId,
+      asset,
+      source.path,
+      output.absolute.path,
+      format.platformKey,
+      config.context.platformKey,
+      config.preset.platformKey,
+      period.inMilliseconds,
+    );
+
+    final stream = EventChannel('AVAssetExportSession_$sessionId')
+        .receiveBroadcastStream()
+        .distinct();
+    await for (num event in stream) {
+      if (event == -100.0) {
+        return;
+      }
+      yield event.toDouble();
     }
   }
 
@@ -176,63 +149,27 @@ abstract class CIFilterConfiguration extends FilterConfiguration {
 // coverage:ignore-end
 }
 
-abstract class InputSource {}
-
-abstract class PathInputSource extends InputSource {
-  final String path;
-
-  PathInputSource(this.path);
-}
-
-class DataInputSource extends InputSource {
-  final Uint8List data;
-
-  DataInputSource(this.data);
-}
-
 class RectInputSource extends InputSource {
   final Rect output;
 
   RectInputSource(this.output);
 }
 
-class FileInputSource extends PathInputSource {
-  final File file;
+class CIVideoExportConfig extends VideoExportConfig {
+  final CIContext context;
+  final AVAssetExportPreset preset;
 
-  FileInputSource(this.file) : super(file.absolute.path);
-}
-
-class AssetInputSource extends PathInputSource {
-  AssetInputSource(super.path);
-}
-
-class ImageExportConfig {
-  final InputSource source;
-  final File output;
-  final ImageExportFormat format;
-
-  ImageExportConfig(
-    this.source,
-    this.output, {
-    this.format = ImageExportFormat.auto,
+  CIVideoExportConfig(
+    super.source,
+    super.output, {
+    super.format,
+    this.context = CIContext.system,
+    this.preset = AVAssetExportPreset.highestQuality,
   });
+
+  CIVideoExportConfig.copy(VideoExportConfig config)
+      : this(config.source, config.output, format: config.format);
 }
-
-enum ImageExportFormat { png, jpeg, auto }
-
-class VideoExportConfig {
-  final PathInputSource source;
-  final File output;
-  final VideoExportFormat format;
-
-  VideoExportConfig(
-    this.source,
-    this.output, {
-    this.format = VideoExportFormat.auto,
-  });
-}
-
-enum VideoExportFormat { mp4, mov, auto }
 
 @visibleForTesting
 class PassthroughFilterConfiguration extends CIFilterConfiguration {

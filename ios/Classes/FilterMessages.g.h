@@ -20,7 +20,7 @@ NSObject<FlutterMessageCodec> *FLTFilterApiGetCodec(void);
 - (nullable FlutterStandardTypedData *)exportData:(NSNumber *)filterId  :(NSString *)format  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)exportImageFile:(NSNumber *)filterId  :(NSString *)path  :(NSString *)format  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 /// @return `nil` only when `error != nil`.
-- (nullable NSNumber *)exportVideoFile:(NSNumber *)filterId  :(NSNumber *)asset  :(NSString *)input  :(NSString *)output  :(NSString *)format  :(NSString *)context  :(NSString *)preset error:(FlutterError *_Nullable *_Nonnull)error;
+- (nullable NSNumber *)exportVideoFile:(NSNumber *)filterId  :(NSNumber *)asset  :(NSString *)input  :(NSString *)output  :(NSString *)format  :(NSString *)context  :(NSString *)preset  :(NSNumber *)period error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputData:(NSNumber *)filterId  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputAsset:(NSNumber *)filterId  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputFile:(NSNumber *)filterId  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;

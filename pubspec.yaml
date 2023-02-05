@@ -1,6 +1,6 @@
 name: flutter_core_image_filters
 description: Image filters based on CoreImage fragment with useful image and video preview widgets
-version: 0.0.1
+version: 0.0.2
 homepage: https://github.com/nikolaydymura/flutter_core_image_filters
 repository: https://github.com/nikolaydymura/flutter_core_image_filters
 platforms:
@@ -14,7 +14,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_gpu_filters_interface: ^0.0.5
+  flutter_gpu_filters_interface: ^0.0.7
 
 dev_dependencies:
   integration_test:

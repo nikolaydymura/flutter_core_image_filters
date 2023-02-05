@@ -14,9 +14,3 @@ extension _CIContext on CIContext {
     }
   }
 }
-
-extension ProcessingDouble on double {
-  // coverage:ignore-start
-  bool get isProcessingCompleted => this == -100;
-  // coverage:ignore-end
-}

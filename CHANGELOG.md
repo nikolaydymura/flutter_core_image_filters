@@ -1,3 +1,7 @@
+## 0.0.2
+
+Provided support for Rect, Point, Vector parameters.
+
 ## 0.0.1
 
 Initial Version of the library.

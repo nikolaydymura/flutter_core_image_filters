@@ -106,6 +106,12 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
             error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
             return
         }
+        if targetClass == "CIVector" {
+            let values = value.map { CGFloat($0.doubleValue) }
+            let vector = CIVector(values: values, count: values.count)
+            filter.setValue(vector, forKey: key)
+            filterDelegate?.didUpdated(filter: filter)
+        }
     }
     
     func setNSValueParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
