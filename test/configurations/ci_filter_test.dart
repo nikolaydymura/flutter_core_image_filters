@@ -195,8 +195,11 @@ void main() {
         test('export video file from file', () async {
           final fileIn = File('demo.mp4');
           final fileOut = File('output.mp4');
-          final config = CIVideoExportConfig(FileInputSource(fileIn), fileOut,
-              preset: preset);
+          final config = CIVideoExportConfig(
+            FileInputSource(fileIn),
+            fileOut,
+            preset: preset,
+          );
           configuration.exportVideoFile(config).listen((event) {});
           await Future.delayed(const Duration(milliseconds: 100));
           verify(

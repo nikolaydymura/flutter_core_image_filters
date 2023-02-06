@@ -65,7 +65,12 @@ void main() {
       final output = File('${tmpDirectory.path}/${configuration.name}.mp4');
       final config =
           VideoExportConfig(AssetInputSource('videos/demo.mp4'), output);
-      await configuration.exportVideoFile(config);
+      final stream = configuration.exportVideoFile(config);
+      await for (final value in stream){
+        debugPrint(
+          'Exporting ${(value * 100).toInt()}%',
+        );
+      }
       debugPrint(
         'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
       );
