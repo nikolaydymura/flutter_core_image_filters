@@ -1,10 +1,11 @@
 library flutter_core_image_filters;
 
 import 'dart:async';
-import 'dart:io' show File, Platform;
+import 'dart:io' show File;
 import 'dart:math';
 import 'dart:ui' show Image;
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/services.dart';
@@ -261,10 +262,21 @@ part 'src/parameters/slider_ns_integer_parameter.dart';
 part 'src/parameters/slider_ns_number_parameter.dart';
 
 class FlutterCoreImageFilters {
-  static Iterable<String> get availableFilters =>
-      kDebugMode || (Platform.isIOS || Platform.isMacOS)
-          ? _availableFilters.keys
-          : {};
+  static const _unsupportedVideo = [
+    'Aztec Code Generator',
+    'Code 128 Barcode Generator',
+    'Document Enhancer',
+    'QR Code Generator',
+    'Rounded Rectangle Generator',
+  ];
+
+  static Iterable<String> get availableFilters => _availableFilters.keys;
+
+  static Iterable<String> get availableVideoOnlyFilters =>
+      availableFilters.whereNot((e) => _unsupportedVideo.contains(e));
+
+  static Iterable<String> get availableImageOnlyFilters => availableFilters;
+
   static final Map<String, CIFilterConfiguration Function()> _availableFilters =
       {
     'Accordion Fold Transition': () => CIAccordionFoldTransitionConfiguration(),

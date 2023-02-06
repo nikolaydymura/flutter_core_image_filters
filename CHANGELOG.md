@@ -1,3 +1,7 @@
+## 0.0.3
+
+Added warning before update parameter call
+
 ## 0.0.2
 
 Provided support for Rect, Point, Vector parameters.

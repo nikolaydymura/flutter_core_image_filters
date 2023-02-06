@@ -5,6 +5,10 @@ class NSBoolParameter extends BoolParameter {
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    if (!configuration.ready) {
+      debugPrint('Invoke `prepare()` before updating parameter $name');
+      return;
+    }
     await configuration._api.setNSNumberParameter(
       configuration._filterId,
       name,

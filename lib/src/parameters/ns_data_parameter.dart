@@ -5,6 +5,10 @@ class NSDataParameter extends DataParameter {
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    if (!configuration.ready) {
+      debugPrint('Invoke `prepare()` before updating parameter $name');
+      return;
+    }
     if (asset != null) {
       await configuration._api.setNSDataSourceParameter(
         configuration._filterId,
