@@ -23,7 +23,7 @@ final image = await configuration.export(inputSource);
 
 ### CIImagePreview example
 ```dart
-import 'package:flutter_image_filters/flutter_image_filters.dart';
+import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 
 class PreviewPage extends StatefulWidget {
   const PreviewPage({Key? key}) : super(key: key);
@@ -73,7 +73,7 @@ class _PreviewPageState extends State<PreviewPage> {
 ### Divided preview sample
 ```dart
 import 'package:before_after_image_slider_nullsafty/before_after_image_slider_nullsafty.dart';
-import 'package:flutter_image_filters/flutter_image_filters.dart';
+import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 
 class PreviewPage extends StatefulWidget {
   const PreviewPage({Key? key}) : super(key: key);
