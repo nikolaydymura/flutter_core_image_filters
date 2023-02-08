@@ -72,6 +72,24 @@ void main() {
               true,
               reason: '${param.name} in ${configuration.name}',
             );
+          } else if (param is Mat3Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
+          } else if (param is Mat5Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
+          } else if (param is Mat7Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
           } else if (param is CIVectorParameter) {
             expect(
               type?.isEmpty == true || type == 'CIAttributeTypePosition3',

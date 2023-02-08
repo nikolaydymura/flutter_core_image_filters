@@ -2,14 +2,14 @@ part of flutter_core_image_filters;
 
 class CIConvolution7X7Configuration extends CIFilterConfiguration {
   final NumberParameter _bias;
-  final VectorParameter _weights;
+  final Mat7Parameter _weights;
 
   CIConvolution7X7Configuration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = CIVectorParameter(
+        _weights = Mat7Parameter(
           'inputWeights',
           'Weights',
-          [
+          Mat7([
             0,
             0,
             0,
@@ -59,7 +59,7 @@ class CIConvolution7X7Configuration extends CIFilterConfiguration {
             0,
             0,
             0,
-          ],
+          ]),
         ),
         super('CIConvolution7X7');
 
@@ -67,7 +67,7 @@ class CIConvolution7X7Configuration extends CIFilterConfiguration {
     _bias.value = value;
   }
 
-  set weights(List<double> value) {
+  set weights(Mat7 value) {
     _weights.value = value;
   }
 

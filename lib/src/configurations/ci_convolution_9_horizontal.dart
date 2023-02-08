@@ -2,14 +2,14 @@ part of flutter_core_image_filters;
 
 class CIConvolution9HorizontalConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
-  final VectorParameter _weights;
+  final Mat3Parameter _weights;
 
   CIConvolution9HorizontalConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = CIVectorParameter(
+        _weights = Mat3Parameter(
           'inputWeights',
           'Weights',
-          [0, 0, 0, 0, 1, 0, 0, 0, 0],
+          Mat3([0, 0, 0, 0, 1, 0, 0, 0, 0]),
         ),
         super('CIConvolution9Horizontal');
 
@@ -17,7 +17,7 @@ class CIConvolution9HorizontalConfiguration extends CIFilterConfiguration {
     _bias.value = value;
   }
 
-  set weights(List<double> value) {
+  set weights(Mat3 value) {
     _weights.value = value;
   }
 

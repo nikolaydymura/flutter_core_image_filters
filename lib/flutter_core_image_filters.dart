@@ -16,6 +16,9 @@ import 'src/messages/preview_messages.g.dart';
 
 part 'src/ci_image_preview.dart';
 part 'src/ci_video_preview.dart';
+part 'src/parameters/mat3_parameter.dart';
+part 'src/parameters/mat5_parameter.dart';
+part 'src/parameters/mat7_parameter.dart';
 part 'src/configurations/ci_accordion_fold_transition.dart';
 part 'src/configurations/ci_addition_compositing.dart';
 part 'src/configurations/ci_affine_clamp.dart';

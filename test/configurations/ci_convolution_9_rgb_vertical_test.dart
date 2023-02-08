@@ -17,10 +17,10 @@ void main() {
 
     test('change inputWeights', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWeights') as CIVectorParameter;
-      expect(parameter.value, [0, 0, 0, 0, 1, 0, 0, 0, 0]);
-      configuration.weights = [0, 0, 0, 0, 0.9, 0, 0, 0, 0];
-      expect(parameter.value, [0, 0, 0, 0, 0.9, 0, 0, 0, 0]);
+          .firstWhere((e) => e.name == 'inputWeights') as Mat3Parameter;
+      expect(parameter.value.storage, [0, 0, 0, 0, 1, 0, 0, 0, 0]);
+      configuration.weights = Mat3([0, 0, 0, 0, 0.9, 0, 0, 0, 0]);
+      expect(parameter.value.storage, [0, 0, 0, 0, 0.9, 0, 0, 0, 0]);
     });
   });
 }
