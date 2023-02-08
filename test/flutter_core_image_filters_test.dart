@@ -1,4 +1,5 @@
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -736,6 +737,14 @@ void main() {
     for (final name in filters) {
       final configuration =
           FlutterCoreImageFilters.createFilter(displayName: name);
+      final params = configuration.parameters.whereType<VectorParameter>();
+      if (params.isNotEmpty) {
+        print(configuration.name);
+      }
+      for (var element in params) {
+        print(element.name);
+        print(element.value.length);
+      }
       expect(
         configuration.categories.contains(CICategory.stillImage),
         true,

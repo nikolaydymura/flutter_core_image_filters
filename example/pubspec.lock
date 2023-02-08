@@ -100,7 +100,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.0.2"
+    version: "0.0.3"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -110,10 +110,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_gpu_filters_interface
-      sha256: "7cf67ba98262edf06d7b658970350a751eab98dd9dd0ae0de0acd11620ee10e3"
+      sha256: d6da291a26525b796166e7b5c3c97a7000c8487c762b9fa2fca01e0cf68babc1
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.7"
+    version: "0.0.10"
   flutter_lints:
     dependency: "direct dev"
     description:

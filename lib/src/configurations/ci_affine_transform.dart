@@ -12,7 +12,7 @@ class CIAffineTransformConfiguration extends CIFilterConfiguration {
         super('CIAffineTransform');
 
   set transform(CGAffineTransform value) {
-    _transform.transform = value;
+    _transform.value = value;
   }
 
   @override

@@ -1,3 +1,7 @@
+## 0.0.4
+
+Updated vector params
+
 ## 0.0.3
 
 Added warning before update parameter call

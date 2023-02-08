@@ -120,9 +120,9 @@ void main() {
       const CGAffineTransform(),
     );
     final affineTransform = const CGAffineTransform().copyWith();
-    parameter.transform = affineTransform;
+    parameter.value = affineTransform;
     await parameter.update(configuration);
-    expect(parameter.transform, affineTransform);
+    expect(parameter.value, affineTransform);
     verify(
       mockFilterApi.setNSValueParameter(
         101,

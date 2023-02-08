@@ -1,24 +1,7 @@
 part of flutter_core_image_filters;
 
-class CGAffineTransformParameter extends VectorParameter {
-  CGAffineTransformParameter(
-    String name,
-    String displayName,
-    CGAffineTransform value,
-  ) : super(name, displayName, value.storage);
-
-  CGAffineTransform get transform => CGAffineTransform(
-        a: value[0],
-        b: value[1],
-        c: value[2],
-        d: value[3],
-        tx: value[4],
-        ty: value[5],
-      );
-
-  set transform(CGAffineTransform transform) {
-    value = transform.storage;
-  }
+class CGAffineTransformParameter extends VectorParameter<CGAffineTransform> {
+  CGAffineTransformParameter(super.name, super.displayName, super.value);
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
@@ -29,9 +12,12 @@ class CGAffineTransformParameter extends VectorParameter {
     await configuration._api.setNSValueParameter(
       configuration._filterId,
       name,
-      value,
+      floats64,
     );
   }
+
+  @override
+  List<double> get values => value.storage;
 }
 
 class CGAffineTransform {
