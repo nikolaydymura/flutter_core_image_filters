@@ -12,7 +12,7 @@ class CGPositionParameter extends PointParameter {
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
-      floats64,
+      values,
     );
   }
 }

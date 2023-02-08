@@ -12,11 +12,15 @@ class CIColorParameter extends ColorParameter {
     await configuration._api.setCIColorParameter(
       configuration._filterId,
       name,
-      floats64,
+      values,
     );
   }
 
   @override
-  List<double> get values =>
-      [value.red / 255.0, value.green / 255.0, value.blue / 255.0, value.alpha / 255.0];
+  List<double> get values => [
+        value.red / 255.0,
+        value.green / 255.0,
+        value.blue / 255.0,
+        value.alpha / 255.0
+      ];
 }

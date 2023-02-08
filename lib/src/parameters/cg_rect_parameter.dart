@@ -12,7 +12,7 @@ class CGRectParameter extends RectParameter {
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
-      floats64,
+      values,
     );
   }
 }

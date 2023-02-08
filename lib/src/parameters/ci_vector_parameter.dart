@@ -26,7 +26,7 @@ class CIVectorParameter extends ListParameter {
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
-      floats64,
+      values,
     );
   }
 }
