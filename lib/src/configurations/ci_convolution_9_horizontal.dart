@@ -6,7 +6,7 @@ class CIConvolution9HorizontalConfiguration extends CIFilterConfiguration {
 
   CIConvolution9HorizontalConfiguration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = Mat3Parameter(
+        _weights = _Mat3Parameter(
           'inputWeights',
           'Weights',
           Mat3([0, 0, 0, 0, 1, 0, 0, 0, 0]),

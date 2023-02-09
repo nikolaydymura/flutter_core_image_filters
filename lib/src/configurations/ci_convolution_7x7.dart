@@ -6,7 +6,7 @@ class CIConvolution7X7Configuration extends CIFilterConfiguration {
 
   CIConvolution7X7Configuration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = Mat7Parameter(
+        _weights = _Mat7Parameter(
           'inputWeights',
           'Weights',
           Mat7([

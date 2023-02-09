@@ -10,6 +10,6 @@ class NSNumberParameter extends NumberParameter {
       return;
     }
     await configuration._api
-        .setNSNumberParameter(configuration._filterId, name, value.toDouble());
+        .setNSNumberParameter(configuration._filterId, name, floatValue);
   }
 }

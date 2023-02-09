@@ -12,7 +12,7 @@ class NSBoolParameter extends BoolParameter {
     await configuration._api.setNSNumberParameter(
       configuration._filterId,
       name,
-      (value ? 1 : 0).toDouble(),
+      floatValue,
     );
   }
 }

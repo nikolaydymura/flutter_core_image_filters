@@ -1,3 +1,7 @@
+## 0.0.6
+
+Updated parameters
+
 ## 0.0.5
 
 Added matrix parameters

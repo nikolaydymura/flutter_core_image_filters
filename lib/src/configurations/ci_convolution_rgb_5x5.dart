@@ -6,7 +6,7 @@ class CIConvolutionRGB5X5Configuration extends CIFilterConfiguration {
 
   CIConvolutionRGB5X5Configuration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = Mat5Parameter(
+        _weights = _Mat5Parameter(
           'inputWeights',
           'Weights',
           Mat5([

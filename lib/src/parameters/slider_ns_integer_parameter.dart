@@ -26,7 +26,7 @@ class SliderNSIntegerParameter extends RangeNumberParameter {
     await configuration._api.setNSNumberParameter(
       configuration._filterId,
       name,
-      value.toDouble(),
+      intValue.toDouble(),
     );
   }
 }
