@@ -71,7 +71,7 @@ flutter:
   assets:
     - images/demo.jpeg
     - images/lookup_amatorka.png
-    - images/lookup_gray.png
+    - images/HotBlackColorCube.png
     - videos/demo.mp4
   #   - images/a_dot_ham.jpeg
 

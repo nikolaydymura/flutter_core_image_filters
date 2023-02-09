@@ -20,7 +20,8 @@ void main() {
     });
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColorSpace') as OptionStringParameter<CGColorSpace>;
+              .firstWhere((e) => e.name == 'inputColorSpace')
+          as OptionStringParameter<CGColorSpace>;
       expect(parameter.value.platformKey, '');
       configuration.colorSpace = CGColorSpace.sRGB;
       expect(parameter.value.platformKey, 'sRGB');
