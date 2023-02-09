@@ -1,35 +1,17 @@
 part of flutter_core_image_filters;
 
 class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
-    with MaskImageMixin {
-  final NumberParameter _cubeDimension;
+    with MaskImageMixin, CubeDimensionMixin, ColorSpaceMixin {
   final DataParameter _cubeData0;
   final DataParameter _cubeData1;
   final BoolParameter _extrapolate;
-  final StringParameter _colorSpace;
 
   CIColorCubesMixedWithMaskConfiguration()
-      : _cubeDimension = SliderNSIntegerParameter(
-          'inputCubeDimension',
-          'Cube Dimension',
-          2,
-          min: 2,
-          max: 64,
-        ),
-        _cubeData0 = NSDataParameter('inputCube0Data', 'Cube 0 Data'),
+      : _cubeData0 = NSDataParameter('inputCube0Data', 'Cube 0 Data'),
         _cubeData1 = NSDataParameter('inputCube1Data', 'Cube 1 Data'),
-        _colorSpace = NSStringParameter('inputColorSpace', 'Color Space', ''),
         _extrapolate =
             NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
         super('CIColorCubesMixedWithMask');
-
-  set colorSpace(String value) {
-    _colorSpace.value = value;
-  }
-
-  set cubeDimension(int value) {
-    _cubeDimension.value = value;
-  }
 
   set extrapolate(bool value) {
     _extrapolate.value = value;
@@ -84,11 +66,9 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _cubeDimension,
+        ...super.parameters,
         _cubeData0,
         _cubeData1,
         _extrapolate,
-        _colorSpace,
-        _maskImage
       ];
 }

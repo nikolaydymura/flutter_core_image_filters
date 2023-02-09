@@ -63,6 +63,9 @@ abstract class FilterApi {
   @ObjCSelector('setNSDataSourceParameter: : : :')
   void setNSDataSourceParameter(int filterId,String key, bool asset, String path);
 
+  @ObjCSelector('setNSStringParameter: : :')
+  void setNSStringParameter(int filterId, String key, String value);
+
   @ObjCSelector('disposeFilter:')
   void dispose(int filterId);
 }

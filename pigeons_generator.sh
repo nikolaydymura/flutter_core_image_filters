@@ -11,6 +11,7 @@ cp -r ios/Classes/ImagePreview.swift macos/Classes/
 cp -r ios/Classes/PreviewMessages.g.h macos/Classes/
 cp -r ios/Classes/PreviewMessages.g.m macos/Classes/
 cp -r ios/Classes/Extensions/Context+extensions.swift macos/Classes/Extensions/
+cp -r ios/Classes/Extensions/Image+extensions.swift macos/Classes/Extensions/
 
 sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/CoreImageFilters.swift
 sed -i '' -e 's/import Flutter/import FlutterMacOS/' macos/Classes/ImagePreview.swift

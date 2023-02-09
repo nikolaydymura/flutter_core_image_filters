@@ -376,6 +376,28 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.FilterApi.setNSStringParameter"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setNSStringParameter: : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(setNSStringParameter: : :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_key = GetNullableObjectAtIndex(args, 1);
+        NSString *arg_value = GetNullableObjectAtIndex(args, 2);
+        FlutterError *error;
+        [api setNSStringParameter:arg_filterId  :arg_key  :arg_value error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    }
+    else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
         initWithName:@"dev.flutter.pigeon.FilterApi.dispose"
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];

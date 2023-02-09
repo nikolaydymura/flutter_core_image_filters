@@ -127,6 +127,12 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
             error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
             return
         }
+        if targetClass == "CGAffineTransform" {
+            let values = value.map { CGFloat($0.doubleValue) }
+            let transform = CGAffineTransform(a: values[0], b: values[1], c: values[2], d: values[3], tx: values[4], ty: values[5])
+            filter.setValue(transform, forKey: key)
+            filterDelegate?.didUpdated(filter: filter)
+        }
     }
     
     func setCIImageDataParameter(_ filterId: NSNumber, _ key: String, _ data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -207,14 +213,22 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "NSData" {
             if key.contains("Cube") {
-#if os(iOS)
-                guard let image = UIImage(data: data.data) else {
+                guard let cubeDimension = filter.value(forKey: "inputCubeDimension") as? Int else {
+                    error.pointee = FlutterError(code: "core-image-filters", message: "Cube Dimension must be defined", details: nil)
+                    return
+                }
+                
+                guard let image = CIImage(data: data.data) else {
                     error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
                     return
                 }
-                filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
-                filterDelegate?.didUpdated(filter: filter)
-#endif
+                let result = image.cubeData(dimension: cubeDimension)
+                if let data = result.0 {
+                    filter.setValue(data, forKey: key)
+                    filterDelegate?.didUpdated(filter: filter)
+                } else if let message = result.1 {
+                    error.pointee = FlutterError(code: "core-image-filters", message: message, details: nil)
+                }
             }
         }
     }
@@ -234,6 +248,11 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         }
         if targetClass == "NSData" {
             if key.contains("Cube") {
+                guard let cubeDimension = filter.value(forKey: "inputCubeDimension") as? Int else {
+                    error.pointee = FlutterError(code: "core-image-filters", message: "Cube Dimension must be defined", details: nil)
+                    return
+                }
+                var fileURL = URL(fileURLWithPath: path)
                 if asset.boolValue {
 #if os(iOS)
                     let assetKey = registrar.lookupKey(forAsset: path)
@@ -242,24 +261,40 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
                         error.pointee = FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
                         return
                     }
-                    guard let image = UIImage(contentsOfFile: filePath) else {
-                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-                        return
-                    }
-                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
-                    filterDelegate?.didUpdated(filter: filter)
-#endif
-                } else {
-#if os(iOS)
-                    guard let image = UIImage(contentsOfFile: path) else {
-                        error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-                        return
-                    }
-                    filter.setValue(image.cubeData(dimension: 64, colorSpace: CGColorSpaceCreateDeviceRGB()), forKey: key)
-                    
-                    filterDelegate?.didUpdated(filter: filter)
+                    fileURL = URL(fileURLWithPath: filePath)
 #endif
                 }
+                guard let image = CIImage(contentsOf: fileURL) else {
+                    error.pointee = FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
+                    return
+                }
+                let result = image.cubeData(dimension: cubeDimension)
+                if let data = result.0 {
+                    filter.setValue(data, forKey: key)
+                    filterDelegate?.didUpdated(filter: filter)
+                } else if let message = result.1 {
+                    error.pointee = FlutterError(code: "core-image-filters", message: message, details: nil)
+                }
+            }
+        }
+    }
+    
+    func setNSStringParameter(_ filterId: NSNumber, _ key: String, _ value: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let filter = filters[filterId.int64Value] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
+            return
+        }
+        guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            return
+        }
+        guard let targetClass = attributes[kCIAttributeClass] as? String else {
+            error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
+            return
+        }
+        if targetClass == "NSObject" {
+            if key == "inputColorSpace" {
+                filter.setValue(value.toColorSpace(), forKey: key)
             }
         }
     }

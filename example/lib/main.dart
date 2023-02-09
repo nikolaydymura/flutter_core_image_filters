@@ -72,7 +72,7 @@ class ListPage extends StatelessWidget {
                       title: Text(item.name),
                       trailing: Icon(
                         Icons.navigate_next,
-                        color: Theme.of(context).errorColor,
+                        color: Theme.of(context).colorScheme.error,
                       ),
                     ),
                   );

@@ -42,7 +42,7 @@ packages:
     source: hosted
     version: "1.1.1"
   collection:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: collection
       sha256: cfc915e6923fe5ce6e153b0723c753045de46de1b4d63771530504004a45fae0
@@ -110,10 +110,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_gpu_filters_interface
-      sha256: "2691fe1c8fef73da8cff716589e068d2d8c92f22220c2e98b818163af9831612"
+      sha256: d54ba7d1b4719f58faa60d95aa97df0763c06bdd38d3c7e70cf5128d2322fccf
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.11"
+    version: "0.0.13"
   flutter_lints:
     dependency: "direct dev"
     description:

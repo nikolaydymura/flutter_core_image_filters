@@ -21,9 +21,47 @@ mixin CubeDataMixin on CIFilterConfiguration {
     _cubeData.file = value;
   }
 
-  // coverage:ignore-start
+// coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters =>
       [...super.parameters, _cubeData];
+// coverage:ignore-end
+}
+
+mixin CubeDimensionMixin on CIFilterConfiguration {
+  final NumberParameter _cubeDimension = SliderNSIntegerParameter(
+    'inputCubeDimension',
+    'Cube Dimension',
+    2,
+    min: 2,
+    max: 64,
+  );
+
+  set cubeDimension(int value) {
+    _cubeDimension.value = value;
+  }
+
+// coverage:ignore-start
+  @override
+  List<ConfigurationParameter> get parameters =>
+      [...super.parameters, _cubeDimension];
+// coverage:ignore-end
+}
+
+mixin ColorSpaceMixin on CIFilterConfiguration {
+  final OptionStringParameter<CGColorSpace> _colorSpace = CGColorSpaceParameter(
+    'inputColorSpace',
+    'Color Space',
+    CGColorSpace.none,
+  );
+
+  set colorSpace(CGColorSpace value) {
+    _colorSpace.value = value;
+  }
+
+// coverage:ignore-start
+  @override
+  List<ConfigurationParameter> get parameters =>
+      [...super.parameters, _colorSpace];
 // coverage:ignore-end
 }

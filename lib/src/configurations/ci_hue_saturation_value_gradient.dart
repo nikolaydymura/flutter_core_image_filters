@@ -1,19 +1,14 @@
 part of flutter_core_image_filters;
 
-class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration {
-  final StringParameter _colorSpace;
+class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration
+    with ColorSpaceMixin {
   final NumberParameter _dither;
   final NumberParameter _softness;
   final NumberParameter _radius;
   final NumberParameter _value;
 
   CIHueSaturationValueGradientConfiguration()
-      : _colorSpace = NSStringParameter(
-          'inputColorSpace',
-          'Color Space',
-          '',
-        ),
-        _dither = SliderNSNumberParameter(
+      : _dither = SliderNSNumberParameter(
           'inputDither',
           'Dither',
           1,
@@ -46,10 +41,6 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration {
   @override
   bool get hasInputImage => false;
 
-  set colorSpace(String value) {
-    _colorSpace.value = value;
-  }
-
   set dither(double value) {
     _dither.value = value;
   }
@@ -76,5 +67,5 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration {
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_colorSpace, _dither, _softness, _radius, _value];
+      [...super.parameters, _dither, _softness, _radius, _value];
 }

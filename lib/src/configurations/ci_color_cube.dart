@@ -1,25 +1,13 @@
 part of flutter_core_image_filters;
 
 class CIColorCubeConfiguration extends CIFilterConfiguration
-    with CubeDataMixin {
-  final NumberParameter _cubeDimension;
+    with CubeDimensionMixin, CubeDataMixin {
   final BoolParameter _extrapolate;
 
   CIColorCubeConfiguration()
-      : _cubeDimension = SliderNSIntegerParameter(
-          'inputCubeDimension',
-          'Cube Dimension',
-          2,
-          min: 2,
-          max: 64,
-        ),
-        _extrapolate =
+      : _extrapolate =
             NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
         super('CIColorCube');
-
-  set cubeDimension(int value) {
-    _cubeDimension.value = value;
-  }
 
   set extrapolate(bool value) {
     _extrapolate.value = value;
@@ -38,5 +26,5 @@ class CIColorCubeConfiguration extends CIFilterConfiguration
 
   @override
   List<ConfigurationParameter> get parameters =>
-      [_cubeDimension, _cubeData, _extrapolate];
+      [...super.parameters, _extrapolate];
 }
