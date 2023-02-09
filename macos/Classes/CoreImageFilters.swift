@@ -106,6 +106,12 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
             error.pointee = FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
             return
         }
+        if targetClass == "CIVector" {
+            let values = value.map { CGFloat($0.doubleValue) }
+            let vector = CIVector(values: values, count: values.count)
+            filter.setValue(vector, forKey: key)
+            filterDelegate?.didUpdated(filter: filter)
+        }
     }
     
     func setNSValueParameter(_ filterId: NSNumber, _ key: String, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -327,8 +333,7 @@ extension CoreImageFilters {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
         }
     }
-    
-    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
+    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
         
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -381,7 +386,7 @@ extension CoreImageFilters {
         let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
                                                binaryMessenger: registrar.messenger)
 #endif
-        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter))
+        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter, withTimeInterval: period.doubleValue))
         return NSNumber(value: exportId)
         
     }
@@ -392,14 +397,16 @@ class AVAssetExportSessionStreamHandler: NSObject, FlutterStreamHandler {
     private let session: AVAssetExportSession
     private var eventSink: FlutterEventSink?
     private var timer: Timer?
+    private let timeInterval: TimeInterval
     
-    init(session: AVAssetExportSession) {
+    init(session: AVAssetExportSession, withTimeInterval timeInterval: Double) {
         self.session = session
+        self.timeInterval = timeInterval / 1000.0
     }
     
     func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         eventSink = events
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: updateProgess(_:))
+        timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: updateProgess(_:))
         session.exportAsynchronously(completionHandler: export)
         return nil
     }

@@ -1,3 +1,23 @@
+## 0.0.6
+
+Updated parameters
+
+## 0.0.5
+
+Added matrix parameters
+
+## 0.0.4
+
+Updated vector params
+
+## 0.0.3
+
+Added warning before update parameter call
+
+## 0.0.2
+
+Provided support for Rect, Point, Vector parameters.
+
 ## 0.0.1
 
 Initial Version of the library.

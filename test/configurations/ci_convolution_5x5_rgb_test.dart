@@ -1,4 +1,5 @@
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
@@ -17,8 +18,8 @@ void main() {
 
     test('change inputWeights', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWeights') as CIVectorParameter;
-      expect(parameter.value, [
+          .firstWhere((e) => e.name == 'inputWeights') as Mat5Parameter;
+      expect(parameter.value.storage, [
         0,
         0,
         0,
@@ -45,7 +46,7 @@ void main() {
         0,
         0
       ]);
-      configuration.weights = [
+      configuration.weights = Mat5([
         0,
         0,
         0,
@@ -71,8 +72,8 @@ void main() {
         0,
         0,
         0
-      ];
-      expect(parameter.value, [
+      ]);
+      expect(parameter.value.storage, [
         0,
         0,
         0,

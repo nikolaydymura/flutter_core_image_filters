@@ -2,14 +2,14 @@ part of flutter_core_image_filters;
 
 class CIConvolution5X5Configuration extends CIFilterConfiguration {
   final NumberParameter _bias;
-  final VectorParameter _weights;
+  final Mat5Parameter _weights;
 
   CIConvolution5X5Configuration()
       : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = CIVectorParameter(
+        _weights = _Mat5Parameter(
           'inputWeights',
           'Weights',
-          [
+          Mat5([
             0,
             0,
             0,
@@ -35,7 +35,7 @@ class CIConvolution5X5Configuration extends CIFilterConfiguration {
             0,
             0,
             0
-          ],
+          ]),
         ),
         super('CIConvolution5X5');
 
@@ -43,7 +43,7 @@ class CIConvolution5X5Configuration extends CIFilterConfiguration {
     _bias.value = value;
   }
 
-  set weights(List<double> value) {
+  set weights(Mat5 value) {
     _weights.value = value;
   }
 

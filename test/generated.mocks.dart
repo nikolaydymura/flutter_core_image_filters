@@ -85,6 +85,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
     String? arg_format,
     String? arg_context,
     String? arg_preset,
+    int? arg_period,
   ) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -97,6 +98,7 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
             arg_format,
             arg_context,
             arg_preset,
+            arg_period,
           ],
         ),
         returnValue: _i3.Future<int>.value(0),

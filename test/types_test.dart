@@ -1,4 +1,5 @@
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'metadata/input_types.dart';
 
@@ -69,6 +70,24 @@ void main() {
             expect(
               type == 'CIAttributeTypeOpaqueColor' ||
                   type == 'CIAttributeTypeColor',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
+          } else if (param is Mat3Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
+          } else if (param is Mat5Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
+          } else if (param is Mat7Parameter) {
+            expect(
+              type?.isEmpty == true || type == 'CIAttributeTypePosition3',
               true,
               reason: '${param.name} in ${configuration.name}',
             );

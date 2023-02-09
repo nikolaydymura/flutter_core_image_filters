@@ -1,8 +1,10 @@
-import 'dart:io' show File, Platform;
+import 'dart:io' show File, Directory, Platform;
 import 'dart:ui';
 
+import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart' hide Rect;
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 import 'filters.dart';
 
@@ -129,7 +131,6 @@ class _FilterPageState extends State<FilterPage> {
   late final CIImagePreviewController destinationOpenGLController;
   late final CIImagePreviewController destinationMetalController;
   var _controllersReady = false;
-  static const _assetPath = 'images/demo.jpeg';
   static final _imageFile = File('images/demo.jpeg');
   static final _videoFile = File('videos/demo.mp4');
 
@@ -192,11 +193,11 @@ class _FilterPageState extends State<FilterPage> {
   Future<void> _prepareIOS() async {
     if (widget.configuration.hasInputImage) {
       destinationSystemController =
-          await CIImagePreviewController.fromAsset(_assetPath);
+          await CIImagePreviewController.fromAsset(_imageFile.path);
       destinationOpenGLController =
-          await CIImagePreviewController.fromAsset(_assetPath);
+          await CIImagePreviewController.fromAsset(_imageFile.path);
       destinationMetalController =
-          await CIImagePreviewController.fromAsset(_assetPath);
+          await CIImagePreviewController.fromAsset(_imageFile.path);
     } else {
       destinationSystemController = await CIImagePreviewController.fromRect(
         const Rect.fromLTWH(0, 0, 200, 200),
@@ -288,21 +289,19 @@ class _FilterPageState extends State<FilterPage> {
 
   Future<void> _exportVideo() async {
     final file = _videoFile;
+    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
-      '${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
+      '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
     final watch = Stopwatch();
     watch.start();
-    final processStream = await widget.configuration.exportVideoFile(
+    final processStream = widget.configuration.exportVideoFile(
       VideoExportConfig(
-        FileInputSource(file),
+        Platform.isIOS ? AssetInputSource(file.path) : FileInputSource(file),
         output,
       ),
     );
     await for (final progress in processStream) {
-      if (progress.isProcessingCompleted) {
-        break;
-      }
       debugPrint('Exporting file ${(progress * 100).toInt()}%');
     }
     debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
@@ -311,14 +310,15 @@ class _FilterPageState extends State<FilterPage> {
 
   Future<void> _exportImage() async {
     final file = _imageFile;
+    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
-      '${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
+      '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
     final watch = Stopwatch();
     watch.start();
     await widget.configuration.exportImageFile(
       ImageExportConfig(
-        FileInputSource(file),
+        Platform.isIOS ? AssetInputSource(file.path) : FileInputSource(file),
         output,
         format: ImageExportFormat.jpeg,
       ),

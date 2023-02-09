@@ -111,7 +111,8 @@ class FilterApi {
       String arg_output,
       String arg_format,
       String arg_context,
-      String arg_preset) async {
+      String arg_preset,
+      int arg_period) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.FilterApi.exportVideoFile', codec,
         binaryMessenger: _binaryMessenger);
@@ -122,7 +123,8 @@ class FilterApi {
       arg_output,
       arg_format,
       arg_context,
-      arg_preset
+      arg_preset,
+      arg_period
     ]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(

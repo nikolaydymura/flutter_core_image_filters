@@ -117,8 +117,8 @@ void main() {
             );
           } else {
             expect(
-              pointParam.value,
-              array.point,
+              pointParam.values,
+              array,
               reason:
                   '${pointParam.name} in ${configuration.name} has invalid default value',
             );
@@ -145,8 +145,8 @@ void main() {
             );
           } else {
             expect(
-              rectParam.value,
-              array.rect,
+              rectParam.values,
+              array,
               reason:
                   '${rectParam.name} in ${configuration.name} has invalid default value',
             );
@@ -160,7 +160,7 @@ void main() {
         final paramValues = kDefaultValues[configuration.name];
         expect(paramValues, isNotNull);
         final vectorParams =
-            configuration.parameters.whereType<VectorParameter>();
+            configuration.parameters.whereType<ListParameter>();
         for (final vectorParam in vectorParams) {
           final List<num>? array = paramValues?[vectorParam.name];
           if (array == null) {
@@ -182,18 +182,4 @@ void main() {
       },
     );
   }
-}
-
-extension on List<num> {
-  Rect get rect => Rect.fromLTWH(
-        this[0].toDouble(),
-        this[1].toDouble(),
-        this[2].toDouble(),
-        this[3].toDouble(),
-      );
-
-  Point<double> get point => Point(
-        this[0].toDouble(),
-        this[1].toDouble(),
-      );
 }

@@ -12,7 +12,7 @@ class CIAffineClampConfiguration extends CIFilterConfiguration {
         super('CIAffineClamp');
 
   set transform(CGAffineTransform value) {
-    _transform.transform = value;
+    _transform.value = value;
   }
 
   @override

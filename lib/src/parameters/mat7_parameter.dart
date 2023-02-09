@@ -1,7 +1,7 @@
 part of flutter_core_image_filters;
 
-class CGRectParameter extends RectParameter {
-  CGRectParameter(super.name, super.displayName, super.value);
+class _Mat7Parameter extends Mat7Parameter {
+  _Mat7Parameter(super.name, super.displayName, super.value);
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {

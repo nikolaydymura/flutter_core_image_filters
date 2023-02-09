@@ -1,14 +1,9 @@
 part of flutter_core_image_filters;
 
-class CIVectorParameter extends VectorParameter {
+class CIVectorParameter extends ListParameter {
   final int? length;
-  List<double> _value;
 
-  CIVectorParameter(String name, String displayName, this._value, [this.length])
-      : super(name, displayName, _value);
-
-  @override
-  List<double> get value => _value;
+  CIVectorParameter(super.name, super.displayName, super.value, [this.length]);
 
   @override
   set value(List<double> v) {
@@ -19,15 +14,19 @@ class CIVectorParameter extends VectorParameter {
         return;
       }
     }
-    _value = v;
+    super.value = v;
   }
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
+    if (!configuration.ready) {
+      debugPrint('Invoke `prepare()` before updating parameter $name');
+      return;
+    }
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
-      value,
+      values,
     );
   }
 }

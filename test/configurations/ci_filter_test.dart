@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -150,6 +151,7 @@ void main() {
             'mov',
             'system',
             'AVAssetExportPresetHighestQuality',
+            1000,
           ),
         ).thenAnswer((_) async => 201);
         when(
@@ -161,6 +163,7 @@ void main() {
             'mp4',
             'system',
             any,
+            1000,
           ),
         ).thenAnswer((_) async => 201);
       });
@@ -173,7 +176,8 @@ void main() {
         const asset = 'demo.mov';
         final output = File(asset);
         final config = VideoExportConfig(AssetInputSource(asset), output);
-        await configuration.exportVideoFile(config);
+        configuration.exportVideoFile(config).listen((event) {});
+        await Future.delayed(const Duration(milliseconds: 100));
         verify(
           mockFilterApi.exportVideoFile(
             101,
@@ -183,6 +187,7 @@ void main() {
             'mov',
             'system',
             'AVAssetExportPresetHighestQuality',
+            1000,
           ),
         ).called(1);
       });
@@ -190,8 +195,13 @@ void main() {
         test('export video file from file', () async {
           final fileIn = File('demo.mp4');
           final fileOut = File('output.mp4');
-          final config = VideoExportConfig(FileInputSource(fileIn), fileOut);
-          await configuration.exportVideoFile(config, preset: preset);
+          final config = CIVideoExportConfig(
+            FileInputSource(fileIn),
+            fileOut,
+            preset: preset,
+          );
+          configuration.exportVideoFile(config).listen((event) {});
+          await Future.delayed(const Duration(milliseconds: 100));
           verify(
             mockFilterApi.exportVideoFile(
               101,
@@ -201,6 +211,7 @@ void main() {
               'mp4',
               'system',
               preset.platformKey,
+              1000,
             ),
           ).called(1);
         });
