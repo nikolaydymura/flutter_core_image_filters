@@ -11,13 +11,14 @@ import Foundation
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
     var filter: CIFilter?
-    lazy var outputRect = CGRect(x: 0, y: 0, width: 100, height: 100)
+    lazy var outputRect = CGRect(x: 0, y: 0, width: 300, height: 300)
     lazy var currentContext: CIContext = CIContext.selectImageContext("")
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         let context = currentContext
         guard let filter = filter else {
-            if let image = image, let buffer = createPixelBuffer(from: image) {
+            if let image = image,
+                let buffer = createPixelBuffer(from: image) {
                 context.render(image, to: buffer)
                 return Unmanaged.passRetained(buffer)
             } else {
@@ -25,16 +26,18 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
             }
         }
         if filter.inputKeys.contains(kCIInputImageKey) {
-            if let image = image, let buffer = createPixelBuffer(from: image) {
+            if let image = image,
+                let buffer = createPixelBuffer(from: image) {
                 filter.setValue(image, forKey: kCIInputImageKey)
-                let processed = filter.outputImage ?? image
+                let processed = filter.outputImage?.cropped(to: image.extent) ?? image
                 context.render(processed, to: buffer)
                 return Unmanaged.passRetained(buffer)
             } else {
                 return nil
             }
         } else {
-            if let image = filter.outputImage?.cropped(to: outputRect), let buffer = createPixelBuffer(from: image) {
+            if let image = filter.outputImage?.cropped(to: outputRect),
+                let buffer = createPixelBuffer(from: image) {
                 context.render(image, to: buffer)
                 return Unmanaged.passRetained(buffer)
             } else {

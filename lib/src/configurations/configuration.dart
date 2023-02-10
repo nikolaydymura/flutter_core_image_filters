@@ -3,7 +3,7 @@ part of flutter_core_image_filters;
 abstract class CIFilterConfiguration extends FilterConfiguration
     with VideoFilterConfiguration {
 // coverage:ignore-start
-  static final FilterApi _gAPI = FilterApi();
+  final FilterApi _gAPI = FilterApi();
 
 // coverage:ignore-end
 
@@ -42,25 +42,38 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     }
   }
 
-  Future<Image> export(
+  Future<Uint8List> exportData(
     InputSource source, {
     ImageExportFormat format = ImageExportFormat.auto,
     CIContext context = CIContext.system,
+    Rect? crop,
   }) async {
     if (source is DataInputSource) {
-      await _api.setInputData(_filterId, source.data);
+      if (hasInputImage) {
+        await _api.setInputData(_filterId, source.data);
+      } else {
+        debugPrint('Input image not supported for $name');
+      }
       if (format == ImageExportFormat.auto) {
         format = ImageExportFormat.png;
       }
     } else if (source is FileInputSource) {
-      await _api.setInputFile(_filterId, source.path);
+      if (hasInputImage) {
+        await _api.setInputFile(_filterId, source.path);
+      } else {
+        debugPrint('Input image not supported for $name');
+      }
       if (format == ImageExportFormat.auto) {
         format = source.file.path.endsWith('.png')
             ? ImageExportFormat.png
             : ImageExportFormat.jpeg;
       }
     } else if (source is AssetInputSource) {
-      await _api.setInputAsset(_filterId, source.path);
+      if (hasInputImage) {
+        await _api.setInputAsset(_filterId, source.path);
+      } else {
+        debugPrint('Input image not supported for $name');
+      }
       if (format == ImageExportFormat.auto) {
         format = source.path.endsWith('.png')
             ? ImageExportFormat.png
@@ -71,7 +84,19 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       _filterId,
       format.platformKey,
       context.platformKey,
+      crop?.values,
     );
+    return bytes;
+  }
+
+  Future<Image> export(
+    InputSource source, {
+    ImageExportFormat format = ImageExportFormat.auto,
+    CIContext context = CIContext.system,
+    Rect? crop,
+  }) async {
+    final bytes =
+        await exportData(source, format: format, crop: crop, context: context);
     final Image image = await decodeImageFromList(bytes);
     return image;
   }
@@ -79,16 +104,21 @@ abstract class CIFilterConfiguration extends FilterConfiguration
   Future<void> exportImageFile(
     ImageExportConfig config, {
     CIContext context = CIContext.system,
+    Rect? crop,
   }) async {
     final source = config.source;
     final output = config.output;
     var format = config.format;
-    if (source is DataInputSource) {
-      await _api.setInputData(_filterId, source.data);
-    } else if (source is FileInputSource) {
-      await _api.setInputFile(_filterId, source.path);
-    } else if (source is AssetInputSource) {
-      await _api.setInputAsset(_filterId, source.path);
+    if (hasInputImage) {
+      if (source is DataInputSource) {
+        await _api.setInputData(_filterId, source.data);
+      } else if (source is FileInputSource) {
+        await _api.setInputFile(_filterId, source.path);
+      } else if (source is AssetInputSource) {
+        await _api.setInputAsset(_filterId, source.path);
+      }
+    } else {
+      debugPrint('Input image not supported for $name');
     }
     if (format == ImageExportFormat.auto) {
       format = output.path.endsWith('.png')
@@ -100,6 +130,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       output.absolute.path,
       format.platformKey,
       context.platformKey,
+      crop?.values,
     );
   }
 
@@ -180,4 +211,8 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {};
+}
+
+extension on Rect {
+  List<double> get values => [top, left, width, height];
 }

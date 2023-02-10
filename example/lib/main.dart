@@ -322,6 +322,9 @@ class _FilterPageState extends State<FilterPage> {
         output,
         format: ImageExportFormat.jpeg,
       ),
+      crop: widget.configuration.hasInputImage
+          ? null
+          : const Rect.fromLTWH(0, 0, 300, 300),
     );
     debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
     debugPrint('Exported: ${output.absolute}');

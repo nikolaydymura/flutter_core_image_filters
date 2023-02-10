@@ -17,8 +17,8 @@ NSObject<FlutterMessageCodec> *FLTFilterApiGetCodec(void);
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)createFilter:(NSString *)name error:(FlutterError *_Nullable *_Nonnull)error;
 /// @return `nil` only when `error != nil`.
-- (nullable FlutterStandardTypedData *)exportData:(NSNumber *)filterId  :(NSString *)format  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)exportImageFile:(NSNumber *)filterId  :(NSString *)path  :(NSString *)format  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
+- (nullable FlutterStandardTypedData *)exportData:(NSNumber *)filterId  :(NSString *)format  :(NSString *)context  :(nullable NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)exportImageFile:(NSNumber *)filterId  :(NSString *)path  :(NSString *)format  :(NSString *)context  :(nullable NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)exportVideoFile:(NSNumber *)filterId  :(NSNumber *)asset  :(NSString *)input  :(NSString *)output  :(NSString *)format  :(NSString *)context  :(NSString *)preset  :(NSNumber *)period error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setInputData:(NSNumber *)filterId  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;

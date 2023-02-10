@@ -5,6 +5,7 @@ scripts/
 pigeons/
 test/
 *.iml
+GoldenDemo/
 example/images
 example/integration_test
 example/ios

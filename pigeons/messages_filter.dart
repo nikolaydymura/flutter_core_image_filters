@@ -21,11 +21,11 @@ abstract class FilterApi {
   @ObjCSelector('createFilter:')
   int create(String name);
 
-  @ObjCSelector('exportData: : :')
-  Uint8List exportData(int filterId, String format, String context);
+  @ObjCSelector('exportData: : : :')
+  Uint8List exportData(int filterId, String format, String context, List<double?>? value);
 
-  @ObjCSelector('exportImageFile: : : :')
-  void exportImageFile(int filterId, String path, String format, String context);
+  @ObjCSelector('exportImageFile: : : : :')
+  void exportImageFile(int filterId, String path, String format, String context, List<double?>? value);
 
   @ObjCSelector('exportVideoFile: : : : : : : :')
   int exportVideoFile(int filterId, bool asset, String input, String output, String format, String context, String preset, int period);
