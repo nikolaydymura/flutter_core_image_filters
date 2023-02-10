@@ -307,14 +307,29 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
 
 
 extension CoreImageFilters {
-    func exportData(_ filterId: NSNumber, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
+    
+    func exportData(_ filterId: NSNumber, _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
         }
-        guard let image = filter.outputImage else {
+        guard var image = filter.outputImage else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
             return nil
+        }
+        if image.extent.isInfinite {
+            if filter.inputKeys.contains(kCIInputImageKey),
+               let origin = filter.value(forKey: kCIInputImageKey) as? CIImage {
+                image = image.cropped(to: origin.extent)
+            } else if let crop = value  {
+                image = image.cropped(to: CGRect(x: crop[0].intValue,
+                                                 y: crop[1].intValue,
+                                                 width: crop[2].intValue,
+                                                 height: crop[3].intValue))
+            } else {
+                error.pointee = FlutterError(code: "core-image-filters", message: "Provide crop rect as image extent isn't finite", details: nil)
+                return nil
+            }
         }
         
         let context = CIContext.selectImageContext(context)
@@ -339,15 +354,29 @@ extension CoreImageFilters {
         
     }
     
-    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         let flutterError = error
         guard let filter = filters[filterId.int64Value] else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return
         }
-        guard let image = filter.outputImage else {
+        guard var image = filter.outputImage else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
             return
+        }
+        if image.extent.isInfinite {
+            if filter.inputKeys.contains(kCIInputImageKey),
+               let origin = filter.value(forKey: kCIInputImageKey) as? CIImage {
+                image = image.cropped(to: origin.extent)
+            } else if let crop = value  {
+                image = image.cropped(to: CGRect(x: crop[0].intValue,
+                                                 y: crop[1].intValue,
+                                                 width: crop[2].intValue,
+                                                 height: crop[3].intValue))
+            } else {
+                error.pointee = FlutterError(code: "core-image-filters", message: "Provide crop rect as image extent isn't finite", details: nil)
+                return
+            }
         }
         
         let context = CIContext.selectImageContext(context)
@@ -356,13 +385,13 @@ extension CoreImageFilters {
             do {
                 try context.writePNGRepresentation(of: image, to: URL(fileURLWithPath: path), format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace)
             } catch {
-                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create PNG data", details: nil)
+                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create PNG data", details: error)
             }
         } else if format == "jpeg" {
             do {
                 try context.writeJPEGRepresentation(of: image, to: URL(fileURLWithPath: path), colorSpace: image.colorSpace ?? colorSpace)
             } catch {
-                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JEPG data", details: nil)
+                flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JEPG data", details: error)
             }
         } else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)

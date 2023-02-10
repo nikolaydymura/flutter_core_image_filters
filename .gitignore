@@ -29,3 +29,6 @@ migrate_working_dir/
 .packages
 build/
 coverage/
+example/integration_test/goldens/
+example/integration_test/failures/
+GoldenDemo/GoldenDemo.xcodeproj/xcuserdata/

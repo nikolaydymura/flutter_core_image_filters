@@ -67,14 +67,15 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(exportData: : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportData: : :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(exportData: : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportData: : : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
         NSString *arg_format = GetNullableObjectAtIndex(args, 1);
         NSString *arg_context = GetNullableObjectAtIndex(args, 2);
+        NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 3);
         FlutterError *error;
-        FlutterStandardTypedData *output = [api exportData:arg_filterId  :arg_format  :arg_context error:&error];
+        FlutterStandardTypedData *output = [api exportData:arg_filterId  :arg_format  :arg_context  :arg_value error:&error];
         callback(wrapResult(output, error));
       }];
     }
@@ -89,15 +90,16 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(exportImageFile: : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportImageFile: : : :error:)", api);
+      NSCAssert([api respondsToSelector:@selector(exportImageFile: : : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportImageFile: : : : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
         NSString *arg_path = GetNullableObjectAtIndex(args, 1);
         NSString *arg_format = GetNullableObjectAtIndex(args, 2);
         NSString *arg_context = GetNullableObjectAtIndex(args, 3);
+        NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 4);
         FlutterError *error;
-        [api exportImageFile:arg_filterId  :arg_path  :arg_format  :arg_context error:&error];
+        [api exportImageFile:arg_filterId  :arg_path  :arg_format  :arg_context  :arg_value error:&error];
         callback(wrapResult(nil, error));
       }];
     }

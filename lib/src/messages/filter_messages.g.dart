@@ -47,14 +47,14 @@ class FilterApi {
     }
   }
 
-  Future<Uint8List> exportData(
-      int arg_filterId, String arg_format, String arg_context) async {
+  Future<Uint8List> exportData(int arg_filterId, String arg_format,
+      String arg_context, List<double?>? arg_value) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.FilterApi.exportData', codec,
         binaryMessenger: _binaryMessenger);
-    final Map<Object?, Object?>? replyMap =
-        await channel.send(<Object?>[arg_filterId, arg_format, arg_context])
-            as Map<Object?, Object?>?;
+    final Map<Object?, Object?>? replyMap = await channel
+            .send(<Object?>[arg_filterId, arg_format, arg_context, arg_value])
+        as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -79,13 +79,17 @@ class FilterApi {
   }
 
   Future<void> exportImageFile(int arg_filterId, String arg_path,
-      String arg_format, String arg_context) async {
+      String arg_format, String arg_context, List<double?>? arg_value) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
         'dev.flutter.pigeon.FilterApi.exportImageFile', codec,
         binaryMessenger: _binaryMessenger);
-    final Map<Object?, Object?>? replyMap = await channel
-            .send(<Object?>[arg_filterId, arg_path, arg_format, arg_context])
-        as Map<Object?, Object?>?;
+    final Map<Object?, Object?>? replyMap = await channel.send(<Object?>[
+      arg_filterId,
+      arg_path,
+      arg_format,
+      arg_context,
+      arg_value
+    ]) as Map<Object?, Object?>?;
     if (replyMap == null) {
       throw PlatformException(
         code: 'channel-error',
