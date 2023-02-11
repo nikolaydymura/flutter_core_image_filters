@@ -11,8 +11,19 @@ import CoreImage
 
 let filters = [
     FilterItem(displayName: "Area Average",
-                          filterName: "CIAreaAverage",
-                          values: ["inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 340, height: 180))])
+               filterName: "CIAreaAverage",
+               values: [
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 1800, height: 1075))
+               ]
+              ),
+    
+    FilterItem(displayName: "3 by 3 Convolution",
+               filterName: "CIConvolution3X3",
+               values: [
+                "inputBias": 0.5,
+                "inputWeights" : CIVector(values: [1, 0, 0, 0, 1, 0, 0, 0, 0], count: 9)
+               ]
+              )
 ]
 
 

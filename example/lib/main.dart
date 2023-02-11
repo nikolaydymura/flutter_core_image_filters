@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
       home: const ListPage(),
     );
@@ -71,7 +71,7 @@ class ListPage extends StatelessWidget {
                       },
                       title: Text(item.name),
                       trailing: Icon(
-                        Icons.navigate_next,
+                        Icons.arrow_forward,
                         color: Theme.of(context).colorScheme.error,
                       ),
                     ),
@@ -101,7 +101,7 @@ class ListPage extends StatelessWidget {
                       },
                       title: Text(item.name),
                       trailing: Icon(
-                        Icons.navigate_next,
+                        Icons.arrow_forward,
                         color: Theme.of(context).primaryColor,
                       ),
                     ),

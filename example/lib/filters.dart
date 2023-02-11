@@ -501,8 +501,8 @@ final kFailedFilters = [
     FlutterCoreImageFilters.createFilter<CIConvolution3X3Configuration>(
       displayName: '3 by 3 Convolution',
     )
-      ..bias = 1
-      ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
+      ..bias = 0.5
+      ..weights = Mat3([1, 0, 0, 0, 1, 0, 0, 0, 0]),
   ),
   FilterItem(
     'Column Average',
@@ -651,7 +651,7 @@ final kFailedFilters = [
     'Area Average',
     FlutterCoreImageFilters.createFilter<CIAreaAverageConfiguration>(
       displayName: 'Area Average',
-    )..extent = const Rect.fromLTWH(1, 1, 320, 40),
+    )..extent = const Rect.fromLTWH(0, 0, 1800, 1075),
   ),
   FilterItem(
     'Saliency Map Filter',
