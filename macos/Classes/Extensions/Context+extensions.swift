@@ -9,6 +9,10 @@ import Foundation
 import Metal
 
 extension CIContext {
+    var currentColorSpace: CGColorSpace {
+        return workingColorSpace ?? Context.context.defaultColorSpace
+    }
+    
     private class var defaultContext : CIContext {
         Context.context.defaultContext
     }
@@ -56,15 +60,19 @@ fileprivate class Context {
 #if targetEnvironment(simulator)
         return [
             CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : NSNull()
+            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
         ]
 #else
         return [
             CIContextOption.useSoftwareRenderer : false,
-            CIContextOption.workingColorSpace : NSNull()
+            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
         ]
 #endif
     }
+    
+    lazy var defaultColorSpace: CGColorSpace = {
+        return CGColorSpace(name: CGColorSpace.sRGB)!
+    }()
     
     lazy var defaultContext = {
         CIContext()

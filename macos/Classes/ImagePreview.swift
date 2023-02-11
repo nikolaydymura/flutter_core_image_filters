@@ -19,26 +19,42 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
         guard let filter = filter else {
             if let image = image,
                 let buffer = createPixelBuffer(from: image) {
-                context.render(image, to: buffer)
+                context.render(image, to: buffer, bounds: image.extent, colorSpace: context.currentColorSpace)
                 return Unmanaged.passRetained(buffer)
             } else {
                 return nil
             }
         }
         if filter.inputKeys.contains(kCIInputImageKey) {
-            if let image = image,
-                let buffer = createPixelBuffer(from: image) {
+            if let image = image {
                 filter.setValue(image, forKey: kCIInputImageKey)
-                let processed = filter.outputImage?.cropped(to: image.extent) ?? image
-                context.render(processed, to: buffer)
-                return Unmanaged.passRetained(buffer)
+                
+                guard var processed = filter.outputImage else {
+                    return nil
+                }
+                if processed.extent.isInfinite {
+                    processed = processed.cropped(to: image.extent)
+                }
+                if processed.extent.origin.x < 0 || processed.extent.origin.y < 0 {
+                    processed = processed.transformed(by:
+                                                        CGAffineTransform(
+                                                            translationX: abs(processed.extent.origin.x),
+                                                            y: abs(processed.extent.origin.y))
+                    )
+                }
+                if let buffer = createPixelBuffer(from: processed) {
+                    context.render(processed, to: buffer, bounds: processed.extent, colorSpace: context.currentColorSpace)
+                    return Unmanaged.passRetained(buffer)
+                } else {
+                    return nil
+                }
             } else {
                 return nil
             }
         } else {
             if let image = filter.outputImage?.cropped(to: outputRect),
                 let buffer = createPixelBuffer(from: image) {
-                context.render(image, to: buffer)
+                context.render(image, to: buffer, bounds: image.extent, colorSpace: context.currentColorSpace)
                 return Unmanaged.passRetained(buffer)
             } else {
                 return nil

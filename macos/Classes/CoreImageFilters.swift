@@ -333,7 +333,7 @@ extension CoreImageFilters {
         }
         
         let context = CIContext.selectImageContext(context)
-        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
+        let colorSpace = context.currentColorSpace
         if format == "png" {
             if let data = context.pngRepresentation(of: image, format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace) {
                 return FlutterStandardTypedData(bytes: data)
@@ -380,7 +380,7 @@ extension CoreImageFilters {
         }
         
         let context = CIContext.selectImageContext(context)
-        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
+        let colorSpace = context.currentColorSpace
         if format == "png" {
             do {
                 try context.writePNGRepresentation(of: image, to: URL(fileURLWithPath: path), format: CIFormat.RGBA8, colorSpace: image.colorSpace ?? colorSpace)
