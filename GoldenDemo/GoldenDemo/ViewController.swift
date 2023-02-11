@@ -93,7 +93,7 @@ class PreviewController: UIViewController {
     
     func displayDefaultContext(outputImage: CIImage) {
         let context = CIContext()
-        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
+        let colorSpace = context.currentColorSpace
         
         guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
             return
@@ -105,9 +105,9 @@ class PreviewController: UIViewController {
     func displayOpenGLContext(outputImage: CIImage) {
         let context = CIContext(eaglContext: EAGLContext(api: .openGLES2)!, options: [
             CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : NSNull()
+            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
         ])
-        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
+        let colorSpace = context.currentColorSpace
         
         guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
             return
@@ -118,13 +118,19 @@ class PreviewController: UIViewController {
     func displayMLTContext(outputImage: CIImage) {
         let context = CIContext(mtlDevice: MTLCreateSystemDefaultDevice()!, options: [
             CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : NSNull()
+            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
         ])
-        let colorSpace = (context.workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB))!
+        let colorSpace = context.currentColorSpace
         
         guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
             return
         }
         imageView3.image = UIImage(data: data)
+    }
+}
+
+extension CIContext {
+    var currentColorSpace: CGColorSpace {
+        return workingColorSpace ?? CGColorSpace(name: CGColorSpace.sRGB)!
     }
 }

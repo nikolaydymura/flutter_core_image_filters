@@ -23,6 +23,15 @@ let filters = [
                 "inputBias": 0.5,
                 "inputWeights" : CIVector(values: [1, 0, 0, 0, 1, 0, 0, 0, 0], count: 9)
                ]
+              ),
+    
+    FilterItem(displayName: "Twirl Distortion",
+               filterName: "CITwirlDistortion",
+               values: [
+                "inputAngle": 6.23,
+                "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                "inputRadius": 250
+               ]
               )
 ]
 

@@ -168,13 +168,13 @@ class _FilterPageState extends State<FilterPage> {
           await CIImagePreviewController.fromFile(_imageFile);
     } else {
       destinationSystemController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
       destinationOpenGLController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
       destinationMetalController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
     }
     await widget.configuration.prepare();
@@ -201,13 +201,13 @@ class _FilterPageState extends State<FilterPage> {
           await CIImagePreviewController.fromAsset(_imageFile.path);
     } else {
       destinationSystemController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
       destinationOpenGLController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
       destinationMetalController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 200, 200),
+        const Rect.fromLTWH(0, 0, 300, 300),
       );
     }
     await widget.configuration.prepare();
