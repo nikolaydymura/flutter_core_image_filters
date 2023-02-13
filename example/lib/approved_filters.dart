@@ -1,4 +1,3 @@
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -11,9 +10,19 @@ class FilterItem {
   final CIFilterConfiguration configuration;
 
   FilterItem(this.name, this.configuration);
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is FilterItem &&
+          runtimeType == other.runtimeType &&
+          name == other.name;
+
+  @override
+  int get hashCode => name.hashCode;
 }
 
-final kFilters = [
+final kFilters = {
   FilterItem(
     'Color Polynomial',
     FlutterCoreImageFilters.createFilter<CIColorPolynomialConfiguration>(
@@ -386,11 +395,11 @@ final kFilters = [
     FlutterCoreImageFilters.createFilter<CICropConfiguration>(
       displayName: 'Crop',
     )..rectangle = const Rect.fromLTWH(
-      -8.98847e+307,
-      -8.98847e+307,
-      1.79769e+308,
-      1.79769e+308,
-    ),
+        -8.98847e+307,
+        -8.98847e+307,
+        1.79769e+308,
+        1.79769e+308,
+      ),
   ),
   FilterItem(
     'CMYK Halftone',
@@ -437,40 +446,12 @@ final kFilters = [
     )..color = const Color.fromRGBO(100, 100, 100, 1.0),
   ),
   FilterItem(
-    'False Color',
-    FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
-      displayName: 'False Color',
-    )
-      ..color0 = const Color.fromRGBO(10, 20, 50, 1.0)
-      ..color1 = const Color.fromRGBO(2, 18, 11, 1.0),
-  ),
-  FilterItem(
-    'Constant Color',
-    FlutterCoreImageFilters.createFilter<CIConstantColorGeneratorConfiguration>(
-      displayName: 'Constant Color',
-    )..color = const Color.fromRGBO(100, 150, 100, 1.0),
-  ),
-  FilterItem(
     'Color Monochrome',
     FlutterCoreImageFilters.createFilter<CIColorMonochromeConfiguration>(
       displayName: 'Color Monochrome',
     )
       ..intensity = 0.5
       ..color = const Color.fromRGBO(255, 100, 30, 1.0),
-  ),
-  FilterItem(
-    'False Color',
-    FlutterCoreImageFilters.createFilter<CIFalseColorConfiguration>(
-      displayName: 'False Color',
-    )
-      ..color0 = const Color.fromRGBO(255, 0, 0, 1.0)
-      ..color1 = const Color.fromRGBO(0, 255, 0, 1.0),
-  ),
-  FilterItem(
-    'White Point Adjust',
-    FlutterCoreImageFilters.createFilter<CIWhitePointAdjustConfiguration>(
-      displayName: 'White Point Adjust',
-    )..color = const Color.fromRGBO(100, 100, 100, 1.0),
   ),
   FilterItem(
     'False Color',
@@ -854,4 +835,4 @@ final kFilters = [
       displayName: 'Photo Effect Noir',
     ),
   ),
-].sorted((a, b) => a.name.compareTo(b.name));
+}.sorted((a, b) => a.name.compareTo(b.name));

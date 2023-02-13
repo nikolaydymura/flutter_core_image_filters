@@ -53,7 +53,7 @@ class ListPage extends StatelessWidget {
           slivers: [
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                    (context, index) {
+                (context, index) {
                   final item = kFailedFilters[index];
                   return Card(
                     child: ListTile(
@@ -83,7 +83,7 @@ class ListPage extends StatelessWidget {
             ),
             SliverFixedExtentList(
               delegate: SliverChildBuilderDelegate(
-                    (context, index) {
+                (context, index) {
                   final item = kFilters[index];
                   return Card(
                     child: ListTile(
@@ -267,7 +267,8 @@ class _FilterPageState extends State<FilterPage> {
 
   Future<void> _exportVideo() async {
     final file = _videoFile;
-    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
+    final root =
+        Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
       '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
@@ -288,7 +289,8 @@ class _FilterPageState extends State<FilterPage> {
 
   Future<void> _exportImage() async {
     final file = _imageFile;
-    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
+    final root =
+        Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
       '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
