@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
+import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 class FilterItem {
   final String name;
@@ -13,6 +14,212 @@ class FilterItem {
 }
 
 final kFilters = [
+  FilterItem(
+    'Color Polynomial',
+    FlutterCoreImageFilters.createFilter<CIColorPolynomialConfiguration>(
+      displayName: 'Color Polynomial',
+    )
+      ..redCoefficients = [1, 1, 0, 0]
+      ..greenCoefficients = [1, 1, 0, 0]
+      ..alphaCoefficients = [0, 1, 0, 0]
+      ..blueCoefficients = [0, 1, 0, 0],
+  ),
+  FilterItem(
+    'Color Matrix',
+    FlutterCoreImageFilters.createFilter<CIColorMatrixConfiguration>(
+      displayName: 'Color Matrix',
+    )
+      ..gVector = [0, 1, 0, 0]
+      ..biasVector = [0, 0, 0, 0]
+      ..rVector = [1, 1, 0, 0]
+      ..aVector = [0, 0, 0, 1]
+      ..bVector = [1, 0, 1, 0],
+  ),
+  FilterItem(
+    'Color Cross Polynomial',
+    FlutterCoreImageFilters.createFilter<CIColorCrossPolynomialConfiguration>(
+      displayName: 'Color Cross Polynomial',
+    )
+      ..redCoefficients = [1, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+      ..greenCoefficients = [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
+      ..blueCoefficients = [1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+  ),
+  FilterItem(
+    'Clamp',
+    FlutterCoreImageFilters.createFilter<CIClampConfiguration>(
+      displayName: 'Clamp',
+    )..extent = const Rect.fromLTWH(100, 100, 320, 40),
+  ),
+  FilterItem(
+    'Bump Distortion Linear',
+    FlutterCoreImageFilters.createFilter<CIBumpDistortionLinearConfiguration>(
+      displayName: 'Bump Distortion Linear',
+    )
+      ..center = const Point(750.0, 750.0)
+      ..radius = 550
+      ..scale = 0.75
+      ..angle = 5.14,
+  ),
+  FilterItem(
+    'Bump Distortion',
+    FlutterCoreImageFilters.createFilter<CIBumpDistortionConfiguration>(
+      displayName: 'Bump Distortion',
+    )
+      ..radius = 300
+      ..scale = 0.75
+      ..center = const Point(75.0, 75.0),
+  ),
+  FilterItem(
+    '7 by 7 Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolution7X7Configuration>(
+      displayName: '7 by 7 Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat7([
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      ]),
+  ),
+  FilterItem(
+    'Twirl Distortion',
+    FlutterCoreImageFilters.createFilter<CITwirlDistortionConfiguration>(
+      displayName: 'Twirl Distortion',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..angle = 6.23
+      ..radius = 250,
+  ),
+  FilterItem(
+    'Area Min and Max Red',
+    FlutterCoreImageFilters.createFilter<CIAreaMinMaxRedConfiguration>(
+      displayName: 'Area Min and Max Red',
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
+  ),
+  FilterItem(
+    'Area Min and Max',
+    FlutterCoreImageFilters.createFilter<CIAreaMinMaxConfiguration>(
+      displayName: 'Area Min and Max',
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
+  ),
+  FilterItem(
+    'Area Minimum Alpha',
+    FlutterCoreImageFilters.createFilter<CIAreaMinimumAlphaConfiguration>(
+      displayName: 'Area Minimum Alpha',
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
+  ),
+  FilterItem(
+    'Area Maximum Alpha',
+    FlutterCoreImageFilters.createFilter<CIAreaMaximumAlphaConfiguration>(
+      displayName: 'Area Maximum Alpha',
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
+  ),
+  FilterItem(
+    'Area Maximum',
+    FlutterCoreImageFilters.createFilter<CIAreaMaximumConfiguration>(
+      displayName: 'Area Maximum',
+    )..extent = const Rect.fromLTWH(0, 0, 10, 10),
+  ),
+  FilterItem(
+    'Area Minimum',
+    FlutterCoreImageFilters.createFilter<CIAreaMinimumConfiguration>(
+      displayName: 'Area Minimum',
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
+  ),
+  FilterItem(
+    'Area Average',
+    FlutterCoreImageFilters.createFilter<CIAreaAverageConfiguration>(
+      displayName: 'Area Average',
+    )..extent = const Rect.fromLTWH(0, 0, 1800, 1075),
+  ),
+  FilterItem(
+    '5 by 5 Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolution5X5Configuration>(
+      displayName: '5 by 5 Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat5([
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]),
+  ),
+  FilterItem(
+    '3 by 3 Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolution3X3Configuration>(
+      displayName: '3 by 3 Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat3([1, 0, 0, 0, 1, 0, 0, 0, 0]),
+  ),
   FilterItem(
     'Zoom Blur',
     FlutterCoreImageFilters.createFilter<CIZoomBlurConfiguration>(
@@ -207,14 +414,21 @@ final kFilters = [
       ..width = 25,
   ),
   FilterItem(
-    'Bump Distortion Linear',
-    FlutterCoreImageFilters.createFilter<CIBumpDistortionLinearConfiguration>(
-      displayName: 'Bump Distortion Linear',
+    'Circular Wrap Distortion',
+    FlutterCoreImageFilters.createFilter<CICircularWrapConfiguration>(
+      displayName: 'Circular Wrap Distortion',
     )
-      ..center = const Point(75.0, 75.0)
       ..radius = 300
-      ..scale = 1
-      ..angle = 3.14,
+      ..angle = 3.14
+      ..center = const Point(150.0, 150.0),
+  ),
+  FilterItem(
+    'Circle Splash Distortion',
+    FlutterCoreImageFilters.createFilter<CICircleSplashDistortionConfiguration>(
+      displayName: 'Circle Splash Distortion',
+    )
+      ..radius = 450
+      ..center = const Point(150.0, 150.0),
   ),
   FilterItem(
     'White Point Adjust',

@@ -10,74 +10,8 @@ import CoreImage
 
 
 let failedFilters = [
-    FilterItem(displayName: "Area Min and Max Red",
-               filterName: "CIAreaMinMaxRed",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Min and Max Red",
-               filterName: "CIAreaMinMaxRed"
-              ),
-    
-    FilterItem(displayName: "Area Min and Max",
-               filterName: "CIAreaMinMax",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Min and Max",
-               filterName: "CIAreaMinMax"
-              ),
-    
-    FilterItem(displayName: "Area Minimum Alpha",
-               filterName: "CIAreaMinimumAlpha",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Minimum Alpha",
-               filterName: "CIAreaMinimumAlpha"
-              ),
-    
-    FilterItem(displayName: "Area Minimum",
-               filterName: "CIAreaMinimum",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Minimum",
-               filterName: "CIAreaMinimum"
-              ),
-    
-    FilterItem(displayName: "Area Maximum Alpha",
-               filterName: "CIAreaMaximumAlpha",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Maximum Alpha",
-               filterName: "CIAreaMaximumAlpha"
-              ),
-    
-    FilterItem(displayName: "Area Maximum",
-               filterName: "CIAreaMaximum",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
-    
-    FilterItem(displayName: "Area Maximum",
-               filterName: "CIAreaMaximum"
-              ),
-    
-    FilterItem(displayName: "Area Logarithmic Histogram",
-               filterName: "CIAreaLogarithmicHistogram",
+
+    FilterItem(filterName: "CIAreaLogarithmicHistogram",
                values: [
                 "inputMinimumStop" : -6,
                 "inputMaximumStop" : 4,
@@ -86,78 +20,30 @@ let failedFilters = [
                ]
               ),
     
-    FilterItem(displayName: "Area Logarithmic Histogram",
-               filterName: "CIAreaLogarithmicHistogram"
+    FilterItem(filterName: "CIAreaLogarithmicHistogram"
               ),
     
-    FilterItem(displayName: "Area Histogram",
-               filterName: "CIAreaHistogram",
+    FilterItem(filterName: "CIAreaHistogram",
                values: [
                 "inputScale" : 0.5,
                 "inputCount" : 1024,
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 640, height: 80)),
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 1800, height: 1075)),
                ]
               ),
     
-    FilterItem(displayName: "Area Histogram",
-               filterName: "CIAreaHistogram"
+    FilterItem(filterName: "CIAreaHistogram"
               ),
-    
-    FilterItem(displayName: "Area Average",
-               filterName: "CIAreaAverage",
+    FilterItem(filterName: "CICheckerboardGenerator"),
+    FilterItem(filterName: "CIColorClamp", values: [
+        "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
+        "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
+    ]),
+    FilterItem(filterName: "CIColumnAverage",
                values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 640, height: 80))
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
                ]
               ),
-    
-    FilterItem(displayName: "Area Average",
-               filterName: "CIAreaAverage"
-              ),
-    
-    FilterItem(displayName: "7 by 7 Convolution",
-               filterName: "CIConvolution7X7",
-               values: [
-                "inputBias": 0,
-                "inputWeights" : CIVector(values: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], count: 49)
-               ]
-              ),
-    
-    FilterItem(displayName: "7 by 7 Convolution",
-               filterName: "CIConvolution7X7"
-              ),
-    
-    FilterItem(displayName: "5 by 5 Convolution",
-               filterName: "CIConvolution5X5",
-               values: [
-                "inputBias": 1,
-                "inputWeights" : CIVector(values: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], count: 25)
-               ]
-              ),
-    
-    FilterItem(displayName: "5 by 5 Convolution",
-               filterName: "CIConvolution5X5"
-              ),
-    
-    FilterItem(displayName: "3 by 3 Convolution",
-               filterName: "CIConvolution3X3",
-               values: [
-                "inputBias": 0.5,
-                "inputWeights" : CIVector(values: [1, 0, 0, 0, 1, 0, 0, 0, 0], count: 9)
-               ]
-              ),
-    
-    FilterItem(displayName: "3 by 3 Convolution",
-               filterName: "CIConvolution3X3"
-              ),
-    
-    FilterItem(displayName: "Twirl Distortion",
-               filterName: "CITwirlDistortion",
-               values: [
-                "inputAngle": 6.23,
-                "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
-                "inputRadius": 250
-               ]
-              )
+
 ].sorted()
 
 
@@ -171,12 +57,10 @@ class FilterItem: Comparable {
         lhs.displayName == rhs.displayName
     }
     
-    let displayName: String
     fileprivate let filterName: String
     fileprivate let values: [String: Any]?
     
-    init(displayName: String, filterName: String, values: [String: Any]? = nil) {
-        self.displayName = values == nil ? "\(displayName) (default)": displayName
+    init(filterName: String, values: [String: Any]? = nil) {
         self.filterName = filterName
         self.values = values
     }
@@ -187,5 +71,13 @@ class FilterItem: Comparable {
             f?.setValue(value, forKey: key)
         }
         return f!
+    }()
+    
+    lazy var displayName: String = {
+        guard let displayName = filter.attributes[kCIAttributeFilterDisplayName] as? String else {
+            fatalError("Not posilble")
+        }
+        
+       return values == nil ? "\(displayName) (default)" : displayName
     }()
 }

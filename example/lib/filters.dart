@@ -41,15 +41,6 @@ final kFailedFilters = [
       ..radius = 1000,
   ),
   FilterItem(
-    'Twirl Distortion',
-    FlutterCoreImageFilters.createFilter<CITwirlDistortionConfiguration>(
-      displayName: 'Twirl Distortion',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..angle = 6.23
-      ..radius = 250,
-  ),
-  FilterItem(
     'Twelvefold Reflected Tile',
     FlutterCoreImageFilters.createFilter<
         CITwelvefoldReflectedTileConfiguration>(
@@ -581,242 +572,10 @@ final kFailedFilters = [
       ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
   ),
   FilterItem(
-    '7 by 7 RGB Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolutionRGB7X7Configuration>(
-      displayName: '7 by 7 RGB Convolution',
-    )
-      ..bias = 0
-      ..weights = Mat7([
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ]),
-  ),
-  FilterItem(
-    '7 by 7 RGB Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolutionRGB7X7Configuration>(
-      displayName: '7 by 7 RGB Convolution',
-    ),
-    /*    ..bias = 0
-      ..weights = Mat7([
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-      ]),
-  */
-  ),
-  FilterItem(
-    '5 by 5 Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolution5X5Configuration>(
-      displayName: '5 by 5 Convolution',
-    )
-      ..bias = 1
-      ..weights = Mat5([
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]),
-  ),
-  FilterItem(
-    '5 by 5 Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolution5X5Configuration>(
-      displayName: '5 by 5 Convolution',
-    ),
-    /*    ..bias = 1
-      ..weights = Mat5([
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ]),
-  */
-  ),
-  FilterItem(
-    '3 by 3 Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolution3X3Configuration>(
-      displayName: '3 by 3 Convolution',
-    )
-      ..bias = 0.5
-      ..weights = Mat3([1, 0, 0, 0, 1, 0, 0, 0, 0]),
-  ),
-  FilterItem(
-    '3 by 3 Convolution',
-    FlutterCoreImageFilters.createFilter<CIConvolution3X3Configuration>(
-      displayName: '3 by 3 Convolution',
-    ),
-    //    ..bias = 0.5
-    //    ..weights = Mat3([1, 0, 0, 0, 1, 0, 0, 0, 0]),
-  ),
-  FilterItem(
     'Column Average',
     FlutterCoreImageFilters.createFilter<CIColumnAverageConfiguration>(
       displayName: 'Column Average',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Color Polynomial',
-    FlutterCoreImageFilters.createFilter<CIColorPolynomialConfiguration>(
-      displayName: 'Color Polynomial',
-    )
-      ..redCoefficients = [1, 0, 1, 1]
-      ..greenCoefficients = [1, 0, 1, 1]
-      ..alphaCoefficients = [1, 0, 1, 1]
-      ..blueCoefficients = [1, 0, 1, 1],
-  ),
-  FilterItem(
-    'Color Matrix',
-    FlutterCoreImageFilters.createFilter<CIColorMatrixConfiguration>(
-      displayName: 'Color Matrix',
-    )
-      ..gVector = [0, 1, 0, 0]
-      ..biasVector = [0, 0, 0, 0]
-      ..rVector = [1, 0, 0, 0]
-      ..aVector = [0, 0, 0, 1]
-      ..bVector = [0, 0, 1, 0],
-  ),
-  FilterItem(
-    'Color Cross Polynomial',
-    FlutterCoreImageFilters.createFilter<CIColorCrossPolynomialConfiguration>(
-      displayName: 'Color Cross Polynomial',
-    )
-      ..redCoefficients = [1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-      ..greenCoefficients = [0, 1, 0, 0, 0, 0, 0, 0, 0, 0]
-      ..blueCoefficients = [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
   ),
   FilterItem(
     'Color Clamp',
@@ -825,50 +584,6 @@ final kFailedFilters = [
     )
       ..maxComponents = [0.5, 0.5, 0.5, 0.5]
       ..minComponents = [0, 0, 0, 0],
-  ),
-  FilterItem(
-    'CMYK Halftone',
-    FlutterCoreImageFilters.createFilter<CICMYKHalftoneConfiguration>(
-      displayName: 'CMYK Halftone',
-    )
-      ..gCR = 0
-      ..uCR = 1
-      ..width = 50
-      ..center = const Point(150.0, 150.0)
-      ..angle = 3.14
-      ..sharpness = 0.5,
-  ),
-  FilterItem(
-    'Clamp',
-    FlutterCoreImageFilters.createFilter<CIClampConfiguration>(
-      displayName: 'Clamp',
-    )..extent = const Rect.fromLTWH(10, 10, 320, 40),
-  ),
-  FilterItem(
-    'Circular Wrap Distortion',
-    FlutterCoreImageFilters.createFilter<CICircularWrapConfiguration>(
-      displayName: 'Circular Wrap Distortion',
-    )
-      ..radius = 300
-      ..angle = 3.14
-      ..center = const Point(150.0, 150.0),
-  ),
-  FilterItem(
-    'Circular Screen',
-    FlutterCoreImageFilters.createFilter<CICircularScreenConfiguration>(
-      displayName: 'Circular Screen',
-    )
-      ..center = const Point(150.0, 150.0)
-      ..sharpness = 0.5
-      ..width = 25,
-  ),
-  FilterItem(
-    'Circle Splash Distortion',
-    FlutterCoreImageFilters.createFilter<CICircleSplashDistortionConfiguration>(
-      displayName: 'Circle Splash Distortion',
-    )
-      ..radius = 450
-      ..center = const Point(150.0, 150.0),
   ),
   FilterItem(
     'Checkerboard',
@@ -880,103 +595,6 @@ final kFailedFilters = [
       ..center = const Point(150.0, 150.0)
       ..width = 400
       ..color1 = const Color.fromRGBO(1, 1, 0, 1.0),
-  ),
-  FilterItem(
-    'Bump Distortion Linear',
-    FlutterCoreImageFilters.createFilter<CIBumpDistortionLinearConfiguration>(
-      displayName: 'Bump Distortion Linear',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..radius = 300
-      ..scale = 1
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Bump Distortion',
-    FlutterCoreImageFilters.createFilter<CIBumpDistortionConfiguration>(
-      displayName: 'Bump Distortion',
-    )
-      ..radius = 300
-      ..scale = 0
-      ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
-    'Area Min and Max Red',
-    FlutterCoreImageFilters.createFilter<CIAreaMinMaxRedConfiguration>(
-      displayName: 'Area Min and Max Red',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Min and Max Red',
-    FlutterCoreImageFilters.createFilter<CIAreaMinMaxRedConfiguration>(
-      displayName: 'Area Min and Max Red',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Min and Max',
-    FlutterCoreImageFilters.createFilter<CIAreaMinMaxConfiguration>(
-      displayName: 'Area Min and Max',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Min and Max',
-    FlutterCoreImageFilters.createFilter<CIAreaMinMaxConfiguration>(
-      displayName: 'Area Min and Max',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Minimum Alpha',
-    FlutterCoreImageFilters.createFilter<CIAreaMinimumAlphaConfiguration>(
-      displayName: 'Area Minimum Alpha',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Minimum Alpha',
-    FlutterCoreImageFilters.createFilter<CIAreaMinimumAlphaConfiguration>(
-      displayName: 'Area Minimum Alpha',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Minimum',
-    FlutterCoreImageFilters.createFilter<CIAreaMinimumConfiguration>(
-      displayName: 'Area Minimum',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Minimum',
-    FlutterCoreImageFilters.createFilter<CIAreaMinimumConfiguration>(
-      displayName: 'Area Minimum',
-    ),
-    //..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Maximum Alpha',
-    FlutterCoreImageFilters.createFilter<CIAreaMaximumAlphaConfiguration>(
-      displayName: 'Area Maximum Alpha',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Maximum Alpha',
-    FlutterCoreImageFilters.createFilter<CIAreaMaximumAlphaConfiguration>(
-      displayName: 'Area Maximum Alpha',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Maximum',
-    FlutterCoreImageFilters.createFilter<CIAreaMaximumConfiguration>(
-      displayName: 'Area Maximum',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Maximum',
-    FlutterCoreImageFilters.createFilter<CIAreaMaximumConfiguration>(
-      displayName: 'Area Maximum',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
   ),
   FilterItem(
     'Area Logarithmic Histogram',
@@ -1007,29 +625,13 @@ final kFailedFilters = [
     )
       ..scale = 0.5
       ..count = 1024
-      ..extent = const Rect.fromLTWH(0, 0, 640, 80),
+      ..extent = const Rect.fromLTWH(0, 0, 1800, 1075),
   ),
   FilterItem(
-    'Area Histogram',
+    'Area Histogram (default)',
     FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
       displayName: 'Area Histogram',
     ),
-    //    ..scale = 0.5
-    //    ..count = 1024
-    //    ..extent = const Rect.fromLTWH((0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Average',
-    FlutterCoreImageFilters.createFilter<CIAreaAverageConfiguration>(
-      displayName: 'Area Average',
-    )..extent = const Rect.fromLTWH(0, 0, 640, 80),
-  ),
-  FilterItem(
-    'Area Average',
-    FlutterCoreImageFilters.createFilter<CIAreaAverageConfiguration>(
-      displayName: 'Area Average',
-    ),
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80),
   ),
   FilterItem(
     'Saliency Map Filter',
