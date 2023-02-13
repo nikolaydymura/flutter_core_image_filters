@@ -17,6 +17,7 @@
 		6DD7B33D2996DACB00B2E4D5 /* GoldenDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7B33C2996DACB00B2E4D5 /* GoldenDemoUITests.swift */; };
 		6DD7B33F2996DACB00B2E4D5 /* GoldenDemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7B33E2996DACB00B2E4D5 /* GoldenDemoUITestsLaunchTests.swift */; };
 		6DD7B34C2996DD4D00B2E4D5 /* Filters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7B34B2996DD4D00B2E4D5 /* Filters.swift */; };
+		6DD7B34F299AEA8200B2E4D5 /* ApprovedFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DD7B34D2999A5E600B2E4D5 /* ApprovedFilters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6DD7B33C2996DACB00B2E4D5 /* GoldenDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenDemoUITests.swift; sourceTree = "<group>"; };
 		6DD7B33E2996DACB00B2E4D5 /* GoldenDemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoldenDemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		6DD7B34B2996DD4D00B2E4D5 /* Filters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filters.swift; sourceTree = "<group>"; };
+		6DD7B34D2999A5E600B2E4D5 /* ApprovedFilters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ApprovedFilters.swift; path = ApprovedFilters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		6DD7B31A2996DACA00B2E4D5 /* GoldenDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6DD7B34D2999A5E600B2E4D5 /* ApprovedFilters.swift */,
 				6DD7B31B2996DACA00B2E4D5 /* AppDelegate.swift */,
 				6DD7B34B2996DD4D00B2E4D5 /* Filters.swift */,
 				6DD7B31D2996DACA00B2E4D5 /* SceneDelegate.swift */,
@@ -261,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DD7B34F299AEA8200B2E4D5 /* ApprovedFilters.swift in Sources */,
 				6DD7B3202996DACA00B2E4D5 /* ViewController.swift in Sources */,
 				6DD7B34C2996DD4D00B2E4D5 /* Filters.swift in Sources */,
 				6DD7B31C2996DACA00B2E4D5 /* AppDelegate.swift in Sources */,

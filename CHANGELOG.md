@@ -1,3 +1,7 @@
+## 0.0.7
+
+Added `CGColorSpace` as parameter
+
 ## 0.0.6
 
 Updated parameters

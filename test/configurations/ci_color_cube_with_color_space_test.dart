@@ -27,10 +27,11 @@ void main() {
     });
     test('change inputColorSpace', () {
       final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColorSpace') as StringParameter;
-      expect(parameter.value, '');
-      configuration.colorSpace = 'sRGB';
-      expect(parameter.value, 'sRGB');
+              .firstWhere((e) => e.name == 'inputColorSpace')
+          as OptionStringParameter<CGColorSpace>;
+      expect(parameter.value.platformKey, '');
+      configuration.colorSpace = CGColorSpace.sRGB;
+      expect(parameter.value.platformKey, 'sRGB');
     });
     group('inputCubeData', () {
       test('change data', () {

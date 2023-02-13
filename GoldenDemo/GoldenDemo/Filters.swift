@@ -9,20 +9,58 @@ import Foundation
 import CoreImage
 
 
-let filters = [
-    FilterItem(displayName: "Area Average",
-                          filterName: "CIAreaAverage",
-                          values: ["inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 340, height: 180))])
-]
+let failedFilters = [
+
+    FilterItem(filterName: "CIAreaLogarithmicHistogram",
+               values: [
+                "inputMinimumStop" : -6,
+                "inputMaximumStop" : 4,
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 640, height: 80)),
+                "inputCount" : 1024,
+               ]
+              ),
+    
+    FilterItem(filterName: "CIAreaLogarithmicHistogram"
+              ),
+    
+    FilterItem(filterName: "CIAreaHistogram",
+               values: [
+                "inputScale" : 0.5,
+                "inputCount" : 1024,
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 1800, height: 1075)),
+               ]
+              ),
+    
+    FilterItem(filterName: "CIAreaHistogram"
+              ),
+    FilterItem(filterName: "CICheckerboardGenerator"),
+    FilterItem(filterName: "CIColorClamp", values: [
+        "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
+        "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
+    ]),
+    FilterItem(filterName: "CIColumnAverage",
+               values: [
+                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
+               ]
+              ),
+
+].sorted()
 
 
-class FilterItem {
-    let displayName: String
+class FilterItem: Comparable {
+    
+    static func < (lhs: FilterItem, rhs: FilterItem) -> Bool {
+        lhs.displayName < rhs.displayName
+    }
+    
+    static func == (lhs: FilterItem, rhs: FilterItem) -> Bool {
+        lhs.displayName == rhs.displayName
+    }
+    
     fileprivate let filterName: String
     fileprivate let values: [String: Any]?
     
-    init(displayName: String, filterName: String, values: [String: Any]? = nil) {
-        self.displayName = displayName
+    init(filterName: String, values: [String: Any]? = nil) {
         self.filterName = filterName
         self.values = values
     }
@@ -33,5 +71,13 @@ class FilterItem {
             f?.setValue(value, forKey: key)
         }
         return f!
+    }()
+    
+    lazy var displayName: String = {
+        guard let displayName = filter.attributes[kCIAttributeFilterDisplayName] as? String else {
+            fatalError("Not posilble")
+        }
+        
+       return values == nil ? "\(displayName) (default)" : displayName
     }()
 }

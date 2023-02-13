@@ -53,6 +53,12 @@ void main() {
               true,
               reason: '${param.name} in ${configuration.name}',
             );
+          } else if (param is CGColorSpaceParameter) {
+            expect(
+              type?.isEmpty,
+              true,
+              reason: '${param.name} in ${configuration.name}',
+            );
           } else if (param is CGPositionParameter) {
             expect(
               type == 'CIAttributeTypePosition' ||
