@@ -31,4 +31,5 @@ build/
 coverage/
 example/integration_test/goldens/
 example/integration_test/failures/
+GoldenDemo/GoldenDemo.xcodeproj/project.xcworkspace/xcuserdata/
 GoldenDemo/GoldenDemo.xcodeproj/xcuserdata/
