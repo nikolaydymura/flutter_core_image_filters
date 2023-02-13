@@ -341,7 +341,8 @@ extension CoreImageFilters {
                 error.pointee = FlutterError(code: "core-image-filters", message: "Failed to create PNG data", details: nil)
             }
         } else if format == "jpeg" {
-            if let data = context.jpegRepresentation(of: image, colorSpace: image.colorSpace ?? colorSpace) {
+            if let data = context.jpegRepresentation(of: image, colorSpace: image.colorSpace ?? colorSpace,
+                                                     options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 1.0]) {
                 return FlutterStandardTypedData(bytes: data)
             } else {
                 error.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JPEG data", details: nil)
@@ -389,7 +390,8 @@ extension CoreImageFilters {
             }
         } else if format == "jpeg" {
             do {
-                try context.writeJPEGRepresentation(of: image, to: URL(fileURLWithPath: path), colorSpace: image.colorSpace ?? colorSpace)
+                try context.writeJPEGRepresentation(of: image, to: URL(fileURLWithPath: path), colorSpace: image.colorSpace ?? colorSpace,
+                                                    options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 1.0])
             } catch {
                 flutterError.pointee = FlutterError(code: "core-image-filters", message: "Failed to create JEPG data", details: error)
             }

@@ -64,14 +64,61 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gw2-sa-hZN">
-                                <rect key="frame" x="8" y="115" width="377" height="213"/>
+                                <rect key="frame" x="8" y="159" width="377" height="213"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XjE-lX-7IG">
-                                <rect key="frame" x="8" y="336" width="377" height="213"/>
+                                <rect key="frame" x="8" y="380" width="377" height="213"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="52i-67-q0y">
-                                <rect key="frame" x="8" y="557" width="377" height="213"/>
+                                <rect key="frame" x="8" y="601" width="377" height="213"/>
                             </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rph-ss-fKf">
+                                <rect key="frame" x="9.6666666666666572" y="58.999999999999993" width="373.66666666666674" height="85.333333333333314"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="p7u-dL-3r9">
+                                        <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="W0O-tC-wpS" appends="YES" id="mWd-0I-BgC"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo-red" translatesAutoresizingMaskIntoConstraints="NO" id="dHM-Ht-EsP">
+                                        <rect key="frame" x="62.333333333333329" y="0.0" width="62.333333333333329" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="3YA-OL-Bgh" appends="YES" id="Zet-hA-QAH"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo-green" translatesAutoresizingMaskIntoConstraints="NO" id="FDb-ri-0XJ">
+                                        <rect key="frame" x="124.66666666666667" y="0.0" width="62.333333333333329" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="aTe-pc-Inn" appends="YES" id="1Jm-8j-dFu"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo-blue" translatesAutoresizingMaskIntoConstraints="NO" id="AcM-cb-iOc">
+                                        <rect key="frame" x="187" y="0.0" width="62" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="WH0-V6-dBm" appends="YES" id="184-Vp-Xqm"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo-white" translatesAutoresizingMaskIntoConstraints="NO" id="31b-Wo-nEl">
+                                        <rect key="frame" x="249.00000000000003" y="0.0" width="62.333333333333343" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="2KC-rD-nYI" appends="YES" id="Uba-TE-gGF"/>
+                                        </connections>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo-black" translatesAutoresizingMaskIntoConstraints="NO" id="aGd-Dt-LtB">
+                                        <rect key="frame" x="311.33333333333331" y="0.0" width="62.333333333333314" height="85.333333333333329"/>
+                                        <gestureRecognizers/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="xLJ-KP-p9v" appends="YES" id="VEq-xQ-b9C"/>
+                                        </connections>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D7b-sw-V5d"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -79,14 +126,18 @@
                             <constraint firstItem="52i-67-q0y" firstAttribute="top" secondItem="XjE-lX-7IG" secondAttribute="bottom" constant="8" id="08m-Du-Fan"/>
                             <constraint firstItem="52i-67-q0y" firstAttribute="height" secondItem="Qek-86-CU9" secondAttribute="height" multiplier="0.25" id="49U-2K-in1"/>
                             <constraint firstItem="gw2-sa-hZN" firstAttribute="height" secondItem="Qek-86-CU9" secondAttribute="height" multiplier="0.25" id="817-pt-EOq"/>
+                            <constraint firstItem="rph-ss-fKf" firstAttribute="height" secondItem="Qek-86-CU9" secondAttribute="height" multiplier="0.1" id="I1c-wg-0g6"/>
                             <constraint firstItem="XjE-lX-7IG" firstAttribute="top" secondItem="gw2-sa-hZN" secondAttribute="bottom" constant="8" id="I5J-ET-EPv"/>
+                            <constraint firstItem="rph-ss-fKf" firstAttribute="centerX" secondItem="D7b-sw-V5d" secondAttribute="centerX" id="Jcm-Gm-jrr"/>
                             <constraint firstItem="gw2-sa-hZN" firstAttribute="leading" secondItem="D7b-sw-V5d" secondAttribute="leading" constant="8" id="NzM-hn-7aG"/>
-                            <constraint firstItem="gw2-sa-hZN" firstAttribute="top" secondItem="D7b-sw-V5d" secondAttribute="top" constant="56" id="Qqg-9f-Ldg"/>
+                            <constraint firstItem="gw2-sa-hZN" firstAttribute="top" secondItem="D7b-sw-V5d" secondAttribute="top" constant="100" id="Qqg-9f-Ldg"/>
                             <constraint firstItem="XjE-lX-7IG" firstAttribute="leading" secondItem="D7b-sw-V5d" secondAttribute="leading" constant="8" id="W5W-cp-FQ1"/>
+                            <constraint firstItem="rph-ss-fKf" firstAttribute="top" secondItem="D7b-sw-V5d" secondAttribute="top" id="e0n-lB-keT"/>
                             <constraint firstItem="D7b-sw-V5d" firstAttribute="trailing" secondItem="XjE-lX-7IG" secondAttribute="trailing" constant="8" id="fBf-Rm-Lxm"/>
                             <constraint firstItem="XjE-lX-7IG" firstAttribute="height" secondItem="Qek-86-CU9" secondAttribute="height" multiplier="0.25" id="fYA-Nf-BOe"/>
                             <constraint firstItem="D7b-sw-V5d" firstAttribute="trailing" secondItem="gw2-sa-hZN" secondAttribute="trailing" constant="8" id="hsp-n9-exl"/>
                             <constraint firstItem="52i-67-q0y" firstAttribute="leading" secondItem="D7b-sw-V5d" secondAttribute="leading" constant="8" id="jbt-tI-Ynv"/>
+                            <constraint firstItem="rph-ss-fKf" firstAttribute="width" secondItem="Qek-86-CU9" secondAttribute="width" multiplier="0.95" id="ohS-MX-kO1"/>
                             <constraint firstItem="D7b-sw-V5d" firstAttribute="trailing" secondItem="52i-67-q0y" secondAttribute="trailing" constant="8" id="zUJ-Um-spB"/>
                         </constraints>
                     </view>
@@ -97,11 +148,47 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8K-0e-p8U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="W0O-tC-wpS">
+                    <connections>
+                        <action selector="demoTap:" destination="802-Ww-uo6" id="TY4-df-8WJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="3YA-OL-Bgh">
+                    <connections>
+                        <action selector="demoRedTap:" destination="802-Ww-uo6" id="OMP-AN-oaj"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="aTe-pc-Inn">
+                    <connections>
+                        <action selector="demoGreenTap:" destination="802-Ww-uo6" id="4P3-yI-qpJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="WH0-V6-dBm">
+                    <connections>
+                        <action selector="demoBlueTap:" destination="802-Ww-uo6" id="JWh-Pl-WBO"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="2KC-rD-nYI">
+                    <connections>
+                        <action selector="demoWhiteTap:" destination="802-Ww-uo6" id="FcL-TY-YOQ"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="xLJ-KP-p9v">
+                    <connections>
+                        <action selector="demoBlackTap:" destination="802-Ww-uo6" id="tsM-wI-msu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="309" y="-154"/>
+            <point key="canvasLocation" x="307.63358778625951" y="-154.22535211267606"/>
         </scene>
     </scenes>
     <resources>
+        <image name="demo" width="1800" height="1075"/>
+        <image name="demo-black" width="1800" height="1075"/>
+        <image name="demo-blue" width="1800" height="1075"/>
+        <image name="demo-green" width="1800" height="1075"/>
+        <image name="demo-red" width="1800" height="1075"/>
+        <image name="demo-white" width="1800" height="1075"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

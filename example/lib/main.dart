@@ -6,6 +6,7 @@ import 'package:flutter/material.dart' hide Rect;
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
+import 'approved_filters.dart';
 import 'filters.dart';
 
 void main() {
@@ -127,9 +128,7 @@ class FilterPage extends StatefulWidget {
 }
 
 class _FilterPageState extends State<FilterPage> {
-  late final CIImagePreviewController destinationSystemController;
-  late final CIImagePreviewController destinationOpenGLController;
-  late final CIImagePreviewController destinationMetalController;
+  final List<CIImagePreviewController> controllers = [];
   var _controllersReady = false;
   static final _imageFile = File('images/demo.jpeg');
   static final _videoFile = File('videos/demo.mp4');
@@ -142,85 +141,62 @@ class _FilterPageState extends State<FilterPage> {
 
   @override
   void dispose() {
-    destinationSystemController.dispose();
-    destinationOpenGLController.dispose();
-    destinationMetalController.dispose();
+    for (final controller in controllers) {
+      controller.dispose();
+    }
     widget.configuration.dispose();
     super.dispose();
   }
 
   Future<void> _prepare() async {
-    if (Platform.isMacOS) {
-      await _prepareMacOs();
-    } else if (Platform.isIOS) {
-      await _prepareIOS();
-    }
-  }
-
-  Future<void> _prepareMacOs() async {
-    if (widget.configuration.hasInputImage) {
-      destinationSystemController =
-          await CIImagePreviewController.fromFile(_imageFile);
-      destinationOpenGLController =
-          await CIImagePreviewController.fromFile(_imageFile);
-      destinationMetalController =
-          await CIImagePreviewController.fromFile(_imageFile);
-    } else {
-      destinationSystemController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 300, 300),
-      );
-      destinationOpenGLController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 300, 300),
-      );
-      destinationMetalController = await CIImagePreviewController.fromRect(
-        const Rect.fromLTWH(0, 0, 300, 300),
-      );
-    }
     await widget.configuration.prepare();
     await widget.configuration.update();
-    await destinationSystemController.connect(widget.configuration);
-    await destinationOpenGLController.connect(
-      widget.configuration,
-      context: CIContext.mlt,
-    );
-    await destinationMetalController.connect(
-      widget.configuration,
-      context: CIContext.mlt,
-    );
+    await _preparePreview(_imageFile);
+    await _preparePreview(File('images/demo-red.jpeg'));
+    await _preparePreview(File('images/demo-green.jpeg'));
+    await _preparePreview(File('images/demo-blue.jpeg'));
+    await _preparePreview(File('images/demo-white.jpeg'));
+    await _preparePreview(File('images/demo-black.jpeg'));
+
     _controllersReady = true;
   }
 
-  Future<void> _prepareIOS() async {
-    if (widget.configuration.hasInputImage) {
-      destinationSystemController =
-          await CIImagePreviewController.fromAsset(_imageFile.path);
-      destinationOpenGLController =
-          await CIImagePreviewController.fromAsset(_imageFile.path);
-      destinationMetalController =
-          await CIImagePreviewController.fromAsset(_imageFile.path);
+  Future<void> _preparePreview(File file) async {
+    final CIImagePreviewController systemController;
+    final CIImagePreviewController openGLController;
+    final CIImagePreviewController metalController;
+    if (widget.configuration.hasInputImage && Platform.isIOS) {
+      systemController = await CIImagePreviewController.fromAsset(file.path);
+      openGLController = await CIImagePreviewController.fromAsset(file.path);
+      metalController = await CIImagePreviewController.fromAsset(file.path);
+    } else if (widget.configuration.hasInputImage && Platform.isIOS) {
+      systemController = await CIImagePreviewController.fromFile(file);
+      openGLController = await CIImagePreviewController.fromFile(file);
+      metalController = await CIImagePreviewController.fromFile(file);
     } else {
-      destinationSystemController = await CIImagePreviewController.fromRect(
+      systemController = await CIImagePreviewController.fromRect(
         const Rect.fromLTWH(0, 0, 300, 300),
       );
-      destinationOpenGLController = await CIImagePreviewController.fromRect(
+      openGLController = await CIImagePreviewController.fromRect(
         const Rect.fromLTWH(0, 0, 300, 300),
       );
-      destinationMetalController = await CIImagePreviewController.fromRect(
+      metalController = await CIImagePreviewController.fromRect(
         const Rect.fromLTWH(0, 0, 300, 300),
       );
     }
-    await widget.configuration.prepare();
-    await widget.configuration.update();
-    await destinationSystemController.connect(widget.configuration);
-    await destinationOpenGLController.connect(
+    await systemController.connect(widget.configuration);
+    await openGLController.connect(
       widget.configuration,
       context: CIContext.egl,
     );
-    await destinationMetalController.connect(
+    await metalController.connect(
       widget.configuration,
       context: CIContext.mlt,
     );
-    _controllersReady = true;
+    controllers
+      ..add(systemController)
+      ..add(openGLController)
+      ..add(metalController);
   }
 
   @override
@@ -256,29 +232,31 @@ class _FilterPageState extends State<FilterPage> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: _controllersReady
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Expanded(
-                    child: CIImagePreview(
-                      controller: destinationSystemController,
+            ? ListView.separated(
+                itemCount: controllers.length,
+                itemBuilder: (context, index) {
+                  return ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxHeight: MediaQuery.of(context).size.height * 0.25,
                     ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Expanded(
                     child: CIImagePreview(
-                      controller: destinationOpenGLController,
+                      controller: controllers[index],
                     ),
-                  ),
-                  const SizedBox(height: 8.0),
-                  Expanded(
-                    child: CIImagePreview(
-                      controller: destinationMetalController,
-                    ),
-                  ),
-                ],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  if ((index + 1) % 3 == 0) {
+                    return const Divider(
+                      thickness: 8,
+                      color: Colors.black,
+                    );
+                  }
+                  return const SizedBox(
+                    height: 8,
+                  );
+                },
               )
             : const Center(
                 child: CircularProgressIndicator(),

@@ -9,7 +9,7 @@ import Foundation
 import CoreImage
 
 
-let filters = [
+let failedFilters = [
     FilterItem(displayName: "Area Min and Max Red",
                filterName: "CIAreaMinMaxRed",
                values: [
@@ -158,16 +158,25 @@ let filters = [
                 "inputRadius": 250
                ]
               )
-]
+].sorted()
 
 
-class FilterItem {
+class FilterItem: Comparable {
+    
+    static func < (lhs: FilterItem, rhs: FilterItem) -> Bool {
+        lhs.displayName < rhs.displayName
+    }
+    
+    static func == (lhs: FilterItem, rhs: FilterItem) -> Bool {
+        lhs.displayName == rhs.displayName
+    }
+    
     let displayName: String
     fileprivate let filterName: String
     fileprivate let values: [String: Any]?
     
     init(displayName: String, filterName: String, values: [String: Any]? = nil) {
-        self.displayName = displayName
+        self.displayName = values == nil ? "\(displayName) (default)": displayName
         self.filterName = filterName
         self.values = values
     }

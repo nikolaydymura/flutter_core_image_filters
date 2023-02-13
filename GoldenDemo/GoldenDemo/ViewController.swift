@@ -12,6 +12,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var filtersTable: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Filters"
+
         filtersTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         filtersTable.dataSource = self
         filtersTable.delegate = self
@@ -24,7 +26,11 @@ extension ViewController: UITableViewDelegate {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "previewVC") as? PreviewController else {
             return
         }
-        vc.filter = filters[indexPath.row].filter
+        if indexPath.row < failedFilters.count {
+            vc.filter = failedFilters[indexPath.row].filter
+        } else {
+            vc.filter = approvedFilters[indexPath.row - failedFilters.count].filter
+        }
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -32,12 +38,18 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filters.count
+        return failedFilters.count + approvedFilters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let aCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        aCell.textLabel?.text = filters[indexPath.row].displayName
+        if indexPath.row < failedFilters.count {
+            aCell.textLabel?.text = failedFilters[indexPath.row].displayName
+            aCell.textLabel?.textColor = .red
+        } else {
+            aCell.textLabel?.text = approvedFilters[indexPath.row - failedFilters.count].displayName
+            aCell.textLabel?.textColor = .green
+        }
         return aCell
     }
 }
@@ -62,8 +74,57 @@ class PreviewController: UIViewController {
         
         title = name
         
+        processImage(named: "demo.jpeg")
+    }
+    
+    func displayDefaultContext(outputImage: CIImage) {
+        let context = CIContext()
+        let colorSpace = context.currentColorSpace
+        
+        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace,
+                                                    options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 1.0])  else {
+            return
+        }
+        imageView1.image = UIImage(data: data)
+
+    }
+    
+    func displayOpenGLContext(outputImage: CIImage) {
+        let context = CIContext(eaglContext: EAGLContext(api: .openGLES2)!, options: [
+            CIContextOption.priorityRequestLow : true,
+            CIContextOption.workingColorSpace: NSNull(),
+            CIContextOption.outputColorSpace: NSNull(),
+        ])
+        let colorSpace = context.currentColorSpace
+        
+        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace,
+                                                    options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 1.0])  else {
+            return
+        }
+        imageView2.image = UIImage(data: data)
+    }
+
+    func displayMLTContext(outputImage: CIImage) {
+        let context = CIContext(mtlDevice: MTLCreateSystemDefaultDevice()!, options: [
+            CIContextOption.priorityRequestLow : true,
+            CIContextOption.workingColorSpace: NSNull(),
+            CIContextOption.outputColorSpace: NSNull(),
+        ])
+        let colorSpace = context.currentColorSpace
+        
+        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace,
+                                                    options: [CIImageRepresentationOption(rawValue: kCGImageDestinationLossyCompressionQuality as String): 1.0])  else {
+            return
+        }
+        imageView3.image = UIImage(data: data)
+    }
+    
+    func processImage(named: String) {
+        guard let sourceImage = UIImage(named: named) else {
+            return
+        }
         if filter.inputKeys.contains(kCIInputImageKey) {
-            guard let inputImage = CIImage(image: UIImage(named: "demo.jpeg")!) else {
+            guard let inputImage = CIImage(image: sourceImage) else {
                 return
             }
             
@@ -91,42 +152,32 @@ class PreviewController: UIViewController {
         }
     }
     
-    func displayDefaultContext(outputImage: CIImage) {
-        let context = CIContext()
-        let colorSpace = context.currentColorSpace
-        
-        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
-            return
-        }
-        imageView1.image = UIImage(data: data)
-
+    @IBAction func demoTap(_ sender: Any) {
+        processImage(named: "demo.jpeg")
     }
     
-    func displayOpenGLContext(outputImage: CIImage) {
-        let context = CIContext(eaglContext: EAGLContext(api: .openGLES2)!, options: [
-            CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
-        ])
-        let colorSpace = context.currentColorSpace
-        
-        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
-            return
-        }
-        imageView2.image = UIImage(data: data)
+    @IBAction func demoRedTap(_ sender: Any) {
+        processImage(named: "demo-red.jpeg")
     }
-
-    func displayMLTContext(outputImage: CIImage) {
-        let context = CIContext(mtlDevice: MTLCreateSystemDefaultDevice()!, options: [
-            CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
-        ])
-        let colorSpace = context.currentColorSpace
-        
-        guard let data = context.jpegRepresentation(of: outputImage, colorSpace: outputImage.colorSpace ?? colorSpace)  else {
-            return
-        }
-        imageView3.image = UIImage(data: data)
+    
+    @IBAction func demoGreenTap(_ sender: Any) {
+        processImage(named: "demo-green.jpeg")
     }
+    
+    @IBAction func demoBlueTap(_ sender: Any) {
+        processImage(named: "demo-blue.jpeg")
+    }
+    
+    @IBAction func demoWhiteTap(_ sender: Any) {
+        processImage(named: "demo-white.jpeg")
+    }
+    
+    @IBAction func demoBlackTap(_ sender: Any) {
+        processImage(named: "demo-black.jpeg")
+    }
+    
+    
+    
 }
 
 extension CIContext {

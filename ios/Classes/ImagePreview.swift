@@ -139,6 +139,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
                                     y: CGFloat(value[1].floatValue),
                                     width: CGFloat(value[2].floatValue),
                                     height: CGFloat(value[3].floatValue))
+        registry.textureFrameAvailable(textureId.int64Value)
     }
     
     func setSource(_ msg: FLTSourcePreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -164,6 +165,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.image = image
+        registry.textureFrameAvailable(msg.textureId.int64Value)
     }
     
     func setData(_ msg: FLTDataPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -176,6 +178,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.image = image
+        registry.textureFrameAvailable(msg.textureId.int64Value)
     }
     
     func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
