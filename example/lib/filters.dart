@@ -14,6 +14,493 @@ class FilterItem {
 
 final kFailedFilters = [
   FilterItem(
+    'Combined Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionCombinedConfiguration>(
+      displayName: 'Combined Keystone Correction',
+    )
+      ..topRight = const Point(10.0, 2.0)
+      ..topLeft = const Point(2.0, 10.0)
+      ..bottomLeft = const Point(10.0, 5.0)
+      ..bottomRight = const Point(5.0, 10.0)
+      ..focalLength = 14,
+  ),
+  FilterItem(
+    'Combined Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionCombinedConfiguration>(
+      displayName: 'Combined Keystone Correction',
+    ),
+    //    ..topRight = const Point(10.0, 2.0)
+    //    ..topLeft = const Point(2.0, 10.0)
+    //    ..bottomLeft = const Point(10.0, 5.0)
+    //    ..bottomRight = const Point(5.0, 10.0)
+    //    ..focalLength = 14,
+  ),
+  FilterItem(
+    'Kaleidoscope',
+    FlutterCoreImageFilters.createFilter<CIKaleidoscopeConfiguration>(
+      displayName: 'Kaleidoscope',
+    )
+      ..angle = 1
+      ..center = const Point(200.0, 100.0)
+      ..count = 32,
+  ),
+  FilterItem(
+    'Kaleidoscope',
+    FlutterCoreImageFilters.createFilter<CIKaleidoscopeConfiguration>(
+      displayName: 'Kaleidoscope',
+    ),
+    //    ..angle = 1
+    //    ..center = const Point(200.0, 100.0)
+    //    ..count = 32,
+  ),
+  FilterItem(
+    'Hole Distortion',
+    FlutterCoreImageFilters.createFilter<CIHoleDistortionConfiguration>(
+      displayName: 'Hole Distortion',
+    )
+      ..radius = 500
+      ..center = const Point(200.0, 100.0),
+  ),
+  FilterItem(
+    'Hole Distortion',
+    FlutterCoreImageFilters.createFilter<CIHoleDistortionConfiguration>(
+      displayName: 'Hole Distortion',
+    ),
+    //   ..radius = 500
+    //    ..center = const Point(200.0, 100.0),
+  ),
+  FilterItem(
+    'Glide Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIGlideReflectedTileConfiguration>(
+      displayName: 'Glide Reflected Tile',
+    )
+      ..width = 150
+      ..center = const Point(200.0, 100.0)
+      ..angle = 1,
+  ),
+  FilterItem(
+    'Glide Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIGlideReflectedTileConfiguration>(
+      displayName: 'Glide Reflected Tile',
+    ),
+    //    ..width = 150
+    //    ..center = const Point(200.0, 100.0)
+    //     ..angle = 1,
+  ),
+  FilterItem(
+    'Glass Lozenge',
+    FlutterCoreImageFilters.createFilter<CIGlassLozengeConfiguration>(
+      displayName: 'Glass Lozenge',
+    )
+      ..refraction = 3
+      ..radius = 500
+      ..point0 = const Point(100.0, 200.0)
+      ..point1 = const Point(200.0, 100.0),
+  ),
+  FilterItem(
+    'Glass Lozenge',
+    FlutterCoreImageFilters.createFilter<CIGlassLozengeConfiguration>(
+      displayName: 'Glass Lozenge',
+    ),
+    //    ..refraction = 3
+    //    ..radius = 500
+    //    ..point0 = const Point(100.0, 200.0)
+    //    ..point1 = const Point(200.0, 100.0),
+  ),
+  FilterItem(
+    'Gaussian Gradient',
+    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
+      displayName: 'Gaussian Gradient',
+    )
+      ..radius = 300
+      ..center = const Point(150.0, 150.0)
+      ..color1 = const Color.fromRGBO(0, 0, 0, 0)
+      ..color0 = const Color.fromRGBO(160, 255, 255, 1),
+  ),
+  FilterItem(
+    'Gaussian Gradient',
+    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
+      displayName: 'Gaussian Gradient',
+    ),
+    //    ..radius = 300
+    //   ..center = const Point(150.0, 150.0)
+    //   ..color1 = const Color.fromRGBO(0, 0, 0, 0)
+    //   ..color0 = const Color.fromRGBO(160, 255, 255, 1),
+  ),
+  FilterItem(
+    'Fourfold Translated Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldTranslatedTileConfiguration>(
+      displayName: 'Fourfold Translated Tile',
+    )
+      ..center = const Point(100.0, 200.0)
+      ..width = 160
+      ..acuteAngle = 2
+      ..angle = 1,
+  ),
+  FilterItem(
+    'Fourfold Translated Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldTranslatedTileConfiguration>(
+      displayName: 'Fourfold Translated Tile',
+    ),
+    //    ..center = const Point(100.0, 200.0)
+    //    ..width = 160
+    //    ..acuteAngle = 2
+    //    ..angle = 1,
+  ),
+  FilterItem(
+    'Fourfold Rotated Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldRotatedTileConfiguration>(
+      displayName: 'Fourfold Rotated Tile',
+    )
+      ..center = const Point(100.0, 200.0)
+      ..width = 150
+      ..angle = 1,
+  ),
+  FilterItem(
+    'Fourfold Rotated Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldRotatedTileConfiguration>(
+      displayName: 'Fourfold Rotated Tile',
+    ),
+    //   ..center = const Point(100.0, 200.0)
+    //    ..width = 150
+    //   ..angle = 1,
+  ),
+  FilterItem(
+    'Fourfold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldReflectedTileConfiguration>(
+      displayName: 'Fourfold Reflected Tile',
+    )
+      ..acuteAngle = 2
+      ..center = const Point(200.0, 200.0)
+      ..width = 150
+      ..angle = 1,
+  ),
+  FilterItem(
+    'Fourfold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIFourfoldReflectedTileConfiguration>(
+      displayName: 'Fourfold Reflected Tile',
+    ),
+    //    ..acuteAngle = 2
+    //    ..center = const Point(200.0, 200.0)
+    //    ..width = 150
+    //    ..angle = 1,
+  ),
+  FilterItem(
+    'Eightfold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIEightfoldReflectedTileConfiguration>(
+      displayName: 'Eightfold Reflected Tile',
+    )
+      ..center = const Point(150.0, 150.0)
+      ..width = 100
+      ..angle = 0,
+  ),
+  FilterItem(
+    'Eightfold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CIEightfoldReflectedTileConfiguration>(
+      displayName: 'Eightfold Reflected Tile',
+    ),
+    //    ..center = const Point(150.0, 150.0)
+    //    ..width = 100
+    //    ..angle = 0,
+  ),
+  FilterItem(
+    'Droste',
+    FlutterCoreImageFilters.createFilter<CIDrosteConfiguration>(
+      displayName: 'Droste',
+    )
+      ..insetPoint0 = const Point(150.0, 300.0)
+      ..strands = 2
+      ..insetPoint1 = const Point(100.0, 150.0)
+      ..periodicity = 2
+      ..zoom = 2
+      ..rotation = 0,
+  ),
+  FilterItem(
+    'Droste',
+    FlutterCoreImageFilters.createFilter<CIDrosteConfiguration>(
+      displayName: 'Droste',
+    ),
+    //    ..insetPoint0 = const Point(150.0, 300.0)
+    //    ..strands = 2
+    //    ..insetPoint1 = const Point(100.0, 150.0)
+    //    ..periodicity = 2
+    //    ..zoom = 2
+    //    ..rotation = 0,
+  ),
+  FilterItem(
+    'Vertical 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9VerticalConfiguration>(
+      displayName: 'Vertical 9 RGB Convolution',
+    )
+      ..bias = 0
+      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Vertical 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9VerticalConfiguration>(
+      displayName: 'Vertical 9 RGB Convolution',
+    ),
+    //    ..bias = 0
+    //    ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Horizontal 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9HorizontalConfiguration>(
+      displayName: 'Horizontal 9 RGB Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat3([1, 1, 0, 0, 1, 0, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Horizontal 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9HorizontalConfiguration>(
+      displayName: 'Horizontal 9 RGB Convolution',
+    ),
+    //    ..bias = 0.5
+    //    ..weights = Mat3([1, 1, 0, 0, 1, 0, 0, 0, 0]),
+  ),
+  FilterItem(
+    '7 by 7 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB7X7Configuration>(
+      displayName: '7 by 7 RGB Convolution',
+    )
+      ..bias = 1
+      ..weights = Mat7([
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+      ]),
+  ),
+  FilterItem(
+    '7 by 7 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB7X7Configuration>(
+      displayName: '7 by 7 RGB Convolution',
+    ),
+    /*    ..bias = 1
+      ..weights = Mat7([
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+      ]),
+  */
+  ),
+  FilterItem(
+    '5 by 5 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB5X5Configuration>(
+      displayName: '5 by 5 RGB Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat5([
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]),
+  ),
+  FilterItem(
+    '5 by 5 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB5X5Configuration>(
+      displayName: '5 by 5 RGB Convolution',
+    ),
+    //    ..bias = 0.5
+    //    ..weights = Mat5([
+    //             1,
+    //             0,
+    //             1,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             1,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0,
+    //             0
+    //           ]),
+  ),
+  FilterItem(
+    '3 by 3 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB3X3Configuration>(
+      displayName: '3 by 3 RGB Convolution',
+    )
+      ..bias = 0.5
+      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    '3 by 3 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolutionRGB3X3Configuration>(
+      displayName: '3 by 3 RGB Convolution',
+    ),
+    //    ..bias = 0.5
+    //    ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Vertical 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9VerticalConfiguration>(
+      displayName: 'Vertical 9 RGB Convolution',
+    )
+      ..bias = 0
+      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Vertical 9 RGB Convolution',
+    FlutterCoreImageFilters.createFilter<
+        CIConvolutionRGB9VerticalConfiguration>(
+      displayName: 'Vertical 9 RGB Convolution',
+    ),
+    //    ..bias = 0
+    //    ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Horizontal 9 Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolution9HorizontalConfiguration>(
+      displayName: 'Horizontal 9 Convolution',
+    )
+      ..bias = 1
+      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
+    'Horizontal 9 Convolution',
+    FlutterCoreImageFilters.createFilter<CIConvolution9HorizontalConfiguration>(
+      displayName: 'Horizontal 9 Convolution',
+    ),
+    //    ..bias = 0
+    //    ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+  ),
+  FilterItem(
     'Zoom Blur',
     FlutterCoreImageFilters.createFilter<CIZoomBlurConfiguration>(
       displayName: 'Zoom Blur',
