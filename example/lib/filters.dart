@@ -460,12 +460,6 @@ final kFailedFilters = [
       ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
   ),
   FilterItem(
-    'Column Average',
-    FlutterCoreImageFilters.createFilter<CIColumnAverageConfiguration>(
-      displayName: 'Column Average',
-    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
-  ),
-  FilterItem(
     'Color Clamp',
     FlutterCoreImageFilters.createFilter<CIColorClampConfiguration>(
       displayName: 'Color Clamp',
@@ -485,49 +479,6 @@ final kFailedFilters = [
       ..color1 = const Color.fromRGBO(1, 1, 0, 1.0),
   ),
   FilterItem(
-    'Area Logarithmic Histogram',
-    FlutterCoreImageFilters.createFilter<
-        CIAreaLogarithmicHistogramConfiguration>(
-      displayName: 'Area Logarithmic Histogram',
-    )
-      ..minimumStop = -6
-      ..maximumStop = 4
-      ..extent = const Rect.fromLTWH(0, 0, 640, 80)
-      ..count = 1024,
-  ),
-  FilterItem(
-    'Area Logarithmic Histogram',
-    FlutterCoreImageFilters.createFilter<
-        CIAreaLogarithmicHistogramConfiguration>(
-      displayName: 'Area Logarithmic Histogram',
-    ),
-    //    ..minimumStop = -6
-    //    ..maximumStop = 4
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80)
-    //    ..count = 1024,
-  ),
-  FilterItem(
-    'Area Histogram',
-    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
-      displayName: 'Area Histogram',
-    )
-      ..scale = 0.5
-      ..count = 1024
-      ..extent = const Rect.fromLTWH(0, 0, 1800, 1075),
-  ),
-  FilterItem(
-    'Area Histogram (default)',
-    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
-      displayName: 'Area Histogram',
-    ),
-  ),
-  FilterItem(
-    'Saliency Map Filter',
-    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
-      displayName: 'Saliency Map Filter',
-    ),
-  ),
-  FilterItem(
     'Spot Color',
     FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
       displayName: 'Spot Color',
@@ -544,12 +495,6 @@ final kFailedFilters = [
       ..centerColor3 = const Color.fromRGBO(200, 150, 70, 1)
       ..closeness3 = 0.3
       ..replacementColor3 = const Color.fromRGBO(170, 100, 67, 1),
-  ),
-  FilterItem(
-    'Saliency Map Filter',
-    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
-      displayName: 'Saliency Map Filter',
-    ),
   ),
   FilterItem(
     'Random Generator',
@@ -576,32 +521,10 @@ final kFailedFilters = [
     )..radius = 12,
   ),
   FilterItem(
-    'Disparity To Depth',
-    FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
-      displayName: 'Disparity To Depth',
-    ),
-  ),
-  FilterItem(
-    'Depth To Disparity',
-    FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
-      displayName: 'Depth To Disparity',
-    ),
-  ),
-  FilterItem(
     'Convert Lab to RGB',
     FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
       displayName: 'Convert Lab to RGB',
     ),
-  ),
-  FilterItem(
-    'Bicubic Scale Transform',
-    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
-      displayName: 'Bicubic Scale Transform',
-    )
-      ..b = 0.5
-      ..scale = 50
-      ..c = 0.5
-      ..aspectRatio = 1,
   ),
   FilterItem(
     'Saliency Map Filter',
@@ -610,18 +533,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Mask to Alpha',
-    FlutterCoreImageFilters.createFilter<CIMaskToAlphaConfiguration>(
-      displayName: 'Mask to Alpha',
-    ),
-  ),
-  FilterItem(
-    'Edge Work',
-    FlutterCoreImageFilters.createFilter<CIEdgeWorkConfiguration>(
-      displayName: 'Edge Work',
-    )..radius = 12,
-  ),
-  FilterItem(
     'Disparity To Depth',
     FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
       displayName: 'Disparity To Depth',
@@ -631,34 +542,6 @@ final kFailedFilters = [
     'Depth To Disparity',
     FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
       displayName: 'Depth To Disparity',
-    ),
-  ),
-  FilterItem(
-    'Bicubic Scale Transform',
-    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
-      displayName: 'Bicubic Scale Transform',
-    )
-      ..b = 0.5
-      ..scale = 50
-      ..c = 0.5
-      ..aspectRatio = 1,
-  ),
-  FilterItem(
-    'Random Generator',
-    FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
-      displayName: 'Random Generator',
-    ),
-  ),
-  FilterItem(
-    'Person Segmentation',
-    FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
-      displayName: 'Person Segmentation',
-    ),
-  ),
-  FilterItem(
-    'Convert Lab to RGB',
-    FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
-      displayName: 'Convert Lab to RGB',
     ),
   ),
 ].sorted((a, b) => a.name.compareTo(b.name));

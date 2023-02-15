@@ -24,6 +24,42 @@ class FilterItem {
 
 final kFilters = {
   FilterItem(
+    'Column Average',
+    FlutterCoreImageFilters.createFilter<CIColumnAverageConfiguration>(
+      displayName: 'Column Average',
+    )..extent = const Rect.fromLTWH(500, 500, 20, 40),
+  ),
+  FilterItem(
+    'Bicubic Scale Transform',
+    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
+      displayName: 'Bicubic Scale Transform',
+    )
+      ..b = 0.25
+      ..scale = 0.9
+      ..c = 0.9
+      ..aspectRatio = 0.7,
+  ),
+  FilterItem(
+    'Area Logarithmic Histogram',
+    FlutterCoreImageFilters.createFilter<
+        CIAreaLogarithmicHistogramConfiguration>(
+      displayName: 'Area Logarithmic Histogram',
+    )
+      ..minimumStop = -10
+      ..maximumStop = 4
+      ..extent = const Rect.fromLTWH(500, 500, 100, 100)
+      ..count = 3,
+  ),
+  FilterItem(
+    'Area Histogram',
+    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
+      displayName: 'Area Histogram',
+    )
+      ..scale = 0.9
+      ..count = 3
+      ..extent = const Rect.fromLTWH(500, 500, 100, 100),
+  ),
+  FilterItem(
     'Twelvefold Reflected Tile',
     FlutterCoreImageFilters.createFilter<
         CITwelvefoldReflectedTileConfiguration>(

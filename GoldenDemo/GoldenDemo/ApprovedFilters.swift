@@ -158,4 +158,30 @@ let approvedFilters: [FilterItem] = [    FilterItem(filterName: "CIConvolution3X
                                              "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
                                              "inputWidth": 100,
                                          ]),
+                                         FilterItem(filterName: "CIAreaHistogram",
+                                                    values: [
+                                                     "inputScale" : 0.9,
+                                                     "inputCount" : 3,
+                                                     "inputExtent" : CIVector(cgRect: CGRect(x: 500, y: 500, width: 100, height: 100)),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIAreaLogarithmicHistogram",
+                                                    values: [
+                                                     "inputMinimumStop" : -10,
+                                                     "inputMaximumStop" : 4,
+                                                     "inputExtent" : CIVector(cgRect: CGRect(x: 500, y: 500, width: 100, height: 100)),
+                                                     "inputCount" : 3,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIBicubicScaleTransform", values: [
+                                             "inputB": 0.25,
+                                             "inputScale": 0.9,
+                                             "inputC": 0.9,
+                                             "inputAspectRatio":0.7,
+                                         ]),
+                                         FilterItem(filterName: "CIColumnAverage",
+                                                    values: [
+                                                     "inputExtent" : CIVector(cgRect: CGRect(x: 500, y: 500, width: 20, height: 40))
+                                                    ]
+                                                   ),
 ].sorted()

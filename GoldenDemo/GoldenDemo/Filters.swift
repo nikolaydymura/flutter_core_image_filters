@@ -10,39 +10,11 @@ import CoreImage
 
 
 let failedFilters = [
-
-    FilterItem(filterName: "CIAreaLogarithmicHistogram",
-               values: [
-                "inputMinimumStop" : -6,
-                "inputMaximumStop" : 4,
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 640, height: 80)),
-                "inputCount" : 1024,
-               ]
-              ),
-    
-    FilterItem(filterName: "CIAreaLogarithmicHistogram"
-              ),
-    
-    FilterItem(filterName: "CIAreaHistogram",
-               values: [
-                "inputScale" : 0.5,
-                "inputCount" : 1024,
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 1800, height: 1075)),
-               ]
-              ),
-    
-    FilterItem(filterName: "CIAreaHistogram"
-              ),
     FilterItem(filterName: "CICheckerboardGenerator"),
     FilterItem(filterName: "CIColorClamp", values: [
         "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
         "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
     ]),
-    FilterItem(filterName: "CIColumnAverage",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
     FilterItem(filterName: "CIKeystoneCorrectionVertical", values: [
         "inputTopRight" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
         "inputTopLeft": CIVector(cgPoint: CGPoint(x: 150, y: 150)),
