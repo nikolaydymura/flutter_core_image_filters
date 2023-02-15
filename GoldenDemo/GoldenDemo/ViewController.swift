@@ -133,6 +133,7 @@ class PreviewController: UIViewController {
             guard var image = filter.outputImage else {
                 return
             }
+            print(image.extent)
             if image.extent.isInfinite {
                 image = image.cropped(to: inputImage.extent)
             }
@@ -143,6 +144,7 @@ class PreviewController: UIViewController {
             guard var image = filter.outputImage else {
                 return
             }
+            print(image.extent)
             if image.extent.isInfinite {
                 image = image.cropped(to: CGRect(x: 0, y: 0, width: 300, height: 300))
             }

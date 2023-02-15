@@ -126,5 +126,36 @@ let approvedFilters: [FilterItem] = [    FilterItem(filterName: "CIConvolution3X
                                              "inputGreenCoefficients" : CIVector(values: [1, 1, 0, 0], count: 4),
                                              "inputAlphaCoefficients" : CIVector(values: [0, 1, 0, 0], count: 4),
                                              "inputBlueCoefficients" : CIVector(values: [0, 1, 0, 0], count: 4),
-                                         ])
+                                         ]),
+                                         FilterItem(filterName: "CIVortexDistortion", values: [
+                                             "inputAngle": 48,
+                                             "inputCenter": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                                             "inputRadius": 400
+                                         ]),
+                                         FilterItem(filterName: "CIVignetteEffect", values: [
+                                             "inputFalloff": 0.5,
+                                             "inputIntensity": 1,
+                                             "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                                             "inputRadius": 1000,
+                                         ]),
+                                         FilterItem(filterName: "CIPixellate", values: [
+                                             "inputCenter" : CIVector(cgPoint: CGPoint(x: 80, y: 80)),
+                                             "inputScale" : 50,
+                                         ]),
+                                         FilterItem(filterName: "CITriangleTile", values: [
+                                             "inputCenter": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                                             "inputAngle": 3.14,
+                                             "inputWidth": 100,
+                                         ]),
+                                         FilterItem(filterName: "CITriangleKaleidoscope", values: [
+                                             "inputDecay": 0.5,
+                                             "inputPoint" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                                             "inputRotation": 3.14,
+                                             "inputSize": 500,
+                                         ]),
+                                         FilterItem(filterName: "CITwelvefoldReflectedTile", values: [
+                                             "inputAngle": 3.14,
+                                             "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+                                             "inputWidth": 100,
+                                         ]),
 ].sorted()

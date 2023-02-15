@@ -36,10 +36,12 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
                     processed = processed.cropped(to: image.extent)
                 }
                 if processed.extent.origin.x < 0 || processed.extent.origin.y < 0 {
+                    let translationX = processed.extent.origin.x < 0 ? abs(processed.extent.origin.x) : 0
+                    let translationY = processed.extent.origin.y < 0 ? abs(processed.extent.origin.y) : 0
                     processed = processed.transformed(by:
                                                         CGAffineTransform(
-                                                            translationX: abs(processed.extent.origin.x),
-                                                            y: abs(processed.extent.origin.y))
+                                                            translationX: translationX,
+                                                            y: translationY)
                     )
                 }
                 if let buffer = createPixelBuffer(from: processed) {

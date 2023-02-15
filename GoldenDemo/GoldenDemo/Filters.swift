@@ -43,6 +43,22 @@ let failedFilters = [
                 "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
                ]
               ),
+    FilterItem(filterName: "CIKeystoneCorrectionVertical", values: [
+        "inputTopRight" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputTopLeft": CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+        "inputBottomRight" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+        "inputBottomLeft": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputFocalLength" : 14,
+    ]),
+    FilterItem(filterName: "CISunbeamsGenerator", values: [
+        "inputStriationContrast": 2.6,
+        "inputCenter": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputTime": 1,
+        "inputStriationStrength": 2,
+        "inputMaxStriationRadius": 5,
+        "inputSunRadius": 400,
+        "inputColor": CIColor(red: 130, green: 257, blue: 1, alpha: 1)
+    ]),
 
 ].sorted()
 
@@ -57,16 +73,16 @@ class FilterItem: Comparable {
         lhs.displayName == rhs.displayName
     }
     
-    fileprivate let filterName: String
+    fileprivate let name: String
     fileprivate let values: [String: Any]?
     
     init(filterName: String, values: [String: Any]? = nil) {
-        self.filterName = filterName
+        self.name = filterName
         self.values = values
     }
     
     lazy var filter: CIFilter = {
-        let f = CIFilter(name: filterName)
+        let f = CIFilter(name: name)
         values?.forEach{ key, value in
             f?.setValue(value, forKey: key)
         }
