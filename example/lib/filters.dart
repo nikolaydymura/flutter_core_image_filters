@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
-import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 
 class FilterItem {
   final String name;
@@ -13,6 +12,46 @@ class FilterItem {
 }
 
 final kFailedFilters = [
+  FilterItem(
+    'Combined Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionCombinedConfiguration>(
+      displayName: 'Combined Keystone Correction',
+    )
+      ..topRight = const Point(10.0, 2.0)
+      ..topLeft = const Point(2.0, 10.0)
+      ..bottomLeft = const Point(10.0, 5.0)
+      ..bottomRight = const Point(5.0, 10.0)
+      ..focalLength = 14,
+  ),
+  FilterItem(
+    'Combined Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionCombinedConfiguration>(
+      displayName: 'Combined Keystone Correction',
+    ),
+    //    ..topRight = const Point(10.0, 2.0)
+    //    ..topLeft = const Point(2.0, 10.0)
+    //    ..bottomLeft = const Point(10.0, 5.0)
+    //    ..bottomRight = const Point(5.0, 10.0)
+    //    ..focalLength = 14,
+  ),
+  FilterItem(
+    'Gaussian Gradient',
+    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
+      displayName: 'Gaussian Gradient',
+    )
+      ..radius = 300
+      ..center = const Point(150.0, 150.0)
+      ..color1 = const Color.fromRGBO(0, 0, 0, 0)
+      ..color0 = const Color.fromRGBO(160, 255, 255, 1),
+  ),
+  FilterItem(
+    'Gaussian Gradient',
+    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
+      displayName: 'Gaussian Gradient',
+    ),
+  ),
   FilterItem(
     'Zoom Blur',
     FlutterCoreImageFilters.createFilter<CIZoomBlurConfiguration>(
@@ -295,112 +334,6 @@ final kFailedFilters = [
       ..focalLength = 14,
   ),
   FilterItem(
-    'Kaleidoscope',
-    FlutterCoreImageFilters.createFilter<CIKaleidoscopeConfiguration>(
-      displayName: 'Kaleidoscope',
-    )
-      ..angle = 3.14
-      ..center = const Point(75.0, 75.0)
-      ..count = 32,
-  ),
-  FilterItem(
-    'Hole Distortion',
-    FlutterCoreImageFilters.createFilter<CIHoleDistortionConfiguration>(
-      displayName: 'Hole Distortion',
-    )
-      ..radius = 500
-      ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
-    'Hatched Screen',
-    FlutterCoreImageFilters.createFilter<CIHatchedScreenConfiguration>(
-      displayName: 'Hatched Screen',
-    )
-      ..width = 25
-      ..sharpness = 0.5
-      ..center = const Point(75.0, 75.0)
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Glide Reflected Tile',
-    FlutterCoreImageFilters.createFilter<CIGlideReflectedTileConfiguration>(
-      displayName: 'Glide Reflected Tile',
-    )
-      ..width = 100
-      ..center = const Point(75.0, 75.0)
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Glass Lozenge',
-    FlutterCoreImageFilters.createFilter<CIGlassLozengeConfiguration>(
-      displayName: 'Glass Lozenge',
-    )
-      ..refraction = 2.5
-      ..radius = 500
-      ..point0 = const Point(75.0, 75.0)
-      ..point1 = const Point(150.0, 75.0),
-  ),
-  FilterItem(
-    'Gaussian Gradient',
-    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
-      displayName: 'Gaussian Gradient',
-    )
-      ..radius = 600
-      ..center = const Point(75.0, 75.0)
-      ..color1 = const Color.fromRGBO(0, 0, 0, 0)
-      ..color0 = const Color.fromRGBO(255, 255, 255, 1),
-  ),
-  FilterItem(
-    'Fourfold Translated Tile',
-    FlutterCoreImageFilters.createFilter<CIFourfoldTranslatedTileConfiguration>(
-      displayName: 'Fourfold Translated Tile',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..width = 100
-      ..angle = 3.14
-      ..acuteAngle = 3.14,
-  ),
-  FilterItem(
-    'Fourfold Rotated Tile',
-    FlutterCoreImageFilters.createFilter<CIFourfoldRotatedTileConfiguration>(
-      displayName: 'Fourfold Rotated Tile',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..width = 100
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Fourfold Reflected Tile',
-    FlutterCoreImageFilters.createFilter<CIFourfoldReflectedTileConfiguration>(
-      displayName: 'Fourfold Reflected Tile',
-    )
-      ..acuteAngle = 3.14
-      ..center = const Point(75.0, 75.0)
-      ..width = 100
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Eightfold Reflected Tile',
-    FlutterCoreImageFilters.createFilter<CIEightfoldReflectedTileConfiguration>(
-      displayName: 'Eightfold Reflected Tile',
-    )
-      ..center = const Point(150.0, 150.0)
-      ..width = 100
-      ..angle = 3.14,
-  ),
-  FilterItem(
-    'Droste',
-    FlutterCoreImageFilters.createFilter<CIDrosteConfiguration>(
-      displayName: 'Droste',
-    )
-      ..insetPoint0 = const Point(100.0, 100.0)
-      ..strands = 5
-      ..insetPoint1 = const Point(200.0, 200.0)
-      ..periodicity = 3
-      ..zoom = 3
-      ..rotation = 3.14,
-  ),
-  FilterItem(
     'Dot Screen',
     FlutterCoreImageFilters.createFilter<CIDotScreenConfiguration>(
       displayName: 'Dot Screen',
@@ -440,24 +373,6 @@ final kFailedFilters = [
         1.79769e+308,
         1.79769e+308,
       ),
-  ),
-  FilterItem(
-    'Vertical 9 RGB Convolution',
-    FlutterCoreImageFilters.createFilter<
-        CIConvolutionRGB9VerticalConfiguration>(
-      displayName: 'Vertical 9 RGB Convolution',
-    )
-      ..bias = 1
-      ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
-  ),
-  FilterItem(
-    'Horizontal 9 RGB Convolution',
-    FlutterCoreImageFilters.createFilter<
-        CIConvolutionRGB9HorizontalConfiguration>(
-      displayName: 'Horizontal 9 RGB Convolution',
-    )
-      ..bias = 0
-      ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
   ),
   FilterItem(
     'Color Clamp',

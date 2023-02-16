@@ -39,7 +39,7 @@ dependencies:
   image: ^3.2.2
   path_provider: ^2.0.11
   collection: ^1.16.0
-  flutter_gpu_filters_interface: ^0.0.7
+  flutter_gpu_filters_interface: ^0.0.13
   flutter_core_image_filters:
     path: ../
 

@@ -10,6 +10,31 @@ import CoreImage
 
 
 let failedFilters = [
+    FilterItem(filterName: "CIKeystoneCorrectionCombined",
+               values: [
+                "inputTopRight" : CIVector(cgPoint: CGPoint(x: 10, y: 2)),
+                "inputTopLeft" : CIVector(cgPoint: CGPoint(x: 2, y: 10)),
+                "inputBottomLeft" : CIVector(cgPoint: CGPoint(x: 10, y: 5)),
+                "inputBottomRight" : CIVector(cgPoint: CGPoint(x: 5, y: 10)),
+                "inputFocalLength" : 14,
+               ]
+              ),
+
+    FilterItem(filterName: "CIKeystoneCorrectionCombined"
+              ),
+
+    FilterItem(filterName: "CIGaussianGradient",
+               values: [
+                "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+                "inputRadius" : 300,
+                "inputColor1" : CIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.0),
+                "inputColor0" : CIColor(red: 160.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0),
+               ]
+              ),
+
+    FilterItem(filterName: "CIGaussianGradient"
+              ),
+
     FilterItem(filterName: "CICheckerboardGenerator"),
     FilterItem(filterName: "CIColorClamp", values: [
         "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
