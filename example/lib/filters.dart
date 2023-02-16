@@ -37,22 +37,6 @@ final kFailedFilters = [
     //    ..focalLength = 14,
   ),
   FilterItem(
-    'Gaussian Gradient',
-    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
-      displayName: 'Gaussian Gradient',
-    )
-      ..radius = 300
-      ..center = const Point(150.0, 150.0)
-      ..color1 = const Color.fromRGBO(0, 0, 0, 0)
-      ..color0 = const Color.fromRGBO(160, 255, 255, 1),
-  ),
-  FilterItem(
-    'Gaussian Gradient',
-    FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
-      displayName: 'Gaussian Gradient',
-    ),
-  ),
-  FilterItem(
     'Zoom Blur',
     FlutterCoreImageFilters.createFilter<CIZoomBlurConfiguration>(
       displayName: 'Zoom Blur',
@@ -71,7 +55,7 @@ final kFailedFilters = [
       ..striationStrength = 2
       ..maxStriationRadius = 5
       ..sunRadius = 400
-      ..color = const Color.fromRGBO(130, 257, 1, 1),
+      ..color = const Color.fromRGBO(100, 90, 0, 1),
   ),
   FilterItem(
     'Stripes',
@@ -375,14 +359,6 @@ final kFailedFilters = [
       ),
   ),
   FilterItem(
-    'Color Clamp',
-    FlutterCoreImageFilters.createFilter<CIColorClampConfiguration>(
-      displayName: 'Color Clamp',
-    )
-      ..maxComponents = [0.5, 0.5, 0.5, 0.5]
-      ..minComponents = [0, 0, 0, 0],
-  ),
-  FilterItem(
     'Checkerboard',
     FlutterCoreImageFilters.createFilter<CICheckerboardGeneratorConfiguration>(
       displayName: 'Checkerboard',
@@ -394,46 +370,10 @@ final kFailedFilters = [
       ..color1 = const Color.fromRGBO(1, 1, 0, 1.0),
   ),
   FilterItem(
-    'Spot Color',
-    FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
-      displayName: 'Spot Color',
-    )
-      ..centerColor2 = const Color.fromRGBO(70, 100, 120, 1)
-      ..closeness2 = 0.30
-      ..contrast1 = 0.5
-      ..replacementColor2 = const Color.fromRGBO(150, 88, 150, 1)
-      ..centerColor1 = const Color.fromRGBO(50, 40, 50, 1)
-      ..contrast3 = 0.5
-      ..closeness1 = 0.21
-      ..contrast2 = 0.5
-      ..replacementColor1 = const Color.fromRGBO(100, 90, 70, 1)
-      ..centerColor3 = const Color.fromRGBO(200, 150, 70, 1)
-      ..closeness3 = 0.3
-      ..replacementColor3 = const Color.fromRGBO(170, 100, 67, 1),
-  ),
-  FilterItem(
-    'Random Generator',
-    FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
-      displayName: 'Random Generator',
-    ),
-  ),
-  FilterItem(
     'Person Segmentation',
     FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
       displayName: 'Person Segmentation',
     )..qualityLevel = 1,
-  ),
-  FilterItem(
-    'Mask to Alpha',
-    FlutterCoreImageFilters.createFilter<CIMaskToAlphaConfiguration>(
-      displayName: 'Mask to Alpha',
-    ),
-  ),
-  FilterItem(
-    'Edge Work',
-    FlutterCoreImageFilters.createFilter<CIEdgeWorkConfiguration>(
-      displayName: 'Edge Work',
-    )..radius = 12,
   ),
   FilterItem(
     'Convert Lab to RGB',

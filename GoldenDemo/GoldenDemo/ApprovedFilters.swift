@@ -296,4 +296,34 @@ let approvedFilters: [FilterItem] = [    FilterItem(filterName: "CIConvolution3X
                                                      "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
                                                     ]
                                                    ),
+                                         FilterItem(filterName: "CISpotColor", values: [
+                                             "inputCenterColor2": CIColor.fromRGBO(70, 100, 120, 1),
+                                             "inputCloseness2": 0.30,
+                                             "inputContrast1": 0.5,
+                                             "inputReplacementColor2": CIColor.fromRGBO(150, 88, 150, 1),
+                                             "inputCenterColor1": CIColor.fromRGBO(50, 40, 50, 1),
+                                             "inputContrast3": 0.5,
+                                             "inputCloseness1": 0.21,
+                                             "inputContrast2": 0.5,
+                                             "inputReplacementColor1": CIColor.fromRGBO(100, 90, 70, 1),
+                                             "inputCenterColor3": CIColor.fromRGBO(200, 150, 70, 1),
+                                             "inputCloseness3": 0.3,
+                                             "inputReplacementColor3": CIColor.fromRGBO(170, 100, 67, 1)
+                                         ]),
+                                         FilterItem(filterName: "CIEdgeWork", values: [
+                                             "inputRadius" : 15
+                                         ]),
+                                         FilterItem(filterName: "CIMaskToAlpha"),
+                                         FilterItem(filterName: "CIColorClamp", values: [
+                                             "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
+                                             "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
+                                         ]),
+                                         FilterItem(filterName: "CIGaussianGradient",
+                                                    values: [
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+                                                     "inputRadius" : 300,
+                                                     "inputColor1" : CIColor.fromRGBO(0, 0, 0, 0),
+                                                     "inputColor0" : CIColor.fromRGBO(160, 255, 255, 1),
+                                                    ]
+                                                   ),
 ].sorted()

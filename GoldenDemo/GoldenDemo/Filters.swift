@@ -23,23 +23,8 @@ let failedFilters = [
     FilterItem(filterName: "CIKeystoneCorrectionCombined"
               ),
 
-    FilterItem(filterName: "CIGaussianGradient",
-               values: [
-                "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
-                "inputRadius" : 300,
-                "inputColor1" : CIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 0.0),
-                "inputColor0" : CIColor(red: 160.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0),
-               ]
-              ),
-
-    FilterItem(filterName: "CIGaussianGradient"
-              ),
 
     FilterItem(filterName: "CICheckerboardGenerator"),
-    FilterItem(filterName: "CIColorClamp", values: [
-        "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
-        "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
-    ]),
     FilterItem(filterName: "CIKeystoneCorrectionVertical", values: [
         "inputTopRight" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
         "inputTopLeft": CIVector(cgPoint: CGPoint(x: 150, y: 150)),
@@ -54,11 +39,20 @@ let failedFilters = [
         "inputStriationStrength": 2,
         "inputMaxStriationRadius": 5,
         "inputSunRadius": 400,
-        "inputColor": CIColor(red: 130, green: 257, blue: 1, alpha: 1)
+        "inputColor": CIColor.fromRGBO(100, 90, 0, 1)
     ]),
+    FilterItem(filterName: "CISaliencyMapFilter")
 
 ].sorted()
 
+extension CIColor {
+    class func fromRGBO(_ red: Int, _ green: Int, _ blue: Int, _ opacity: Double) -> CIColor {
+        return CIColor(red: CGFloat(red) / 255.0,
+                       green: CGFloat(green) / 255.0,
+                       blue: CGFloat(blue) / 250.0,
+                       alpha: opacity)
+    }
+}
 
 class FilterItem: Comparable {
     

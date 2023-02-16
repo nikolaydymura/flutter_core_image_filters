@@ -130,6 +130,7 @@ class FilterPage extends StatefulWidget {
 class _FilterPageState extends State<FilterPage> {
   final List<CIImagePreviewController> controllers = [];
   var _controllersReady = false;
+  Color? _bgColor;
   static final _imageFile = File('images/demo.jpeg');
   static final _videoFile = File('videos/demo.mp4');
 
@@ -204,6 +205,21 @@ class _FilterPageState extends State<FilterPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Preview'),
+        actions: [
+          Row(
+            children: [
+              const Text('Black'),
+              Switch(
+                value: _bgColor != null,
+                onChanged: (value) {
+                  setState(() {
+                    _bgColor = value ? Colors.black : null;
+                  });
+                },
+              ),
+            ],
+          )
+        ],
       ),
       floatingActionButton: ConstrainedBox(
         constraints:
@@ -237,10 +253,11 @@ class _FilterPageState extends State<FilterPage> {
             ? ListView.separated(
                 itemCount: controllers.length,
                 itemBuilder: (context, index) {
-                  return ConstrainedBox(
+                  return Container(
                     constraints: BoxConstraints(
                       maxHeight: MediaQuery.of(context).size.height * 0.25,
                     ),
+                    color: _bgColor,
                     child: CIImagePreview(
                       controller: controllers[index],
                     ),
