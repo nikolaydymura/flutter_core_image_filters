@@ -184,4 +184,116 @@ let approvedFilters: [FilterItem] = [    FilterItem(filterName: "CIConvolution3X
                                                      "inputExtent" : CIVector(cgRect: CGRect(x: 500, y: 500, width: 20, height: 40))
                                                     ]
                                                    ),
+                                         FilterItem(filterName: "CIConvolutionRGB5X5",
+                                                    values: [
+                                                     "inputBias" : 0.5,
+                                                     "inputWeights" : CIVector(values: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], count: 25),
+                                                    ]
+                                                   ),
+
+                                         FilterItem(filterName: "CIConvolutionRGB3X3",
+                                                    values: [
+                                                     "inputBias" : 0.5,
+                                                     "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIDroste",
+                                                    values: [
+                                                     "inputInsetPoint0" : CIVector(cgPoint: CGPoint(x: 150, y: 300)),
+                                                     "inputStrands" : 2,
+                                                     "inputInsetPoint1" : CIVector(cgPoint: CGPoint(x: 100, y: 150)),
+                                                     "inputPeriodicity" : 2,
+                                                     "inputZoom" : 2,
+                                                     "inputRotation" : 0,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIEightfoldReflectedTile",
+                                                    values: [
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+                                                     "inputWidth" : 100,
+                                                     "inputAngle" : 3.14,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIFourfoldReflectedTile",
+                                                    values: [
+                                                     "inputAcuteAngle" : 2,
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 200, y: 200)),
+                                                     "inputWidth" : 150,
+                                                     "inputAngle" : 1,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIFourfoldRotatedTile",
+                                                    values: [
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 100, y: 200)),
+                                                     "inputWidth" : 150,
+                                                     "inputAngle" : 1,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIFourfoldTranslatedTile",
+                                                    values: [
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 100, y: 200)),
+                                                     "inputWidth" : 160,
+                                                     "inputAcuteAngle" : 2,
+                                                     "inputAngle" : 1,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIGlassLozenge",
+                                                    values: [
+                                                     "inputRefraction" : 3,
+                                                     "inputRadius" : 500,
+                                                     "inputPoint0" : CIVector(cgPoint: CGPoint(x: 100, y: 200)),
+                                                     "inputPoint1" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIGlideReflectedTile",
+                                                    values: [
+                                                     "inputWidth" : 150,
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
+                                                     "inputAngle" : 1,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIHoleDistortion",
+                                                    values: [
+                                                     "inputRadius" : 500,
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIKaleidoscope",
+                                                    values: [
+                                                     "inputAngle" : 1,
+                                                     "inputCenter" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
+                                                     "inputCount" : 32,
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIConvolutionRGB7X7",
+                                                    values: [
+                                                     "inputBias": 0.5,
+                                                     "inputWeights" : CIVector(values: [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], count: 49)
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIConvolutionRGB9Horizontal",
+                                                    values: [
+                                                     "inputBias" : 0.5,
+                                                     "inputWeights" : CIVector(values: [1, 1, 0, 0, 1, 0, 0, 0, 0], count: 9),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIConvolution9Horizontal",
+                                                    values: [
+                                                     "inputBias" : 0.3,
+                                                     "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
+                                                    ]
+                                                   ),
+                                         FilterItem(filterName: "CIConvolutionRGB9Vertical",
+                                                    values: [
+                                                     "inputBias" : 0,
+                                                     "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
+                                                    ]
+                                                   ),
+
+                                         FilterItem(filterName: "CIConvolution9Vertical",
+                                                    values: [
+                                                     "inputBias" : 0,
+                                                     "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
+                                                    ]
+                                                   ),
 ].sorted()
