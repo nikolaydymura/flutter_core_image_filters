@@ -334,16 +334,6 @@ final kFailedFilters = [
       ..focalLength = 14,
   ),
   FilterItem(
-    'Hatched Screen',
-    FlutterCoreImageFilters.createFilter<CIHatchedScreenConfiguration>(
-      displayName: 'Hatched Screen',
-    )
-      ..width = 25
-      ..sharpness = 0.5
-      ..center = const Point(75.0, 75.0)
-      ..angle = 3.14,
-  ),
-  FilterItem(
     'Dot Screen',
     FlutterCoreImageFilters.createFilter<CIDotScreenConfiguration>(
       displayName: 'Dot Screen',

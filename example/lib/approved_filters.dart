@@ -328,14 +328,6 @@ final kFilters = {
       ..lightPosition = [200, 300, 200],
   ),
   FilterItem(
-    'Hexagonal Pixelate',
-    FlutterCoreImageFilters.createFilter<CIHexagonalPixellateConfiguration>(
-      displayName: 'Hexagonal Pixelate',
-    )
-      ..scale = 50
-      ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
     'Pixelate',
     FlutterCoreImageFilters.createFilter<CIPixellateConfiguration>(
       displayName: 'Pixelate',
@@ -633,14 +625,6 @@ final kFilters = {
       ..center = const Point(80.0, 80.0),
   ),
   FilterItem(
-    'Pixelate',
-    FlutterCoreImageFilters.createFilter<CIPixellateConfiguration>(
-      displayName: 'Pixelate',
-    )
-      ..center = const Point(80.0, 80.0)
-      ..scale = 50,
-  ),
-  FilterItem(
     'Nine Part Tiled',
     FlutterCoreImageFilters.createFilter<CINinePartTiledConfiguration>(
       displayName: 'Nine Part Tiled',
@@ -649,15 +633,6 @@ final kFilters = {
       ..breakpoint0 = const Point(25.0, 25.0)
       ..flipYTiles = false
       ..growAmount = const Point(50.0, 50.0),
-  ),
-  FilterItem(
-    'Nine Part Stretched',
-    FlutterCoreImageFilters.createFilter<CINinePartStretchedConfiguration>(
-      displayName: 'Nine Part Stretched',
-    )
-      ..breakpoint1 = const Point(75.0, 75.0)
-      ..growAmount = const Point(50.0, 50.0)
-      ..breakpoint0 = const Point(25.0, 25.0),
   ),
   FilterItem(
     'Line Screen',
