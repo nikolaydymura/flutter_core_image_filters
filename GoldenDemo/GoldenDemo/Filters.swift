@@ -19,10 +19,10 @@ let failedFilters = [
                 "inputFocalLength" : 14,
                ]
               ),
-    
+
     FilterItem(filterName: "CIKeystoneCorrectionCombined"
               ),
-    
+
     FilterItem(filterName: "CIKaleidoscope",
                values: [
                 "inputAngle" : 1,
@@ -30,20 +30,20 @@ let failedFilters = [
                 "inputCount" : 32,
                ]
               ),
-    
+
     FilterItem(filterName: "CIKaleidoscope"
               ),
-    
+
     FilterItem(filterName: "CIHoleDistortion",
                values: [
                 "inputRadius" : 500,
                 "inputCenter" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
                ]
               ),
-    
+
     FilterItem(filterName: "CIHoleDistortion"
               ),
-    
+
     FilterItem(filterName: "CIGlideReflectedTile",
                values: [
                 "inputWidth" : 150,
@@ -51,10 +51,10 @@ let failedFilters = [
                 "inputAngle" : 1,
                ]
               ),
-    
+
     FilterItem(filterName: "CIGlideReflectedTile"
               ),
-    
+
     FilterItem(filterName: "CIGlassLozenge",
                values: [
                 "inputRefraction" : 3,
@@ -63,10 +63,10 @@ let failedFilters = [
                 "inputPoint1" : CIVector(cgPoint: CGPoint(x: 200, y: 100)),
                ]
               ),
-    
+
     FilterItem(filterName: "CIGlassLozenge"
               ),
-    
+
     FilterItem(filterName: "CIGaussianGradient",
                values: [
                 "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
@@ -75,10 +75,10 @@ let failedFilters = [
                 "inputColor0" : CIColor(red: 160.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0),
                ]
               ),
-    
+
     FilterItem(filterName: "CIGaussianGradient"
               ),
-    
+
     FilterItem(filterName: "CIFourfoldTranslatedTile",
                values: [
                 "inputCenter" : CIVector(cgPoint: CGPoint(x: 100, y: 200)),
@@ -87,10 +87,10 @@ let failedFilters = [
                 "inputAngle" : 1,
                ]
               ),
-    
+
     FilterItem(filterName: "CIFourfoldTranslatedTile"
               ),
-    
+
     FilterItem(filterName: "CIFourfoldRotatedTile",
                values: [
                 "inputCenter" : CIVector(cgPoint: CGPoint(x: 100, y: 200)),
@@ -98,10 +98,10 @@ let failedFilters = [
                 "inputAngle" : 1,
                ]
               ),
-    
+
     FilterItem(filterName: "CIFourfoldRotatedTile"
               ),
-    
+
     FilterItem(filterName: "CIFourfoldReflectedTile",
                values: [
                 "inputAcuteAngle" : 2,
@@ -110,10 +110,10 @@ let failedFilters = [
                 "inputAngle" : 1,
                ]
               ),
-    
+
     FilterItem(filterName: "CIFourfoldReflectedTile"
               ),
-    
+
     FilterItem(filterName: "CIEightfoldReflectedTile",
                values: [
                 "inputCenter" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
@@ -121,10 +121,10 @@ let failedFilters = [
                 "inputAngle" : 0,
                ]
               ),
-    
+
     FilterItem(filterName: "CIEightfoldReflectedTile"
               ),
-    
+
     FilterItem(filterName: "CIDroste",
                values: [
                 "inputInsetPoint0" : CIVector(cgPoint: CGPoint(x: 150, y: 300)),
@@ -135,112 +135,100 @@ let failedFilters = [
                 "inputRotation" : 0,
                ]
               ),
-    
+
     FilterItem(filterName: "CIDroste"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Vertical",
                values: [
                 "inputBias" : 0,
                 "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Vertical"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Horizontal",
                values: [
                 "inputBias" : 0.5,
                 "inputWeights" : CIVector(values: [1, 1, 0, 0, 1, 0, 0, 0, 0], count: 9),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Horizontal"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB7X7",
                values: [
                 "inputBias" : 1,
                 "inputWeights" : CIVector(values: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1], count: 49),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB7X7"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB5X5",
                values: [
                 "inputBias" : 0.5,
                 "inputWeights" : CIVector(values: [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], count: 25),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB5X5"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB3X3",
                values: [
                 "inputBias" : 0.5,
                 "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB3X3"
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Vertical",
                values: [
                 "inputBias" : 0,
                 "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
                ]
               ),
-    
+
     FilterItem(filterName: "CIConvolutionRGB9Vertical"
               ),
-    
+
     FilterItem(filterName: "CIConvolution9Horizontal",
                values: [
                 "inputBias" : 1,
                 "inputWeights" : CIVector(values: [0, 0, 0, 1, 1, 1, 0, 0, 0], count: 9),
                ]
               ),
-    
-    FilterItem(filterName: "CIConvolution9Horizontal"
-              ),
 
-    FilterItem(filterName: "CIAreaLogarithmicHistogram",
-               values: [
-                "inputMinimumStop" : -6,
-                "inputMaximumStop" : 4,
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 640, height: 80)),
-                "inputCount" : 1024,
-               ]
-              ),
-    
-    FilterItem(filterName: "CIAreaLogarithmicHistogram"
-              ),
-    
-    FilterItem(filterName: "CIAreaHistogram",
-               values: [
-                "inputScale" : 0.5,
-                "inputCount" : 1024,
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 1800, height: 1075)),
-               ]
-              ),
-    
-    FilterItem(filterName: "CIAreaHistogram"
+    FilterItem(filterName: "CIConvolution9Horizontal"
               ),
     FilterItem(filterName: "CICheckerboardGenerator"),
     FilterItem(filterName: "CIColorClamp", values: [
         "inputMaxComponents" : CIVector(values: [0.5, 0.5, 0.5, 0.5], count: 4),
         "inputMinComponents" : CIVector(values: [0, 0, 0, 0], count: 4)
     ]),
-    FilterItem(filterName: "CIColumnAverage",
-               values: [
-                "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 320, height: 40))
-               ]
-              ),
+    FilterItem(filterName: "CIKeystoneCorrectionVertical", values: [
+        "inputTopRight" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputTopLeft": CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+        "inputBottomRight" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
+        "inputBottomLeft": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputFocalLength" : 14,
+    ]),
+    FilterItem(filterName: "CISunbeamsGenerator", values: [
+        "inputStriationContrast": 2.6,
+        "inputCenter": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
+        "inputTime": 1,
+        "inputStriationStrength": 2,
+        "inputMaxStriationRadius": 5,
+        "inputSunRadius": 400,
+        "inputColor": CIColor(red: 130, green: 257, blue: 1, alpha: 1)
+    ]),
 
 ].sorted()
 
@@ -255,16 +243,16 @@ class FilterItem: Comparable {
         lhs.displayName == rhs.displayName
     }
     
-    fileprivate let filterName: String
+    fileprivate let name: String
     fileprivate let values: [String: Any]?
     
     init(filterName: String, values: [String: Any]? = nil) {
-        self.filterName = filterName
+        self.name = filterName
         self.values = values
     }
     
     lazy var filter: CIFilter = {
-        let f = CIFilter(name: filterName)
+        let f = CIFilter(name: name)
         values?.forEach{ key, value in
             f?.setValue(value, forKey: key)
         }

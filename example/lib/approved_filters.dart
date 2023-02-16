@@ -24,6 +24,125 @@ class FilterItem {
 
 final kFilters = {
   FilterItem(
+    'Column Average',
+    FlutterCoreImageFilters.createFilter<CIColumnAverageConfiguration>(
+      displayName: 'Column Average',
+    )..extent = const Rect.fromLTWH(500, 500, 20, 40),
+  ),
+  FilterItem(
+    'Bicubic Scale Transform',
+    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
+      displayName: 'Bicubic Scale Transform',
+    )
+      ..b = 0.25
+      ..scale = 0.9
+      ..c = 0.9
+      ..aspectRatio = 0.7,
+  ),
+  FilterItem(
+    'Area Logarithmic Histogram',
+    FlutterCoreImageFilters.createFilter<
+        CIAreaLogarithmicHistogramConfiguration>(
+      displayName: 'Area Logarithmic Histogram',
+    )
+      ..minimumStop = -10
+      ..maximumStop = 4
+      ..extent = const Rect.fromLTWH(500, 500, 100, 100)
+      ..count = 3,
+  ),
+  FilterItem(
+    'Area Histogram',
+    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
+      displayName: 'Area Histogram',
+    )
+      ..scale = 0.9
+      ..count = 3
+      ..extent = const Rect.fromLTWH(500, 500, 100, 100),
+  ),
+  FilterItem(
+    'Twelvefold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<
+        CITwelvefoldReflectedTileConfiguration>(
+      displayName: 'Twelvefold Reflected Tile',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..angle = 3.14
+      ..width = 100,
+  ),
+  FilterItem(
+    'Triangle Kaleidoscope',
+    FlutterCoreImageFilters.createFilter<CITriangleKaleidoscopeConfiguration>(
+      displayName: 'Triangle Kaleidoscope',
+    )
+      ..decay = 0.5
+      ..point = const Point(75.0, 75.0)
+      ..rotation = 3.14
+      ..size = 500,
+  ),
+  FilterItem(
+    'Triangle Tile',
+    FlutterCoreImageFilters.createFilter<CITriangleTileConfiguration>(
+      displayName: 'Triangle Tile',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..angle = 3.14
+      ..width = 100,
+  ),
+  FilterItem(
+    'Temperature and Tint',
+    FlutterCoreImageFilters.createFilter<CITemperatureAndTintConfiguration>(
+      displayName: 'Temperature and Tint',
+    )
+      ..targetNeutral = const Point(3000.0, 100.0)
+      ..neutral = const Point(3000.0, 100.0),
+  ),
+  FilterItem(
+    'Spot Light',
+    FlutterCoreImageFilters.createFilter<CISpotLightConfiguration>(
+      displayName: 'Spot Light',
+    )
+      ..lightPointsAt = [100, 100, 0]
+      ..color = const Color.fromRGBO(100, 200, 100, 1)
+      ..concentration = 0.7
+      ..brightness = 6
+      ..lightPosition = [200, 300, 200],
+  ),
+  FilterItem(
+    'Hexagonal Pixelate',
+    FlutterCoreImageFilters.createFilter<CIHexagonalPixellateConfiguration>(
+      displayName: 'Hexagonal Pixelate',
+    )
+      ..scale = 50
+      ..center = const Point(75.0, 75.0),
+  ),
+  FilterItem(
+    'Pixelate',
+    FlutterCoreImageFilters.createFilter<CIPixellateConfiguration>(
+      displayName: 'Pixelate',
+    )
+      ..center = const Point(80.0, 80.0)
+      ..scale = 50,
+  ),
+  FilterItem(
+    'Vignette Effect',
+    FlutterCoreImageFilters.createFilter<CIVignetteEffectConfiguration>(
+      displayName: 'Vignette Effect',
+    )
+      ..falloff = 0.5
+      ..intensity = 1
+      ..center = const Point(75.0, 75.0)
+      ..radius = 1000,
+  ),
+  FilterItem(
+    'Vortex Distortion',
+    FlutterCoreImageFilters.createFilter<CIVortexDistortionConfiguration>(
+      displayName: 'Vortex Distortion',
+    )
+      ..angle = 48
+      ..center = const Point(75.0, 75.0)
+      ..radius = 400,
+  ),
+  FilterItem(
     'Color Polynomial',
     FlutterCoreImageFilters.createFilter<CIColorPolynomialConfiguration>(
       displayName: 'Color Polynomial',

@@ -509,83 +509,6 @@ final kFailedFilters = [
       ..center = const Point(300.0, 300.0),
   ),
   FilterItem(
-    'Vortex Distortion',
-    FlutterCoreImageFilters.createFilter<CIVortexDistortionConfiguration>(
-      displayName: 'Vortex Distortion',
-    )
-      ..angle = 48
-      ..center = const Point(75.0, 75.0)
-      ..radius = 400,
-  ),
-  FilterItem(
-    'Vignette Effect',
-    FlutterCoreImageFilters.createFilter<CIVignetteEffectConfiguration>(
-      displayName: 'Vignette Effect',
-    )
-      ..falloff = 0.5
-      ..intensity = 1
-      ..center = const Point(75.0, 75.0)
-      ..radius = 1000,
-  ),
-  FilterItem(
-    'Twelvefold Reflected Tile',
-    FlutterCoreImageFilters.createFilter<
-        CITwelvefoldReflectedTileConfiguration>(
-      displayName: 'Twelvefold Reflected Tile',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..angle = 3.14
-      ..width = 100,
-  ),
-  FilterItem(
-    'Triangle Tile',
-    FlutterCoreImageFilters.createFilter<CITriangleTileConfiguration>(
-      displayName: 'Triangle Tile',
-    )
-      ..center = const Point(75.0, 75.0)
-      ..angle = 3.14
-      ..width = 100,
-  ),
-  FilterItem(
-    'Triangle Kaleidoscope',
-    FlutterCoreImageFilters.createFilter<CITriangleKaleidoscopeConfiguration>(
-      displayName: 'Triangle Kaleidoscope',
-    )
-      ..decay = 0.5
-      ..point = const Point(75.0, 75.0)
-      ..rotation = 3.14
-      ..size = 500,
-  ),
-  FilterItem(
-    'Torus Lens Distortion',
-    FlutterCoreImageFilters.createFilter<CITorusLensDistortionConfiguration>(
-      displayName: 'Torus Lens Distortion',
-    )
-      ..width = 100
-      ..center = const Point(80.0, 80.0)
-      ..refraction = 3.4
-      ..radius = 320,
-  ),
-  FilterItem(
-    'Tone Curve',
-    FlutterCoreImageFilters.createFilter<CIToneCurveConfiguration>(
-      displayName: 'Tone Curve',
-    )
-      ..point0 = const Point(10.0, 10.0)
-      ..point1 = const Point(25.0, 25.0)
-      ..point2 = const Point(58.0, 58.0)
-      ..point3 = const Point(44.0, 44.0)
-      ..point4 = const Point(11.0, 11.0),
-  ),
-  FilterItem(
-    'Temperature and Tint',
-    FlutterCoreImageFilters.createFilter<CITemperatureAndTintConfiguration>(
-      displayName: 'Temperature and Tint',
-    )
-      ..targetNeutral = const Point(3000.0, 100.0)
-      ..neutral = const Point(3000.0, 100.0),
-  ),
-  FilterItem(
     'Sunbeams',
     FlutterCoreImageFilters.createFilter<CISunbeamsGeneratorConfiguration>(
       displayName: 'Sunbeams',
@@ -596,7 +519,7 @@ final kFailedFilters = [
       ..striationStrength = 2
       ..maxStriationRadius = 5
       ..sunRadius = 400
-      ..color = const Color.fromRGBO(130, 257, 1, 0),
+      ..color = const Color.fromRGBO(130, 257, 1, 1),
   ),
   FilterItem(
     'Stripes',
@@ -631,17 +554,6 @@ final kFailedFilters = [
       ..color = const Color.fromRGBO(100, 200, 100, 1)
       ..crossWidth = 5
       ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
-    'Spot Light',
-    FlutterCoreImageFilters.createFilter<CISpotLightConfiguration>(
-      displayName: 'Spot Light',
-    )
-      ..lightPointsAt = [100, 100, 0]
-      ..color = const Color.fromRGBO(100, 200, 100, 1)
-      ..concentration = 0.7
-      ..brightness = 6
-      ..lightPosition = [200, 300, 200],
   ),
   FilterItem(
     'Smooth Linear Gradient',
@@ -697,22 +609,6 @@ final kFailedFilters = [
       ..center = const Point(80.0, 80.0)
       ..radius0 = 400
       ..color1 = const Color.fromRGBO(0, 0, 0, 1),
-  ),
-  FilterItem(
-    'Pointillize',
-    FlutterCoreImageFilters.createFilter<CIPointillizeConfiguration>(
-      displayName: 'Pointillize',
-    )
-      ..radius = 50
-      ..center = const Point(80.0, 80.0),
-  ),
-  FilterItem(
-    'Pixelate',
-    FlutterCoreImageFilters.createFilter<CIPixellateConfiguration>(
-      displayName: 'Pixelate',
-    )
-      ..center = const Point(80.0, 80.0)
-      ..scale = 50,
   ),
   FilterItem(
     'Pinch Distortion',
@@ -903,14 +799,6 @@ final kFailedFilters = [
       ..center = const Point(75.0, 75.0),
   ),
   FilterItem(
-    'Hexagonal Pixelate',
-    FlutterCoreImageFilters.createFilter<CIHexagonalPixellateConfiguration>(
-      displayName: 'Hexagonal Pixelate',
-    )
-      ..scale = 50
-      ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
     'Hatched Screen',
     FlutterCoreImageFilters.createFilter<CIHatchedScreenConfiguration>(
       displayName: 'Hatched Screen',
@@ -1059,12 +947,6 @@ final kFailedFilters = [
       ..weights = Mat3([1, 1, 1, 1, 0, 1, 1, 1, 1]),
   ),
   FilterItem(
-    'Column Average',
-    FlutterCoreImageFilters.createFilter<CIColumnAverageConfiguration>(
-      displayName: 'Column Average',
-    )..extent = const Rect.fromLTWH(0, 0, 320, 40),
-  ),
-  FilterItem(
     'Color Clamp',
     FlutterCoreImageFilters.createFilter<CIColorClampConfiguration>(
       displayName: 'Color Clamp',
@@ -1084,49 +966,6 @@ final kFailedFilters = [
       ..color1 = const Color.fromRGBO(1, 1, 0, 1.0),
   ),
   FilterItem(
-    'Area Logarithmic Histogram',
-    FlutterCoreImageFilters.createFilter<
-        CIAreaLogarithmicHistogramConfiguration>(
-      displayName: 'Area Logarithmic Histogram',
-    )
-      ..minimumStop = -6
-      ..maximumStop = 4
-      ..extent = const Rect.fromLTWH(0, 0, 640, 80)
-      ..count = 1024,
-  ),
-  FilterItem(
-    'Area Logarithmic Histogram',
-    FlutterCoreImageFilters.createFilter<
-        CIAreaLogarithmicHistogramConfiguration>(
-      displayName: 'Area Logarithmic Histogram',
-    ),
-    //    ..minimumStop = -6
-    //    ..maximumStop = 4
-    //    ..extent = const Rect.fromLTWH(0, 0, 640, 80)
-    //    ..count = 1024,
-  ),
-  FilterItem(
-    'Area Histogram',
-    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
-      displayName: 'Area Histogram',
-    )
-      ..scale = 0.5
-      ..count = 1024
-      ..extent = const Rect.fromLTWH(0, 0, 1800, 1075),
-  ),
-  FilterItem(
-    'Area Histogram (default)',
-    FlutterCoreImageFilters.createFilter<CIAreaHistogramConfiguration>(
-      displayName: 'Area Histogram',
-    ),
-  ),
-  FilterItem(
-    'Saliency Map Filter',
-    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
-      displayName: 'Saliency Map Filter',
-    ),
-  ),
-  FilterItem(
     'Spot Color',
     FlutterCoreImageFilters.createFilter<CISpotColorConfiguration>(
       displayName: 'Spot Color',
@@ -1143,12 +982,6 @@ final kFailedFilters = [
       ..centerColor3 = const Color.fromRGBO(200, 150, 70, 1)
       ..closeness3 = 0.3
       ..replacementColor3 = const Color.fromRGBO(170, 100, 67, 1),
-  ),
-  FilterItem(
-    'Saliency Map Filter',
-    FlutterCoreImageFilters.createFilter<CISaliencyMapFilterConfiguration>(
-      displayName: 'Saliency Map Filter',
-    ),
   ),
   FilterItem(
     'Random Generator',
@@ -1175,32 +1008,10 @@ final kFailedFilters = [
     )..radius = 12,
   ),
   FilterItem(
-    'Disparity To Depth',
-    FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
-      displayName: 'Disparity To Depth',
-    ),
-  ),
-  FilterItem(
-    'Depth To Disparity',
-    FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
-      displayName: 'Depth To Disparity',
-    ),
-  ),
-  FilterItem(
     'Convert Lab to RGB',
     FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
       displayName: 'Convert Lab to RGB',
     ),
-  ),
-  FilterItem(
-    'Bicubic Scale Transform',
-    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
-      displayName: 'Bicubic Scale Transform',
-    )
-      ..b = 0.5
-      ..scale = 50
-      ..c = 0.5
-      ..aspectRatio = 1,
   ),
   FilterItem(
     'Saliency Map Filter',
@@ -1209,18 +1020,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Mask to Alpha',
-    FlutterCoreImageFilters.createFilter<CIMaskToAlphaConfiguration>(
-      displayName: 'Mask to Alpha',
-    ),
-  ),
-  FilterItem(
-    'Edge Work',
-    FlutterCoreImageFilters.createFilter<CIEdgeWorkConfiguration>(
-      displayName: 'Edge Work',
-    )..radius = 12,
-  ),
-  FilterItem(
     'Disparity To Depth',
     FlutterCoreImageFilters.createFilter<CIDisparityToDepthConfiguration>(
       displayName: 'Disparity To Depth',
@@ -1230,34 +1029,6 @@ final kFailedFilters = [
     'Depth To Disparity',
     FlutterCoreImageFilters.createFilter<CIDepthToDisparityConfiguration>(
       displayName: 'Depth To Disparity',
-    ),
-  ),
-  FilterItem(
-    'Bicubic Scale Transform',
-    FlutterCoreImageFilters.createFilter<CIBicubicScaleTransformConfiguration>(
-      displayName: 'Bicubic Scale Transform',
-    )
-      ..b = 0.5
-      ..scale = 50
-      ..c = 0.5
-      ..aspectRatio = 1,
-  ),
-  FilterItem(
-    'Random Generator',
-    FlutterCoreImageFilters.createFilter<CIRandomGeneratorConfiguration>(
-      displayName: 'Random Generator',
-    ),
-  ),
-  FilterItem(
-    'Person Segmentation',
-    FlutterCoreImageFilters.createFilter<CIPersonSegmentationConfiguration>(
-      displayName: 'Person Segmentation',
-    ),
-  ),
-  FilterItem(
-    'Convert Lab to RGB',
-    FlutterCoreImageFilters.createFilter<CIConvertLabToRGBConfiguration>(
-      displayName: 'Convert Lab to RGB',
     ),
   ),
 ].sorted((a, b) => a.name.compareTo(b.name));
