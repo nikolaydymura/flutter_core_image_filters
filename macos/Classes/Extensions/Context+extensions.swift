@@ -60,12 +60,14 @@ fileprivate class Context {
 #if targetEnvironment(simulator)
         return [
             CIContextOption.priorityRequestLow : true,
-            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
+            CIContextOption.workingColorSpace : NSNull(),
+            CIContextOption.outputColorSpace: NSNull(),
         ]
 #else
         return [
             CIContextOption.useSoftwareRenderer : false,
-            CIContextOption.workingColorSpace : CGColorSpace(name: CGColorSpace.sRGB)
+            CIContextOption.workingColorSpace : NSNull(),
+            CIContextOption.outputColorSpace: NSNull(),
         ]
 #endif
     }
