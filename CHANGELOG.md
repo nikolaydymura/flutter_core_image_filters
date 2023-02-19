@@ -1,3 +1,7 @@
+## 0.0.8
+
+Fixed `jpeg` exporting
+
 ## 0.0.7
 
 Added `CGColorSpace` as parameter
