@@ -24,6 +24,279 @@ class FilterItem {
 
 final kFilters = {
   FilterItem(
+    'Vertical Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionVerticalConfiguration>(
+      displayName: 'Vertical Keystone Correction',
+    )
+      ..topRight = const Point(75.0, 75.0)
+      ..topLeft = const Point(150.0, 150.0)
+      ..bottomLeft = const Point(75.0, 75.0)
+      ..bottomRight = const Point(150.0, 150.0)
+      ..focalLength = 14,
+  ),
+  FilterItem(
+    'Combined Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionCombinedConfiguration>(
+      displayName: 'Combined Keystone Correction',
+    )
+      ..topRight = const Point(75.0, 75.0)
+      ..topLeft = const Point(150.0, 150.0)
+      ..bottomLeft = const Point(75.0, 75.0)
+      ..bottomRight = const Point(150.0, 150.0)
+      ..focalLength = 14,
+  ),
+  FilterItem(
+    'Sunbeams',
+    FlutterCoreImageFilters.createFilter<CISunbeamsGeneratorConfiguration>(
+      displayName: 'Sunbeams',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..striationContrast = 2.75
+      ..time = 1
+      ..striationStrength = 1.5
+      ..maxStriationRadius = 5.6
+      ..sunRadius = 100
+      ..color = const Color.fromRGBO(160, 255, 200, 1),
+  ),
+  FilterItem(
+    'Perspective Transform with Extent',
+    FlutterCoreImageFilters.createFilter<
+        CIPerspectiveTransformWithExtentConfiguration>(
+      displayName: 'Perspective Transform with Extent',
+    )
+      ..bottomLeft = const Point(70.0, 70.0)
+      ..topRight = const Point(320.0, 250.0)
+      ..topLeft = const Point(60.0, 300.0)
+      ..bottomRight = const Point(270.0, 70.0)
+      ..extent = const Rect.fromLTWH(25, 25, 300, 300),
+  ),
+  FilterItem(
+    'Perspective Transform',
+    FlutterCoreImageFilters.createFilter<CIPerspectiveTransformConfiguration>(
+      displayName: 'Perspective Transform',
+    )
+      ..bottomLeft = const Point(70.0, 70.0)
+      ..topRight = const Point(320.0, 250.0)
+      ..topLeft = const Point(60.0, 300.0)
+      ..bottomRight = const Point(270.0, 70.0),
+  ),
+  FilterItem(
+    'Lenticular Halo',
+    FlutterCoreImageFilters.createFilter<
+        CILenticularHaloGeneratorConfiguration>(
+      displayName: 'Lenticular Halo',
+    )
+      ..haloRadius = 100
+      ..color = const Color.fromRGBO(209, 204, 255, 1)
+      ..center = const Point(75.0, 75.0)
+      ..striationContrast = 3
+      ..haloOverlap = 0.55
+      ..time = 1
+      ..striationStrength = 1.5
+      ..haloWidth = 150,
+  ),
+  FilterItem(
+    'Nine Part Stretched',
+    FlutterCoreImageFilters.createFilter<CINinePartStretchedConfiguration>(
+      displayName: 'Nine Part Stretched',
+    )
+      ..breakpoint0 = const Point(100.0, 100.0)
+      ..breakpoint1 = const Point(40.0, 40.0)
+      ..growAmount = const Point(200.0, 200.0),
+  ),
+  FilterItem(
+    'Row Average',
+    FlutterCoreImageFilters.createFilter<CIRowAverageConfiguration>(
+      displayName: 'Row Average',
+    )..extent = const Rect.fromLTWH(30, 30, 10, 10),
+  ),
+  FilterItem(
+    'Stretch Crop',
+    FlutterCoreImageFilters.createFilter<CIStretchCropConfiguration>(
+      displayName: 'Stretch Crop',
+    )
+      ..centerStretchAmount = 0
+      ..cropAmount = 1
+      ..size = const Point(200.0, 200.0),
+  ),
+  FilterItem(
+    'Horizontal Keystone Correction',
+    FlutterCoreImageFilters.createFilter<
+        CIKeystoneCorrectionHorizontalConfiguration>(
+      displayName: 'Horizontal Keystone Correction',
+    )
+      ..topRight = const Point(10.0, 2.0)
+      ..topLeft = const Point(2.0, 10.0)
+      ..bottomLeft = const Point(10.0, 5.0)
+      ..bottomRight = const Point(5.0, 10.0)
+      ..focalLength = 14,
+  ),
+  FilterItem(
+    'Stripes',
+    FlutterCoreImageFilters.createFilter<CIStripesGeneratorConfiguration>(
+      displayName: 'Stripes',
+    )
+      ..width = 400
+      ..center = const Point(75.0, 75.0)
+      ..sharpness = 0
+      ..color0 = const Color.fromRGBO(0, 0, 0, 1)
+      ..color1 = const Color.fromRGBO(255, 255, 255, 1),
+  ),
+  FilterItem(
+    'Star Shine',
+    FlutterCoreImageFilters.createFilter<CIStarShineGeneratorConfiguration>(
+      displayName: 'Star Shine',
+    )
+      ..epsilon = -2
+      ..crossAngle = 0.6
+      ..radius = 50
+      ..crossScale = 15
+      ..crossOpacity = -2
+      ..color = const Color.fromRGBO(255, 204, 153, 1)
+      ..crossWidth = 2.5
+      ..center = const Point(150.0, 150.0),
+  ),
+  FilterItem(
+    'Smooth Linear Gradient',
+    FlutterCoreImageFilters.createFilter<CISmoothLinearGradientConfiguration>(
+      displayName: 'Smooth Linear Gradient',
+    )
+      ..point1 = const Point(100.0, 100.0)
+      ..color1 = const Color.fromRGBO(160, 140, 160, 1)
+      ..color0 = const Color.fromRGBO(80, 160, 140, 1)
+      ..point0 = const Point(50.0, 50.0),
+  ),
+  FilterItem(
+    'Sixfold Rotated Tile',
+    FlutterCoreImageFilters.createFilter<CISixfoldRotatedTileConfiguration>(
+      displayName: 'Sixfold Rotated Tile',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..angle = 0.5
+      ..width = 50,
+  ),
+  FilterItem(
+    'Sixfold Reflected Tile',
+    FlutterCoreImageFilters.createFilter<CISixfoldReflectedTileConfiguration>(
+      displayName: 'Sixfold Reflected Tile',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..angle = 1.5
+      ..width = 120,
+  ),
+  FilterItem(
+    'Rounded Rectangle Generator',
+    FlutterCoreImageFilters.createFilter<
+        CIRoundedRectangleGeneratorConfiguration>(
+      displayName: 'Rounded Rectangle Generator',
+    )
+      ..extent = const Rect.fromLTWH(5, 5, 50, 50)
+      ..color = const Color.fromRGBO(200, 170, 45, 1.0)
+      ..radius = 50,
+  ),
+  FilterItem(
+    'Radial Gradient',
+    FlutterCoreImageFilters.createFilter<CIRadialGradientConfiguration>(
+      displayName: 'Radial Gradient',
+    )
+      ..radius1 = 100
+      ..color0 = const Color.fromRGBO(0, 0, 0, 1)
+      ..center = const Point(75.0, 75.0)
+      ..radius0 = 5
+      ..color1 = const Color.fromRGBO(255, 255, 255, 1),
+  ),
+  FilterItem(
+    'Pinch Distortion',
+    FlutterCoreImageFilters.createFilter<CIPinchDistortionConfiguration>(
+      displayName: 'Pinch Distortion',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..scale = 1
+      ..radius = 500,
+  ),
+  FilterItem(
+    'Perspective Tile',
+    FlutterCoreImageFilters.createFilter<CIPerspectiveTileConfiguration>(
+      displayName: 'Perspective Tile',
+    )
+      ..bottomLeft = const Point(70.0, 70.0)
+      ..topRight = const Point(320.0, 250.0)
+      ..topLeft = const Point(60.0, 300.0)
+      ..bottomRight = const Point(270.0, 70.0),
+  ),
+  FilterItem(
+    'Perspective Correction',
+    FlutterCoreImageFilters.createFilter<CIPerspectiveCorrectionConfiguration>(
+      displayName: 'Perspective Correction',
+    )
+      ..bottomLeft = const Point(75.0, 75.0)
+      ..topRight = const Point(400.0, 300.0)
+      ..topLeft = const Point(60.0, 300.0)
+      ..crop = false
+      ..bottomRight = const Point(300.0, 70.0),
+  ),
+  FilterItem(
+    'Parallelogram Tile',
+    FlutterCoreImageFilters.createFilter<CIParallelogramTileConfiguration>(
+      displayName: 'Parallelogram Tile',
+    )
+      ..center = const Point(75.0, 75.0)
+      ..width = 100
+      ..acuteAngle = 1
+      ..angle = 1,
+  ),
+  FilterItem(
+    'Op Tile',
+    FlutterCoreImageFilters.createFilter<CIOpTileConfiguration>(
+      displayName: 'Op Tile',
+    )
+      ..center = const Point(150.0, 150.0)
+      ..width = 500
+      ..angle = 2
+      ..scale = 5.6,
+  ),
+  FilterItem(
+    'Nine Part Tiled',
+    FlutterCoreImageFilters.createFilter<CINinePartTiledConfiguration>(
+      displayName: 'Nine Part Tiled',
+    )
+      ..breakpoint1 = const Point(200.0, 200.0)
+      ..breakpoint0 = const Point(70.0, 70.0)
+      ..flipYTiles = false
+      ..growAmount = const Point(130.0, 130.0),
+  ),
+  FilterItem(
+    'Linear Gradient',
+    FlutterCoreImageFilters.createFilter<CILinearGradientConfiguration>(
+      displayName: 'Linear Gradient',
+    )
+      ..color0 = const Color.fromRGBO(100, 140, 140, 1)
+      ..point1 = const Point(100.0, 100.0)
+      ..point0 = const Point(200.0, 200.0)
+      ..color1 = const Color.fromRGBO(200, 1, 1, 1),
+  ),
+  FilterItem(
+    'Line Screen',
+    FlutterCoreImageFilters.createFilter<CILineScreenConfiguration>(
+      displayName: 'Line Screen',
+    )
+      ..sharpness = 0.5
+      ..center = const Point(75.0, 75.0)
+      ..angle = 1
+      ..width = 24,
+  ),
+  FilterItem(
+    'Light Tunnel Distortion',
+    FlutterCoreImageFilters.createFilter<CILightTunnelConfiguration>(
+      displayName: 'Light Tunnel Distortion',
+    )
+      ..radius = 300
+      ..center = const Point(75.0, 75.0)
+      ..rotation = 1.57,
+  ),
+  FilterItem(
     'Gaussian Gradient',
     FlutterCoreImageFilters.createFilter<CIGaussianGradientConfiguration>(
       displayName: 'Gaussian Gradient',
@@ -619,7 +892,7 @@ final kFilters = {
     FlutterCoreImageFilters.createFilter<CIZoomBlurConfiguration>(
       displayName: 'Zoom Blur',
     )
-      ..amount = 100
+      ..amount = 15
       ..center = const Point(300.0, 300.0),
   ),
   FilterItem(
@@ -763,10 +1036,10 @@ final kFilters = {
     FlutterCoreImageFilters.createFilter<CICropConfiguration>(
       displayName: 'Crop',
     )..rectangle = const Rect.fromLTWH(
-        -8.98847e+307,
-        -8.98847e+307,
-        1.79769e+308,
-        1.79769e+308,
+        100,
+        100,
+        300,
+        300,
       ),
   ),
   FilterItem(

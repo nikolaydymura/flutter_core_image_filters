@@ -10,37 +10,7 @@ import CoreImage
 
 
 let failedFilters = [
-    FilterItem(filterName: "CIKeystoneCorrectionCombined",
-               values: [
-                "inputTopRight" : CIVector(cgPoint: CGPoint(x: 10, y: 2)),
-                "inputTopLeft" : CIVector(cgPoint: CGPoint(x: 2, y: 10)),
-                "inputBottomLeft" : CIVector(cgPoint: CGPoint(x: 10, y: 5)),
-                "inputBottomRight" : CIVector(cgPoint: CGPoint(x: 5, y: 10)),
-                "inputFocalLength" : 14,
-               ]
-              ),
-
-    FilterItem(filterName: "CIKeystoneCorrectionCombined"
-              ),
-
-
     FilterItem(filterName: "CICheckerboardGenerator"),
-    FilterItem(filterName: "CIKeystoneCorrectionVertical", values: [
-        "inputTopRight" : CIVector(cgPoint: CGPoint(x: 75, y: 75)),
-        "inputTopLeft": CIVector(cgPoint: CGPoint(x: 150, y: 150)),
-        "inputBottomRight" : CIVector(cgPoint: CGPoint(x: 150, y: 150)),
-        "inputBottomLeft": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
-        "inputFocalLength" : 14,
-    ]),
-    FilterItem(filterName: "CISunbeamsGenerator", values: [
-        "inputStriationContrast": 2.6,
-        "inputCenter": CIVector(cgPoint: CGPoint(x: 75, y: 75)),
-        "inputTime": 1,
-        "inputStriationStrength": 2,
-        "inputMaxStriationRadius": 5,
-        "inputSunRadius": 400,
-        "inputColor": CIColor.fromRGBO(100, 90, 0, 1)
-    ]),
     FilterItem(filterName: "CISaliencyMapFilter")
 
 ].sorted()
