@@ -182,7 +182,7 @@ await output.writeAsBytes(data);
 | :x:                | CIAztecCodeGenerator              | Aztec Code Generator              |
 | :x:                | CIBarcodeGenerator                | Barcode Generator                 |
 | :x:                | CIBarsSwipeTransition             | Bars Swipe Transition             |
-| :x:                | CIBicubicScaleTransform           | Bicubic Scale Transform           |
+| :white_check_mark: | CIBicubicScaleTransform           | Bicubic Scale Transform           |
 | :x:                | CIBlendWithAlphaMask              | Blend With Alpha Mask             |
 | :x:                | CIBlendWithBlueMask               | Blend With Blue Mask              |
 | :x:                | CIBlendWithMask                   | Blend With Mask                   |
@@ -193,7 +193,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIBumpDistortion                  | Bump Distortion                   |
 | :white_check_mark: | CIBumpDistortionLinear            | Bump Distortion Linear            |
 | :x:                | CICameraCalibrationLensCorrection | Lens Correction for AVC           |
-| :x:                | CICheckerboardGenerator           | Checkerboard                      |
+| :interrobang:      | CICheckerboardGenerator           | Checkerboard                      |
 | :white_check_mark: | CICircleSplashDistortion          | Circle Splash Distortion          |
 | :white_check_mark: | CICircularScreen                  | Circular Screen                   |
 | :white_check_mark: | CICircularWrap                    | Circular Wrap Distortion          |
@@ -222,7 +222,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIColumnAverage                   | Column Average                    |
 | :white_check_mark: | CIComicEffect                     | Comic Effect                      |
 | :white_check_mark: | CIConstantColorGenerator          | Constant Color                    |
-| :x:                | CIConvertLabToRGB                 | Convert Lab to RGB                |
+| :interrobang:      | CIConvertLabToRGB                 | Convert Lab to RGB                |
 | :white_check_mark: | CIConvertRGBtoLab                 | Convert RGB to Lab                |
 | :white_check_mark: | CIConvolution3X3                  | 3 by 3 Convolution                |
 | :white_check_mark: | CIConvolution5X5                  | 5 by 5 Convolution                |
@@ -241,11 +241,11 @@ await output.writeAsBytes(data);
 | :x:                | CIDarkenBlendMode                 | Darken Blend Mode                 |
 | :x:                | CIDepthBlurEffect                 | Depth Blur Effect                 |
 | :white_check_mark: | CIDepthOfField                    | Depth of Field                    |
-| :x:                | CIDepthToDisparity                | Depth To Disparity                |
+| :interrobang:      | CIDepthToDisparity                | Depth To Disparity                |
 | :x:                | CIDifferenceBlendMode             | Difference Blend Mode             |
 | :white_check_mark: | CIDiscBlur                        | Disc Blur                         |
 | :x:                | CIDisintegrateWithMaskTransition  | Disintegrate With Mask            |
-| :x:                | CIDisparityToDepth                | Disparity To Depth                |
+| :interrobang:      | CIDisparityToDepth                | Disparity To Depth                |
 | :x:                | CIDisplacementDistortion          | Displacement Distortion           |
 | :x:                | CIDissolveTransition              | Dissolve                          |
 | :white_check_mark: | CIDither                          | Dither                            |
@@ -255,7 +255,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIDroste                          | Droste                            |
 | :x:                | CIEdgePreserveUpsampleFilter      | Edge Preserve Upsample Filter     |
 | :white_check_mark: | CIEdges                           | Edges                             |
-| :x:                | CIEdgeWork                        | Edge Work                         |
+| :white_check_mark: | CIEdgeWork                        | Edge Work                         |
 | :white_check_mark: | CIEightfoldReflectedTile          | Eightfold Reflected Tile          |
 | :x:                | CIExclusionBlendMode              | Exclusion Blend Mode              |
 | :white_check_mark: | CIExposureAdjust                  | Exposure Adjust                   |
@@ -302,7 +302,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CILineScreen                      | Line Screen                       |
 | :x:                | CILuminosityBlendMode             | Luminosity Blend Mode             |
 | :x:                | CIMaskedVariableBlur              | Masked Variable Blur              |
-| :x:                | CIMaskToAlpha                     | Mask to Alpha                     |
+| :white_check_mark: | CIMaskToAlpha                     | Mask to Alpha                     |
 | :white_check_mark: | CIMaximumComponent                | Maximum Component                 |
 | :x:                | CIMaximumCompositing              | Maximum                           |
 | :white_check_mark: | CIMedianFilter                    | Median                            |
@@ -320,7 +320,7 @@ await output.writeAsBytes(data);
 | :x:                | CIMultiplyBlendMode               | Multiply Blend Mode               |
 | :x:                | CIMultiplyCompositing             | Multiply                          |
 | :white_check_mark: | CINinePartStretched               | Nine Part Stretched               |
-| :white_check_mark  | CINinePartTiled                   | Nine Part Tiled                   |
+| :white_check_mark: | CINinePartTiled                   | Nine Part Tiled                   |
 | :white_check_mark: | CINoiseReduction                  | Noise Reduction                   |
 | :white_check_mark: | CIOpTile                          | Op Tile                           |
 | :x:                | CIOverlayBlendMode                | Overlay Blend Mode                |
@@ -330,7 +330,7 @@ await output.writeAsBytes(data);
 | :x:                | CIPalettize                       | Palettize                         |
 | :white_check_mark: | CIParallelogramTile               | Parallelogram Tile                |
 | :x:                | CIPDF417BarcodeGenerator          | PDF417 Barcode Generator          |
-| :x:                | CIPersonSegmentation              | Person Segmentation               |
+| :interrobang:      | CIPersonSegmentation              | Person Segmentation               |
 | :white_check_mark: | CIPerspectiveCorrection           | Perspective Correction            |
 | :white_check_mark: | CIPerspectiveRotate               | Perspective Rotate                |
 | :white_check_mark: | CIPerspectiveTile                 | Perspective Tile                  |
@@ -350,11 +350,11 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIPointillize                     | Pointillize                       |
 | :x:                | CIQRCodeGenerator                 | QR Code Generator                 |
 | :white_check_mark: | CIRadialGradient                  | Radial Gradient                   |
-| :x:                | CIRandomGenerator                 | Random Generator                  |
+| :white_check_mark: | CIRandomGenerator                 | Random Generator                  |
 | :x:                | CIRippleTransition                | Ripple                            |
 | :white_check_mark: | CIRoundedRectangleGenerator       | Rounded Rectangle Generator       |
 | :white_check_mark: | CIRowAverage                      | Row Average                       |
-| :x:                | CISaliencyMapFilter               | Saliency Map Filter               |
+| :interrobang:      | CISaliencyMapFilter               | Saliency Map Filter               |
 | :white_check_mark: | CISampleNearest                   | Sample Nearest                    |
 | :x:                | CISaturationBlendMode             | Saturation Blend Mode             |
 | :x:                | CIScreenBlendMode                 | Screen Blend Mode                 |
@@ -369,7 +369,7 @@ await output.writeAsBytes(data);
 | :x:                | CISourceInCompositing             | Source In                         |
 | :x:                | CISourceOutCompositing            | Source Out                        |
 | :x:                | CISourceOverCompositing           | Source Over                       |
-| :x:                | CISpotColor                       | Spot Color                        |
+| :white_check_mark: | CISpotColor                       | Spot Color                        |
 | :white_check_mark: | CISpotLight                       | Spot Light                        |
 | :white_check_mark: | CISRGBToneCurveToLinear           | sRGB Tone Curve to Linear         |
 | :white_check_mark: | CIStarShineGenerator              | Star Shine                        |
