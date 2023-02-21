@@ -356,7 +356,7 @@ final kFilters = {
       displayName: 'Vertical 9 Convolution',
     )
       ..bias = 0
-      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+      ..weights = Matrix3.fromList([0, 0, 0, 1, 1, 1, 0, 0, 0]),
   ),
   FilterItem(
     'Vertical 9 RGB Convolution',
@@ -365,7 +365,7 @@ final kFilters = {
       displayName: 'Vertical 9 RGB Convolution',
     )
       ..bias = 0
-      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+      ..weights = Matrix3.fromList([0, 0, 0, 1, 1, 1, 0, 0, 0]),
   ),
   FilterItem(
     'Horizontal 9 Convolution',
@@ -373,7 +373,7 @@ final kFilters = {
       displayName: 'Horizontal 9 Convolution',
     )
       ..bias = 0.3
-      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+      ..weights = Matrix3.fromList([0, 0, 0, 1, 1, 1, 0, 0, 0]),
   ),
   FilterItem(
     'Horizontal 9 RGB Convolution',
@@ -382,7 +382,7 @@ final kFilters = {
       displayName: 'Horizontal 9 RGB Convolution',
     )
       ..bias = 0.5
-      ..weights = Mat3([1, 1, 0, 0, 1, 0, 0, 0, 0]),
+      ..weights = Matrix3.fromList([1, 1, 0, 0, 1, 0, 0, 0, 0]),
   ),
   FilterItem(
     '7 by 7 RGB Convolution',
@@ -568,7 +568,7 @@ final kFilters = {
       displayName: '3 by 3 RGB Convolution',
     )
       ..bias = 0.5
-      ..weights = Mat3([0, 0, 0, 1, 1, 1, 0, 0, 0]),
+      ..weights = Matrix3.fromList([0, 0, 0, 1, 1, 1, 0, 0, 0]),
   ),
   FilterItem(
     'Column Average',
@@ -885,7 +885,7 @@ final kFilters = {
       displayName: '3 by 3 Convolution',
     )
       ..bias = 0.5
-      ..weights = Mat3([1, 0, 0, 0, 1, 0, 0, 0, 0]),
+      ..weights = Matrix3.fromList([1, 0, 0, 0, 1, 0, 0, 0, 0]),
   ),
   FilterItem(
     'Zoom Blur',

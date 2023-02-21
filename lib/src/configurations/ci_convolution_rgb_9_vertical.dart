@@ -9,7 +9,7 @@ class CIConvolutionRGB9VerticalConfiguration extends CIFilterConfiguration {
         _weights = _Mat3Parameter(
           'inputWeights',
           'Weights',
-          Mat3([0, 0, 0, 0, 1, 0, 0, 0, 0]),
+          Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]),
         ),
         super('CIConvolutionRGB9Vertical');
 
@@ -17,7 +17,7 @@ class CIConvolutionRGB9VerticalConfiguration extends CIFilterConfiguration {
     _bias.value = value;
   }
 
-  set weights(Mat3 value) {
+  set weights(Matrix3 value) {
     _weights.value = value;
   }
 

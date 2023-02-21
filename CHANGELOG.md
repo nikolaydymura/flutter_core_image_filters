@@ -1,3 +1,7 @@
+## 0.0.9
+
+Updated vectors and matrices
+
 ## 0.0.8
 
 Fixed `jpeg` exporting

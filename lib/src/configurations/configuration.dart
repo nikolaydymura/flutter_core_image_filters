@@ -15,6 +15,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
 
 // coverage:ignore-end
 
+  @override
   bool get ready => _filterId != -1;
 
   bool get hasInputImage => true;
@@ -23,6 +24,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
 
   CIFilterConfiguration(this.name);
 
+  @override
   Future<void> prepare() async {
     if (_filterId == -1) {
       _filterId = await _api.create(name);

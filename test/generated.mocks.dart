@@ -304,6 +304,24 @@ class MockFilterApi extends _i1.Mock implements _i2.FilterApi {
         returnValueForMissingStub: _i3.Future<void>.value(),
       ) as _i3.Future<void>);
   @override
+  _i3.Future<void> setNSStringParameter(
+    int? arg_filterId,
+    String? arg_key,
+    String? arg_value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #setNSStringParameter,
+          [
+            arg_filterId,
+            arg_key,
+            arg_value,
+          ],
+        ),
+        returnValue: _i3.Future<void>.value(),
+        returnValueForMissingStub: _i3.Future<void>.value(),
+      ) as _i3.Future<void>);
+  @override
   _i3.Future<void> dispose(int? arg_filterId) => (super.noSuchMethod(
         Invocation.method(
           #dispose,

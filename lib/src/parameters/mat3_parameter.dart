@@ -12,7 +12,7 @@ class _Mat3Parameter extends Mat3Parameter {
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,
-      values,
+      floats64.toList(),
     );
   }
 }
