@@ -1,31 +1,22 @@
 part of flutter_core_image_filters;
 
-class CIVideoPreview extends StatelessWidget {
-  final CIVideoPreviewController controller;
-
-  const CIVideoPreview({Key? key, required this.controller}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Texture(textureId: controller._textureId);
-  }
-}
-
-class CIVideoPreviewController {
+class CIVideoPreviewController extends VideoPreviewController {
 // coverage:ignore-start
   static final VideoPreviewApi _gApi = VideoPreviewApi();
 
 // coverage:ignore-end
   final VideoPreviewApi _api;
-  final int _textureId;
+  @override
+  final int textureId;
 
-  CIVideoPreviewController._(this._api, this._textureId);
+  CIVideoPreviewController._(this._api, this.textureId);
 
+  @override
   Future<void> setVideoSource(PathInputSource source) async {
     if (source is FileInputSource) {
       await _api.setSource(
         SourcePreviewMessage(
-          textureId: _textureId,
+          textureId: textureId,
           path: source.path,
           asset: false,
         ),
@@ -33,7 +24,7 @@ class CIVideoPreviewController {
     } else if (source is AssetInputSource) {
       await _api.setSource(
         SourcePreviewMessage(
-          textureId: _textureId,
+          textureId: textureId,
           path: source.path,
           asset: true,
         ),
@@ -41,7 +32,7 @@ class CIVideoPreviewController {
     }
   }
 
-  static Future<CIVideoPreviewController> initialize({
+  static Future<VideoPreviewController> initialize({
     @visibleForTesting VideoPreviewApi? previewApi,
   }) async {
 // coverage:ignore-start
@@ -52,47 +43,49 @@ class CIVideoPreviewController {
   }
 
 // coverage:ignore-start
-  static Future<CIVideoPreviewController> fromFile(File file) async {
+  static Future<VideoPreviewController> fromFile(File file) async {
     final controller = await initialize();
     await controller.setVideoSource(FileInputSource(file));
     return controller;
   }
 
-  static Future<CIVideoPreviewController> fromAsset(String asset) async {
+  static Future<VideoPreviewController> fromAsset(String asset) async {
     final controller = await initialize();
     await controller.setVideoSource(AssetInputSource(asset));
     return controller;
   }
 
 // coverage:ignore-end
+  @override
   Future<void> connect(
-    CIFilterConfiguration configuration, {
+    covariant CIFilterConfiguration configuration, {
     CIContext context = CIContext.system,
   }) async {
-    if (configuration.ready) {
-      await _api.connect(
-        _textureId,
-        configuration._filterId,
-        context.platformKey,
-      );
-    } else {
-      throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
-    }
+    await super.connect(configuration);
+    await _api.connect(
+      textureId,
+      configuration._filterId,
+      context.platformKey,
+    );
   }
 
+  @override
   Future<void> disconnect() async {
-    await _api.disconnect(_textureId);
+    await _api.disconnect(textureId);
   }
 
+  @override
   Future<void> dispose() async {
-    await _api.dispose(_textureId);
+    await _api.dispose(textureId);
   }
 
+  @override
   Future<void> play() async {
-    await _api.resume(_textureId);
+    await _api.resume(textureId);
   }
 
+  @override
   Future<void> pause() async {
-    await _api.pause(_textureId);
+    await _api.pause(textureId);
   }
 }

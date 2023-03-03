@@ -9,7 +9,7 @@ import 'package:mockito/mockito.dart';
 import 'generated.mocks.dart';
 
 void main() {
-  late CIVideoPreviewController controller;
+  late VideoPreviewController controller;
   late MockVideoPreviewApi mockPreviewApi;
   late MockFilterApi mockFilterApi;
   setUp(() async {
@@ -64,7 +64,7 @@ void main() {
       verify(mockFilterApi.create('Passthrough')).called(1);
     });
     testWidgets('CIVideoPreview', (widgetTester) async {
-      await widgetTester.pumpWidget(CIVideoPreview(controller: controller));
+      await widgetTester.pumpWidget(VideoPreview(controller: controller));
       final textureFinder = find.byType(Texture);
       expect(textureFinder, findsOneWidget);
     });

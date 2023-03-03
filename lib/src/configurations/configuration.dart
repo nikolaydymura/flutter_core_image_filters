@@ -31,6 +31,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     }
   }
 
+  @override
   Future<void> dispose() async {
     if (_filterId >= 0) {
       await _api.dispose(_filterId);
@@ -38,6 +39,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     _filterId = -1;
   }
 
+  @override
   Future<void> update() async {
     for (final param in parameters) {
       await param.update(this);

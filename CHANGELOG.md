@@ -1,3 +1,7 @@
+## 0.0.10
+
+Updated `CIVideoPreviewController`
+
 ## 0.0.9
 
 Updated vectors and matrices
