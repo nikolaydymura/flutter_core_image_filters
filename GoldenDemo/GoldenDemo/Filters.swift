@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreImage
+import UIKit
 
 
 let failedFilters = [
@@ -57,4 +58,17 @@ class FilterItem: Comparable {
         
        return values == nil ? "\(displayName) (default)" : displayName
     }()
+}
+
+
+extension CIImage {
+    class func fromAsset(_ named: String) -> CIImage {
+        guard let image = UIImage(named: named) else {
+            fatalError("\(named) not found in assets")
+        }
+        guard let ciImage = CIImage(image: image) else {
+            fatalError("\(named) not converted")
+        }
+        return ciImage
+    }
 }
