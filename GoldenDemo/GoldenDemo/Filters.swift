@@ -312,7 +312,7 @@ let failedFilters = [
     FilterItem(filterName: "CIColorMap"),
     
     FilterItem(filterName: "CIColorDodgeBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("demo.jpeg")]),
+               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
     FilterItem(filterName: "CIColorDodgeBlendMode"),
     

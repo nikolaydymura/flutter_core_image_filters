@@ -1,4 +1,3 @@
-
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 
 <p align="center">
@@ -16,12 +15,15 @@ A flutter package for iOS and MacOS for applying CoreImage filters to image.
 ### Export processed image
 
 ```dart
+
 final inputSource = AssetInputSource('demo.jpeg');
 final configuration = CIPhotoEffectChromeConfiguration();
-final image = await configuration.export(inputSource);
+final image = await
+configuration.export(inputSource);
 ```
 
 ### CIImagePreview example
+
 ```dart
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 
@@ -71,6 +73,7 @@ class _PreviewPageState extends State<PreviewPage> {
 ```
 
 ### Divided preview sample
+
 ```dart
 import 'package:before_after_image_slider_nullsafty/before_after_image_slider_nullsafty.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
@@ -139,15 +142,20 @@ import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
 
 
-
 final inputSource = AssetInputSource('demo.jpeg');
 final configuration = CIPhotoEffectChromeConfiguration();
-final image = await configuration.export(inputSource);
+final image = await
+configuration.export(inputSource);
 
-final directory = await getTemporaryDirectory();
+final directory = await
+
+getTemporaryDirectory();
+
 final output =
 File('${directory.path}/result.jpeg');
-final bytes = await image.toByteData();
+final bytes = await
+image.toByteData();
+
 final persistedImage = img.Image.fromBytes(
   image.width,
   image.height,
@@ -155,7 +163,8 @@ final persistedImage = img.Image.fromBytes(
 );
 img.JpegEncoder encoder = img.JpegEncoder();
 final data = encoder.encodeImage(persistedImage);
-await output.writeAsBytes(data);
+await
+output.writeAsBytes(data);
 ```
 
 ## Additional information
@@ -164,7 +173,7 @@ await output.writeAsBytes(data);
 
 | Status             | Name                              | Display Name                      |
 |:-------------------|:----------------------------------|:----------------------------------|
-| :x:                | CIAccordionFoldTransition         | Accordion Fold Transition         |
+| :white_check_mark: | CIAccordionFoldTransition         | Accordion Fold Transition         |
 | :x:                | CIAdditionCompositing             | Addition                          |
 | :x:                | CIAffineClamp                     | Affine Clamp                      |
 | :x:                | CIAffineTile                      | Affine Tile                       |
@@ -181,12 +190,12 @@ await output.writeAsBytes(data);
 | :x:                | CIAttributedTextImageGenerator    | Attributed Text Image Generator   |
 | :x:                | CIAztecCodeGenerator              | Aztec Code Generator              |
 | :x:                | CIBarcodeGenerator                | Barcode Generator                 |
-| :x:                | CIBarsSwipeTransition             | Bars Swipe Transition             |
+| :white_check_mark: | CIBarsSwipeTransition             | Bars Swipe Transition             |
 | :white_check_mark: | CIBicubicScaleTransform           | Bicubic Scale Transform           |
 | :x:                | CIBlendWithAlphaMask              | Blend With Alpha Mask             |
-| :x:                | CIBlendWithBlueMask               | Blend With Blue Mask              |
-| :x:                | CIBlendWithMask                   | Blend With Mask                   |
-| :x:                | CIBlendWithRedMask                | Blend With Red Mask               |
+| :white_check_mark: | CIBlendWithBlueMask               | Blend With Blue Mask              |
+| :white_check_mark: | CIBlendWithMask                   | Blend With Mask                   |
+| :white_check_mark: | CIBlendWithRedMask                | Blend With Red Mask               |
 | :white_check_mark: | CIBloom                           | Bloom                             |
 | :white_check_mark: | CIBokehBlur                       | Bokeh Blur                        |
 | :white_check_mark: | CIBoxBlur                         | Box Blur                          |
@@ -200,9 +209,9 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIClamp                           | Clamp                             |
 | :white_check_mark: | CICMYKHalftone                    | CMYK Halftone                     |
 | :x:                | CICode128BarcodeGenerator         | Code 128 Barcode Generator        |
-| :x:                | CIColorAbsoluteDifference         | Color Absolute Difference         |
-| :x:                | CIColorBlendMode                  | Color Blend Mode                  |
-| :x:                | CIColorBurnBlendMode              | Color Burn Blend Mode             |
+| :white_check_mark: | CIColorAbsoluteDifference         | Color Absolute Difference         |
+| :white_check_mark: | CIColorBlendMode                  | Color Blend Mode                  |
+| :white_check_mark: | CIColorBurnBlendMode              | Color Burn Blend Mode             |
 | :white_check_mark: | CIColorClamp                      | Color Clamp                       |
 | :white_check_mark: | CIColorControls                   | Color Controls                    |
 | :white_check_mark: | CIColorCrossPolynomial            | Color Cross Polynomial            |
@@ -210,7 +219,7 @@ await output.writeAsBytes(data);
 | :x:                | CIColorCubesMixedWithMask         | Color Cubes Mixed With Mask       |
 | :x:                | CIColorCubeWithColorSpace         | Color Cube with ColorSpace        |
 | :x:                | CIColorCurves                     | Color Curves                      |
-| :x:                | CIColorDodgeBlendMode             | Color Dodge Blend Mode            |
+| :white_check_mark: | CIColorDodgeBlendMode             | Color Dodge Blend Mode            |
 | :white_check_mark: | CIColorInvert                     | Color Invert                      |
 | :x:                | CIColorMap                        | Color Map                         |
 | :white_check_mark: | CIColorMatrix                     | Color Matrix                      |
@@ -249,7 +258,7 @@ await output.writeAsBytes(data);
 | :x:                | CIDisplacementDistortion          | Displacement Distortion           |
 | :x:                | CIDissolveTransition              | Dissolve                          |
 | :white_check_mark: | CIDither                          | Dither                            |
-| :x:                | CIDivideBlendMode                 | Divide Blend Mode                 |
+| :white_check_mark: | CIDivideBlendMode                 | Divide Blend Mode                 |
 | :white_check_mark: | CIDocumentEnhancer                | Document Enhancer                 |
 | :white_check_mark: | CIDotScreen                       | Dot Screen                        |
 | :white_check_mark: | CIDroste                          | Droste                            |
@@ -281,7 +290,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIHistogramDisplayFilter          | Histogram Display                 |
 | :white_check_mark: | CIHoleDistortion                  | Hole Distortion                   |
 | :white_check_mark: | CIHueAdjust                       | Hue Adjust                        |
-| :x:                | CIHueBlendMode                    | Hue Blend Mode                    |
+| :white_check_mark: | CIHueBlendMode                    | Hue Blend Mode                    |
 | :x:                | CIHueSaturationValueGradient      | Hue/Saturation/Value Gradient     |
 | :white_check_mark: | CIKaleidoscope                    | Kaleidoscope                      |
 | :white_check_mark: | CIKeystoneCorrectionCombined      | Combined Keystone Correction      |
@@ -309,8 +318,8 @@ await output.writeAsBytes(data);
 | :x:                | CIMeshGenerator                   | Mesh Generator                    |
 | :white_check_mark: | CIMinimumComponent                | Minimum Component                 |
 | :x:                | CIMinimumCompositing              | Minimum                           |
-| :x:                | CIMix                             | Mix                               |
-| :x:                | CIModTransition                   | Mod                               |
+| :white_check_mark: | CIMix                             | Mix                               |
+| :white_check_mark: | CIModTransition                   | Mod                               |
 | :white_check_mark: | CIMorphologyGradient              | Morphology Gradient               |
 | :white_check_mark: | CIMorphologyMaximum               | Morphology Maximum                |
 | :white_check_mark: | CIMorphologyMinimum               | Morphology Minimum                |
@@ -323,9 +332,9 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CINinePartTiled                   | Nine Part Tiled                   |
 | :white_check_mark: | CINoiseReduction                  | Noise Reduction                   |
 | :white_check_mark: | CIOpTile                          | Op Tile                           |
-| :x:                | CIOverlayBlendMode                | Overlay Blend Mode                |
+| :white_check_mark: | CIOverlayBlendMode                | Overlay Blend Mode                |
 | :x:                | CIPageCurlTransition              | Page Curl                         |
-| :x:                | CIPageCurlWithShadowTransition    | Page Curl With Shadow             |
+| :white_check_mark: | CIPageCurlWithShadowTransition    | Page Curl With Shadow             |
 | :x:                | CIPaletteCentroid                 | Palette Centroid                  |
 | :x:                | CIPalettize                       | Palettize                         |
 | :white_check_mark: | CIParallelogramTile               | Parallelogram Tile                |
@@ -356,7 +365,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIRowAverage                      | Row Average                       |
 | :interrobang:      | CISaliencyMapFilter               | Saliency Map Filter               |
 | :white_check_mark: | CISampleNearest                   | Sample Nearest                    |
-| :x:                | CISaturationBlendMode             | Saturation Blend Mode             |
+| :white_check_mark: | CISaturationBlendMode             | Saturation Blend Mode             |
 | :x:                | CIScreenBlendMode                 | Screen Blend Mode                 |
 | :white_check_mark: | CISepiaTone                       | Sepia Tone                        |
 | :x:                | CIShadedMaterial                  | Shaded Material                   |
@@ -364,7 +373,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CISixfoldReflectedTile            | Sixfold Reflected Tile            |
 | :white_check_mark: | CISixfoldRotatedTile              | Sixfold Rotated Tile              |
 | :white_check_mark: | CISmoothLinearGradient            | Smooth Linear Gradient            |
-| :x:                | CISoftLightBlendMode              | Soft Light Blend Mode             |
+| :white_check_mark: | CISoftLightBlendMode              | Soft Light Blend Mode             |
 | :x:                | CISourceAtopCompositing           | Source Atop                       |
 | :x:                | CISourceInCompositing             | Source In                         |
 | :x:                | CISourceOutCompositing            | Source Out                        |
@@ -378,7 +387,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIStripesGenerator                | Stripes                           |
 | :x:                | CISubtractBlendMode               | Subtract Blend Mode               |
 | :white_check_mark: | CISunbeamsGenerator               | Sunbeams                          |
-| :x:                | CISwipeTransition                 | Swipe                             |
+| :white_check_mark: | CISwipeTransition                 | Swipe                             |
 | :white_check_mark: | CITemperatureAndTint              | Temperature and Tint              |
 | :x:                | CITextImageGenerator              | Text Image Generator              |
 | :white_check_mark: | CIThermal                         | Thermal                           |
@@ -392,7 +401,7 @@ await output.writeAsBytes(data);
 | :white_check_mark: | CIVibrance                        | Vibrance                          |
 | :white_check_mark: | CIVignette                        | Vignette                          |
 | :white_check_mark: | CIVignetteEffect                  | Vignette Effect                   |
-| :x:                | CIVividLightBlendMode             | Vivid Light Blend Mode            |
+| :white_check_mark: | CIVividLightBlendMode             | Vivid Light Blend Mode            |
 | :white_check_mark: | CIVortexDistortion                | Vortex Distortion                 |
 | :white_check_mark: | CIWhitePointAdjust                | White Point Adjust                |
 | :white_check_mark: | CIXRay                            | X-Ray                             |
@@ -411,7 +420,8 @@ await output.writeAsBytes(data);
 
 ## Examples
 
-- [Big Flutter Filters Demo](https://github.com/nikolaydymura/image_filters_example) - big example of how to use filters and.
+- [Big Flutter Filters Demo](https://github.com/nikolaydymura/image_filters_example) - big example
+  of how to use filters and.
 
 ## Maintainers
 

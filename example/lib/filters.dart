@@ -13,37 +13,6 @@ class FilterItem {
 
 final kFailedFilters = [
   FilterItem(
-    'Vivid Light Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIVividLightBlendModeConfiguration>(
-      displayName: 'Vivid Light Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Vivid Light Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIVividLightBlendModeConfiguration>(
-      displayName: 'Vivid Light Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Swipe',
-    FlutterCoreImageFilters.createFilter<CISwipeTransitionConfiguration>(
-      displayName: 'Swipe',
-    )
-      ..targetImageAsset = 'images/inputImage1.jpg'
-      ..angle = 2
-      ..color = const Color.fromRGBO(140, 255, 255, 1.0)
-      ..extent = const Rect.fromLTWH(0, 0, 150, 150)
-      ..opacity = 0.5
-      ..time = 0.5
-      ..width = 400,
-  ),
-  FilterItem(
-    'Swipe',
-    FlutterCoreImageFilters.createFilter<CISwipeTransitionConfiguration>(
-      displayName: 'Swipe',
-    ),
-  ),
-  FilterItem(
     'Subtract Blend Mode',
     FlutterCoreImageFilters.createFilter<CISubtractBlendModeConfiguration>(
       displayName: 'Subtract Blend Mode',
@@ -101,18 +70,6 @@ final kFailedFilters = [
     'Source Atop',
     FlutterCoreImageFilters.createFilter<CISourceAtopCompositingConfiguration>(
       displayName: 'Source Atop',
-    ),
-  ),
-  FilterItem(
-    'Soft Light Blend Mode',
-    FlutterCoreImageFilters.createFilter<CISoftLightBlendModeConfiguration>(
-      displayName: 'Soft Light Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Soft Light Blend Mode',
-    FlutterCoreImageFilters.createFilter<CISoftLightBlendModeConfiguration>(
-      displayName: 'Soft Light Blend Mode',
     ),
   ),
   FilterItem(
@@ -139,18 +96,6 @@ final kFailedFilters = [
     'Screen Blend Mode',
     FlutterCoreImageFilters.createFilter<CIScreenBlendModeConfiguration>(
       displayName: 'Screen Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Saturation Blend Mode',
-    FlutterCoreImageFilters.createFilter<CISaturationBlendModeConfiguration>(
-      displayName: 'Saturation Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Saturation Blend Mode',
-    FlutterCoreImageFilters.createFilter<CISaturationBlendModeConfiguration>(
-      displayName: 'Saturation Blend Mode',
     ),
   ),
   FilterItem(
@@ -218,29 +163,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Page Curl With Shadow',
-    FlutterCoreImageFilters.createFilter<
-        CIPageCurlWithShadowTransitionConfiguration>(
-      displayName: 'Page Curl With Shadow',
-    )
-      ..shadowExtent = const Rect.fromLTWH(0, 0, 150, 150)
-      ..shadowAmount = 0.5
-      ..shadowSize = 0.2
-      ..targetImageAsset = 'images/inputImage1.jpg'
-      ..backsideImageAsset = 'images/inputImage2.jpg'
-      ..extent = const Rect.fromLTWH(0, 0, 150, 150)
-      ..time = 0.5
-      ..radius = 200
-      ..angle = 2,
-  ),
-  FilterItem(
-    'Page Curl With Shadow',
-    FlutterCoreImageFilters.createFilter<
-        CIPageCurlWithShadowTransitionConfiguration>(
-      displayName: 'Page Curl With Shadow',
-    ),
-  ),
-  FilterItem(
     'Page Curl',
     FlutterCoreImageFilters.createFilter<CIPageCurlTransitionConfiguration>(
       displayName: 'Page Curl',
@@ -260,18 +182,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Overlay Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIOverlayBlendModeConfiguration>(
-      displayName: 'Overlay Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Overlay Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIOverlayBlendModeConfiguration>(
-      displayName: 'Overlay Blend Mode',
-    ),
-  ),
-  FilterItem(
     'Multiply',
     FlutterCoreImageFilters.createFilter<CIMultiplyCompositingConfiguration>(
       displayName: 'Multiply',
@@ -293,38 +203,6 @@ final kFailedFilters = [
     'Multiply Blend Mode',
     FlutterCoreImageFilters.createFilter<CIMultiplyBlendModeConfiguration>(
       displayName: 'Multiply Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Mod',
-    FlutterCoreImageFilters.createFilter<CIModTransitionConfiguration>(
-      displayName: 'Mod',
-    )
-      ..targetImageAsset = 'images/inputImage1.jpg'
-      ..angle = 3.14
-      ..compression = 400
-      ..time = 0.5
-      ..radius = 100
-      ..center = const Point(75.0, 75.0),
-  ),
-  FilterItem(
-    'Mod',
-    FlutterCoreImageFilters.createFilter<CIModTransitionConfiguration>(
-      displayName: 'Mod',
-    ),
-  ),
-  FilterItem(
-    'Mix',
-    FlutterCoreImageFilters.createFilter<CIMixConfiguration>(
-      displayName: 'Mix',
-    )
-      ..amount = 0.5
-      ..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Mix',
-    FlutterCoreImageFilters.createFilter<CIMixConfiguration>(
-      displayName: 'Mix',
     ),
   ),
   FilterItem(
@@ -455,18 +333,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Hue Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIHueBlendModeConfiguration>(
-      displayName: 'Hue Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Hue Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIHueBlendModeConfiguration>(
-      displayName: 'Hue Blend Mode',
-    ),
-  ),
-  FilterItem(
     'Hard Light Blend Mode',
     FlutterCoreImageFilters.createFilter<CIHardLightBlendModeConfiguration>(
       displayName: 'Hard Light Blend Mode',
@@ -556,18 +422,6 @@ final kFailedFilters = [
     FlutterCoreImageFilters.createFilter<
         CIEdgePreserveUpsampleFilterConfiguration>(
       displayName: 'Edge Preserve Upsample Filter',
-    ),
-  ),
-  FilterItem(
-    'Divide Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIDivideBlendModeConfiguration>(
-      displayName: 'Divide Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Divide Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIDivideBlendModeConfiguration>(
-      displayName: 'Divide Blend Mode',
     ),
   ),
   FilterItem(
@@ -674,98 +528,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Color Dodge Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorDodgeBlendModeConfiguration>(
-      displayName: 'Color Dodge Blend Mode',
-    )..backgroundImageAsset = 'images/demo.jpeg',
-  ),
-  FilterItem(
-    'Color Dodge Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorDodgeBlendModeConfiguration>(
-      displayName: 'Color Dodge Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Color Burn Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorBurnBlendModeConfiguration>(
-      displayName: 'Color Burn Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Color Burn Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorBurnBlendModeConfiguration>(
-      displayName: 'Color Burn Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Color Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorBlendModeConfiguration>(
-      displayName: 'Color Blend Mode',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Color Blend Mode',
-    FlutterCoreImageFilters.createFilter<CIColorBlendModeConfiguration>(
-      displayName: 'Color Blend Mode',
-    ),
-  ),
-  FilterItem(
-    'Color Absolute Difference',
-    FlutterCoreImageFilters.createFilter<
-        CIColorAbsoluteDifferenceConfiguration>(
-      displayName: 'Color Absolute Difference',
-    )..image2Asset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Color Absolute Difference',
-    FlutterCoreImageFilters.createFilter<
-        CIColorAbsoluteDifferenceConfiguration>(
-      displayName: 'Color Absolute Difference',
-    ),
-  ),
-  FilterItem(
-    'Blend With Red Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithRedMaskConfiguration>(
-      displayName: 'Blend With Red Mask',
-    )
-      ..backgroundImageAsset = 'images/inputImage1.jpg'
-      ..maskImageAsset = 'images/inputImage2.jpg',
-  ),
-  FilterItem(
-    'Blend With Red Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithRedMaskConfiguration>(
-      displayName: 'Blend With Red Mask',
-    ),
-  ),
-  FilterItem(
-    'Blend With Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithMaskConfiguration>(
-      displayName: 'Blend With Mask',
-    )
-      ..backgroundImageAsset = 'images/inputImage1.jpg'
-      ..maskImageAsset = 'images/inputImage2.jpg',
-  ),
-  FilterItem(
-    'Blend With Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithMaskConfiguration>(
-      displayName: 'Blend With Mask',
-    ),
-  ),
-  FilterItem(
-    'Blend With Blue Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithBlueMaskConfiguration>(
-      displayName: 'Blend With Blue Mask',
-    )
-      ..backgroundImageAsset = 'images/inputImage1.jpg'
-      ..maskImageAsset = 'images/inputImage2.jpg',
-  ),
-  FilterItem(
-    'Blend With Blue Mask',
-    FlutterCoreImageFilters.createFilter<CIBlendWithBlueMaskConfiguration>(
-      displayName: 'Blend With Blue Mask',
-    ),
-  ),
-  FilterItem(
     'Blend With Alpha Mask',
     FlutterCoreImageFilters.createFilter<CIBlendWithAlphaMaskConfiguration>(
       displayName: 'Blend With Alpha Mask',
@@ -780,23 +542,6 @@ final kFailedFilters = [
     ),
   ),
   FilterItem(
-    'Bars Swipe Transition',
-    FlutterCoreImageFilters.createFilter<CIBarsSwipeTransitionConfiguration>(
-      displayName: 'Bars Swipe Transition',
-    )
-      ..time = 0.5
-      ..angle = 2
-      ..width = 150
-      ..targetImageAsset = 'images/inputImage1.jpg'
-      ..barOffset = 50,
-  ),
-  FilterItem(
-    'Bars Swipe Transition',
-    FlutterCoreImageFilters.createFilter<CIBarsSwipeTransitionConfiguration>(
-      displayName: 'Bars Swipe Transition',
-    ),
-  ),
-  FilterItem(
     'Addition',
     FlutterCoreImageFilters.createFilter<CIAdditionCompositingConfiguration>(
       displayName: 'Addition',
@@ -806,25 +551,6 @@ final kFailedFilters = [
     'Addition',
     FlutterCoreImageFilters.createFilter<CIAdditionCompositingConfiguration>(
       displayName: 'Addition',
-    ),
-  ),
-  FilterItem(
-    'Accordion Fold Transition',
-    FlutterCoreImageFilters.createFilter<
-        CIAccordionFoldTransitionConfiguration>(
-      displayName: 'Accordion Fold Transition',
-    )
-      ..time = 0.5
-      ..numberOfFolds = 25
-      ..bottomHeight = 1
-      ..foldShadowAmount = 0.5
-      ..targetImageAsset = 'images/inputImage1.jpg',
-  ),
-  FilterItem(
-    'Accordion Fold Transition',
-    FlutterCoreImageFilters.createFilter<
-        CIAccordionFoldTransitionConfiguration>(
-      displayName: 'Accordion Fold Transition',
     ),
   ),
   FilterItem(
