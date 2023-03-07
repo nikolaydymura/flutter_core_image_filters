@@ -10,22 +10,6 @@ import UIKit
 
 
 let failedFilters = [
-    FilterItem(filterName: "CIVividLightBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIVividLightBlendMode"),
-    
-    FilterItem(filterName: "CISwipeTransition",
-               values: ["inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputAngle" : 2,
-                        "inputColor" : CIColor(red: 140.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0),
-                        "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 150, height: 150)),
-                        "inputOpacity" : 0.5,
-                        "inputTime" : 0.5,
-                        "inputWidth" : 400]),
-    
-    FilterItem(filterName: "CISwipeTransition"),
-    
     FilterItem(filterName: "CISubtractBlendMode",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
@@ -51,11 +35,6 @@ let failedFilters = [
     
     FilterItem(filterName: "CISourceAtopCompositing"),
     
-    FilterItem(filterName: "CISoftLightBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CISoftLightBlendMode"),
-    
     FilterItem(filterName: "CIShadedMaterial",
                values: ["inputShadingImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputScale" : 100]),
@@ -66,11 +45,6 @@ let failedFilters = [
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
     FilterItem(filterName: "CIScreenBlendMode"),
-    
-    FilterItem(filterName: "CISaturationBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CISaturationBlendMode"),
     
     FilterItem(filterName: "CIRippleTransition",
                values: ["inputShadingImage" : CIImage.fromAsset("inputImage1.jpg"),
@@ -100,19 +74,6 @@ let failedFilters = [
     
     FilterItem(filterName: "CIPaletteCentroid"),
     
-    FilterItem(filterName: "CIPageCurlWithShadowTransition",
-               values: ["inputShadowExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 150, height: 150)),
-                        "inputShadowAmount" : 0.5,
-                        "inputShadowSize" : 0.2,
-                        "inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputBacksideImage" : CIImage.fromAsset("inputImage2.jpg"),
-                        "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 150, height: 150)),
-                        "inputTime" : 0.5,
-                        "inputRadius" : 200,
-                        "inputAngle" : 2]),
-    
-    FilterItem(filterName: "CIPageCurlWithShadowTransition"),
-    
     FilterItem(filterName: "CIPageCurlTransition",
                values: ["inputShadingImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputTargetImage" : CIImage.fromAsset("inputImage2.jpg"),
@@ -124,11 +85,6 @@ let failedFilters = [
     
     FilterItem(filterName: "CIPageCurlTransition"),
     
-    FilterItem(filterName: "CIOverlayBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIOverlayBlendMode"),
-    
     FilterItem(filterName: "CIMultiplyCompositing",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
@@ -138,22 +94,6 @@ let failedFilters = [
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
     FilterItem(filterName: "CIMultiplyBlendMode"),
-    
-    FilterItem(filterName: "CIModTransition",
-               values: ["inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputAngle" : 3.14,
-                        "inputCompression" : 400,
-                        "inputTime" : 0.5,
-                        "inputRadius" : 100,
-                        "inputCenter" : CIVector(cgPoint: CGPoint(x: 75, y: 75))]),
-    
-    FilterItem(filterName: "CIModTransition"),
-    
-    FilterItem(filterName: "CIMix",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputAmount" : 0.5]),
-    
-    FilterItem(filterName: "CIMix"),
     
     FilterItem(filterName: "CIMinimumCompositing",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
@@ -210,11 +150,6 @@ let failedFilters = [
     
     FilterItem(filterName: "CIKMeans"),
     
-    FilterItem(filterName: "CIHueBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIHueBlendMode"),
-    
     FilterItem(filterName: "CIHardLightBlendMode",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
@@ -259,11 +194,6 @@ let failedFilters = [
     
     FilterItem(filterName: "CIEdgePreserveUpsampleFilter"),
     
-    FilterItem(filterName: "CIDivideBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIDivideBlendMode"),
-    
     FilterItem(filterName: "CIDissolveTransition",
                values: ["inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputTime" : 1]),
@@ -279,7 +209,7 @@ let failedFilters = [
                values: ["inputTime" : 1.0,
                         "inputShadowOffset" : CIVector(cgPoint: CGPoint(x: 10, y: -5)),
                         "inputShadowDensity" : 0.5,
-                       "inputShadowRadius" : 24,
+                        "inputShadowRadius" : 24,
                         "inputMaskImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputTargetImage" : CIImage.fromAsset("inputImage2.jpg")]),
     
@@ -299,7 +229,7 @@ let failedFilters = [
                values: ["inputTime" : 1.0,
                         "inputAngle" : 3.14,
                         "inputOpacity" : 1.5,
-                       "inputWidth" : 250,
+                        "inputWidth" : 250,
                         "inputExtent" : CIVector(cgRect: CGRect(x: 0, y: 0, width: 150, height: 150)),
                         "inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputColor" : CIColor(red: 153.0 / 255.0, green: 115.0 / 255.0, blue: 204.0 / 255.0, alpha: 1.0)]),
@@ -311,73 +241,17 @@ let failedFilters = [
     
     FilterItem(filterName: "CIColorMap"),
     
-    FilterItem(filterName: "CIColorDodgeBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIColorDodgeBlendMode"),
-    
-    FilterItem(filterName: "CIColorBurnBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIColorBurnBlendMode"),
-    
-    FilterItem(filterName: "CIColorBlendMode",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIColorBlendMode"),
-    
-    FilterItem(filterName: "CIColorAbsoluteDifference",
-               values: ["inputImage2" : CIImage.fromAsset("inputImage1.jpg")]),
-    
-    FilterItem(filterName: "CIColorAbsoluteDifference"),
-    
-    FilterItem(filterName: "CIBlendWithRedMask",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputMaskImage" : CIImage.fromAsset("inputImage2.jpg")]),
-    
-    FilterItem(filterName: "CIBlendWithRedMask"),
-    
-    FilterItem(filterName: "CIBlendWithMask",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputMaskImage" : CIImage.fromAsset("inputImage2.jpg")]),
-    
-    FilterItem(filterName: "CIBlendWithMask"),
-    
-    FilterItem(filterName: "CIBlendWithBlueMask",
-               values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg"),
-                        "inputMaskImage" : CIImage.fromAsset("inputImage2.jpg")]),
-    
-    FilterItem(filterName: "CIBlendWithBlueMask"),
-    
     FilterItem(filterName: "CIBlendWithAlphaMask",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg"),
                         "inputMaskImage" : CIImage.fromAsset("inputImage2.jpg")]),
     
     FilterItem(filterName: "CIBlendWithAlphaMask"),
     
-    FilterItem(filterName: "CIBarsSwipeTransition",
-               values: ["inputTime" : 0.5,
-                       "inputAngle" : 2,
-                       "inputWidth" : 150,
-                        "inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
-                       "inputBarOffset" : 50]),
-    
-    FilterItem(filterName: "CIBarsSwipeTransition"),
-    
     FilterItem(filterName: "CIAdditionCompositing",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
     
     FilterItem(filterName: "CIAdditionCompositing"),
     
-    FilterItem(filterName: "CIAccordionFoldTransition",
-               values: ["inputTime" : 0.5,
-                       "inputNumberOfFolds" : 25,
-                       "inputBottomHeight" : 1,
-                        "inputTargetImage" : CIImage.fromAsset("inputImage1.jpg"),
-                       "inputFoldShadowAmount" : 0.5]),
-    
-    FilterItem(filterName: "CIAccordionFoldTransition")
-
 ].sorted()
 
 extension CIColor {
@@ -420,7 +294,7 @@ class FilterItem: Comparable {
             fatalError("Not posilble")
         }
         
-       return values == nil ? "\(displayName) (default)" : displayName
+        return values == nil ? "\(displayName) (default)" : displayName
     }()
 }
 
