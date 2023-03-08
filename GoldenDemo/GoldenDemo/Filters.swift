@@ -8,7 +8,6 @@ import Foundation
 import CoreImage
 import UIKit
 
-
 let failedFilters = [
     FilterItem(filterName: "CISubtractBlendMode",
                values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),

@@ -8,6 +8,7 @@
 import Foundation
 import CoreImage
 
+
 let approvedFilters: [FilterItem] = [         FilterItem(filterName: "CIVividLightBlendMode",
                                                          values: ["inputBackgroundImage" : CIImage.fromAsset("inputImage1.jpg")]),
                                               FilterItem(filterName: "CISwipeTransition",
