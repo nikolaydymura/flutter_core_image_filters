@@ -220,3 +220,26 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
 extension on Rect {
   List<double> get values => [top, left, width, height];
 }
+
+class BunchCIFilterConfiguration extends CIFilterConfiguration {
+  final List<CIFilterConfiguration> _configurations;
+
+  @override
+  Iterable<CICategory> get categories =>
+      _configurations.map((e) => e.categories).expand((e) => e);
+
+  BunchCIFilterConfiguration(this._configurations)
+      : super(
+          _configurations.map((e) => e.name).join('+'),
+        );
+
+  T configuration<T extends CIFilterConfiguration>({required int at}) =>
+      _configurations[at] as T;
+
+  Iterable<T> configurations<T extends CIFilterConfiguration>() =>
+      _configurations.whereType<T>();
+
+  @override
+  List<ConfigurationParameter> get parameters =>
+      _configurations.map((e) => e.parameters).expand((e) => e).toList();
+}
