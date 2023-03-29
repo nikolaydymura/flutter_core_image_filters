@@ -25,14 +25,14 @@ abstract class CIFilterConfiguration extends FilterConfiguration
   CIFilterConfiguration(this.name);
 
   @override
-  Future<void> prepare() async {
+  FutureOr<void> prepare() async {
     if (_filterId == -1) {
       _filterId = await _api.create(name);
     }
   }
 
   @override
-  Future<void> dispose() async {
+  FutureOr<void> dispose() async {
     if (_filterId >= 0) {
       await _api.dispose(_filterId);
     }
@@ -40,7 +40,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
   }
 
   @override
-  Future<void> update() async {
+  FutureOr<void> update() async {
     for (final param in parameters) {
       await param.update(this);
     }
@@ -219,6 +219,128 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
 
 extension on Rect {
   List<double> get values => [top, left, width, height];
+}
+
+class GroupCIFilterConfiguration extends CIFilterConfiguration {
+  final Set<CIFilterConfiguration> _configurations = {};
+  final Map<CIFilterConfiguration, Image> _cache = {};
+  final Map<CIFilterConfiguration, List<String>> _cacheUniforms = {};
+  final CIFilterConfiguration _configuration = NoneCIFiltersConfiguration();
+
+  GroupCIFilterConfiguration() : super('');
+
+  @override
+  FutureOr<void> prepare() => _configuration.prepare();
+
+  @override
+  FutureOr<void> update() => _configuration.update();
+
+  @override
+  FutureOr<void> dispose() => _configuration.dispose();
+
+  void add(CIFilterConfiguration configuration) {
+    _configurations.add(configuration);
+  }
+
+  void remove(CIFilterConfiguration configuration) {
+    _configurations.remove(configuration);
+    _cache.remove(configuration);
+  }
+
+  void clear() {
+    _configurations.clear();
+    _cache.clear();
+  }
+
+  @override
+  Future<Image> export(
+    InputSource source, {
+    ImageExportFormat format = ImageExportFormat.auto,
+    CIContext context = CIContext.system,
+    Rect? crop,
+  }) async {
+    final bytes =
+        await exportData(source, format: format, crop: crop, context: context);
+    final Image image = await decodeImageFromList(bytes);
+    return image;
+  }
+
+  @override
+  Future<void> exportImageFile(
+    ImageExportConfig config, {
+    CIContext context = CIContext.system,
+    Rect? crop,
+  }) async {
+    final source = config.source;
+    final output = config.output;
+    var format = config.format;
+    if (hasInputImage) {
+      if (source is DataInputSource) {
+        await _api.setInputData(_filterId, source.data);
+      } else if (source is FileInputSource) {
+        await _api.setInputFile(_filterId, source.path);
+      } else if (source is AssetInputSource) {
+        await _api.setInputAsset(_filterId, source.path);
+      }
+    } else {
+      debugPrint('Input image not supported for $name');
+    }
+    if (format == ImageExportFormat.auto) {
+      format = output.path.endsWith('.png')
+          ? ImageExportFormat.png
+          : ImageExportFormat.jpeg;
+    }
+    await _api.exportImageFile(
+      _filterId,
+      output.absolute.path,
+      format.platformKey,
+      context.platformKey,
+      crop?.values,
+    );
+  }
+
+  @override
+  Stream<double> exportVideoFile(
+    VideoExportConfig config, {
+    Duration period = const Duration(seconds: 1),
+  }) async* {
+    if (config is! CIVideoExportConfig) {
+      config = CIVideoExportConfig.copy(config);
+    }
+    final source = config.source;
+    final output = config.output;
+    var format = config.format;
+    if (format == VideoExportFormat.auto) {
+      format = output.path.endsWith('.mp4')
+          ? VideoExportFormat.mp4
+          : VideoExportFormat.mov;
+    }
+    final bool asset = source is AssetInputSource;
+
+    final sessionId = await _api.exportVideoFile(
+      _filterId,
+      asset,
+      source.path,
+      output.absolute.path,
+      format.platformKey,
+      config.context.platformKey,
+      config.preset.platformKey,
+      period.inMilliseconds,
+    );
+
+    final stream = EventChannel('AVAssetExportSession_$sessionId')
+        .receiveBroadcastStream()
+        .distinct();
+    await for (num event in stream) {
+      if (event == -100.0) {
+        return;
+      }
+      yield event.toDouble();
+    }
+  }
+
+  @override
+  Iterable<CICategory> get categories => {};
 }
 
 class BunchCIFilterConfiguration extends CIFilterConfiguration {

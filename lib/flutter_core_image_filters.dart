@@ -164,6 +164,7 @@ part 'src/configurations/ci_multiply_compositing.dart';
 part 'src/configurations/ci_nine_part_stretched.dart';
 part 'src/configurations/ci_nine_part_tiled.dart';
 part 'src/configurations/ci_noise_reduction.dart';
+part 'src/configurations/ci_none.dart';
 part 'src/configurations/ci_op_tile.dart';
 part 'src/configurations/ci_overlay_blend_mode.dart';
 part 'src/configurations/ci_page_curl_transition.dart';
