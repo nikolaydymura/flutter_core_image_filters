@@ -16,7 +16,7 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     var filter: CIFilter?
     var frameUpdater: FLTFrameUpdater?
     var displayLink: CADisplayLink?
-    lazy var currentContext: CIContext? = CIContext.selectVideoContext("")
+    lazy var currentContext: CIContext? = CIContext.selectVideoContext()
     
     override init() {
         super.init()
@@ -139,12 +139,11 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
             error.pointee = FlutterError()
             return
         }
-        
+        preview.currentContext = CIContext.selectVideoContext(context)
         guard let filter = filters[filterId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
-        preview.currentContext = CIContext.selectVideoContext(context)
         preview.filter = filter
     }
     

@@ -1,3 +1,7 @@
+## 0.0.11
+
+Fixed `CISquareLookupTable`
+
 ## 0.0.10
 
 Updated `CIVideoPreviewController`

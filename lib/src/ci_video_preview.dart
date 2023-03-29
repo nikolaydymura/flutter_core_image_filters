@@ -59,7 +59,7 @@ class CIVideoPreviewController extends VideoPreviewController {
   @override
   Future<void> connect(
     covariant CIFilterConfiguration configuration, {
-    CIContext context = CIContext.system,
+    CIContext context = CIContext.mlt,
   }) async {
     await super.connect(configuration);
     await _api.connect(

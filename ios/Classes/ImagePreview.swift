@@ -12,7 +12,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
     var filter: CIFilter?
     lazy var outputRect = CGRect(x: 0, y: 0, width: 300, height: 300)
-    lazy var currentContext: CIContext = CIContext.selectImageContext("")
+    lazy var currentContext: CIContext = CIContext.selectImageContext()
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         let context = currentContext
@@ -126,13 +126,8 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
-        
-        guard let filter = filters[filterId.int64Value] else {
-            error.pointee = FlutterError()
-            return
-        }
         preview.currentContext = CIContext.selectImageContext(context)
-        preview.filter = filter
+        preview.filter = filters[filterId.int64Value]
     }
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -140,7 +135,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
-        preview.currentContext = CIContext.selectImageContext("")
+        preview.currentContext = CIContext.selectImageContext()
         preview.filter = nil
     }
     

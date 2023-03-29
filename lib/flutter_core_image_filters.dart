@@ -353,7 +353,7 @@ class FlutterCoreImageFilters {
     'Linear Burn Blend Mode': () => CILinearBurnBlendModeConfiguration(),
     'Linear Dodge Blend Mode': () => CILinearDodgeBlendModeConfiguration(),
     'Linear to sRGB Tone Curve': () => CILinearToSRGBToneCurveConfiguration(),
-    'Lookup Table': () => CILookupTableConfiguration(),
+    'Square Lookup Table': () => CILookupTableConfiguration(),
     'Luminosity Blend Mode': () => CILuminosityBlendModeConfiguration(),
     'Mask to Alpha': () => CIMaskToAlphaConfiguration(),
     'Masked Variable Blur': () => CIMaskedVariableBlurConfiguration(),

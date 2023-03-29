@@ -90,7 +90,7 @@ class CIImagePreviewController {
 // coverage:ignore-end
   Future<void> connect(
     CIFilterConfiguration configuration, {
-    CIContext context = CIContext.system,
+    CIContext context = CIContext.mlt,
   }) async {
     if (configuration.ready) {
       await _api.connect(
