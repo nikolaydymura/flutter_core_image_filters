@@ -10,13 +10,13 @@ import Foundation
 
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
-    var filter: CIFilter?
+    var filters: [CIFilter] = []
     lazy var outputRect = CGRect(x: 0, y: 0, width: 300, height: 300)
     lazy var currentContext: CIContext = CIContext.selectImageContext("")
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         let context = currentContext
-        guard let filter = filter else {
+        guard let filter = filters.first else {
             if let image = image,
                 let buffer = createPixelBuffer(from: image) {
                 context.render(image, to: buffer, bounds: image.extent, colorSpace: context.currentColorSpace)
@@ -132,7 +132,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.currentContext = CIContext.selectImageContext(context)
-        preview.filter = filter
+        preview.filters.append(filter)
     }
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -141,7 +141,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.currentContext = CIContext.selectImageContext("")
-        preview.filter = nil
+        preview.filters.removeAll()
     }
     
     func setOutput(_ textureId: NSNumber, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -198,13 +198,13 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         
         let preview = previews.removeValue(forKey: textureId.int64Value)
-        preview?.filter = nil
+        preview?.filters.removeAll()
         preview?.image = nil
     }
     
     func didUpdated(filter: CIFilter) {
         let texture = previews.first { _, texture in
-            texture.filter == filter
+            texture.filters.contains(filter)
         }
         guard let textureId = texture?.key else {
             return
