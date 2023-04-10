@@ -12,7 +12,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
     var filter: CIFilter?
     lazy var outputRect = CGRect(x: 0, y: 0, width: 300, height: 300)
-    lazy var currentContext: CIContext = CIContext.selectImageContext("")
+    lazy var currentContext: CIContext = CIContext.selectImageContext()
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         let context = currentContext
@@ -35,9 +35,9 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
                 if processed.extent.isInfinite {
                     processed = processed.cropped(to: image.extent)
                 }
-                if processed.extent.origin.x < 0 || processed.extent.origin.y < 0 {
-                    let translationX = processed.extent.origin.x < 0 ? abs(processed.extent.origin.x) : 0
-                    let translationY = processed.extent.origin.y < 0 ? abs(processed.extent.origin.y) : 0
+                if processed.extent.origin.x != 0 || processed.extent.origin.y != 0 {
+                    let translationX = processed.extent.origin.x * -1
+                    let translationY = processed.extent.origin.y * -1
                     processed = processed.transformed(by:
                                                         CGAffineTransform(
                                                             translationX: translationX,
@@ -54,13 +54,25 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
                 return nil
             }
         } else {
-            if let image = filter.outputImage?.cropped(to: outputRect),
-                let buffer = createPixelBuffer(from: image) {
-                context.render(image, to: buffer, bounds: image.extent, colorSpace: context.currentColorSpace)
-                return Unmanaged.passRetained(buffer)
-            } else {
-                return nil
+            if var processed = filter.outputImage {
+                if processed.extent.isInfinite {
+                    processed = processed.cropped(to: outputRect)
+                }
+                if processed.extent.origin.x != 0 || processed.extent.origin.y != 0 {
+                    let translationX = processed.extent.origin.x * -1
+                    let translationY = processed.extent.origin.y * -1
+                    processed = processed.transformed(by:
+                                                        CGAffineTransform(
+                                                            translationX: translationX,
+                                                            y: translationY)
+                    )
+                }
+                if let buffer = createPixelBuffer(from: processed) {
+                    context.render(processed, to: buffer, bounds: processed.extent, colorSpace: context.currentColorSpace)
+                    return Unmanaged.passRetained(buffer)
+                }
             }
+            return nil
         }
     }
     
@@ -114,13 +126,8 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
-        
-        guard let filter = filters[filterId.int64Value] else {
-            error.pointee = FlutterError()
-            return
-        }
         preview.currentContext = CIContext.selectImageContext(context)
-        preview.filter = filter
+        preview.filter = filters[filterId.int64Value]
     }
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -128,7 +135,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             error.pointee = FlutterError()
             return
         }
-        preview.currentContext = CIContext.selectImageContext("")
+        preview.currentContext = CIContext.selectImageContext()
         preview.filter = nil
     }
     

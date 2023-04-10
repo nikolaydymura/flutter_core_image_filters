@@ -54,16 +54,16 @@ class CISquareLookupTableFilter: CIFilter {
         quad2.y = floor(ceil(blueColor) / 8.0);
         quad2.x = ceil(blueColor) - (quad2.y * 8.0);
     
-        highp vec2 texPos1;
+        mediump vec2 texPos1;
         texPos1.x = (quad1.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.r);
         texPos1.y = (quad1.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.g);
     
-        highp vec2 texPos2;
+        mediump vec2 texPos2;
         texPos2.x = (quad2.x * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.r);
         texPos2.y = (quad2.y * 0.125) + 0.5/512.0 + ((0.125 - 1.0/512.0) * textureColor.g);
     
-        lowp vec4 newColor1 = sample(lutImage, texPos1);
-        lowp vec4 newColor2 = sample(lutImage, texPos2);
+        mediump vec4 newColor1 = sample(lutImage, texPos1);
+        mediump vec4 newColor2 = sample(lutImage, texPos2);
         vec4 newColor = mix(newColor1, newColor2, fract(blueColor));
         
         vec4 resultColor = mix(textureColor, vec4(newColor.rgb, textureColor.w), inputIntensity);

@@ -26,7 +26,7 @@ extension CIContext {
         Context.context.defaultMLTContext
     }
     
-    class func selectImageContext(_ key: String) -> CIContext {
+    class func selectImageContext(_ key: String = "MLT") -> CIContext {
         switch key {
 #if os(iOS)
         case "openGLES2":
@@ -39,7 +39,7 @@ extension CIContext {
         }
     }
     
-    class func selectVideoContext(_ key: String) -> CIContext? {
+    class func selectVideoContext(_ key: String = "MLT") -> CIContext? {
         switch key {
 #if os(iOS)
         case "openGLES2":
