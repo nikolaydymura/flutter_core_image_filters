@@ -222,35 +222,65 @@ extension on Rect {
 }
 
 class GroupCIFilterConfiguration extends CIFilterConfiguration {
-  final Set<CIFilterConfiguration> _configurations = {};
-  final Map<CIFilterConfiguration, Image> _cache = {};
-  final Map<CIFilterConfiguration, List<String>> _cacheUniforms = {};
+  final List<CIFilterConfiguration> _configurations;
   final CIFilterConfiguration _configuration = NoneCIFiltersConfiguration();
 
-  GroupCIFilterConfiguration() : super('');
+  GroupCIFilterConfiguration(this._configurations)
+      : super(
+          _configurations.map((e) => e.name).join('+'),
+        );
 
   @override
-  FutureOr<void> prepare() => _configuration.prepare();
+  List<ConfigurationParameter> get parameters =>
+      _configurations.map((e) => e.parameters).expand((e) => e).toList();
 
   @override
-  FutureOr<void> update() => _configuration.update();
+  bool get ready {
+    if (_configurations.isNotEmpty) {
+      return _configurations.every((e) => e.ready);
+    } else {
+      return _configuration.ready;
+    }
+  }
 
   @override
-  FutureOr<void> dispose() => _configuration.dispose();
-
-  void add(CIFilterConfiguration configuration) {
-    _configurations.add(configuration);
+  FutureOr<void> prepare() async {
+    if (_configurations.isNotEmpty) {
+      for (final config in _configurations) {
+        await config.prepare();
+      }
+    } else {
+      await _configuration.prepare();
+    }
   }
 
-  void remove(CIFilterConfiguration configuration) {
-    _configurations.remove(configuration);
-    _cache.remove(configuration);
+  @override
+  FutureOr<void> update() async {
+    if (_configurations.isNotEmpty) {
+      for (final config in _configurations) {
+        await config.update();
+      }
+    } else {
+      await _configuration.update();
+    }
   }
 
-  void clear() {
-    _configurations.clear();
-    _cache.clear();
+  @override
+  FutureOr<void> dispose() async {
+    if (_configurations.isNotEmpty) {
+      for (final config in _configurations) {
+        await config.dispose();
+      }
+    } else {
+      await _configuration.dispose();
+    }
   }
+
+  T configuration<T extends CIFilterConfiguration>({required int at}) =>
+      _configurations[at] as T;
+
+  Iterable<T> configurations<T extends CIFilterConfiguration>() =>
+      _configurations.whereType<T>();
 
   @override
   Future<Image> export(
@@ -340,28 +370,6 @@ class GroupCIFilterConfiguration extends CIFilterConfiguration {
   }
 
   @override
-  Iterable<CICategory> get categories => {};
-}
-
-class BunchCIFilterConfiguration extends CIFilterConfiguration {
-  final List<CIFilterConfiguration> _configurations;
-
-  @override
   Iterable<CICategory> get categories =>
-      _configurations.map((e) => e.categories).expand((e) => e);
-
-  BunchCIFilterConfiguration(this._configurations)
-      : super(
-          _configurations.map((e) => e.name).join('+'),
-        );
-
-  T configuration<T extends CIFilterConfiguration>({required int at}) =>
-      _configurations[at] as T;
-
-  Iterable<T> configurations<T extends CIFilterConfiguration>() =>
-      _configurations.whereType<T>();
-
-  @override
-  List<ConfigurationParameter> get parameters =>
-      _configurations.map((e) => e.parameters).expand((e) => e).toList();
+      _configurations.expand((e) => e.categories).toSet();
 }

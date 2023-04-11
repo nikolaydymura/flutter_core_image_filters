@@ -93,11 +93,21 @@ class CIImagePreviewController {
     CIContext context = CIContext.mlt,
   }) async {
     if (configuration.ready) {
-      await _api.connect(
-        _textureId,
-        configuration._filterId,
-        context.platformKey,
-      );
+      if (configuration is GroupCIFilterConfiguration) {
+        for (final config in configuration._configurations) {
+          await _api.connect(
+            _textureId,
+            config._filterId,
+            context.platformKey,
+          );
+        }
+      } else {
+        await _api.connect(
+          _textureId,
+          configuration._filterId,
+          context.platformKey,
+        );
+      }
     } else {
       throw 'Make sure `configuration.prepare()` was completed before connecting to preview';
     }
