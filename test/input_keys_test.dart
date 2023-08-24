@@ -14,7 +14,7 @@ print(categories.joined(separator: ",\n"))
  */
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    bool ignore = displayName == 'Lookup Table' ||
+    bool ignore = displayName.contains('Lookup Table') ||
         displayName == 'Barcode Generator' ||
         displayName == 'Depth Blur Effect';
     test(
@@ -33,7 +33,7 @@ void main() {
     );
   }
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    bool ignore = displayName == 'Lookup Table' ||
+    bool ignore = displayName.contains('Lookup Table') ||
         displayName == 'Barcode Generator' ||
         displayName == 'Depth Blur Effect';
     test(

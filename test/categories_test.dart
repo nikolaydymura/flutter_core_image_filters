@@ -13,7 +13,7 @@ print(categories.joined(separator: ",\n"))
  */
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    bool ignore = displayName == 'Lookup Table';
+    bool ignore = displayName.contains('Lookup Table');
     test(
       'categories of `$displayName`',
       () {

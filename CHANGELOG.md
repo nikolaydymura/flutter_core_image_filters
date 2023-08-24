@@ -1,3 +1,7 @@
+## 0.0.12
+
+Updated dependencies
+
 ## 0.0.11
 
 Fixed `CISquareLookupTable`

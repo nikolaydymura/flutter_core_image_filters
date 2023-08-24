@@ -76,7 +76,10 @@ abstract class CIFilterPlatform extends PlatformInterface {
   }
 
   Future<void> setCIColorParameter(
-      int filterId, String key, List<double> value) {
+    int filterId,
+    String key,
+    List<double> value,
+  ) {
     throw UnimplementedError('setCIColorParameter() has not been implemented.');
   }
 

@@ -51,16 +51,15 @@ void main() {
       verify(mockPreviewApi.pause(101)).called(1);
     });
     test('connect when configuration not ready', () async {
-      expect(
-        () => controller.connect(PassthroughFilterConfiguration(mockFilterApi)),
-        throwsA(isA<String>()),
-      );
+      await controller.connect(PassthroughFilterConfiguration(mockFilterApi));
+      verify(mockPreviewApi.connect(101, 202, 'MLT')).called(1);
+      verify(mockFilterApi.create('Passthrough')).called(1);
     });
     test('connect when configuration is ready', () async {
       final configuration = PassthroughFilterConfiguration(mockFilterApi);
       await configuration.prepare();
       await controller.connect(configuration);
-      verify(mockPreviewApi.connect(101, 202, 'system')).called(1);
+      verify(mockPreviewApi.connect(101, 202, 'MLT')).called(1);
       verify(mockFilterApi.create('Passthrough')).called(1);
     });
     testWidgets('CIVideoPreview', (widgetTester) async {

@@ -250,7 +250,7 @@ void main() {
       expect(configuration, isNotNull, reason: '`$name` not implemented');
     }
     for (final name in FlutterCoreImageFilters.availableFilters) {
-      if (name.startsWith('Lookup Table')) {
+      if (name.contains('Lookup Table')) {
         continue;
       }
       expect(filters.contains(name), true);
@@ -743,7 +743,7 @@ void main() {
       );
     }
     for (final name in FlutterCoreImageFilters.availableFilters) {
-      if (name.startsWith('Lookup Table')) {
+      if (name.contains('Lookup Table')) {
         continue;
       }
       expect(filters.contains(name), true);

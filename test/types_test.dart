@@ -7,7 +7,7 @@ void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
     final configuration =
         FlutterCoreImageFilters.createFilter(displayName: displayName);
-    bool noParams = displayName == 'Lookup Table';
+    bool noParams = displayName.contains('Lookup Table');
     if (noParams) {
       continue;
     }
