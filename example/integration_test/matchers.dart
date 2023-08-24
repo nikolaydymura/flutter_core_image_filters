@@ -30,12 +30,13 @@ Future<void> expectFilteredSuccessfully(
   expect(bytes, isNotNull);
 
   final persistedImage = img.Image.fromBytes(
-    image.width,
-    image.height,
-    bytes!.buffer.asUint8List(),
+    width: image.width,
+    height: image.height,
+    bytes: bytes!.buffer,
+    numChannels: 4,
   );
   img.JpegEncoder encoder = img.JpegEncoder();
-  final data = encoder.encodeImage(persistedImage);
+  final data = encoder.encode(persistedImage);
   final output = File(
     'goldens/filters/${configuration.name}/${context.name}-$goldenKey',
   );

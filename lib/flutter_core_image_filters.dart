@@ -10,6 +10,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart' hide Image;
 import 'package:flutter/services.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'src/messages/filter_messages.g.dart';
 import 'src/messages/preview_messages.g.dart';
@@ -264,6 +265,9 @@ part 'src/parameters/ns_number_parameter.dart';
 part 'src/parameters/ns_string_parameter.dart';
 part 'src/parameters/slider_ns_integer_parameter.dart';
 part 'src/parameters/slider_ns_number_parameter.dart';
+part 'src/platform/ci_image_preview_platform.dart';
+part 'src/platform/ci_video_preview_platform.dart';
+part 'src/platform/ci_filter_platform.dart';
 
 class FlutterCoreImageFilters {
   static const _unsupportedVideo = [

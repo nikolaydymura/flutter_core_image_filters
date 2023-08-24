@@ -157,12 +157,12 @@ final bytes = await
 image.toByteData();
 
 final persistedImage = img.Image.fromBytes(
-  image.width,
-  image.height,
-  bytes!.buffer.asUint8List(),
+  width: image.width,
+  height: image.height,
+  bytes: bytes!.buffer,
 );
 img.JpegEncoder encoder = img.JpegEncoder();
-final data = encoder.encodeImage(persistedImage);
+final data = encoder.encode(persistedImage);
 await
 output.writeAsBytes(data);
 ```
