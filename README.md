@@ -18,8 +18,7 @@ A flutter package for iOS and MacOS for applying CoreImage filters to image.
 
 final inputSource = AssetInputSource('demo.jpeg');
 final configuration = CIPhotoEffectChromeConfiguration();
-final image = await
-configuration.export(inputSource);
+final image = await configuration.export(inputSource);
 ```
 
 ### CIImagePreview example
@@ -144,8 +143,7 @@ import 'package:path_provider/path_provider.dart';
 
 final inputSource = AssetInputSource('demo.jpeg');
 final configuration = CIPhotoEffectChromeConfiguration();
-final image = await
-configuration.export(inputSource);
+final image = await configuration.export(inputSource);
 
 final directory = await
 
@@ -160,6 +158,7 @@ final persistedImage = img.Image.fromBytes(
   width: image.width,
   height: image.height,
   bytes: bytes!.buffer,
+  numChannels: 4,
 );
 img.JpegEncoder encoder = img.JpegEncoder();
 final data = encoder.encode(persistedImage);
