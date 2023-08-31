@@ -1,3 +1,7 @@
+## 0.0.13
+
+Added `GroupCIFilterConfiguration` to allow for multiple filters to be applied at once.
+
 ## 0.0.12
 
 Updated dependencies

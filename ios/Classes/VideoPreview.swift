@@ -13,7 +13,7 @@ import Flutter
 fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     var player: AVPlayer?
     var videoOutput: AVPlayerItemVideoOutput?
-    var filter: CIFilter?
+    var filters: [CIFilter] = []
     var frameUpdater: FLTFrameUpdater?
     var displayLink: CADisplayLink?
     lazy var currentContext: CIContext? = CIContext.selectVideoContext()
@@ -61,10 +61,9 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
         let asset = AVAsset(url: url)
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
-            self.filter?.setValue(source, forKey: kCIInputImageKey)
-            let output = self.filter?.outputImage?.cropped(to: request.sourceImage.extent)
+            let output = self.filters.process(source: source, extent: request.sourceImage.extent)
             request.finish(with: output ?? source,
-                           context: self.filter != nil ?  self.currentContext : nil)
+                           context: self.filters.isEmpty ? nil : self.currentContext)
         }
         let item = AVPlayerItem(asset: asset)
         item.add(videoOutput)
@@ -134,17 +133,13 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
         return NSNumber(value: textureId)
     }
     
-    func connect(_ textureId: NSNumber, _ filterId: NSNumber, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func connect(_ textureId: NSNumber, _ filters: [NSNumber], _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.currentContext = CIContext.selectVideoContext(context)
-        guard let filter = filters[filterId.int64Value] else {
-            error.pointee = FlutterError()
-            return
-        }
-        preview.filter = filter
+        preview.filters = self.filters[filters]
     }
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -153,26 +148,30 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
             return
         }
         preview.currentContext = nil
-        preview.filter = nil
+        preview.filters = []
     }
     
-    func setSource(_ msg: FLTSourcePreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func setSource(_ textureId: NSNumber, asset path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
-        let url: URL
-        if msg.asset.boolValue {
-            let assetKey = registrar.lookupKey(forAsset: msg.path)
-            
-            guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                error.pointee = FlutterError()
-                return
-            }
-            url = URL(fileURLWithPath: path)
-        } else {
-            url = URL(fileURLWithPath: msg.path)
+        let assetKey = registrar.lookupKey(forAsset: path)
+        
+        guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+            error.pointee = FlutterError()
+            return
         }
+        let url = URL(fileURLWithPath: path)
+        preview.setSource(url: url)
+    }
+    
+    func setSource(_ textureId: NSNumber, path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
+            error.pointee = FlutterError()
+            return
+        }
+        let url = URL(fileURLWithPath: path)
         preview.setSource(url: url)
     }
     
@@ -195,7 +194,7 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
     func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         
         let preview = previews.removeValue(forKey: textureId.int64Value)
-        preview?.filter = nil
+        preview?.filters = []
         preview?.stop()
     }
 }

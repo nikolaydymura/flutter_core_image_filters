@@ -9,8 +9,47 @@ import Foundation
 import AVFoundation
 import FlutterMacOS
 
+extension CIFilter {
+    var originImage: CIImage? {
+        if inputKeys.contains(kCIInputImageKey) {
+           return value(forKey: kCIInputImageKey) as? CIImage
+        }
+        return nil
+    }
+}
+
+extension [NSNumber] {
+    var rect: CGRect {
+        CGRect(x: self[0].intValue,
+               y: self[1].intValue,
+               width: self[2].intValue,
+               height: self[3].intValue)
+    }
+}
+extension [CIFilter] {
+    func process(source: CIImage? = nil, extent: CGRect? = nil) -> CIImage? {
+        guard let filter = first else {
+            return nil
+        }
+        var frame: CIImage? = source ?? filter.originImage
+        
+        guard let extent = extent ?? frame?.extent else {
+            return nil
+        }
+        
+        for filter in self {
+            filter.setValue(frame, forKey: kCIInputImageKey)
+            frame = filter.outputImage?.cropped(to: extent)
+            if frame == nil {
+                break
+            }
+        }
+        return frame
+    }
+}
+
 protocol FiltersLocator {
-    subscript (id: Int64) -> CIFilter? { get }
+    subscript (ids: [NSNumber]) -> [CIFilter] { get }
 }
 
 protocol FilterDelegate {
@@ -28,8 +67,10 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
         self.registrar = registrar
     }
     
-    subscript(id: Int64) -> CIFilter? {
-        return filters[id]
+    subscript(ids: [NSNumber]) -> [CIFilter] {
+        return filters.filter { e in
+            ids.map { $0.int64Value }.contains(e.key)
+        }.map { $0.value }
     }
     
     func createFilter(_ name: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
@@ -308,28 +349,15 @@ class CoreImageFilters: NSObject, FLTFilterApi, FiltersLocator {
 
 extension CoreImageFilters {
     
-    func exportData(_ filterId: NSNumber, _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
-        guard let filter = filters[filterId.int64Value] else {
+    func exportData(_ filters: [NSNumber], _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> FlutterStandardTypedData? {
+        let filter = self[filters]
+        guard !filter.isEmpty else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
         }
-        guard var image = filter.outputImage else {
+        guard var image = filter.process(extent: value?.rect) else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
             return nil
-        }
-        if image.extent.isInfinite {
-            if filter.inputKeys.contains(kCIInputImageKey),
-               let origin = filter.value(forKey: kCIInputImageKey) as? CIImage {
-                image = image.cropped(to: origin.extent)
-            } else if let crop = value  {
-                image = image.cropped(to: CGRect(x: crop[0].intValue,
-                                                 y: crop[1].intValue,
-                                                 width: crop[2].intValue,
-                                                 height: crop[3].intValue))
-            } else {
-                error.pointee = FlutterError(code: "core-image-filters", message: "Provide crop rect as image extent isn't finite", details: nil)
-                return nil
-            }
         }
         
         let context = CIContext.selectImageContext(context)
@@ -355,29 +383,16 @@ extension CoreImageFilters {
         
     }
     
-    func exportImageFile(_ filterId: NSNumber, _ path: String, _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func exportImageFile(_ filters: [NSNumber], _ path: String, _ format: String, _ context: String, _ value: [NSNumber]?, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         let flutterError = error
-        guard let filter = filters[filterId.int64Value] else {
+        let filter = self[filters]
+        guard !filter.isEmpty else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return
         }
-        guard var image = filter.outputImage else {
+        guard var image = filter.process(extent: value?.rect) else {
             flutterError.pointee = FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
             return
-        }
-        if image.extent.isInfinite {
-            if filter.inputKeys.contains(kCIInputImageKey),
-               let origin = filter.value(forKey: kCIInputImageKey) as? CIImage {
-                image = image.cropped(to: origin.extent)
-            } else if let crop = value  {
-                image = image.cropped(to: CGRect(x: crop[0].intValue,
-                                                 y: crop[1].intValue,
-                                                 width: crop[2].intValue,
-                                                 height: crop[3].intValue))
-            } else {
-                error.pointee = FlutterError(code: "core-image-filters", message: "Provide crop rect as image extent isn't finite", details: nil)
-                return
-            }
         }
         
         let context = CIContext.selectImageContext(context)
@@ -399,9 +414,9 @@ extension CoreImageFilters {
             error.pointee = FlutterError(code: "core-image-filters", message: "Output format not supported", details: nil)
         }
     }
-    func exportVideoFile(_ filterId: NSNumber, _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
-        
-        guard let filter = filters[filterId.int64Value] else {
+    func exportVideoFile(_ filters: [NSNumber], _ asset: NSNumber, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
+        let filter = self[filters]
+        guard !filter.isEmpty else {
             error.pointee = FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
             return nil
         }
@@ -421,8 +436,7 @@ extension CoreImageFilters {
         let ciContext = CIContext.selectVideoContext(context)
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()
-            filter.setValue(source, forKey: kCIInputImageKey)
-            let output = filter.outputImage?.cropped(to: request.sourceImage.extent)
+            let output = filter.process(source: source, extent: request.sourceImage.extent)
             request.finish(with: output ?? source, context: ciContext)
         }
         guard let exporter = AVAssetExportSession(asset: asset, presetName: preset) else {

@@ -1,7 +1,8 @@
 part of flutter_core_image_filters;
 
 mixin CubeDataMixin on CIFilterConfiguration {
-  final DataParameter _cubeData = NSDataParameter('inputCubeData', 'Cube Data');
+  final CubeDataParameter _cubeData =
+      CubeDataParameter('inputCubeData', 'Cube Data');
 
   set cubeData(Uint8List value) {
     _cubeData.data = value;
@@ -19,6 +20,22 @@ mixin CubeDataMixin on CIFilterConfiguration {
     _cubeData.data = null;
     _cubeData.asset = null;
     _cubeData.file = value;
+  }
+
+  set cubeDataImage(bool value) {
+    _cubeData.image = value;
+  }
+
+  set cubeDataSize(int value) {
+    _cubeData.size = value;
+  }
+
+  set cubeDataColumns(int value) {
+    _cubeData.columns = value;
+  }
+
+  set cubeDataRows(int value) {
+    _cubeData.rows = value;
   }
 
 // coverage:ignore-start

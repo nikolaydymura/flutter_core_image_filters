@@ -21,10 +21,10 @@ class ImagePreviewApi {
 
   Future<int> create() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.create', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.create',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(null) as List<Object?>?;
+    final List<Object?>? replyList = await channel.send(null) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -46,12 +46,15 @@ class ImagePreviewApi {
     }
   }
 
-  Future<void> connect(int arg_textureId, List<int?> arg_filters, String arg_context) async {
+  Future<void> connect(
+      int arg_textureId, List<int?> arg_filters, String arg_context) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.connect', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.connect',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_filters, arg_context]) as List<Object?>?;
+        await channel.send(<Object?>[arg_textureId, arg_filters, arg_context])
+            as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -70,7 +73,8 @@ class ImagePreviewApi {
 
   Future<void> disconnect(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.disconnect', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.disconnect',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;
@@ -92,10 +96,11 @@ class ImagePreviewApi {
 
   Future<void> setSourceAsset(int arg_textureId, String arg_path) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceAsset', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceAsset',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -114,10 +119,11 @@ class ImagePreviewApi {
 
   Future<void> setSourceFile(int arg_textureId, String arg_path) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceFile', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceFile',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -136,10 +142,11 @@ class ImagePreviewApi {
 
   Future<void> setData(int arg_textureId, Uint8List arg_data) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setData', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setData',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_data]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_data]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -158,10 +165,11 @@ class ImagePreviewApi {
 
   Future<void> setOutput(int arg_textureId, List<double?> arg_value) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setOutput', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setOutput',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_value]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_value]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -180,7 +188,8 @@ class ImagePreviewApi {
 
   Future<void> dispose(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.dispose', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.dispose',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;
@@ -213,10 +222,10 @@ class VideoPreviewApi {
 
   Future<int> create() async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.create', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.create',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(null) as List<Object?>?;
+    final List<Object?>? replyList = await channel.send(null) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -238,12 +247,15 @@ class VideoPreviewApi {
     }
   }
 
-  Future<void> connect(int arg_textureId, List<int?> arg_filters, String arg_context) async {
+  Future<void> connect(
+      int arg_textureId, List<int?> arg_filters, String arg_context) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.connect', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.connect',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_filters, arg_context]) as List<Object?>?;
+        await channel.send(<Object?>[arg_textureId, arg_filters, arg_context])
+            as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -262,7 +274,8 @@ class VideoPreviewApi {
 
   Future<void> disconnect(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.disconnect', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.disconnect',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;
@@ -284,10 +297,11 @@ class VideoPreviewApi {
 
   Future<void> setSourceAsset(int arg_textureId, String arg_path) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceAsset', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceAsset',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -306,10 +320,11 @@ class VideoPreviewApi {
 
   Future<void> setSourceFile(int arg_textureId, String arg_path) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceFile', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceFile',
+        codec,
         binaryMessenger: _binaryMessenger);
-    final List<Object?>? replyList =
-        await channel.send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
+    final List<Object?>? replyList = await channel
+        .send(<Object?>[arg_textureId, arg_path]) as List<Object?>?;
     if (replyList == null) {
       throw PlatformException(
         code: 'channel-error',
@@ -328,7 +343,8 @@ class VideoPreviewApi {
 
   Future<void> resume(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.resume', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.resume',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;
@@ -350,7 +366,8 @@ class VideoPreviewApi {
 
   Future<void> pause(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.pause', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.pause',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;
@@ -372,7 +389,8 @@ class VideoPreviewApi {
 
   Future<void> dispose(int arg_textureId) async {
     final BasicMessageChannel<Object?> channel = BasicMessageChannel<Object?>(
-        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.dispose', codec,
+        'dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.dispose',
+        codec,
         binaryMessenger: _binaryMessenger);
     final List<Object?>? replyList =
         await channel.send(<Object?>[arg_textureId]) as List<Object?>?;

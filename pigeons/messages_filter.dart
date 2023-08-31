@@ -57,6 +57,12 @@ abstract class FilterApi {
   @ObjCSelector('setCIImageSourceParameter: : : :')
   void setCIImageSourceParameter(int filterId, String key, bool asset, String path);
 
+  @ObjCSelector('setCIImageCubeDataParameter: : : : : :')
+  void setCIImageCubeDataParameter(int filterId, String key, Uint8List data, int size, int columns, int rows);
+
+  @ObjCSelector('setCIImageCubeSourceParameter: : : : : : :')
+  void setCIImageCubeSourceParameter(int filterId, String key, bool asset, String path, int size, int columns, int rows);
+
   @ObjCSelector('setNSDataParameter: : :')
   void setNSDataParameter(int filterId, String key, Uint8List data);
 

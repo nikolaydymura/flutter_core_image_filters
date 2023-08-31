@@ -18,6 +18,8 @@ abstract class CIFilterConfiguration extends FilterConfiguration
   @override
   bool get ready => _filterId != -1;
 
+  List<int> get _filters => [_filterId];
+
   bool get hasInputImage => true;
 
   Iterable<CICategory> get categories;
@@ -85,7 +87,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       }
     }
     Uint8List bytes = await _api.exportData(
-      _filterId,
+      _filters,
       format.platformKey,
       context.platformKey,
       crop?.values,
@@ -130,7 +132,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
           : ImageExportFormat.jpeg;
     }
     await _api.exportImageFile(
-      _filterId,
+      _filters,
       output.absolute.path,
       format.platformKey,
       context.platformKey,
@@ -157,7 +159,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     final bool asset = source is AssetInputSource;
 
     final sessionId = await _api.exportVideoFile(
-      _filterId,
+      _filters,
       asset,
       source.path,
       output.absolute.path,
@@ -219,4 +221,66 @@ class PassthroughFilterConfiguration extends CIFilterConfiguration {
 
 extension on Rect {
   List<double> get values => [top, left, width, height];
+}
+
+class GroupCIFilterConfiguration extends CIFilterConfiguration {
+  final List<CIFilterConfiguration> _configurations;
+
+  GroupCIFilterConfiguration([
+    List<CIFilterConfiguration> configurations = const [],
+  ])  : _configurations = [...configurations],
+        super(configurations.map((e) => e.name).join(' + '));
+
+  @override
+  String get name => _configurations.map((e) => e.name).join(' + ');
+
+  @override
+  Iterable<CICategory> get categories =>
+      _configurations.map((e) => e.categories).expand((e) => e).toSet();
+
+  @override
+  bool get ready => _configurations.every((e) => e.ready);
+
+  @override
+  List<int> get _filters => _configurations.map((e) => e._filterId).toList();
+
+  @override
+  Future<void> prepare() async {
+    await Future.wait(_configurations.map((e) => e.prepare()));
+  }
+
+  @override
+  Future<void> dispose() async {
+    await Future.wait(_configurations.map((e) => e.dispose()));
+  }
+
+  Future<void> add(CIFilterConfiguration configuration) async {
+    _configurations.add(configuration);
+    await configuration.prepare();
+  }
+
+  void remove(CIFilterConfiguration configuration) {
+    _configurations.remove(configuration);
+  }
+
+  void clear() {
+    _configurations.clear();
+  }
+
+  T configuration<T extends CIFilterConfiguration>({required int at}) =>
+      _configurations[at] as T;
+
+  Iterable<T> configurations<T extends CIFilterConfiguration>() =>
+      _configurations.whereType<T>();
+
+  @override
+  List<ConfigurationParameter> get parameters =>
+      _configurations.map((e) => e.parameters).expand((e) => e).toList();
+
+  @override
+  Future<void> update() async {
+    for (final configs in _configurations) {
+      await configs.update();
+    }
+  }
 }

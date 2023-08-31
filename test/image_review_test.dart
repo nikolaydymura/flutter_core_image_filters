@@ -29,15 +29,16 @@ void main() {
   group('CIImagePreview', () {
     test('setImageSource with data', () async {
       await controller.setImageSource(DataInputSource(Uint8List(0)));
-      verify(mockPreviewApi.setData(any)).called(1);
+      verify(mockPreviewApi.setData(101, any)).called(1);
     });
     test('setImageSource with asset', () async {
       await controller.setImageSource(AssetInputSource('image.jpeg'));
-      verify(mockPreviewApi.setSource(any)).called(1);
+      verify(mockPreviewApi.setSourceAsset(101, 'image.jpeg')).called(1);
     });
     test('setImageSource with file', () async {
-      await controller.setImageSource(FileInputSource(File('image.jpeg')));
-      verify(mockPreviewApi.setSource(any)).called(1);
+      final file = File('image.jpeg');
+      await controller.setImageSource(FileInputSource(file));
+      verify(mockPreviewApi.setSourceFile(101, file.absolute.path)).called(1);
     });
     test('no image source', () async {
       await controller
@@ -62,7 +63,7 @@ void main() {
       final configuration = PassthroughFilterConfiguration(mockFilterApi);
       await configuration.prepare();
       await controller.connect(configuration);
-      verify(mockPreviewApi.connect(101, 202, 'MLT')).called(1);
+      verify(mockPreviewApi.connect(101, [202], 'MLT')).called(1);
       verify(mockFilterApi.create('Passthrough')).called(1);
     });
     testWidgets('CIImagePreview', (widgetTester) async {

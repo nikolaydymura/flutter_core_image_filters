@@ -10,13 +10,13 @@ import Foundation
 
 fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
     var image: CIImage?
-    var filter: CIFilter?
+    var filters: [CIFilter] = []
     lazy var outputRect = CGRect(x: 0, y: 0, width: 300, height: 300)
     lazy var currentContext: CIContext = CIContext.selectImageContext()
     
     func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
         let context = currentContext
-        guard let filter = filter else {
+        guard !filters.isEmpty else {
             if let image = image,
                 let buffer = createPixelBuffer(from: image) {
                 context.render(image, to: buffer, bounds: image.extent, colorSpace: context.currentColorSpace)
@@ -25,11 +25,10 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
                 return nil
             }
         }
-        if filter.inputKeys.contains(kCIInputImageKey) {
+        if filters.first?.inputKeys.contains(kCIInputImageKey) == true {
             if let image = image {
-                filter.setValue(image, forKey: kCIInputImageKey)
                 
-                guard var processed = filter.outputImage else {
+                guard var processed = filters.process(source: image) else {
                     return nil
                 }
                 if processed.extent.isInfinite {
@@ -54,7 +53,7 @@ fileprivate class ImagePreviewTexture: NSObject, FlutterTexture {
                 return nil
             }
         } else {
-            if var processed = filter.outputImage {
+            if var processed = filters.process() {
                 if processed.extent.isInfinite {
                     processed = processed.cropped(to: outputRect)
                 }
@@ -121,13 +120,13 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         return NSNumber(value: textureId)
     }
     
-    func connect(_ textureId: NSNumber, _ filterId: NSNumber, _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+    func connect(_ textureId: NSNumber, _ filters: [NSNumber], _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
         preview.currentContext = CIContext.selectImageContext(context)
-        preview.filter = filters[filterId.int64Value]
+        preview.filters = self.filters[filters]
     }
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -136,7 +135,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.currentContext = CIContext.selectImageContext()
-        preview.filter = nil
+        preview.filters = []
     }
     
     func setOutput(_ textureId: NSNumber, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
@@ -151,22 +150,32 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
         registry.textureFrameAvailable(textureId.int64Value)
     }
     
-    func setSource(_ msg: FLTSourcePreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func setSource(_ textureId: NSNumber, asset path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
-        var path = msg.path
-        if msg.asset.boolValue {
-            #if os(iOS)
-            let assetKey = registrar.lookupKey(forAsset: msg.path)
-            
-            guard let assetPath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                error.pointee = FlutterError()
-                return
-            }
-            path = assetPath
-            #endif
+        #if os(iOS)
+        let assetKey = registrar.lookupKey(forAsset: path)
+
+        guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
+            error.pointee = FlutterError()
+            return
+        }
+        #endif
+        let url = URL(fileURLWithPath: path)
+        guard let image = CIImage(contentsOf: url) else {
+            error.pointee = FlutterError()
+            return
+        }
+        preview.image = image
+        registry.textureFrameAvailable(textureId.int64Value)
+    }
+    
+    func setSource(_ textureId: NSNumber, path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
+            error.pointee = FlutterError()
+            return
         }
         let url = URL(fileURLWithPath: path)
         guard let image = CIImage(contentsOf: url) else {
@@ -174,32 +183,32 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
             return
         }
         preview.image = image
-        registry.textureFrameAvailable(msg.textureId.int64Value)
+        registry.textureFrameAvailable(textureId.int64Value)
     }
     
-    func setData(_ msg: FLTDataPreviewMessage, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[msg.textureId.int64Value] else {
+    func setSource(_ textureId: NSNumber, data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
+        guard let preview = previews[textureId.int64Value] else {
             error.pointee = FlutterError()
             return
         }
-        guard let image = CIImage(data: msg.data.data) else {
+        guard let image = CIImage(data: data.data) else {
             error.pointee = FlutterError()
             return
         }
         preview.image = image
-        registry.textureFrameAvailable(msg.textureId.int64Value)
+        registry.textureFrameAvailable(textureId.int64Value)
     }
     
     func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         
         let preview = previews.removeValue(forKey: textureId.int64Value)
-        preview?.filter = nil
+        preview?.filters = []
         preview?.image = nil
     }
     
     func didUpdated(filter: CIFilter) {
         let texture = previews.first { _, texture in
-            texture.filter == filter
+            texture.filters.contains(filter)
         }
         guard let textureId = texture?.key else {
             return

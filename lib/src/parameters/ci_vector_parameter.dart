@@ -14,8 +14,13 @@ class CIVectorParameter extends ListParameter {
         return;
       }
     }
+    if (listEquals(v, super.value)) {
+      _needsUpdate = true;
+    }
     super.value = v;
   }
+
+  bool _needsUpdate = true;
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
@@ -23,6 +28,10 @@ class CIVectorParameter extends ListParameter {
       debugPrint('Invoke `prepare()` before updating parameter $name');
       return;
     }
+    if (!_needsUpdate) {
+      return;
+    }
+    _needsUpdate = false;
     await configuration._api.setCIVectorParameter(
       configuration._filterId,
       name,

@@ -32,6 +32,8 @@ NSObject<FlutterMessageCodec> *FLTFilterApiGetCodec(void);
 - (void)setCIVectorParameter:(NSNumber *)filterId  :(NSString *)key  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIImageDataParameter:(NSNumber *)filterId  :(NSString *)key  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setCIImageSourceParameter:(NSNumber *)filterId  :(NSString *)key  :(NSNumber *)asset  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setCIImageCubeDataParameter:(NSNumber *)filterId  :(NSString *)key  :(FlutterStandardTypedData *)data  :(NSNumber *)size  :(NSNumber *)columns  :(NSNumber *)rows error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setCIImageCubeSourceParameter:(NSNumber *)filterId  :(NSString *)key  :(NSNumber *)asset  :(NSString *)path  :(NSNumber *)size  :(NSNumber *)columns  :(NSNumber *)rows error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setNSDataParameter:(NSNumber *)filterId  :(NSString *)key  :(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setNSDataSourceParameter:(NSNumber *)filterId  :(NSString *)key  :(NSNumber *)asset  :(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setNSStringParameter:(NSNumber *)filterId  :(NSString *)key  :(NSString *)value error:(FlutterError *_Nullable *_Nonnull)error;

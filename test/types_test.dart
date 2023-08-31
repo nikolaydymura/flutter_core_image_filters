@@ -35,7 +35,9 @@ void main() {
               true,
               reason: '${param.name} in ${configuration.name}',
             );
-          } else if (param is NSDataParameter || param is NSStringParameter) {
+          } else if (param is NSDataParameter ||
+              param is CubeDataParameter ||
+              param is NSStringParameter) {
             expect(
               type?.isEmpty,
               true,

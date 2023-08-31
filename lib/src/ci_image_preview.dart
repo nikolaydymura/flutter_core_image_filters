@@ -23,24 +23,16 @@ class CIImagePreviewController {
 
   Future<void> setImageSource(InputSource source) async {
     if (source is DataInputSource) {
-      await _api.setData(
-        DataPreviewMessage(textureId: _textureId, data: source.data),
-      );
+      await _api.setData(_textureId, source.data);
     } else if (source is FileInputSource) {
-      await _api.setSource(
-        SourcePreviewMessage(
-          textureId: _textureId,
-          path: source.path,
-          asset: false,
-        ),
+      await _api.setSourceFile(
+        _textureId,
+        source.path,
       );
     } else if (source is AssetInputSource) {
-      await _api.setSource(
-        SourcePreviewMessage(
-          textureId: _textureId,
-          path: source.path,
-          asset: true,
-        ),
+      await _api.setSourceAsset(
+        _textureId,
+        source.path,
       );
     }
   }
@@ -95,7 +87,7 @@ class CIImagePreviewController {
     if (configuration.ready) {
       await _api.connect(
         _textureId,
-        configuration._filterId,
+        configuration._filters,
         context.platformKey,
       );
     } else {

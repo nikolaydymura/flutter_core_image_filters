@@ -14,25 +14,19 @@ class CIVideoPreviewController extends VideoPreviewController {
   @override
   Future<void> setVideoSource(PathInputSource source) async {
     if (source is FileInputSource) {
-      await _api.setSource(
-        SourcePreviewMessage(
-          textureId: textureId,
-          path: source.path,
-          asset: false,
-        ),
+      await _api.setSourceFile(
+        textureId,
+        source.path,
       );
     } else if (source is AssetInputSource) {
-      await _api.setSource(
-        SourcePreviewMessage(
-          textureId: textureId,
-          path: source.path,
-          asset: true,
-        ),
+      await _api.setSourceAsset(
+        textureId,
+        source.path,
       );
     }
   }
 
-  static Future<VideoPreviewController> initialize({
+  static Future<CIVideoPreviewController> initialize({
     @visibleForTesting VideoPreviewApi? previewApi,
   }) async {
 // coverage:ignore-start
@@ -43,13 +37,13 @@ class CIVideoPreviewController extends VideoPreviewController {
   }
 
 // coverage:ignore-start
-  static Future<VideoPreviewController> fromFile(File file) async {
+  static Future<CIVideoPreviewController> fromFile(File file) async {
     final controller = await initialize();
     await controller.setVideoSource(FileInputSource(file));
     return controller;
   }
 
-  static Future<VideoPreviewController> fromAsset(String asset) async {
+  static Future<CIVideoPreviewController> fromAsset(String asset) async {
     final controller = await initialize();
     await controller.setVideoSource(AssetInputSource(asset));
     return controller;
@@ -64,7 +58,7 @@ class CIVideoPreviewController extends VideoPreviewController {
     await super.connect(configuration);
     await _api.connect(
       textureId,
-      configuration._filterId,
+      configuration._filters,
       context.platformKey,
     );
   }

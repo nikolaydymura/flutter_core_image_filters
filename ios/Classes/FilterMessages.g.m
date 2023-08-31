@@ -314,6 +314,55 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.FilterApi.setCIImageCubeDataParameter"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setCIImageCubeDataParameter: : : : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(setCIImageCubeDataParameter: : : : : :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_key = GetNullableObjectAtIndex(args, 1);
+        FlutterStandardTypedData *arg_data = GetNullableObjectAtIndex(args, 2);
+        NSNumber *arg_size = GetNullableObjectAtIndex(args, 3);
+        NSNumber *arg_columns = GetNullableObjectAtIndex(args, 4);
+        NSNumber *arg_rows = GetNullableObjectAtIndex(args, 5);
+        FlutterError *error;
+        [api setCIImageCubeDataParameter:arg_filterId  :arg_key  :arg_data  :arg_size  :arg_columns  :arg_rows error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.FilterApi.setCIImageCubeSourceParameter"
+        binaryMessenger:binaryMessenger
+        codec:FLTFilterApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setCIImageCubeSourceParameter: : : : : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(setCIImageCubeSourceParameter: : : : : : :error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_key = GetNullableObjectAtIndex(args, 1);
+        NSNumber *arg_asset = GetNullableObjectAtIndex(args, 2);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 3);
+        NSNumber *arg_size = GetNullableObjectAtIndex(args, 4);
+        NSNumber *arg_columns = GetNullableObjectAtIndex(args, 5);
+        NSNumber *arg_rows = GetNullableObjectAtIndex(args, 6);
+        FlutterError *error;
+        [api setCIImageCubeSourceParameter:arg_filterId  :arg_key  :arg_asset  :arg_path  :arg_size  :arg_columns  :arg_rows error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
         initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.FilterApi.setNSDataParameter"
         binaryMessenger:binaryMessenger
         codec:FLTFilterApiGetCodec()];

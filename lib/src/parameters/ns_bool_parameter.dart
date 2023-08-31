@@ -2,6 +2,15 @@ part of flutter_core_image_filters;
 
 class NSBoolParameter extends BoolParameter {
   NSBoolParameter(super.name, super.displayName, super.value);
+  bool _needsUpdate = true;
+
+  @override
+  set value(bool value) {
+    if (value != super.value) {
+      _needsUpdate = true;
+    }
+    super.value = value;
+  }
 
   @override
   FutureOr<void> update(covariant CIFilterConfiguration configuration) async {
@@ -9,6 +18,10 @@ class NSBoolParameter extends BoolParameter {
       debugPrint('Invoke `prepare()` before updating parameter $name');
       return;
     }
+    if (!_needsUpdate) {
+      return;
+    }
+    _needsUpdate = false;
     await configuration._api.setNSNumberParameter(
       configuration._filterId,
       name,
