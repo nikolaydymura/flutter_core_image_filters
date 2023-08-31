@@ -27,126 +27,9 @@ static id GetNullableObjectAtIndex(NSArray *array, NSInteger key) {
   return (result == [NSNull null]) ? nil : result;
 }
 
-@interface FLTSourcePreviewMessage ()
-+ (FLTSourcePreviewMessage *)fromList:(NSArray *)list;
-+ (nullable FLTSourcePreviewMessage *)nullableFromList:(NSArray *)list;
-- (NSArray *)toList;
-@end
-
-@interface FLTDataPreviewMessage ()
-+ (FLTDataPreviewMessage *)fromList:(NSArray *)list;
-+ (nullable FLTDataPreviewMessage *)nullableFromList:(NSArray *)list;
-- (NSArray *)toList;
-@end
-
-@implementation FLTSourcePreviewMessage
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId
-    path:(NSString *)path
-    asset:(NSNumber *)asset {
-  FLTSourcePreviewMessage* pigeonResult = [[FLTSourcePreviewMessage alloc] init];
-  pigeonResult.textureId = textureId;
-  pigeonResult.path = path;
-  pigeonResult.asset = asset;
-  return pigeonResult;
-}
-+ (FLTSourcePreviewMessage *)fromList:(NSArray *)list {
-  FLTSourcePreviewMessage *pigeonResult = [[FLTSourcePreviewMessage alloc] init];
-  pigeonResult.textureId = GetNullableObjectAtIndex(list, 0);
-  NSAssert(pigeonResult.textureId != nil, @"");
-  pigeonResult.path = GetNullableObjectAtIndex(list, 1);
-  NSAssert(pigeonResult.path != nil, @"");
-  pigeonResult.asset = GetNullableObjectAtIndex(list, 2);
-  NSAssert(pigeonResult.asset != nil, @"");
-  return pigeonResult;
-}
-+ (nullable FLTSourcePreviewMessage *)nullableFromList:(NSArray *)list {
-  return (list) ? [FLTSourcePreviewMessage fromList:list] : nil;
-}
-- (NSArray *)toList {
-  return @[
-    (self.textureId ?: [NSNull null]),
-    (self.path ?: [NSNull null]),
-    (self.asset ?: [NSNull null]),
-  ];
-}
-@end
-
-@implementation FLTDataPreviewMessage
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId
-    data:(FlutterStandardTypedData *)data {
-  FLTDataPreviewMessage* pigeonResult = [[FLTDataPreviewMessage alloc] init];
-  pigeonResult.textureId = textureId;
-  pigeonResult.data = data;
-  return pigeonResult;
-}
-+ (FLTDataPreviewMessage *)fromList:(NSArray *)list {
-  FLTDataPreviewMessage *pigeonResult = [[FLTDataPreviewMessage alloc] init];
-  pigeonResult.textureId = GetNullableObjectAtIndex(list, 0);
-  NSAssert(pigeonResult.textureId != nil, @"");
-  pigeonResult.data = GetNullableObjectAtIndex(list, 1);
-  NSAssert(pigeonResult.data != nil, @"");
-  return pigeonResult;
-}
-+ (nullable FLTDataPreviewMessage *)nullableFromList:(NSArray *)list {
-  return (list) ? [FLTDataPreviewMessage fromList:list] : nil;
-}
-- (NSArray *)toList {
-  return @[
-    (self.textureId ?: [NSNull null]),
-    (self.data ?: [NSNull null]),
-  ];
-}
-@end
-
-@interface FLTImagePreviewApiCodecReader : FlutterStandardReader
-@end
-@implementation FLTImagePreviewApiCodecReader
-- (nullable id)readValueOfType:(UInt8)type {
-  switch (type) {
-    case 128: 
-      return [FLTDataPreviewMessage fromList:[self readValue]];
-    case 129: 
-      return [FLTSourcePreviewMessage fromList:[self readValue]];
-    default:
-      return [super readValueOfType:type];
-  }
-}
-@end
-
-@interface FLTImagePreviewApiCodecWriter : FlutterStandardWriter
-@end
-@implementation FLTImagePreviewApiCodecWriter
-- (void)writeValue:(id)value {
-  if ([value isKindOfClass:[FLTDataPreviewMessage class]]) {
-    [self writeByte:128];
-    [self writeValue:[value toList]];
-  } else if ([value isKindOfClass:[FLTSourcePreviewMessage class]]) {
-    [self writeByte:129];
-    [self writeValue:[value toList]];
-  } else {
-    [super writeValue:value];
-  }
-}
-@end
-
-@interface FLTImagePreviewApiCodecReaderWriter : FlutterStandardReaderWriter
-@end
-@implementation FLTImagePreviewApiCodecReaderWriter
-- (FlutterStandardWriter *)writerWithData:(NSMutableData *)data {
-  return [[FLTImagePreviewApiCodecWriter alloc] initWithData:data];
-}
-- (FlutterStandardReader *)readerWithData:(NSData *)data {
-  return [[FLTImagePreviewApiCodecReader alloc] initWithData:data];
-}
-@end
-
 NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void) {
   static FlutterStandardMessageCodec *sSharedObject = nil;
-  static dispatch_once_t sPred = 0;
-  dispatch_once(&sPred, ^{
-    FLTImagePreviewApiCodecReaderWriter *readerWriter = [[FLTImagePreviewApiCodecReaderWriter alloc] init];
-    sSharedObject = [FlutterStandardMessageCodec codecWithReaderWriter:readerWriter];
-  });
+  sSharedObject = [FlutterStandardMessageCodec sharedInstance];
   return sSharedObject;
 }
 
@@ -179,10 +62,10 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
-        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSArray<NSNumber *> *arg_filters = GetNullableObjectAtIndex(args, 1);
         NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
+        [api connect:arg_textureId  :arg_filters  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -211,16 +94,37 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
-        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSource"
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceAsset"
         binaryMessenger:binaryMessenger
         codec:FLTImagePreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(setSource:error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setSource:error:)", api);
+      NSCAssert([api respondsToSelector:@selector(setSource: asset:error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setSource: asset:error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        FLTSourcePreviewMessage *arg_msg = GetNullableObjectAtIndex(args, 0);
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 1);
         FlutterError *error;
-        [api setSource:arg_msg error:&error];
+        [api setSource:arg_textureId  asset:arg_path error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.ImagePreviewApi.setSourceFile"
+        binaryMessenger:binaryMessenger
+        codec:FLTImagePreviewApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setSource: path:error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setSource: path:error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        [api setSource:arg_textureId  path:arg_path error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -234,12 +138,13 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
         binaryMessenger:binaryMessenger
         codec:FLTImagePreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(setData:error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setData:error:)", api);
+      NSCAssert([api respondsToSelector:@selector(setSource: data:error:)], @"FLTImagePreviewApi api (%@) doesn't respond to @selector(setSource: data:error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        FLTDataPreviewMessage *arg_msg = GetNullableObjectAtIndex(args, 0);
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        FlutterStandardTypedData *arg_data = GetNullableObjectAtIndex(args, 1);
         FlutterError *error;
-        [api setData:arg_msg error:&error];
+        [api setSource:arg_textureId  data:arg_data error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -286,50 +191,9 @@ void FLTImagePreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
     }
   }
 }
-@interface FLTVideoPreviewApiCodecReader : FlutterStandardReader
-@end
-@implementation FLTVideoPreviewApiCodecReader
-- (nullable id)readValueOfType:(UInt8)type {
-  switch (type) {
-    case 128: 
-      return [FLTSourcePreviewMessage fromList:[self readValue]];
-    default:
-      return [super readValueOfType:type];
-  }
-}
-@end
-
-@interface FLTVideoPreviewApiCodecWriter : FlutterStandardWriter
-@end
-@implementation FLTVideoPreviewApiCodecWriter
-- (void)writeValue:(id)value {
-  if ([value isKindOfClass:[FLTSourcePreviewMessage class]]) {
-    [self writeByte:128];
-    [self writeValue:[value toList]];
-  } else {
-    [super writeValue:value];
-  }
-}
-@end
-
-@interface FLTVideoPreviewApiCodecReaderWriter : FlutterStandardReaderWriter
-@end
-@implementation FLTVideoPreviewApiCodecReaderWriter
-- (FlutterStandardWriter *)writerWithData:(NSMutableData *)data {
-  return [[FLTVideoPreviewApiCodecWriter alloc] initWithData:data];
-}
-- (FlutterStandardReader *)readerWithData:(NSData *)data {
-  return [[FLTVideoPreviewApiCodecReader alloc] initWithData:data];
-}
-@end
-
 NSObject<FlutterMessageCodec> *FLTVideoPreviewApiGetCodec(void) {
   static FlutterStandardMessageCodec *sSharedObject = nil;
-  static dispatch_once_t sPred = 0;
-  dispatch_once(&sPred, ^{
-    FLTVideoPreviewApiCodecReaderWriter *readerWriter = [[FLTVideoPreviewApiCodecReaderWriter alloc] init];
-    sSharedObject = [FlutterStandardMessageCodec codecWithReaderWriter:readerWriter];
-  });
+  sSharedObject = [FlutterStandardMessageCodec sharedInstance];
   return sSharedObject;
 }
 
@@ -362,10 +226,10 @@ void FLTVideoPreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
-        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 1);
+        NSArray<NSNumber *> *arg_filters = GetNullableObjectAtIndex(args, 1);
         NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         FlutterError *error;
-        [api connect:arg_textureId  :arg_filterId  :arg_context error:&error];
+        [api connect:arg_textureId  :arg_filters  :arg_context error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -394,16 +258,37 @@ void FLTVideoPreviewApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
-        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSource"
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceAsset"
         binaryMessenger:binaryMessenger
         codec:FLTVideoPreviewApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(setSource:error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(setSource:error:)", api);
+      NSCAssert([api respondsToSelector:@selector(setSource: asset:error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(setSource: asset:error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        FLTSourcePreviewMessage *arg_msg = GetNullableObjectAtIndex(args, 0);
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 1);
         FlutterError *error;
-        [api setSource:arg_msg error:&error];
+        [api setSource:arg_textureId  asset:arg_path error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.flutter_core_image_filters.VideoPreviewApi.setSourceFile"
+        binaryMessenger:binaryMessenger
+        codec:FLTVideoPreviewApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setSource: path:error:)], @"FLTVideoPreviewApi api (%@) doesn't respond to @selector(setSource: path:error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_textureId = GetNullableObjectAtIndex(args, 0);
+        NSString *arg_path = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        [api setSource:arg_textureId  path:arg_path error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {

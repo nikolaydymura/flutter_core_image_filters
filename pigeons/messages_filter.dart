@@ -22,13 +22,13 @@ abstract class FilterApi {
   int create(String name);
 
   @ObjCSelector('exportData: : : :')
-  Uint8List exportData(int filterId, String format, String context, List<double?>? value);
+  Uint8List exportData(List<int?> filters, String format, String context, List<double?>? value);
 
   @ObjCSelector('exportImageFile: : : : :')
-  void exportImageFile(int filterId, String path, String format, String context, List<double?>? value);
+  void exportImageFile(List<int?> filters, String path, String format, String context, List<double?>? value);
 
   @ObjCSelector('exportVideoFile: : : : : : : :')
-  int exportVideoFile(int filterId, bool asset, String input, String output, String format, String context, String preset, int period);
+  int exportVideoFile(List<int?> filters, bool asset, String input, String output, String format, String context, String preset, int period);
 
   @ObjCSelector('setInputData: :')
   void setInputData(int filterId, Uint8List data);

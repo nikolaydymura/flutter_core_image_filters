@@ -11,28 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class FLTSourcePreviewMessage;
-@class FLTDataPreviewMessage;
-
-@interface FLTSourcePreviewMessage : NSObject
-/// `init` unavailable to enforce nonnull fields, see the `make` class method.
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId
-    path:(NSString *)path
-    asset:(NSNumber *)asset;
-@property(nonatomic, strong) NSNumber * textureId;
-@property(nonatomic, copy) NSString * path;
-@property(nonatomic, strong) NSNumber * asset;
-@end
-
-@interface FLTDataPreviewMessage : NSObject
-/// `init` unavailable to enforce nonnull fields, see the `make` class method.
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)makeWithTextureId:(NSNumber *)textureId
-    data:(FlutterStandardTypedData *)data;
-@property(nonatomic, strong) NSNumber * textureId;
-@property(nonatomic, strong) FlutterStandardTypedData * data;
-@end
 
 /// The codec used by FLTImagePreviewApi.
 NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void);
@@ -40,10 +18,11 @@ NSObject<FlutterMessageCodec> *FLTImagePreviewApiGetCodec(void);
 @protocol FLTImagePreviewApi
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSArray<NSNumber *> *)filters  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)setData:(FLTDataPreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setSource:(NSNumber *)textureId  asset:(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setSource:(NSNumber *)textureId  path:(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setSource:(NSNumber *)textureId  data:(FlutterStandardTypedData *)data error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)setOutput:(NSNumber *)textureId  :(NSArray<NSNumber *> *)value error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)dispose:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 @end
@@ -56,9 +35,10 @@ NSObject<FlutterMessageCodec> *FLTVideoPreviewApiGetCodec(void);
 @protocol FLTVideoPreviewApi
 /// @return `nil` only when `error != nil`.
 - (nullable NSNumber *)create:(FlutterError *_Nullable *_Nonnull)error;
-- (void)connect:(NSNumber *)textureId  :(NSNumber *)filterId  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)connect:(NSNumber *)textureId  :(NSArray<NSNumber *> *)filters  :(NSString *)context error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)disconnect:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
-- (void)setSource:(FLTSourcePreviewMessage *)msg error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setSource:(NSNumber *)textureId  asset:(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
+- (void)setSource:(NSNumber *)textureId  path:(NSString *)path error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)resume:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)pause:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;
 - (void)dispose:(NSNumber *)textureId error:(FlutterError *_Nullable *_Nonnull)error;

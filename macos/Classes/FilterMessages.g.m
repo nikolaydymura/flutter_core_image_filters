@@ -63,12 +63,12 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
       NSCAssert([api respondsToSelector:@selector(exportData: : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportData: : : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSArray<NSNumber *> *arg_filters = GetNullableObjectAtIndex(args, 0);
         NSString *arg_format = GetNullableObjectAtIndex(args, 1);
         NSString *arg_context = GetNullableObjectAtIndex(args, 2);
         NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 3);
         FlutterError *error;
-        FlutterStandardTypedData *output = [api exportData:arg_filterId  :arg_format  :arg_context  :arg_value error:&error];
+        FlutterStandardTypedData *output = [api exportData:arg_filters  :arg_format  :arg_context  :arg_value error:&error];
         callback(wrapResult(output, error));
       }];
     } else {
@@ -85,13 +85,13 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
       NSCAssert([api respondsToSelector:@selector(exportImageFile: : : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportImageFile: : : : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSArray<NSNumber *> *arg_filters = GetNullableObjectAtIndex(args, 0);
         NSString *arg_path = GetNullableObjectAtIndex(args, 1);
         NSString *arg_format = GetNullableObjectAtIndex(args, 2);
         NSString *arg_context = GetNullableObjectAtIndex(args, 3);
         NSArray<NSNumber *> *arg_value = GetNullableObjectAtIndex(args, 4);
         FlutterError *error;
-        [api exportImageFile:arg_filterId  :arg_path  :arg_format  :arg_context  :arg_value error:&error];
+        [api exportImageFile:arg_filters  :arg_path  :arg_format  :arg_context  :arg_value error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -108,7 +108,7 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
       NSCAssert([api respondsToSelector:@selector(exportVideoFile: : : : : : : :error:)], @"FLTFilterApi api (%@) doesn't respond to @selector(exportVideoFile: : : : : : : :error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
-        NSNumber *arg_filterId = GetNullableObjectAtIndex(args, 0);
+        NSArray<NSNumber *> *arg_filters = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_asset = GetNullableObjectAtIndex(args, 1);
         NSString *arg_input = GetNullableObjectAtIndex(args, 2);
         NSString *arg_output = GetNullableObjectAtIndex(args, 3);
@@ -117,7 +117,7 @@ void FLTFilterApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObject<FLTF
         NSString *arg_preset = GetNullableObjectAtIndex(args, 6);
         NSNumber *arg_period = GetNullableObjectAtIndex(args, 7);
         FlutterError *error;
-        NSNumber *output = [api exportVideoFile:arg_filterId  :arg_asset  :arg_input  :arg_output  :arg_format  :arg_context  :arg_preset  :arg_period error:&error];
+        NSNumber *output = [api exportVideoFile:arg_filters  :arg_asset  :arg_input  :arg_output  :arg_format  :arg_context  :arg_preset  :arg_period error:&error];
         callback(wrapResult(output, error));
       }];
     } else {

@@ -15,27 +15,6 @@ import 'package:pigeon/pigeon.dart';
     copyrightHeader: 'pigeons/copyright.txt',
   ),
 )
-class BindPreviewMessage {
-  BindPreviewMessage(this.textureId, this.filterId);
-
-  int textureId;
-  int filterId;
-}
-
-class SourcePreviewMessage {
-  SourcePreviewMessage(this.textureId, this.path, this.asset);
-
-  int textureId;
-  String path;
-  bool asset;
-}
-
-class DataPreviewMessage {
-  DataPreviewMessage(this.textureId, this.data);
-
-  int textureId;
-  Uint8List data;
-}
 
 @HostApi()
 abstract class ImagePreviewApi {
@@ -43,16 +22,19 @@ abstract class ImagePreviewApi {
   int create();
 
   @ObjCSelector('connect: : :')
-  void connect(int textureId, int filterId, String context);
+  void connect(int textureId, List<int?> filters, String context);
 
   @ObjCSelector('disconnect:')
   void disconnect(int textureId);
 
-  @ObjCSelector('setSource:')
-  void setSource(SourcePreviewMessage msg);
+  @ObjCSelector('setSource: asset:')
+  void setSourceAsset(int textureId, String path);
 
-  @ObjCSelector('setData:')
-  void setData(DataPreviewMessage msg);
+  @ObjCSelector('setSource: path:')
+  void setSourceFile(int textureId, String path);
+
+  @ObjCSelector('setSource: data:')
+  void setData(int textureId, Uint8List data);
 
   @ObjCSelector('setOutput: :')
   void setOutput(int textureId, List<double?> value);
@@ -67,13 +49,16 @@ abstract class VideoPreviewApi {
   int create();
 
   @ObjCSelector('connect: : :')
-  void connect(int textureId, int filterId, String context);
+  void connect(int textureId, List<int?> filters, String context);
 
   @ObjCSelector('disconnect:')
   void disconnect(int textureId);
 
-  @ObjCSelector('setSource:')
-  void setSource(SourcePreviewMessage msg);
+  @ObjCSelector('setSource: asset:')
+  void setSourceAsset(int textureId, String path);
+
+  @ObjCSelector('setSource: path:')
+  void setSourceFile(int textureId, String path);
 
   @ObjCSelector('resume:')
   void resume(int textureId);
