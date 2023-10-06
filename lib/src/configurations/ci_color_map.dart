@@ -11,6 +11,6 @@ class CIColorMapConfiguration extends CIFilterConfiguration
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }

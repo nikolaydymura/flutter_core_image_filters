@@ -71,7 +71,7 @@ class CILineOverlayConfiguration extends CIFilterConfiguration {
         CICategory.builtIn,
         CICategory.stillImage,
         CICategory.video,
-        CICategory.stylize
+        CICategory.stylize,
       };
 
   @override

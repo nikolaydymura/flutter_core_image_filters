@@ -62,7 +62,7 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration
         CICategory.gradient,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

@@ -22,7 +22,7 @@ class CIEdgeWorkConfiguration extends CIFilterConfiguration {
         CICategory.stylize,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

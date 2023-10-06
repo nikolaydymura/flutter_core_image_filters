@@ -47,7 +47,7 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
         CICategory.generator,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

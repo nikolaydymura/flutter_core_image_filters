@@ -4,7 +4,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIAdditionCompositing': [
     'CICategoryCompositeOperation',
@@ -13,114 +13,114 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAffineClamp': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIAffineTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIAffineTransform': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIAreaAverage': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaHistogram': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaLogarithmicHistogram': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMaximum': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMaximumAlpha': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMinimum': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMinimumAlpha': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMinMax': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAreaMinMaxRed': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAttributedTextImageGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIAztecCodeGenerator': [
     'CICategoryGenerator',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBarcodeGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBarsSwipeTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIBicubicScaleTransform': [
     'CICategoryGeometryAdjustment',
@@ -128,122 +128,122 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryNonSquarePixels',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIBlendWithAlphaMask': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBlendWithBlueMask': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBlendWithMask': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBlendWithRedMask': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBloom': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIBokehBlur': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIBoxBlur': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIBumpDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIBumpDistortionLinear': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICameraCalibrationLensCorrection': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICheckerboardGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CICircleSplashDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICircularScreen': [
     'CICategoryHalftoneEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CICircularWrap': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIClamp': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICMYKHalftone': [
     'CICategoryHalftoneEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CICode128BarcodeGenerator': [
     'CICategoryGenerator',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorAbsoluteDifference': [
     'CICategoryColorAdjustment',
@@ -252,7 +252,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorBlendMode': [
     'CICategoryCompositeOperation',
@@ -260,7 +260,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorBurnBlendMode': [
     'CICategoryCompositeOperation',
@@ -268,7 +268,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorClamp': [
     'CICategoryColorAdjustment',
@@ -276,7 +276,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorControls': [
     'CICategoryColorAdjustment',
@@ -285,7 +285,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorCrossPolynomial': [
     'CICategoryColorEffect',
@@ -294,7 +294,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorCube': [
     'CICategoryColorEffect',
@@ -303,7 +303,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorCubesMixedWithMask': [
     'CICategoryColorEffect',
@@ -312,7 +312,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorCubeWithColorSpace': [
     'CICategoryColorEffect',
@@ -321,7 +321,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorCurves': [
     'CICategoryColorEffect',
@@ -329,7 +329,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorDodgeBlendMode': [
     'CICategoryCompositeOperation',
@@ -337,7 +337,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorInvert': [
     'CICategoryColorEffect',
@@ -346,7 +346,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorMap': [
     'CICategoryColorEffect',
@@ -354,7 +354,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorMatrix': [
     'CICategoryColorAdjustment',
@@ -363,7 +363,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorMonochrome': [
     'CICategoryColorEffect',
@@ -372,7 +372,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorPolynomial': [
     'CICategoryColorAdjustment',
@@ -381,7 +381,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorPosterize': [
     'CICategoryColorEffect',
@@ -390,7 +390,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorThreshold': [
     'CICategoryColorAdjustment',
@@ -398,7 +398,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColorThresholdOtsu': [
     'CICategoryColorAdjustment',
@@ -406,27 +406,27 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIColumnAverage': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIComicEffect': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConstantColorGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvertLabToRGB': [
     'CICategoryColorEffect',
@@ -435,7 +435,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvertRGBtoLab': [
     'CICategoryColorEffect',
@@ -444,103 +444,103 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolution3X3': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolution5X5': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolution7X7': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolution9Horizontal': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolution9Vertical': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolutionRGB3X3': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolutionRGB5X5': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolutionRGB7X7': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolutionRGB9Horizontal': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIConvolutionRGB9Vertical': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CICopyMachineTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICoreMLModelFilter': [
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryStylize'
+    'CICategoryStylize',
   ],
   'CICrop': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CICrystallize': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDarkenBlendMode': [
     'CICategoryCompositeOperation',
@@ -548,26 +548,26 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDepthBlurEffect': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIDepthOfField': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDepthToDisparity': [
     'CICategoryColorAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDifferenceBlendMode': [
     'CICategoryCompositeOperation',
@@ -575,34 +575,34 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDiscBlur': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIDisintegrateWithMaskTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIDisparityToDepth': [
     'CICategoryColorAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDisplacementDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIDissolveTransition': [
     'CICategoryTransition',
@@ -611,14 +611,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIDither': [
     'CICategoryColorEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDivideBlendMode': [
     'CICategoryCompositeOperation',
@@ -626,26 +626,26 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDocumentEnhancer': [
     'CICategoryColorEffect',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDotScreen': [
     'CICategoryHalftoneEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIDroste': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIEdgePreserveUpsampleFilter': [
     'CICategoryGeometryAdjustment',
@@ -654,27 +654,27 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIEdges': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIEdgeWork': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIEightfoldReflectedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIExclusionBlendMode': [
     'CICategoryCompositeOperation',
@@ -682,7 +682,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIExposureAdjust': [
     'CICategoryColorAdjustment',
@@ -692,7 +692,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIFalseColor': [
     'CICategoryColorEffect',
@@ -701,42 +701,42 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIFlashTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIFourfoldReflectedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIFourfoldRotatedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIFourfoldTranslatedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIGaborGradients': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIGammaAdjust': [
     'CICategoryColorAdjustment',
@@ -745,56 +745,56 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIGaussianBlur': [
     'CICategoryBlur',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIGaussianGradient': [
     'CICategoryGradient',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIGlassDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIGlassLozenge': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIGlideReflectedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIGloom': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIGuidedFilter': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIHardLightBlendMode': [
     'CICategoryCompositeOperation',
@@ -802,46 +802,46 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHatchedScreen': [
     'CICategoryHalftoneEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHeightFieldFromMask': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHexagonalPixellate': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHighlightShadowAdjust': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHistogramDisplayFilter': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHoleDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIHueAdjust': [
     'CICategoryColorAdjustment',
@@ -850,7 +850,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHueBlendMode': [
     'CICategoryCompositeOperation',
@@ -858,48 +858,48 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIHueSaturationValueGradient': [
     'CICategoryGradient',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIKaleidoscope': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIKeystoneCorrectionCombined': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIKeystoneCorrectionHorizontal': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIKeystoneCorrectionVertical': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIKMeans': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILabDeltaE': [
     'CICategoryColorEffect',
@@ -907,21 +907,21 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILanczosScaleTransform': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CILenticularHaloGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILightenBlendMode': [
     'CICategoryCompositeOperation',
@@ -929,14 +929,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILightTunnel': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CILinearBurnBlendMode': [
     'CICategoryCompositeOperation',
@@ -944,7 +944,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILinearDodgeBlendMode': [
     'CICategoryCompositeOperation',
@@ -952,14 +952,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILinearGradient': [
     'CICategoryGradient',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILinearLightBlendMode': [
     'CICategoryCompositeOperation',
@@ -967,7 +967,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILinearToSRGBToneCurve': [
     'CICategoryColorAdjustment',
@@ -976,19 +976,19 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILineOverlay': [
     'CICategoryBuiltIn',
     'CICategoryStillImage',
     'CICategoryVideo',
-    'CICategoryStylize'
+    'CICategoryStylize',
   ],
   'CILineScreen': [
     'CICategoryHalftoneEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CILuminosityBlendMode': [
     'CICategoryCompositeOperation',
@@ -996,14 +996,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMaskedVariableBlur': [
     'CICategoryBlur',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMaskToAlpha': [
     'CICategoryColorEffect',
@@ -1011,7 +1011,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMaximumComponent': [
     'CICategoryColorEffect',
@@ -1020,7 +1020,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMaximumCompositing': [
     'CICategoryCompositeOperation',
@@ -1029,21 +1029,21 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMedianFilter': [
     'CICategoryBlur',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMeshGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMinimumComponent': [
     'CICategoryColorEffect',
@@ -1052,7 +1052,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMinimumCompositing': [
     'CICategoryCompositeOperation',
@@ -1061,63 +1061,63 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMix': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIModTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMorphologyGradient': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMorphologyMaximum': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMorphologyMinimum': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMorphologyRectangleMaximum': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMorphologyRectangleMinimum': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMotionBlur': [
     'CICategoryBlur',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIMultiplyBlendMode': [
     'CICategoryCompositeOperation',
@@ -1125,7 +1125,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIMultiplyCompositing': [
     'CICategoryCompositeOperation',
@@ -1134,35 +1134,35 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CINinePartStretched': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CINinePartTiled': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CINoiseReduction': [
     'CICategoryBlur',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIOpTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIOverlayBlendMode': [
     'CICategoryCompositeOperation',
@@ -1170,87 +1170,87 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIPageCurlTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPageCurlWithShadowTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPaletteCentroid': [
     'CICategoryColorEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIPalettize': [
     'CICategoryColorEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIParallelogramTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPDF417BarcodeGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIPersonSegmentation': [
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryStylize'
+    'CICategoryStylize',
   ],
   'CIPerspectiveCorrection': [
     'CICategoryGeometryAdjustment',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPerspectiveRotate': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPerspectiveTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPerspectiveTransform': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPerspectiveTransformWithExtent': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPhotoEffectChrome': [
     'CICategoryColorEffect',
@@ -1259,7 +1259,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectFade': [
     'CICategoryColorEffect',
@@ -1268,7 +1268,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectInstant': [
     'CICategoryColorEffect',
@@ -1277,7 +1277,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectMono': [
     'CICategoryColorEffect',
@@ -1286,7 +1286,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectNoir': [
     'CICategoryColorEffect',
@@ -1295,7 +1295,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectProcess': [
     'CICategoryColorEffect',
@@ -1304,7 +1304,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectTonal': [
     'CICategoryColorEffect',
@@ -1313,7 +1313,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPhotoEffectTransfer': [
     'CICategoryColorEffect',
@@ -1322,14 +1322,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIPinchDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIPinLightBlendMode': [
     'CICategoryCompositeOperation',
@@ -1337,72 +1337,72 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIPixellate': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIPointillize': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIQRCodeGenerator': [
     'CICategoryGenerator',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIRadialGradient': [
     'CICategoryGradient',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIRandomGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIRippleTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIRoundedRectangleGenerator': [
     'CICategoryGenerator',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIRowAverage': [
     'CICategoryReduction',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISaliencyMapFilter': [
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryStylize'
+    'CICategoryStylize',
   ],
   'CISampleNearest': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISaturationBlendMode': [
     'CICategoryCompositeOperation',
@@ -1410,7 +1410,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIScreenBlendMode': [
     'CICategoryCompositeOperation',
@@ -1418,7 +1418,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISepiaTone': [
     'CICategoryColorEffect',
@@ -1428,42 +1428,42 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
     'CICategoryBuiltIn',
-    'CICategoryXMPSerializable'
+    'CICategoryXMPSerializable',
   ],
   'CIShadedMaterial': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISharpenLuminance': [
     'CICategorySharpen',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CISixfoldReflectedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CISixfoldRotatedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CISmoothLinearGradient': [
     'CICategoryGradient',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISoftLightBlendMode': [
     'CICategoryCompositeOperation',
@@ -1471,7 +1471,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISourceAtopCompositing': [
     'CICategoryCompositeOperation',
@@ -1480,7 +1480,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISourceInCompositing': [
     'CICategoryCompositeOperation',
@@ -1489,7 +1489,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISourceOutCompositing': [
     'CICategoryCompositeOperation',
@@ -1498,7 +1498,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISourceOverCompositing': [
     'CICategoryCompositeOperation',
@@ -1507,21 +1507,21 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISpotColor': [
     'CICategoryBuiltIn',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryHighDynamicRange',
-    'CICategoryStylize'
+    'CICategoryStylize',
   ],
   'CISpotLight': [
     'CICategoryStylize',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISRGBToneCurveToLinear': [
     'CICategoryColorAdjustment',
@@ -1530,35 +1530,35 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIStarShineGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIStraightenFilter': [
     'CICategoryGeometryAdjustment',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIStretchCrop': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIStripesGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISubtractBlendMode': [
     'CICategoryCompositeOperation',
@@ -1566,21 +1566,21 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISunbeamsGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CISwipeTransition': [
     'CICategoryTransition',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CITemperatureAndTint': [
     'CICategoryColorAdjustment',
@@ -1589,13 +1589,13 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CITextImageGenerator': [
     'CICategoryGenerator',
     'CICategoryVideo',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIThermal': [
     'CICategoryColorEffect',
@@ -1603,7 +1603,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIToneCurve': [
     'CICategoryColorAdjustment',
@@ -1611,49 +1611,49 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CITorusLensDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CITriangleKaleidoscope': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CITriangleTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CITwelvefoldReflectedTile': [
     'CICategoryTileEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CITwirlDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIUnsharpMask': [
     'CICategorySharpen',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIVibrance': [
     'CICategoryColorAdjustment',
@@ -1661,7 +1661,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIVignette': [
     'CICategoryColorEffect',
@@ -1669,7 +1669,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIVignetteEffect': [
     'CICategoryColorEffect',
@@ -1677,7 +1677,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryStillImage',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIVividLightBlendMode': [
     'CICategoryCompositeOperation',
@@ -1685,14 +1685,14 @@ const Map<String, List<String>> kCategories = {
     'CICategoryStillImage',
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIVortexDistortion': [
     'CICategoryDistortionEffect',
     'CICategoryVideo',
     'CICategoryStillImage',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
   'CIWhitePointAdjust': [
     'CICategoryColorAdjustment',
@@ -1701,7 +1701,7 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryHighDynamicRange',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIXRay': [
     'CICategoryColorEffect',
@@ -1709,13 +1709,13 @@ const Map<String, List<String>> kCategories = {
     'CICategoryInterlaced',
     'CICategoryNonSquarePixels',
     'CICategoryStillImage',
-    'CICategoryBuiltIn'
+    'CICategoryBuiltIn',
   ],
   'CIZoomBlur': [
     'CICategoryBlur',
     'CICategoryStillImage',
     'CICategoryVideo',
     'CICategoryBuiltIn',
-    'CICategoryHighDynamicRange'
+    'CICategoryHighDynamicRange',
   ],
 };

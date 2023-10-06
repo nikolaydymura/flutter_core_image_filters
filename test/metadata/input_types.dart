@@ -19,33 +19,33 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputBottomHeight': 'CIAttributeTypeDistance',
     'inputNumberOfFolds': 'CIAttributeTypeScalar',
     'inputFoldShadowAmount': 'CIAttributeTypeScalar',
-    'inputTime': 'CIAttributeTypeTime'
+    'inputTime': 'CIAttributeTypeTime',
   },
   'CIAdditionCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIAffineClamp': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputTransform': 'CIAttributeTypeTransform'
+    'inputTransform': 'CIAttributeTypeTransform',
   },
   'CIAffineTile': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputTransform': 'CIAttributeTypeTransform'
+    'inputTransform': 'CIAttributeTypeTransform',
   },
   'CIAffineTransform': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputTransform': 'CIAttributeTypeTransform'
+    'inputTransform': 'CIAttributeTypeTransform',
   },
   'CIAreaAverage': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaHistogram': {
     'inputImage': 'CIAttributeTypeImage',
     'inputExtent': 'CIAttributeTypeRectangle',
     'inputScale': 'CIAttributeTypeScalar',
-    'inputCount': 'CIAttributeTypeScalar'
+    'inputCount': 'CIAttributeTypeScalar',
   },
   'CIAreaLogarithmicHistogram': {
     'inputImage': 'CIAttributeTypeImage',
@@ -53,42 +53,42 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputScale': 'CIAttributeTypeScalar',
     'inputCount': 'CIAttributeTypeScalar',
     'inputMinimumStop': 'CIAttributeTypeScalar',
-    'inputMaximumStop': 'CIAttributeTypeScalar'
+    'inputMaximumStop': 'CIAttributeTypeScalar',
   },
   'CIAreaMaximum': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaMaximumAlpha': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaMinimum': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaMinimumAlpha': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaMinMax': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAreaMinMaxRed': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIAttributedTextImageGenerator': {
     'inputText': '',
     'inputScaleFactor': 'CIAttributeTypeScalar',
-    'inputPadding': 'CIAttributeTypeInteger'
+    'inputPadding': 'CIAttributeTypeInteger',
   },
   'CIAztecCodeGenerator': {
     'inputMessage': '',
     'inputCorrectionLevel': 'CIAttributeTypeInteger',
     'inputLayers': 'CIAttributeTypeInteger',
-    'inputCompactStyle': 'CIAttributeTypeBoolean'
+    'inputCompactStyle': 'CIAttributeTypeBoolean',
   },
   'CIBarcodeGenerator': {'inputBarcodeDescriptor': ''},
   'CIBarsSwipeTransition': {
@@ -97,96 +97,96 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
     'inputBarOffset': 'CIAttributeTypeScalar',
-    'inputTime': 'CIAttributeTypeTime'
+    'inputTime': 'CIAttributeTypeTime',
   },
   'CIBicubicScaleTransform': {
     'inputImage': 'CIAttributeTypeImage',
     'inputScale': 'CIAttributeTypeScalar',
     'inputAspectRatio': 'CIAttributeTypeScalar',
     'inputB': 'CIAttributeTypeScalar',
-    'inputC': 'CIAttributeTypeScalar'
+    'inputC': 'CIAttributeTypeScalar',
   },
   'CIBlendWithAlphaMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBackgroundImage': 'CIAttributeTypeImage',
-    'inputMaskImage': 'CIAttributeTypeImage'
+    'inputMaskImage': 'CIAttributeTypeImage',
   },
   'CIBlendWithBlueMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBackgroundImage': 'CIAttributeTypeImage',
-    'inputMaskImage': 'CIAttributeTypeImage'
+    'inputMaskImage': 'CIAttributeTypeImage',
   },
   'CIBlendWithMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBackgroundImage': 'CIAttributeTypeImage',
-    'inputMaskImage': 'CIAttributeTypeImage'
+    'inputMaskImage': 'CIAttributeTypeImage',
   },
   'CIBlendWithRedMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBackgroundImage': 'CIAttributeTypeImage',
-    'inputMaskImage': 'CIAttributeTypeImage'
+    'inputMaskImage': 'CIAttributeTypeImage',
   },
   'CIBloom': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIBokehBlur': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
     'inputRingAmount': 'CIAttributeTypeScalar',
     'inputRingSize': 'CIAttributeTypeScalar',
-    'inputSoftness': 'CIAttributeTypeScalar'
+    'inputSoftness': 'CIAttributeTypeScalar',
   },
   'CIBoxBlur': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIBumpDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputScale': 'CIAttributeTypeScalar'
+    'inputScale': 'CIAttributeTypeScalar',
   },
   'CIBumpDistortionLinear': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputScale': 'CIAttributeTypeScalar'
+    'inputScale': 'CIAttributeTypeScalar',
   },
   'CICameraCalibrationLensCorrection': {
     'inputImage': 'CIAttributeTypeImage',
     'inputAVCameraCalibrationData': '',
-    'inputUseInverseLookUpTable': 'CIAttributeTypeBoolean'
+    'inputUseInverseLookUpTable': 'CIAttributeTypeBoolean',
   },
   'CICheckerboardGenerator': {
     'inputCenter': 'CIAttributeTypePosition',
     'inputColor0': 'CIAttributeTypeColor',
     'inputColor1': 'CIAttributeTypeColor',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CICircleSplashDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CICircularScreen': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CICircularWrap': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIClamp': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CICMYKHalftone': {
     'inputImage': 'CIAttributeTypeImage',
@@ -195,47 +195,47 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputAngle': 'CIAttributeTypeAngle',
     'inputSharpness': 'CIAttributeTypeDistance',
     'inputGCR': 'CIAttributeTypeScalar',
-    'inputUCR': 'CIAttributeTypeScalar'
+    'inputUCR': 'CIAttributeTypeScalar',
   },
   'CICode128BarcodeGenerator': {
     'inputMessage': '',
     'inputQuietSpace': 'CIAttributeTypeInteger',
-    'inputBarcodeHeight': 'CIAttributeTypeInteger'
+    'inputBarcodeHeight': 'CIAttributeTypeInteger',
   },
   'CIColorAbsoluteDifference': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputImage2': 'CIAttributeTypeImage'
+    'inputImage2': 'CIAttributeTypeImage',
   },
   'CIColorBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIColorBurnBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIColorClamp': {
     'inputImage': 'CIAttributeTypeImage',
     'inputMinComponents': '',
-    'inputMaxComponents': ''
+    'inputMaxComponents': '',
   },
   'CIColorControls': {
     'inputImage': 'CIAttributeTypeImage',
     'inputSaturation': 'CIAttributeTypeScalar',
     'inputBrightness': 'CIAttributeTypeScalar',
-    'inputContrast': 'CIAttributeTypeScalar'
+    'inputContrast': 'CIAttributeTypeScalar',
   },
   'CIColorCrossPolynomial': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRedCoefficients': '',
     'inputGreenCoefficients': '',
-    'inputBlueCoefficients': ''
+    'inputBlueCoefficients': '',
   },
   'CIColorCube': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCubeDimension': 'CIAttributeTypeCount',
     'inputCubeData': '',
-    'inputExtrapolate': 'CIAttributeTypeBoolean'
+    'inputExtrapolate': 'CIAttributeTypeBoolean',
   },
   'CIColorCubesMixedWithMask': {
     'inputImage': 'CIAttributeTypeImage',
@@ -244,29 +244,29 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputCube0Data': '',
     'inputCube1Data': '',
     'inputColorSpace': '',
-    'inputExtrapolate': 'CIAttributeTypeBoolean'
+    'inputExtrapolate': 'CIAttributeTypeBoolean',
   },
   'CIColorCubeWithColorSpace': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCubeDimension': 'CIAttributeTypeCount',
     'inputCubeData': '',
     'inputExtrapolate': '',
-    'inputColorSpace': ''
+    'inputColorSpace': '',
   },
   'CIColorCurves': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCurvesData': '',
     'inputCurvesDomain': '',
-    'inputColorSpace': ''
+    'inputColorSpace': '',
   },
   'CIColorDodgeBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIColorInvert': {'inputImage': 'CIAttributeTypeImage'},
   'CIColorMap': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputGradientImage': 'CIAttributeTypeGradient'
+    'inputGradientImage': 'CIAttributeTypeGradient',
   },
   'CIColorMatrix': {
     'inputImage': 'CIAttributeTypeImage',
@@ -274,92 +274,92 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputGVector': '',
     'inputBVector': '',
     'inputAVector': '',
-    'inputBiasVector': ''
+    'inputBiasVector': '',
   },
   'CIColorMonochrome': {
     'inputImage': 'CIAttributeTypeImage',
     'inputColor': 'CIAttributeTypeOpaqueColor',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIColorPolynomial': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRedCoefficients': '',
     'inputGreenCoefficients': '',
     'inputBlueCoefficients': '',
-    'inputAlphaCoefficients': ''
+    'inputAlphaCoefficients': '',
   },
   'CIColorPosterize': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputLevels': 'CIAttributeTypeScalar'
+    'inputLevels': 'CIAttributeTypeScalar',
   },
   'CIColorThreshold': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputThreshold': 'CIAttributeTypeScalar'
+    'inputThreshold': 'CIAttributeTypeScalar',
   },
   'CIColorThresholdOtsu': {'inputImage': 'CIAttributeTypeImage'},
   'CIColumnAverage': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CIComicEffect': {'inputImage': 'CIAttributeTypeImage'},
   'CIConstantColorGenerator': {'inputColor': 'CIAttributeTypeColor'},
   'CIConvertLabToRGB': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputNormalize': 'CIAttributeTypeBoolean'
+    'inputNormalize': 'CIAttributeTypeBoolean',
   },
   'CIConvertRGBtoLab': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputNormalize': 'CIAttributeTypeBoolean'
+    'inputNormalize': 'CIAttributeTypeBoolean',
   },
   'CIConvolution3X3': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolution5X5': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolution7X7': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolution9Horizontal': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolution9Vertical': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolutionRGB3X3': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolutionRGB5X5': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolutionRGB7X7': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolutionRGB9Horizontal': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CIConvolutionRGB9Vertical': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWeights': '',
-    'inputBias': 'CIAttributeTypeScalar'
+    'inputBias': 'CIAttributeTypeScalar',
   },
   'CICopyMachineTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -369,26 +369,26 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTime': 'CIAttributeTypeTime',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputOpacity': 'CIAttributeTypeScalar'
+    'inputOpacity': 'CIAttributeTypeScalar',
   },
   'CICoreMLModelFilter': {
     'inputImage': 'CIAttributeTypeImage',
     'inputModel': '',
     'inputHeadIndex': 'CIAttributeTypeInteger',
-    'inputSoftmaxNormalization': 'CIAttributeTypeBoolean'
+    'inputSoftmaxNormalization': 'CIAttributeTypeBoolean',
   },
   'CICrop': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRectangle': 'CIAttributeTypeRectangle'
+    'inputRectangle': 'CIAttributeTypeRectangle',
   },
   'CICrystallize': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputCenter': 'CIAttributeTypePosition'
+    'inputCenter': 'CIAttributeTypePosition',
   },
   'CIDarkenBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIDepthBlurEffect': {
     'inputImage': 'CIAttributeTypeImage',
@@ -407,7 +407,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputScaleFactor': 'CIAttributeTypeScalar',
     'inputCalibrationData': '',
     'inputAuxDataMetadata': '',
-    'inputShape': ''
+    'inputShape': '',
   },
   'CIDepthOfField': {
     'inputImage': 'CIAttributeTypeImage',
@@ -416,16 +416,16 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputSaturation': 'CIAttributeTypeScalar',
     'inputUnsharpMaskRadius': 'CIAttributeTypeScalar',
     'inputUnsharpMaskIntensity': 'CIAttributeTypeScalar',
-    'inputRadius': 'CIAttributeTypeScalar'
+    'inputRadius': 'CIAttributeTypeScalar',
   },
   'CIDepthToDisparity': {'inputImage': 'CIAttributeTypeImage'},
   'CIDifferenceBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIDiscBlur': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIDisintegrateWithMaskTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -434,37 +434,37 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTime': 'CIAttributeTypeTime',
     'inputShadowRadius': 'CIAttributeTypeDistance',
     'inputShadowDensity': 'CIAttributeTypeScalar',
-    'inputShadowOffset': 'CIAttributeTypeOffset'
+    'inputShadowOffset': 'CIAttributeTypeOffset',
   },
   'CIDisparityToDepth': {'inputImage': 'CIAttributeTypeImage'},
   'CIDisplacementDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputDisplacementImage': 'CIAttributeTypeImage',
-    'inputScale': 'CIAttributeTypeDistance'
+    'inputScale': 'CIAttributeTypeDistance',
   },
   'CIDissolveTransition': {
     'inputImage': 'CIAttributeTypeImage',
     'inputTargetImage': 'CIAttributeTypeImage',
-    'inputTime': 'CIAttributeTypeTime'
+    'inputTime': 'CIAttributeTypeTime',
   },
   'CIDither': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIDivideBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIDocumentEnhancer': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputAmount': 'CIAttributeTypeScalar'
+    'inputAmount': 'CIAttributeTypeScalar',
   },
   'CIDotScreen': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CIDroste': {
     'inputImage': 'CIAttributeTypeImage',
@@ -473,40 +473,40 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputStrands': 'CIAttributeTypeScalar',
     'inputPeriodicity': 'CIAttributeTypeScalar',
     'inputRotation': 'CIAttributeTypeAngle',
-    'inputZoom': 'CIAttributeTypeScalar'
+    'inputZoom': 'CIAttributeTypeScalar',
   },
   'CIEdgePreserveUpsampleFilter': {
     'inputImage': 'CIAttributeTypeImage',
     'inputSmallImage': 'CIAttributeTypeImage',
     'inputSpatialSigma': 'CIAttributeTypeScalar',
-    'inputLumaSigma': 'CIAttributeTypeScalar'
+    'inputLumaSigma': 'CIAttributeTypeScalar',
   },
   'CIEdges': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIEdgeWork': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIEightfoldReflectedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CIExclusionBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIExposureAdjust': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputEV': 'CIAttributeTypeScalar'
+    'inputEV': 'CIAttributeTypeScalar',
   },
   'CIFalseColor': {
     'inputImage': 'CIAttributeTypeImage',
     'inputColor0': 'CIAttributeTypeColor',
-    'inputColor1': 'CIAttributeTypeColor'
+    'inputColor1': 'CIAttributeTypeColor',
   },
   'CIFlashTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -518,130 +518,130 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputMaxStriationRadius': 'CIAttributeTypeScalar',
     'inputStriationStrength': 'CIAttributeTypeScalar',
     'inputStriationContrast': 'CIAttributeTypeScalar',
-    'inputFadeThreshold': 'CIAttributeTypeScalar'
+    'inputFadeThreshold': 'CIAttributeTypeScalar',
   },
   'CIFourfoldReflectedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputAcuteAngle': 'CIAttributeTypeAngle'
+    'inputAcuteAngle': 'CIAttributeTypeAngle',
   },
   'CIFourfoldRotatedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CIFourfoldTranslatedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputAcuteAngle': 'CIAttributeTypeAngle'
+    'inputAcuteAngle': 'CIAttributeTypeAngle',
   },
   'CIGaborGradients': {'inputImage': 'CIAttributeTypeImage'},
   'CIGammaAdjust': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputPower': 'CIAttributeTypeScalar'
+    'inputPower': 'CIAttributeTypeScalar',
   },
   'CIGaussianBlur': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeScalar'
+    'inputRadius': 'CIAttributeTypeScalar',
   },
   'CIGaussianGradient': {
     'inputCenter': 'CIAttributeTypePosition',
     'inputColor0': 'CIAttributeTypeColor',
     'inputColor1': 'CIAttributeTypeColor',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIGlassDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputTexture': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputScale': 'CIAttributeTypeDistance'
+    'inputScale': 'CIAttributeTypeDistance',
   },
   'CIGlassLozenge': {
     'inputImage': 'CIAttributeTypeImage',
     'inputPoint0': 'CIAttributeTypePosition',
     'inputPoint1': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputRefraction': 'CIAttributeTypeScalar'
+    'inputRefraction': 'CIAttributeTypeScalar',
   },
   'CIGlideReflectedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CIGloom': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIGuidedFilter': {
     'inputImage': 'CIAttributeTypeImage',
     'inputGuideImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeScalar',
-    'inputEpsilon': 'CIAttributeTypeScalar'
+    'inputEpsilon': 'CIAttributeTypeScalar',
   },
   'CIHardLightBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIHatchedScreen': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CIHeightFieldFromMask': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIHexagonalPixellate': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputScale': 'CIAttributeTypeDistance'
+    'inputScale': 'CIAttributeTypeDistance',
   },
   'CIHighlightShadowAdjust': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeScalar',
     'inputShadowAmount': 'CIAttributeTypeScalar',
-    'inputHighlightAmount': 'CIAttributeTypeScalar'
+    'inputHighlightAmount': 'CIAttributeTypeScalar',
   },
   'CIHistogramDisplayFilter': {
     'inputImage': 'CIAttributeTypeImage',
     'inputHeight': 'CIAttributeTypeScalar',
     'inputHighLimit': 'CIAttributeTypeScalar',
-    'inputLowLimit': 'CIAttributeTypeScalar'
+    'inputLowLimit': 'CIAttributeTypeScalar',
   },
   'CIHoleDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIHueAdjust': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIHueBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIHueSaturationValueGradient': {
     'inputValue': 'CIAttributeTypeScalar',
     'inputRadius': 'CIAttributeTypeDistance',
     'inputSoftness': 'CIAttributeTypeScalar',
     'inputDither': 'CIAttributeTypeScalar',
-    'inputColorSpace': ''
+    'inputColorSpace': '',
   },
   'CIKaleidoscope': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCount': 'CIAttributeTypeScalar',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIKeystoneCorrectionCombined': {
     'inputImage': 'CIAttributeTypeImage',
@@ -649,7 +649,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIKeystoneCorrectionHorizontal': {
     'inputImage': 'CIAttributeTypeImage',
@@ -657,7 +657,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIKeystoneCorrectionVertical': {
     'inputImage': 'CIAttributeTypeImage',
@@ -665,7 +665,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIKMeans': {
     'inputImage': 'CIAttributeTypeImage',
@@ -673,16 +673,16 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputMeans': 'CIAttributeTypeImage',
     'inputCount': 'CIAttributeTypeCount',
     'inputPasses': 'CIAttributeTypeCount',
-    'inputPerceptual': 'CIAttributeTypeBoolean'
+    'inputPerceptual': 'CIAttributeTypeBoolean',
   },
   'CILabDeltaE': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputImage2': 'CIAttributeTypeImage'
+    'inputImage2': 'CIAttributeTypeImage',
   },
   'CILanczosScaleTransform': {
     'inputImage': 'CIAttributeTypeImage',
     'inputScale': 'CIAttributeTypeScalar',
-    'inputAspectRatio': 'CIAttributeTypeScalar'
+    'inputAspectRatio': 'CIAttributeTypeScalar',
   },
   'CILenticularHaloGenerator': {
     'inputCenter': 'CIAttributeTypePosition',
@@ -692,35 +692,35 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputHaloOverlap': 'CIAttributeTypeScalar',
     'inputStriationStrength': 'CIAttributeTypeScalar',
     'inputStriationContrast': 'CIAttributeTypeScalar',
-    'inputTime': 'CIAttributeTypeScalar'
+    'inputTime': 'CIAttributeTypeScalar',
   },
   'CILightenBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CILightTunnel': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRotation': 'CIAttributeTypeAngle',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CILinearBurnBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CILinearDodgeBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CILinearGradient': {
     'inputPoint0': 'CIAttributeTypePosition',
     'inputPoint1': 'CIAttributeTypePosition',
     'inputColor0': 'CIAttributeTypeColor',
-    'inputColor1': 'CIAttributeTypeColor'
+    'inputColor1': 'CIAttributeTypeColor',
   },
   'CILinearLightBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CILinearToSRGBToneCurve': {'inputImage': 'CIAttributeTypeImage'},
   'CILineOverlay': {
@@ -729,45 +729,45 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputNRSharpness': 'CIAttributeTypeScalar',
     'inputEdgeIntensity': 'CIAttributeTypeScalar',
     'inputThreshold': 'CIAttributeTypeScalar',
-    'inputContrast': 'CIAttributeTypeScalar'
+    'inputContrast': 'CIAttributeTypeScalar',
   },
   'CILineScreen': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CILuminosityBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIMaskedVariableBlur': {
     'inputImage': 'CIAttributeTypeImage',
     'inputMask': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeScalar'
+    'inputRadius': 'CIAttributeTypeScalar',
   },
   'CIMaskToAlpha': {'inputImage': 'CIAttributeTypeImage'},
   'CIMaximumComponent': {'inputImage': 'CIAttributeTypeImage'},
   'CIMaximumCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIMedianFilter': {'inputImage': 'CIAttributeTypeImage'},
   'CIMeshGenerator': {
     'inputWidth': 'CIAttributeTypeDistance',
     'inputColor': 'CIAttributeTypeColor',
-    'inputMesh': ''
+    'inputMesh': '',
   },
   'CIMinimumComponent': {'inputImage': 'CIAttributeTypeImage'},
   'CIMinimumCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIMix': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBackgroundImage': 'CIAttributeTypeImage',
-    'inputAmount': 'CIAttributeTypeScalar'
+    'inputAmount': 'CIAttributeTypeScalar',
   },
   'CIModTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -776,71 +776,71 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTime': 'CIAttributeTypeTime',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputCompression': 'CIAttributeTypeDistance'
+    'inputCompression': 'CIAttributeTypeDistance',
   },
   'CIMorphologyGradient': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIMorphologyMaximum': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIMorphologyMinimum': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIMorphologyRectangleMaximum': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWidth': 'CIAttributeTypeInteger',
-    'inputHeight': 'CIAttributeTypeInteger'
+    'inputHeight': 'CIAttributeTypeInteger',
   },
   'CIMorphologyRectangleMinimum': {
     'inputImage': 'CIAttributeTypeImage',
     'inputWidth': 'CIAttributeTypeInteger',
-    'inputHeight': 'CIAttributeTypeInteger'
+    'inputHeight': 'CIAttributeTypeInteger',
   },
   'CIMotionBlur': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIMultiplyBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIMultiplyCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CINinePartStretched': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBreakpoint0': 'CIAttributeTypePosition',
     'inputBreakpoint1': 'CIAttributeTypePosition',
-    'inputGrowAmount': 'CIAttributeTypeOffset'
+    'inputGrowAmount': 'CIAttributeTypeOffset',
   },
   'CINinePartTiled': {
     'inputImage': 'CIAttributeTypeImage',
     'inputBreakpoint0': 'CIAttributeTypePosition',
     'inputBreakpoint1': 'CIAttributeTypePosition',
     'inputGrowAmount': 'CIAttributeTypeOffset',
-    'inputFlipYTiles': 'CIAttributeTypeBoolean'
+    'inputFlipYTiles': 'CIAttributeTypeBoolean',
   },
   'CINoiseReduction': {
     'inputImage': 'CIAttributeTypeImage',
     'inputNoiseLevel': 'CIAttributeTypeScalar',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CIOpTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputScale': 'CIAttributeTypeScalar',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CIOverlayBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIPageCurlTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -850,7 +850,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputExtent': 'CIAttributeTypeRectangle',
     'inputTime': 'CIAttributeTypeTime',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputRadius': 'CIAttributeTypeDistance'
+    'inputRadius': 'CIAttributeTypeDistance',
   },
   'CIPageCurlWithShadowTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -862,24 +862,24 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputRadius': 'CIAttributeTypeDistance',
     'inputShadowSize': 'CIAttributeTypeDistance',
     'inputShadowAmount': 'CIAttributeTypeDistance',
-    'inputShadowExtent': 'CIAttributeTypeRectangle'
+    'inputShadowExtent': 'CIAttributeTypeRectangle',
   },
   'CIPaletteCentroid': {
     'inputImage': 'CIAttributeTypeImage',
     'inputPaletteImage': 'CIAttributeTypeImage',
-    'inputPerceptual': 'CIAttributeTypeBoolean'
+    'inputPerceptual': 'CIAttributeTypeBoolean',
   },
   'CIPalettize': {
     'inputImage': 'CIAttributeTypeImage',
     'inputPaletteImage': 'CIAttributeTypeImage',
-    'inputPerceptual': 'CIAttributeTypeBoolean'
+    'inputPerceptual': 'CIAttributeTypeBoolean',
   },
   'CIParallelogramTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputAcuteAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CIPDF417BarcodeGenerator': {
     'inputMessage': '',
@@ -893,11 +893,11 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputCompactionMode': 'CIAttributeTypeInteger',
     'inputCompactStyle': 'CIAttributeTypeBoolean',
     'inputCorrectionLevel': 'CIAttributeTypeInteger',
-    'inputAlwaysSpecifyCompaction': 'CIAttributeTypeBoolean'
+    'inputAlwaysSpecifyCompaction': 'CIAttributeTypeBoolean',
   },
   'CIPersonSegmentation': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputQualityLevel': ''
+    'inputQualityLevel': '',
   },
   'CIPerspectiveCorrection': {
     'inputImage': 'CIAttributeTypeImage',
@@ -905,28 +905,28 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
     'inputBottomLeft': 'CIAttributeTypePosition',
-    'inputCrop': 'CIAttributeTypeBoolean'
+    'inputCrop': 'CIAttributeTypeBoolean',
   },
   'CIPerspectiveRotate': {
     'inputImage': 'CIAttributeTypeImage',
     'inputFocalLength': 'CIAttributeTypeScalar',
     'inputPitch': 'CIAttributeTypeAngle',
     'inputYaw': 'CIAttributeTypeAngle',
-    'inputRoll': 'CIAttributeTypeAngle'
+    'inputRoll': 'CIAttributeTypeAngle',
   },
   'CIPerspectiveTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIPerspectiveTransform': {
     'inputImage': 'CIAttributeTypeImage',
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIPerspectiveTransformWithExtent': {
     'inputImage': 'CIAttributeTypeImage',
@@ -934,7 +934,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTopLeft': 'CIAttributeTypePosition',
     'inputTopRight': 'CIAttributeTypePosition',
     'inputBottomRight': 'CIAttributeTypePosition',
-    'inputBottomLeft': 'CIAttributeTypePosition'
+    'inputBottomLeft': 'CIAttributeTypePosition',
   },
   'CIPhotoEffectChrome': {'inputImage': 'CIAttributeTypeImage'},
   'CIPhotoEffectFade': {'inputImage': 'CIAttributeTypeImage'},
@@ -948,21 +948,21 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputScale': 'CIAttributeTypeScalar'
+    'inputScale': 'CIAttributeTypeScalar',
   },
   'CIPinLightBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIPixellate': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputScale': 'CIAttributeTypeDistance'
+    'inputScale': 'CIAttributeTypeDistance',
   },
   'CIPointillize': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputCenter': 'CIAttributeTypePosition'
+    'inputCenter': 'CIAttributeTypePosition',
   },
   'CIQRCodeGenerator': {'inputMessage': '', 'inputCorrectionLevel': ''},
   'CIRadialGradient': {
@@ -970,7 +970,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputRadius0': 'CIAttributeTypeDistance',
     'inputRadius1': 'CIAttributeTypeDistance',
     'inputColor0': 'CIAttributeTypeColor',
-    'inputColor1': 'CIAttributeTypeColor'
+    'inputColor1': 'CIAttributeTypeColor',
   },
   'CIRandomGenerator': {},
   'CIRippleTransition': {
@@ -981,78 +981,78 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputExtent': 'CIAttributeTypeRectangle',
     'inputTime': 'CIAttributeTypeTime',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputScale': 'CIAttributeTypeScalar'
+    'inputScale': 'CIAttributeTypeScalar',
   },
   'CIRoundedRectangleGenerator': {
     'inputExtent': 'CIAttributeTypeRectangle',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputColor': 'CIAttributeTypeColor'
+    'inputColor': 'CIAttributeTypeColor',
   },
   'CIRowAverage': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputExtent': 'CIAttributeTypeRectangle'
+    'inputExtent': 'CIAttributeTypeRectangle',
   },
   'CISaliencyMapFilter': {'inputImage': 'CIAttributeTypeImage'},
   'CISampleNearest': {'inputImage': 'CIAttributeTypeImage'},
   'CISaturationBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIScreenBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISepiaTone': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIShadedMaterial': {
     'inputImage': 'CIAttributeTypeImage',
     'inputShadingImage': 'CIAttributeTypeImage',
-    'inputScale': 'CIAttributeTypeDistance'
+    'inputScale': 'CIAttributeTypeDistance',
   },
   'CISharpenLuminance': {
     'inputImage': 'CIAttributeTypeImage',
     'inputSharpness': 'CIAttributeTypeScalar',
-    'inputRadius': 'CIAttributeTypeScalar'
+    'inputRadius': 'CIAttributeTypeScalar',
   },
   'CISixfoldReflectedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CISixfoldRotatedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CISmoothLinearGradient': {
     'inputPoint0': 'CIAttributeTypePosition',
     'inputPoint1': 'CIAttributeTypePosition',
     'inputColor0': 'CIAttributeTypeColor',
-    'inputColor1': 'CIAttributeTypeColor'
+    'inputColor1': 'CIAttributeTypeColor',
   },
   'CISoftLightBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISourceAtopCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISourceInCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISourceOutCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISourceOverCompositing': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISpotColor': {
     'inputImage': 'CIAttributeTypeImage',
@@ -1067,7 +1067,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputCenterColor3': 'CIAttributeTypeColor',
     'inputReplacementColor3': 'CIAttributeTypeColor',
     'inputCloseness3': 'CIAttributeTypeScalar',
-    'inputContrast3': 'CIAttributeTypeScalar'
+    'inputContrast3': 'CIAttributeTypeScalar',
   },
   'CISpotLight': {
     'inputImage': 'CIAttributeTypeImage',
@@ -1075,7 +1075,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputLightPointsAt': 'CIAttributeTypePosition3',
     'inputBrightness': 'CIAttributeTypeDistance',
     'inputConcentration': 'CIAttributeTypeScalar',
-    'inputColor': 'CIAttributeTypeOpaqueColor'
+    'inputColor': 'CIAttributeTypeOpaqueColor',
   },
   'CISRGBToneCurveToLinear': {'inputImage': 'CIAttributeTypeImage'},
   'CIStarShineGenerator': {
@@ -1086,28 +1086,28 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputCrossAngle': 'CIAttributeTypeAngle',
     'inputCrossOpacity': 'CIAttributeTypeScalar',
     'inputCrossWidth': 'CIAttributeTypeDistance',
-    'inputEpsilon': 'CIAttributeTypeScalar'
+    'inputEpsilon': 'CIAttributeTypeScalar',
   },
   'CIStraightenFilter': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIStretchCrop': {
     'inputImage': 'CIAttributeTypeImage',
     'inputSize': 'CIAttributeTypePosition',
     'inputCropAmount': 'CIAttributeTypeScalar',
-    'inputCenterStretchAmount': 'CIAttributeTypeScalar'
+    'inputCenterStretchAmount': 'CIAttributeTypeScalar',
   },
   'CIStripesGenerator': {
     'inputCenter': 'CIAttributeTypePosition',
     'inputColor0': 'CIAttributeTypeColor',
     'inputColor1': 'CIAttributeTypeColor',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputSharpness': 'CIAttributeTypeScalar'
+    'inputSharpness': 'CIAttributeTypeScalar',
   },
   'CISubtractBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CISunbeamsGenerator': {
     'inputCenter': 'CIAttributeTypePosition',
@@ -1116,7 +1116,7 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputMaxStriationRadius': 'CIAttributeTypeScalar',
     'inputStriationStrength': 'CIAttributeTypeScalar',
     'inputStriationContrast': 'CIAttributeTypeScalar',
-    'inputTime': 'CIAttributeTypeScalar'
+    'inputTime': 'CIAttributeTypeScalar',
   },
   'CISwipeTransition': {
     'inputImage': 'CIAttributeTypeImage',
@@ -1126,19 +1126,19 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputTime': 'CIAttributeTypeTime',
     'inputAngle': 'CIAttributeTypeAngle',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputOpacity': 'CIAttributeTypeScalar'
+    'inputOpacity': 'CIAttributeTypeScalar',
   },
   'CITemperatureAndTint': {
     'inputImage': 'CIAttributeTypeImage',
     'inputNeutral': 'CIAttributeTypeOffset',
-    'inputTargetNeutral': 'CIAttributeTypeOffset'
+    'inputTargetNeutral': 'CIAttributeTypeOffset',
   },
   'CITextImageGenerator': {
     'inputText': '',
     'inputFontName': '',
     'inputFontSize': 'CIAttributeTypeScalar',
     'inputScaleFactor': 'CIAttributeTypeScalar',
-    'inputPadding': 'CIAttributeTypeInteger'
+    'inputPadding': 'CIAttributeTypeInteger',
   },
   'CIThermal': {'inputImage': 'CIAttributeTypeImage'},
   'CIToneCurve': {
@@ -1147,79 +1147,79 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputPoint1': 'CIAttributeTypeOffset',
     'inputPoint2': 'CIAttributeTypeOffset',
     'inputPoint3': 'CIAttributeTypeOffset',
-    'inputPoint4': 'CIAttributeTypeOffset'
+    'inputPoint4': 'CIAttributeTypeOffset',
   },
   'CITorusLensDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
     'inputWidth': 'CIAttributeTypeDistance',
-    'inputRefraction': 'CIAttributeTypeScalar'
+    'inputRefraction': 'CIAttributeTypeScalar',
   },
   'CITriangleKaleidoscope': {
     'inputImage': 'CIAttributeTypeImage',
     'inputPoint': 'CIAttributeTypePosition',
     'inputSize': 'CIAttributeTypeScalar',
     'inputRotation': 'CIAttributeTypeAngle',
-    'inputDecay': 'CIAttributeTypeScalar'
+    'inputDecay': 'CIAttributeTypeScalar',
   },
   'CITriangleTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CITwelvefoldReflectedTile': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputAngle': 'CIAttributeTypeAngle',
-    'inputWidth': 'CIAttributeTypeDistance'
+    'inputWidth': 'CIAttributeTypeDistance',
   },
   'CITwirlDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIUnsharpMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputIntensity': 'CIAttributeTypeScalar'
+    'inputIntensity': 'CIAttributeTypeScalar',
   },
   'CIVibrance': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputAmount': 'CIAttributeTypeScalar'
+    'inputAmount': 'CIAttributeTypeScalar',
   },
   'CIVignette': {
     'inputImage': 'CIAttributeTypeImage',
     'inputIntensity': 'CIAttributeTypeScalar',
-    'inputRadius': 'CIAttributeTypeScalar'
+    'inputRadius': 'CIAttributeTypeScalar',
   },
   'CIVignetteEffect': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
     'inputIntensity': 'CIAttributeTypeScalar',
-    'inputFalloff': 'CIAttributeTypeScalar'
+    'inputFalloff': 'CIAttributeTypeScalar',
   },
   'CIVividLightBlendMode': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputBackgroundImage': 'CIAttributeTypeImage'
+    'inputBackgroundImage': 'CIAttributeTypeImage',
   },
   'CIVortexDistortion': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
     'inputRadius': 'CIAttributeTypeDistance',
-    'inputAngle': 'CIAttributeTypeAngle'
+    'inputAngle': 'CIAttributeTypeAngle',
   },
   'CIWhitePointAdjust': {
     'inputImage': 'CIAttributeTypeImage',
-    'inputColor': 'CIAttributeTypeColor'
+    'inputColor': 'CIAttributeTypeColor',
   },
   'CIXRay': {'inputImage': 'CIAttributeTypeImage'},
   'CIZoomBlur': {
     'inputImage': 'CIAttributeTypeImage',
     'inputCenter': 'CIAttributeTypePosition',
-    'inputAmount': 'CIAttributeTypeDistance'
-  }
+    'inputAmount': 'CIAttributeTypeDistance',
+  },
 };

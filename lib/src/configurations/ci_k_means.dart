@@ -55,7 +55,7 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

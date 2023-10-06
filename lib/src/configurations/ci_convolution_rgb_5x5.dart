@@ -34,7 +34,7 @@ class CIConvolutionRGB5X5Configuration extends CIFilterConfiguration {
             0,
             0,
             0,
-            0
+            0,
           ]),
         ),
         super('CIConvolutionRGB5X5');
@@ -53,7 +53,7 @@ class CIConvolutionRGB5X5Configuration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

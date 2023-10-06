@@ -60,7 +60,7 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
         CICategory.stillImage,
         CICategory.nonSquarePixels,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

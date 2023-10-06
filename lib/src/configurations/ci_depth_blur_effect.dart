@@ -107,7 +107,7 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override
@@ -120,6 +120,6 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
         _lumaNoiseScale,
         _nosePositions,
         _aperture,
-        _focusRect
+        _focusRect,
       ];
 }

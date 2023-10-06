@@ -231,5 +231,5 @@ const Map<String, String> kNames = {
   'Vortex Distortion': 'CIVortexDistortion',
   'White Point Adjust': 'CIWhitePointAdjust',
   'X-Ray': 'CIXRay',
-  'Zoom Blur': 'CIZoomBlur'
+  'Zoom Blur': 'CIZoomBlur',
 };

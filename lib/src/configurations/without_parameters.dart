@@ -10,7 +10,7 @@ class CIColorInvertConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -24,7 +24,7 @@ class CIColorThresholdOtsuConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -36,7 +36,7 @@ class CIDepthToDisparityConfiguration extends CIFilterConfiguration {
         CICategory.colorAdjustment,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -48,7 +48,7 @@ class CIDisparityToDepthConfiguration extends CIFilterConfiguration {
         CICategory.colorAdjustment,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -63,7 +63,7 @@ class CILinearToSRGBToneCurveConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -77,7 +77,7 @@ class CIMaskToAlphaConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -92,7 +92,7 @@ class CIMaximumComponentConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -105,7 +105,7 @@ class CIMedianFilterConfiguration extends CIFilterConfiguration {
         CICategory.stillImage,
         CICategory.video,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 }
 
@@ -120,7 +120,7 @@ class CIMinimumComponentConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -135,7 +135,7 @@ class CIPhotoEffectChromeConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -150,7 +150,7 @@ class CIPhotoEffectFadeConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -165,7 +165,7 @@ class CIPhotoEffectInstantConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -180,7 +180,7 @@ class CIPhotoEffectMonoConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -195,7 +195,7 @@ class CIPhotoEffectNoirConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -210,7 +210,7 @@ class CIPhotoEffectProcessConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -225,7 +225,7 @@ class CIPhotoEffectTonalConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -240,7 +240,7 @@ class CIPhotoEffectTransferConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 }
 
@@ -255,7 +255,7 @@ class CISRGBToneCurveToLinearConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -269,7 +269,7 @@ class CIThermalConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }
 
@@ -283,6 +283,6 @@ class CIXRayConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }

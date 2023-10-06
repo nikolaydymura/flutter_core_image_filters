@@ -45,7 +45,7 @@ class CIAttributedTextImageGeneratorConfiguration
         CICategory.generator,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

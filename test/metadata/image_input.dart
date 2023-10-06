@@ -231,5 +231,5 @@ const Map<String, bool> kHasImageInput = {
   'CIVortexDistortion': true,
   'CIWhitePointAdjust': true,
   'CIXRay': true,
-  'CIZoomBlur': true
+  'CIZoomBlur': true,
 };

@@ -58,7 +58,7 @@ class CIPageCurlTransitionConfiguration extends CIFilterConfiguration
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override
@@ -69,6 +69,6 @@ class CIPageCurlTransitionConfiguration extends CIFilterConfiguration
         _angle,
         _shadingImage,
         _targetImage,
-        _backsideImage
+        _backsideImage,
       ];
 }

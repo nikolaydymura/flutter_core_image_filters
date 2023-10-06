@@ -91,7 +91,7 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override
@@ -102,7 +102,7 @@ class CISunbeamsGeneratorConfiguration extends CIFilterConfiguration {
         _striationStrength,
         _maxStriationRadius,
         _sunRadius,
-        _color
+        _color,
       ];
 
   @override

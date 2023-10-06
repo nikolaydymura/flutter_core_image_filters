@@ -26,7 +26,7 @@ class CILookupTableConfiguration extends CIFilterConfiguration
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

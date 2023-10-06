@@ -67,7 +67,7 @@ class CIPerspectiveTransformWithExtentConfiguration
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

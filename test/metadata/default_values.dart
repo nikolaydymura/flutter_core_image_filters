@@ -5,50 +5,50 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputBottomHeight': 0,
     'inputNumberOfFolds': 3,
     'inputFoldShadowAmount': 0.1,
-    'inputTime': 0
+    'inputTime': 0,
   },
   'CIAdditionCompositing': {},
   'CIAffineClamp': {
-    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0],
   },
   'CIAffineTile': {
-    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0],
   },
   'CIAffineTransform': {
-    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+    'inputTransform': [1.0, 0.0, 0.0, 1.0, 0.0, 0.0],
   },
   'CIAreaAverage': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaHistogram': {
     'inputExtent': [0, 0, 640, 80],
     'inputScale': 1,
-    'inputCount': 64
+    'inputCount': 64,
   },
   'CIAreaLogarithmicHistogram': {
     'inputExtent': [0, 0, 640, 80],
     'inputScale': 1,
     'inputCount': 64,
     'inputMinimumStop': -10,
-    'inputMaximumStop': 4
+    'inputMaximumStop': 4,
   },
   'CIAreaMaximum': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaMaximumAlpha': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaMinimum': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaMinimumAlpha': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaMinMax': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAreaMinMaxRed': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIAttributedTextImageGenerator': {'inputScaleFactor': 1, 'inputPadding': 0},
   'CIAztecCodeGenerator': {'inputCorrectionLevel': 23},
@@ -57,13 +57,13 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputAngle': 3.141592653589793,
     'inputWidth': 30,
     'inputBarOffset': 10,
-    'inputTime': 0
+    'inputTime': 0,
   },
   'CIBicubicScaleTransform': {
     'inputScale': 1,
     'inputAspectRatio': 1,
     'inputB': 0,
-    'inputC': 0.75
+    'inputC': 0.75,
   },
   'CIBlendWithAlphaMask': {},
   'CIBlendWithBlueMask': {},
@@ -74,19 +74,19 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputRadius': 20,
     'inputRingAmount': 0,
     'inputRingSize': 0.1,
-    'inputSoftness': 1
+    'inputSoftness': 1,
   },
   'CIBoxBlur': {'inputRadius': 10},
   'CIBumpDistortion': {
     'inputCenter': [150, 150],
     'inputRadius': 300,
-    'inputScale': 0.5
+    'inputScale': 0.5,
   },
   'CIBumpDistortionLinear': {
     'inputCenter': [150, 150],
     'inputRadius': 300,
     'inputAngle': 0,
-    'inputScale': 0.5
+    'inputScale': 0.5,
   },
   'CICameraCalibrationLensCorrection': {'inputUseInverseLookUpTable': 0},
   'CICheckerboardGenerator': {
@@ -94,24 +94,24 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
     'inputColor1': Color.fromRGBO(0, 0, 0, 1.0),
     'inputWidth': 80,
-    'inputSharpness': 1
+    'inputSharpness': 1,
   },
   'CICircleSplashDistortion': {
     'inputCenter': [150, 150],
-    'inputRadius': 150
+    'inputRadius': 150,
   },
   'CICircularScreen': {
     'inputCenter': [150, 150],
     'inputWidth': 6,
-    'inputSharpness': 0.7
+    'inputSharpness': 0.7,
   },
   'CICircularWrap': {
     'inputCenter': [150, 150],
     'inputRadius': 150,
-    'inputAngle': 0
+    'inputAngle': 0,
   },
   'CIClamp': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CICMYKHalftone': {
     'inputCenter': [150, 150],
@@ -119,34 +119,34 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputAngle': 0,
     'inputSharpness': 0.7,
     'inputGCR': 1,
-    'inputUCR': 0.5
+    'inputUCR': 0.5,
   },
   'CICode128BarcodeGenerator': {
     'inputQuietSpace': 10,
-    'inputBarcodeHeight': 32
+    'inputBarcodeHeight': 32,
   },
   'CIColorAbsoluteDifference': {},
   'CIColorBlendMode': {},
   'CIColorBurnBlendMode': {},
   'CIColorClamp': {
     'inputMinComponents': [0, 0, 0, 0],
-    'inputMaxComponents': [1, 1, 1, 1]
+    'inputMaxComponents': [1, 1, 1, 1],
   },
   'CIColorControls': {
     'inputSaturation': 1,
     'inputBrightness': 0,
-    'inputContrast': 1
+    'inputContrast': 1,
   },
   'CIColorCrossPolynomial': {
     'inputRedCoefficients': [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     'inputGreenCoefficients': [0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-    'inputBlueCoefficients': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+    'inputBlueCoefficients': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
   },
   'CIColorCube': {'inputCubeDimension': 2, 'inputExtrapolate': 0},
   'CIColorCubesMixedWithMask': {'inputCubeDimension': 2, 'inputExtrapolate': 0},
   'CIColorCubeWithColorSpace': {'inputCubeDimension': 2},
   'CIColorCurves': {
-    'inputCurvesDomain': [0, 1]
+    'inputCurvesDomain': [0, 1],
   },
   'CIColorDodgeBlendMode': {},
   'CIColorInvert': {},
@@ -156,23 +156,23 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputGVector': [0, 1, 0, 0],
     'inputBVector': [0, 0, 1, 0],
     'inputAVector': [0, 0, 0, 1],
-    'inputBiasVector': [0, 0, 0, 0]
+    'inputBiasVector': [0, 0, 0, 0],
   },
   'CIColorMonochrome': {
     'inputColor': Color.fromRGBO(153, 114, 76, 1.0),
-    'inputIntensity': 1
+    'inputIntensity': 1,
   },
   'CIColorPolynomial': {
     'inputRedCoefficients': [0, 1, 0, 0],
     'inputGreenCoefficients': [0, 1, 0, 0],
     'inputBlueCoefficients': [0, 1, 0, 0],
-    'inputAlphaCoefficients': [0, 1, 0, 0]
+    'inputAlphaCoefficients': [0, 1, 0, 0],
   },
   'CIColorPosterize': {'inputLevels': 6},
   'CIColorThreshold': {'inputThreshold': 0.5},
   'CIColorThresholdOtsu': {},
   'CIColumnAverage': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CIComicEffect': {},
   'CIConstantColorGenerator': {'inputColor': Color.fromRGBO(255, 0, 0, 1.0)},
@@ -180,7 +180,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
   'CIConvertRGBtoLab': {'inputNormalize': 0},
   'CIConvolution3X3': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolution5X5': {
     'inputWeights': [
@@ -208,9 +208,9 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
       0,
       0,
       0,
-      0
+      0,
     ],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolution7X7': {
     'inputWeights': [
@@ -262,21 +262,21 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
       0,
       0,
       0,
-      0
+      0,
     ],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolution9Horizontal': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolution9Vertical': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolutionRGB3X3': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolutionRGB5X5': {
     'inputWeights': [
@@ -304,9 +304,9 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
       0,
       0,
       0,
-      0
+      0,
     ],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolutionRGB7X7': {
     'inputWeights': [
@@ -358,17 +358,17 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
       0,
       0,
       0,
-      0
+      0,
     ],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolutionRGB9Horizontal': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CIConvolutionRGB9Vertical': {
     'inputWeights': [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    'inputBias': 0
+    'inputBias': 0,
   },
   'CICopyMachineTransition': {
     'inputExtent': [0, 0, 300, 300],
@@ -376,15 +376,20 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputTime': 0,
     'inputAngle': 0,
     'inputWidth': 200,
-    'inputOpacity': 1.3
+    'inputOpacity': 1.3,
   },
   'CICoreMLModelFilter': {'inputHeadIndex': 0, 'inputSoftmaxNormalization': 0},
   'CICrop': {
-    'inputRectangle': [-8.98847e+307, -8.98847e+307, 1.79769e+308, 1.79769e+308]
+    'inputRectangle': [
+      -8.98847e+307,
+      -8.98847e+307,
+      1.79769e+308,
+      1.79769e+308,
+    ],
   },
   'CICrystallize': {
     'inputRadius': 20,
-    'inputCenter': [150, 150]
+    'inputCenter': [150, 150],
   },
   'CIDarkenBlendMode': {},
   'CIDepthBlurEffect': {
@@ -394,7 +399,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputChinPositions': [-1, -1],
     'inputNosePositions': [-1, -1],
     'inputLumaNoiseScale': 0,
-    'inputScaleFactor': 1
+    'inputScaleFactor': 1,
   },
   'CIDepthOfField': {
     'inputPoint0': [0, 300],
@@ -402,7 +407,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputSaturation': 1.5,
     'inputUnsharpMaskRadius': 2.5,
     'inputUnsharpMaskIntensity': 0.5,
-    'inputRadius': 6
+    'inputRadius': 6,
   },
   'CIDepthToDisparity': {},
   'CIDifferenceBlendMode': {},
@@ -411,7 +416,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputTime': 0,
     'inputShadowRadius': 8,
     'inputShadowDensity': 0.65,
-    'inputShadowOffset': [0, -10]
+    'inputShadowOffset': [0, -10],
   },
   'CIDisparityToDepth': {},
   'CIDisplacementDistortion': {'inputScale': 50},
@@ -423,7 +428,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputWidth': 6,
-    'inputSharpness': 0.7
+    'inputSharpness': 0.7,
   },
   'CIDroste': {
     'inputInsetPoint0': [200, 200],
@@ -431,24 +436,24 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputStrands': 1,
     'inputPeriodicity': 1,
     'inputRotation': 0,
-    'inputZoom': 1
+    'inputZoom': 1,
   },
   'CIEdgePreserveUpsampleFilter': {
     'inputSpatialSigma': 3,
-    'inputLumaSigma': 0.15
+    'inputLumaSigma': 0.15,
   },
   'CIEdges': {'inputIntensity': 1},
   'CIEdgeWork': {'inputRadius': 3},
   'CIEightfoldReflectedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CIExclusionBlendMode': {},
   'CIExposureAdjust': {'inputEV': 0},
   'CIFalseColor': {
     'inputColor0': Color.fromRGBO(76, 0, 0, 1.0),
-    'inputColor1': Color.fromRGBO(255, 229, 204, 1.0)
+    'inputColor1': Color.fromRGBO(255, 229, 204, 1.0),
   },
   'CIFlashTransition': {
     'inputCenter': [150, 150],
@@ -458,24 +463,24 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputMaxStriationRadius': 2.58,
     'inputStriationStrength': 0.5,
     'inputStriationContrast': 1.375,
-    'inputFadeThreshold': 0.85
+    'inputFadeThreshold': 0.85,
   },
   'CIFourfoldReflectedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputWidth': 100,
-    'inputAcuteAngle': 1.570796326794897
+    'inputAcuteAngle': 1.570796326794897,
   },
   'CIFourfoldRotatedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CIFourfoldTranslatedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputWidth': 100,
-    'inputAcuteAngle': 1.570796326794897
+    'inputAcuteAngle': 1.570796326794897,
   },
   'CIGaborGradients': {},
   'CIGammaAdjust': {'inputPower': 1},
@@ -484,22 +489,22 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenter': [150, 150],
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
     'inputColor1': Color.fromRGBO(0, 0, 0, 0.0),
-    'inputRadius': 300
+    'inputRadius': 300,
   },
   'CIGlassDistortion': {
     'inputCenter': [150, 150],
-    'inputScale': 200
+    'inputScale': 200,
   },
   'CIGlassLozenge': {
     'inputPoint0': [150, 150],
     'inputPoint1': [350, 150],
     'inputRadius': 100,
-    'inputRefraction': 1.7
+    'inputRefraction': 1.7,
   },
   'CIGlideReflectedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CIGloom': {'inputRadius': 10, 'inputIntensity': 0.5},
   'CIGuidedFilter': {'inputRadius': 1, 'inputEpsilon': 0.0001},
@@ -508,26 +513,26 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputWidth': 6,
-    'inputSharpness': 0.7
+    'inputSharpness': 0.7,
   },
   'CIHeightFieldFromMask': {'inputRadius': 10},
   'CIHexagonalPixellate': {
     'inputCenter': [150, 150],
-    'inputScale': 8
+    'inputScale': 8,
   },
   'CIHighlightShadowAdjust': {
     'inputRadius': 0,
     'inputShadowAmount': 0,
-    'inputHighlightAmount': 1
+    'inputHighlightAmount': 1,
   },
   'CIHistogramDisplayFilter': {
     'inputHeight': 100,
     'inputHighLimit': 1,
-    'inputLowLimit': 0
+    'inputLowLimit': 0,
   },
   'CIHoleDistortion': {
     'inputCenter': [150, 150],
-    'inputRadius': 150
+    'inputRadius': 150,
   },
   'CIHueAdjust': {'inputAngle': 0},
   'CIHueBlendMode': {},
@@ -536,12 +541,12 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputRadius': 300,
     'inputSoftness': 1,
     'inputDither': 1,
-    'inputColorSpace': 'sRGB'
+    'inputColorSpace': 'sRGB',
   },
   'CIKaleidoscope': {
     'inputCount': 6,
     'inputCenter': [150, 150],
-    'inputAngle': 0
+    'inputAngle': 0,
   },
   'CIKeystoneCorrectionCombined': {'inputFocalLength': 28},
   'CIKeystoneCorrectionHorizontal': {'inputFocalLength': 28},
@@ -550,7 +555,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputExtent': [0, 0, 640, 80],
     'inputCount': 8,
     'inputPasses': 5,
-    'inputPerceptual': 0
+    'inputPerceptual': 0,
   },
   'CILabDeltaE': {},
   'CILanczosScaleTransform': {'inputScale': 1, 'inputAspectRatio': 1},
@@ -562,13 +567,13 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputHaloOverlap': 0.77,
     'inputStriationStrength': 0.5,
     'inputStriationContrast': 1,
-    'inputTime': 0
+    'inputTime': 0,
   },
   'CILightenBlendMode': {},
   'CILightTunnel': {
     'inputCenter': [150, 150],
     'inputRotation': 0,
-    'inputRadius': 100
+    'inputRadius': 100,
   },
   'CILinearBurnBlendMode': {},
   'CILinearDodgeBlendMode': {},
@@ -576,7 +581,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputPoint0': [0, 0],
     'inputPoint1': [200, 200],
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
-    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0)
+    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0),
   },
   'CILinearLightBlendMode': {},
   'CILinearToSRGBToneCurve': {},
@@ -585,13 +590,13 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputNRSharpness': 0.71,
     'inputEdgeIntensity': 1,
     'inputThreshold': 0.1,
-    'inputContrast': 50
+    'inputContrast': 50,
   },
   'CILineScreen': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputWidth': 6,
-    'inputSharpness': 0.7
+    'inputSharpness': 0.7,
   },
   'CILuminosityBlendMode': {},
   'CIMaskedVariableBlur': {'inputRadius': 5},
@@ -601,7 +606,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
   'CIMedianFilter': {},
   'CIMeshGenerator': {
     'inputWidth': 1.5,
-    'inputColor': Color.fromRGBO(255, 255, 255, 1.0)
+    'inputColor': Color.fromRGBO(255, 255, 255, 1.0),
   },
   'CIMinimumComponent': {},
   'CIMinimumCompositing': {},
@@ -611,7 +616,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputTime': 0,
     'inputAngle': 2,
     'inputRadius': 150,
-    'inputCompression': 300
+    'inputCompression': 300,
   },
   'CIMorphologyGradient': {'inputRadius': 5},
   'CIMorphologyMaximum': {'inputRadius': 0},
@@ -624,27 +629,27 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
   'CINinePartStretched': {
     'inputBreakpoint0': [50, 50],
     'inputBreakpoint1': [150, 150],
-    'inputGrowAmount': [100, 100]
+    'inputGrowAmount': [100, 100],
   },
   'CINinePartTiled': {
     'inputBreakpoint0': [50, 50],
     'inputBreakpoint1': [150, 150],
     'inputGrowAmount': [100, 100],
-    'inputFlipYTiles': 1
+    'inputFlipYTiles': 1,
   },
   'CINoiseReduction': {'inputNoiseLevel': 0.02, 'inputSharpness': 0.4},
   'CIOpTile': {
     'inputCenter': [150, 150],
     'inputScale': 2.8,
     'inputAngle': 0,
-    'inputWidth': 65
+    'inputWidth': 65,
   },
   'CIOverlayBlendMode': {},
   'CIPageCurlTransition': {
     'inputExtent': [0, 0, 300, 300],
     'inputTime': 0,
     'inputAngle': 0,
-    'inputRadius': 100
+    'inputRadius': 100,
   },
   'CIPageCurlWithShadowTransition': {
     'inputExtent': [0, 0, 0, 0],
@@ -653,7 +658,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputRadius': 100,
     'inputShadowSize': 0.5,
     'inputShadowAmount': 0.7,
-    'inputShadowExtent': [0, 0, 0, 0]
+    'inputShadowExtent': [0, 0, 0, 0],
   },
   'CIPaletteCentroid': {'inputPerceptual': 0},
   'CIPalettize': {'inputPerceptual': 0},
@@ -661,7 +666,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenter': [150, 150],
     'inputAngle': 0,
     'inputAcuteAngle': 1.570796326794897,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CIPDF417BarcodeGenerator': {},
   'CIPersonSegmentation': {},
@@ -670,32 +675,32 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputTopRight': [646, 507],
     'inputBottomRight': [548, 140],
     'inputBottomLeft': [155, 153],
-    'inputCrop': 1
+    'inputCrop': 1,
   },
   'CIPerspectiveRotate': {
     'inputFocalLength': 28,
     'inputPitch': 0,
     'inputYaw': 0,
-    'inputRoll': 0
+    'inputRoll': 0,
   },
   'CIPerspectiveTile': {
     'inputTopLeft': [118, 484],
     'inputTopRight': [646, 507],
     'inputBottomRight': [548, 140],
-    'inputBottomLeft': [155, 153]
+    'inputBottomLeft': [155, 153],
   },
   'CIPerspectiveTransform': {
     'inputTopLeft': [118, 484],
     'inputTopRight': [646, 507],
     'inputBottomRight': [548, 140],
-    'inputBottomLeft': [155, 153]
+    'inputBottomLeft': [155, 153],
   },
   'CIPerspectiveTransformWithExtent': {
     'inputExtent': [0, 0, 300, 300],
     'inputTopLeft': [118, 484],
     'inputTopRight': [646, 507],
     'inputBottomRight': [548, 140],
-    'inputBottomLeft': [155, 153]
+    'inputBottomLeft': [155, 153],
   },
   'CIPhotoEffectChrome': {},
   'CIPhotoEffectFade': {},
@@ -708,16 +713,16 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
   'CIPinchDistortion': {
     'inputCenter': [150, 150],
     'inputRadius': 300,
-    'inputScale': 0.5
+    'inputScale': 0.5,
   },
   'CIPinLightBlendMode': {},
   'CIPixellate': {
     'inputCenter': [150, 150],
-    'inputScale': 8
+    'inputScale': 8,
   },
   'CIPointillize': {
     'inputRadius': 20,
-    'inputCenter': [150, 150]
+    'inputCenter': [150, 150],
   },
   'CIQRCodeGenerator': {'inputCorrectionLevel': 'M'},
   'CIRadialGradient': {
@@ -725,7 +730,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputRadius0': 5,
     'inputRadius1': 100,
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
-    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0)
+    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0),
   },
   'CIRandomGenerator': {},
   'CIRippleTransition': {
@@ -733,15 +738,15 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputExtent': [0, 0, 300, 300],
     'inputTime': 0,
     'inputWidth': 100,
-    'inputScale': 50
+    'inputScale': 50,
   },
   'CIRoundedRectangleGenerator': {
     'inputExtent': [0, 0, 100, 100],
     'inputRadius': 10,
-    'inputColor': Color.fromRGBO(255, 255, 255, 1.0)
+    'inputColor': Color.fromRGBO(255, 255, 255, 1.0),
   },
   'CIRowAverage': {
-    'inputExtent': [0, 0, 640, 80]
+    'inputExtent': [0, 0, 640, 80],
   },
   'CISaliencyMapFilter': {},
   'CISampleNearest': {},
@@ -753,18 +758,18 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
   'CISixfoldReflectedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CISixfoldRotatedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CISmoothLinearGradient': {
     'inputPoint0': [0, 0],
     'inputPoint1': [200, 200],
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
-    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0)
+    'inputColor1': Color.fromRGBO(0, 0, 0, 1.0),
   },
   'CISoftLightBlendMode': {},
   'CISourceAtopCompositing': {},
@@ -783,14 +788,14 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenterColor3': Color.fromRGBO(235, 115, 84, 1.0),
     'inputReplacementColor3': Color.fromRGBO(231, 191, 154, 1.0),
     'inputCloseness3': 0.5,
-    'inputContrast3': 0.99
+    'inputContrast3': 0.99,
   },
   'CISpotLight': {
     'inputLightPosition': [400, 600, 150],
     'inputLightPointsAt': [200, 200, 0],
     'inputBrightness': 3,
     'inputConcentration': 0.1,
-    'inputColor': Color.fromRGBO(255, 255, 255, 1.0)
+    'inputColor': Color.fromRGBO(255, 255, 255, 1.0),
   },
   'CISRGBToneCurveToLinear': {},
   'CIStarShineGenerator': {
@@ -801,20 +806,20 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCrossAngle': 0.6,
     'inputCrossOpacity': -2,
     'inputCrossWidth': 2.5,
-    'inputEpsilon': -2
+    'inputEpsilon': -2,
   },
   'CIStraightenFilter': {'inputAngle': 0},
   'CIStretchCrop': {
     'inputSize': [1280, 720],
     'inputCropAmount': 0.25,
-    'inputCenterStretchAmount': 0.25
+    'inputCenterStretchAmount': 0.25,
   },
   'CIStripesGenerator': {
     'inputCenter': [150, 150],
     'inputColor0': Color.fromRGBO(255, 255, 255, 1.0),
     'inputColor1': Color.fromRGBO(0, 0, 0, 1.0),
     'inputWidth': 80,
-    'inputSharpness': 1
+    'inputSharpness': 1,
   },
   'CISubtractBlendMode': {},
   'CISunbeamsGenerator': {
@@ -824,7 +829,7 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputMaxStriationRadius': 2.58,
     'inputStriationStrength': 0.5,
     'inputStriationContrast': 1.375,
-    'inputTime': 0
+    'inputTime': 0,
   },
   'CISwipeTransition': {
     'inputExtent': [0, 0, 300, 300],
@@ -832,17 +837,17 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputTime': 0,
     'inputAngle': 0,
     'inputWidth': 300,
-    'inputOpacity': 0
+    'inputOpacity': 0,
   },
   'CITemperatureAndTint': {
     'inputNeutral': [6500, 0],
-    'inputTargetNeutral': [6500, 0]
+    'inputTargetNeutral': [6500, 0],
   },
   'CITextImageGenerator': {
     'inputFontName': 'HelveticaNeue',
     'inputFontSize': 12,
     'inputScaleFactor': 1,
-    'inputPadding': 0
+    'inputPadding': 0,
   },
   'CIThermal': {},
   'CIToneCurve': {
@@ -850,34 +855,34 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputPoint1': [0.25, 0.25],
     'inputPoint2': [0.5, 0.5],
     'inputPoint3': [0.75, 0.75],
-    'inputPoint4': [1, 1]
+    'inputPoint4': [1, 1],
   },
   'CITorusLensDistortion': {
     'inputCenter': [150, 150],
     'inputRadius': 160,
     'inputWidth': 80,
-    'inputRefraction': 1.7
+    'inputRefraction': 1.7,
   },
   'CITriangleKaleidoscope': {
     'inputPoint': [150, 150],
     'inputSize': 700,
     'inputRotation': 5.924285296593801,
-    'inputDecay': 0.85
+    'inputDecay': 0.85,
   },
   'CITriangleTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CITwelvefoldReflectedTile': {
     'inputCenter': [150, 150],
     'inputAngle': 0,
-    'inputWidth': 100
+    'inputWidth': 100,
   },
   'CITwirlDistortion': {
     'inputCenter': [150, 150],
     'inputRadius': 300,
-    'inputAngle': 3.141592653589793
+    'inputAngle': 3.141592653589793,
   },
   'CIUnsharpMask': {'inputRadius': 2.5, 'inputIntensity': 0.5},
   'CIVibrance': {'inputAmount': 0},
@@ -886,18 +891,18 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputCenter': [150, 150],
     'inputRadius': 150,
     'inputIntensity': 1,
-    'inputFalloff': 0.5
+    'inputFalloff': 0.5,
   },
   'CIVividLightBlendMode': {},
   'CIVortexDistortion': {
     'inputCenter': [150, 150],
     'inputRadius': 300,
-    'inputAngle': 56.54866776461628
+    'inputAngle': 56.54866776461628,
   },
   'CIWhitePointAdjust': {'inputColor': Color.fromRGBO(255, 255, 255, 1.0)},
   'CIXRay': {},
   'CIZoomBlur': {
     'inputCenter': [150, 150],
-    'inputAmount': 20
-  }
+    'inputAmount': 20,
+  },
 };

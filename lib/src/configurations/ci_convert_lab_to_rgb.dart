@@ -19,7 +19,7 @@ class CIConvertLabToRGBConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

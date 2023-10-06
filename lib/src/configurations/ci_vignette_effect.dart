@@ -58,7 +58,7 @@ class CIVignetteEffectConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

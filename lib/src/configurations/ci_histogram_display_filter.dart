@@ -46,7 +46,7 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
         CICategory.reduction,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

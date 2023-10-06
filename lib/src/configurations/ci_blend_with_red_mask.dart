@@ -10,6 +10,6 @@ class CIBlendWithRedMaskConfiguration extends CIFilterConfiguration
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }

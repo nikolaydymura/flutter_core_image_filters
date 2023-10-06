@@ -103,7 +103,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override
@@ -115,7 +115,7 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
         _crossOpacity,
         _color,
         _crossWidth,
-        _center
+        _center,
       ];
 
   @override

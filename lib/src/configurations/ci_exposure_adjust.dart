@@ -26,7 +26,7 @@ class CIExposureAdjustConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.highDynamicRange,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 
   @override

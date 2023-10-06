@@ -21,7 +21,7 @@ class CIPaletteCentroidConfiguration extends CIFilterConfiguration
         CICategory.colorEffect,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

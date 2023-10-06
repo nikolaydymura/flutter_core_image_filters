@@ -44,7 +44,7 @@ void main() {
         0,
         0,
         0,
-        0
+        0,
       ]);
       configuration.weights = Mat5([
         0,
@@ -71,7 +71,7 @@ void main() {
         0,
         0,
         0,
-        0
+        0,
       ]);
       expect(parameter.value.storage, [
         0,
@@ -98,7 +98,7 @@ void main() {
         0,
         0,
         0,
-        0
+        0,
       ]);
     });
   });

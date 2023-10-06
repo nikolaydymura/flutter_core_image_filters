@@ -36,7 +36,7 @@ class CIVignetteConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

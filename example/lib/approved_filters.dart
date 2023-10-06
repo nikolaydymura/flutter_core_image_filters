@@ -596,7 +596,7 @@ final kFilters = {
         0,
         0,
         0,
-        0
+        0,
       ]),
   ),
   FilterItem(
@@ -716,7 +716,7 @@ final kFilters = {
         0,
         0,
         0,
-        0
+        0,
       ]),
   ),
   FilterItem(
@@ -1033,7 +1033,7 @@ final kFilters = {
         0,
         0,
         0,
-        0
+        0,
       ]),
   ),
   FilterItem(

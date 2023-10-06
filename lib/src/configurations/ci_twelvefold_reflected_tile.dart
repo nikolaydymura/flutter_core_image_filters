@@ -45,7 +45,7 @@ class CITwelvefoldReflectedTileConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

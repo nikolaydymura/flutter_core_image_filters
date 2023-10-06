@@ -61,7 +61,7 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
         CICategory.stillImage,
         CICategory.video,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

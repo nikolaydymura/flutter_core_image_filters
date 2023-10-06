@@ -34,6 +34,6 @@ class CIColorParameter extends ColorParameter {
         value.red / 255.0,
         value.green / 255.0,
         value.blue / 255.0,
-        value.alpha / 255.0
+        value.alpha / 255.0,
       ];
 }

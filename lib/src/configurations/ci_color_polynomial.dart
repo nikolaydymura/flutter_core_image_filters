@@ -54,7 +54,7 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
         CICategory.nonSquarePixels,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override
@@ -62,6 +62,6 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
         _redCoefficients,
         _greenCoefficients,
         _alphaCoefficients,
-        _blueCoefficients
+        _blueCoefficients,
       ];
 }

@@ -22,7 +22,7 @@ class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
         CICategory.colorEffect,
         CICategory.nonSquarePixels,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

@@ -78,7 +78,7 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
         CICategory.stylize,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override
@@ -88,6 +88,6 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
         _saturation,
         _radius,
         _unsharpMaskIntensity,
-        _point0
+        _point0,
       ];
 }

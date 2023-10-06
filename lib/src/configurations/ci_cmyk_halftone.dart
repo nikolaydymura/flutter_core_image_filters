@@ -80,7 +80,7 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
         CICategory.halftoneEffect,
         CICategory.video,
         CICategory.stillImage,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

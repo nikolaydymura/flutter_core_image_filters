@@ -9,7 +9,7 @@ class CISampleNearestConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

@@ -26,7 +26,7 @@ class CISepiaToneConfiguration extends CIFilterConfiguration {
         CICategory.stillImage,
         CICategory.highDynamicRange,
         CICategory.builtIn,
-        CICategory.xmpSerializable
+        CICategory.xmpSerializable,
       };
 
   @override

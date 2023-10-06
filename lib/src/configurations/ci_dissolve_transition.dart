@@ -26,7 +26,7 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override

@@ -5,7 +5,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputBottomHeight',
     'inputNumberOfFolds',
     'inputFoldShadowAmount',
-    'inputTime'
+    'inputTime',
   ],
   'CIAdditionCompositing': ['inputImage', 'inputBackgroundImage'],
   'CIAffineClamp': ['inputImage', 'inputTransform'],
@@ -19,7 +19,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputScale',
     'inputCount',
     'inputMinimumStop',
-    'inputMaximumStop'
+    'inputMaximumStop',
   ],
   'CIAreaMaximum': ['inputImage', 'inputExtent'],
   'CIAreaMaximumAlpha': ['inputImage', 'inputExtent'],
@@ -30,13 +30,13 @@ const Map<String, List<String>> kInputKeys = {
   'CIAttributedTextImageGenerator': [
     'inputText',
     'inputScaleFactor',
-    'inputPadding'
+    'inputPadding',
   ],
   'CIAztecCodeGenerator': [
     'inputMessage',
     'inputCorrectionLevel',
     'inputLayers',
-    'inputCompactStyle'
+    'inputCompactStyle',
   ],
   'CIBarcodeGenerator': ['inputBarcodeDescriptor'],
   'CIBarsSwipeTransition': [
@@ -45,30 +45,30 @@ const Map<String, List<String>> kInputKeys = {
     'inputAngle',
     'inputWidth',
     'inputBarOffset',
-    'inputTime'
+    'inputTime',
   ],
   'CIBicubicScaleTransform': [
     'inputImage',
     'inputScale',
     'inputAspectRatio',
     'inputB',
-    'inputC'
+    'inputC',
   ],
   'CIBlendWithAlphaMask': [
     'inputImage',
     'inputBackgroundImage',
-    'inputMaskImage'
+    'inputMaskImage',
   ],
   'CIBlendWithBlueMask': [
     'inputImage',
     'inputBackgroundImage',
-    'inputMaskImage'
+    'inputMaskImage',
   ],
   'CIBlendWithMask': ['inputImage', 'inputBackgroundImage', 'inputMaskImage'],
   'CIBlendWithRedMask': [
     'inputImage',
     'inputBackgroundImage',
-    'inputMaskImage'
+    'inputMaskImage',
   ],
   'CIBloom': ['inputImage', 'inputRadius', 'inputIntensity'],
   'CIBokehBlur': [
@@ -76,40 +76,40 @@ const Map<String, List<String>> kInputKeys = {
     'inputRadius',
     'inputRingAmount',
     'inputRingSize',
-    'inputSoftness'
+    'inputSoftness',
   ],
   'CIBoxBlur': ['inputImage', 'inputRadius'],
   'CIBumpDistortion': [
     'inputImage',
     'inputCenter',
     'inputRadius',
-    'inputScale'
+    'inputScale',
   ],
   'CIBumpDistortionLinear': [
     'inputImage',
     'inputCenter',
     'inputRadius',
     'inputAngle',
-    'inputScale'
+    'inputScale',
   ],
   'CICameraCalibrationLensCorrection': [
     'inputImage',
     'inputAVCameraCalibrationData',
-    'inputUseInverseLookUpTable'
+    'inputUseInverseLookUpTable',
   ],
   'CICheckerboardGenerator': [
     'inputCenter',
     'inputColor0',
     'inputColor1',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CICircleSplashDistortion': ['inputImage', 'inputCenter', 'inputRadius'],
   'CICircularScreen': [
     'inputImage',
     'inputCenter',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CICircularWrap': ['inputImage', 'inputCenter', 'inputRadius', 'inputAngle'],
   'CIClamp': ['inputImage', 'inputExtent'],
@@ -120,12 +120,12 @@ const Map<String, List<String>> kInputKeys = {
     'inputAngle',
     'inputSharpness',
     'inputGCR',
-    'inputUCR'
+    'inputUCR',
   ],
   'CICode128BarcodeGenerator': [
     'inputMessage',
     'inputQuietSpace',
-    'inputBarcodeHeight'
+    'inputBarcodeHeight',
   ],
   'CIColorAbsoluteDifference': ['inputImage', 'inputImage2'],
   'CIColorBlendMode': ['inputImage', 'inputBackgroundImage'],
@@ -135,19 +135,19 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputSaturation',
     'inputBrightness',
-    'inputContrast'
+    'inputContrast',
   ],
   'CIColorCrossPolynomial': [
     'inputImage',
     'inputRedCoefficients',
     'inputGreenCoefficients',
-    'inputBlueCoefficients'
+    'inputBlueCoefficients',
   ],
   'CIColorCube': [
     'inputImage',
     'inputCubeDimension',
     'inputCubeData',
-    'inputExtrapolate'
+    'inputExtrapolate',
   ],
   'CIColorCubesMixedWithMask': [
     'inputImage',
@@ -156,20 +156,20 @@ const Map<String, List<String>> kInputKeys = {
     'inputCube0Data',
     'inputCube1Data',
     'inputColorSpace',
-    'inputExtrapolate'
+    'inputExtrapolate',
   ],
   'CIColorCubeWithColorSpace': [
     'inputImage',
     'inputCubeDimension',
     'inputCubeData',
     'inputExtrapolate',
-    'inputColorSpace'
+    'inputColorSpace',
   ],
   'CIColorCurves': [
     'inputImage',
     'inputCurvesData',
     'inputCurvesDomain',
-    'inputColorSpace'
+    'inputColorSpace',
   ],
   'CIColorDodgeBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIColorInvert': ['inputImage'],
@@ -180,7 +180,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputGVector',
     'inputBVector',
     'inputAVector',
-    'inputBiasVector'
+    'inputBiasVector',
   ],
   'CIColorMonochrome': ['inputImage', 'inputColor', 'inputIntensity'],
   'CIColorPolynomial': [
@@ -188,7 +188,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputRedCoefficients',
     'inputGreenCoefficients',
     'inputBlueCoefficients',
-    'inputAlphaCoefficients'
+    'inputAlphaCoefficients',
   ],
   'CIColorPosterize': ['inputImage', 'inputLevels'],
   'CIColorThreshold': ['inputImage', 'inputThreshold'],
@@ -216,13 +216,13 @@ const Map<String, List<String>> kInputKeys = {
     'inputTime',
     'inputAngle',
     'inputWidth',
-    'inputOpacity'
+    'inputOpacity',
   ],
   'CICoreMLModelFilter': [
     'inputImage',
     'inputModel',
     'inputHeadIndex',
-    'inputSoftmaxNormalization'
+    'inputSoftmaxNormalization',
   ],
   'CICrop': ['inputImage', 'inputRectangle'],
   'CICrystallize': ['inputImage', 'inputRadius', 'inputCenter'],
@@ -244,7 +244,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputScaleFactor',
     'inputCalibrationData',
     'inputAuxDataMetadata',
-    'inputShape'
+    'inputShape',
   ],
   'CIDepthOfField': [
     'inputImage',
@@ -253,7 +253,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputSaturation',
     'inputUnsharpMaskRadius',
     'inputUnsharpMaskIntensity',
-    'inputRadius'
+    'inputRadius',
   ],
   'CIDepthToDisparity': ['inputImage'],
   'CIDifferenceBlendMode': ['inputImage', 'inputBackgroundImage'],
@@ -265,13 +265,13 @@ const Map<String, List<String>> kInputKeys = {
     'inputTime',
     'inputShadowRadius',
     'inputShadowDensity',
-    'inputShadowOffset'
+    'inputShadowOffset',
   ],
   'CIDisparityToDepth': ['inputImage'],
   'CIDisplacementDistortion': [
     'inputImage',
     'inputDisplacementImage',
-    'inputScale'
+    'inputScale',
   ],
   'CIDissolveTransition': ['inputImage', 'inputTargetImage', 'inputTime'],
   'CIDither': ['inputImage', 'inputIntensity'],
@@ -282,7 +282,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputAngle',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CIDroste': [
     'inputImage',
@@ -291,13 +291,13 @@ const Map<String, List<String>> kInputKeys = {
     'inputStrands',
     'inputPeriodicity',
     'inputRotation',
-    'inputZoom'
+    'inputZoom',
   ],
   'CIEdgePreserveUpsampleFilter': [
     'inputImage',
     'inputSmallImage',
     'inputSpatialSigma',
-    'inputLumaSigma'
+    'inputLumaSigma',
   ],
   'CIEdges': ['inputImage', 'inputIntensity'],
   'CIEdgeWork': ['inputImage', 'inputRadius'],
@@ -305,7 +305,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CIExclusionBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIExposureAdjust': ['inputImage', 'inputEV'],
@@ -320,27 +320,27 @@ const Map<String, List<String>> kInputKeys = {
     'inputMaxStriationRadius',
     'inputStriationStrength',
     'inputStriationContrast',
-    'inputFadeThreshold'
+    'inputFadeThreshold',
   ],
   'CIFourfoldReflectedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
     'inputWidth',
-    'inputAcuteAngle'
+    'inputAcuteAngle',
   ],
   'CIFourfoldRotatedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CIFourfoldTranslatedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
     'inputWidth',
-    'inputAcuteAngle'
+    'inputAcuteAngle',
   ],
   'CIGaborGradients': ['inputImage'],
   'CIGammaAdjust': ['inputImage', 'inputPower'],
@@ -349,33 +349,33 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputColor0',
     'inputColor1',
-    'inputRadius'
+    'inputRadius',
   ],
   'CIGlassDistortion': [
     'inputImage',
     'inputTexture',
     'inputCenter',
-    'inputScale'
+    'inputScale',
   ],
   'CIGlassLozenge': [
     'inputImage',
     'inputPoint0',
     'inputPoint1',
     'inputRadius',
-    'inputRefraction'
+    'inputRefraction',
   ],
   'CIGlideReflectedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CIGloom': ['inputImage', 'inputRadius', 'inputIntensity'],
   'CIGuidedFilter': [
     'inputImage',
     'inputGuideImage',
     'inputRadius',
-    'inputEpsilon'
+    'inputEpsilon',
   ],
   'CIHardLightBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIHatchedScreen': [
@@ -383,7 +383,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputAngle',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CIHeightFieldFromMask': ['inputImage', 'inputRadius'],
   'CIHexagonalPixellate': ['inputImage', 'inputCenter', 'inputScale'],
@@ -391,13 +391,13 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputRadius',
     'inputShadowAmount',
-    'inputHighlightAmount'
+    'inputHighlightAmount',
   ],
   'CIHistogramDisplayFilter': [
     'inputImage',
     'inputHeight',
     'inputHighLimit',
-    'inputLowLimit'
+    'inputLowLimit',
   ],
   'CIHoleDistortion': ['inputImage', 'inputCenter', 'inputRadius'],
   'CIHueAdjust': ['inputImage', 'inputAngle'],
@@ -407,7 +407,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputRadius',
     'inputSoftness',
     'inputDither',
-    'inputColorSpace'
+    'inputColorSpace',
   ],
   'CIKaleidoscope': ['inputImage', 'inputCount', 'inputCenter', 'inputAngle'],
   'CIKeystoneCorrectionCombined': [
@@ -416,7 +416,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIKeystoneCorrectionHorizontal': [
     'inputImage',
@@ -424,7 +424,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIKeystoneCorrectionVertical': [
     'inputImage',
@@ -432,7 +432,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIKMeans': [
     'inputImage',
@@ -440,7 +440,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputMeans',
     'inputCount',
     'inputPasses',
-    'inputPerceptual'
+    'inputPerceptual',
   ],
   'CILabDeltaE': ['inputImage', 'inputImage2'],
   'CILanczosScaleTransform': ['inputImage', 'inputScale', 'inputAspectRatio'],
@@ -452,14 +452,14 @@ const Map<String, List<String>> kInputKeys = {
     'inputHaloOverlap',
     'inputStriationStrength',
     'inputStriationContrast',
-    'inputTime'
+    'inputTime',
   ],
   'CILightenBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CILightTunnel': [
     'inputImage',
     'inputCenter',
     'inputRotation',
-    'inputRadius'
+    'inputRadius',
   ],
   'CILinearBurnBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CILinearDodgeBlendMode': ['inputImage', 'inputBackgroundImage'],
@@ -467,7 +467,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputPoint0',
     'inputPoint1',
     'inputColor0',
-    'inputColor1'
+    'inputColor1',
   ],
   'CILinearLightBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CILinearToSRGBToneCurve': ['inputImage'],
@@ -477,14 +477,14 @@ const Map<String, List<String>> kInputKeys = {
     'inputNRSharpness',
     'inputEdgeIntensity',
     'inputThreshold',
-    'inputContrast'
+    'inputContrast',
   ],
   'CILineScreen': [
     'inputImage',
     'inputCenter',
     'inputAngle',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CILuminosityBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIMaskedVariableBlur': ['inputImage', 'inputMask', 'inputRadius'],
@@ -503,7 +503,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTime',
     'inputAngle',
     'inputRadius',
-    'inputCompression'
+    'inputCompression',
   ],
   'CIMorphologyGradient': ['inputImage', 'inputRadius'],
   'CIMorphologyMaximum': ['inputImage', 'inputRadius'],
@@ -517,14 +517,14 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputBreakpoint0',
     'inputBreakpoint1',
-    'inputGrowAmount'
+    'inputGrowAmount',
   ],
   'CINinePartTiled': [
     'inputImage',
     'inputBreakpoint0',
     'inputBreakpoint1',
     'inputGrowAmount',
-    'inputFlipYTiles'
+    'inputFlipYTiles',
   ],
   'CINoiseReduction': ['inputImage', 'inputNoiseLevel', 'inputSharpness'],
   'CIOpTile': [
@@ -532,7 +532,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputScale',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CIOverlayBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIPageCurlTransition': [
@@ -543,7 +543,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputExtent',
     'inputTime',
     'inputAngle',
-    'inputRadius'
+    'inputRadius',
   ],
   'CIPageCurlWithShadowTransition': [
     'inputImage',
@@ -555,7 +555,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputRadius',
     'inputShadowSize',
     'inputShadowAmount',
-    'inputShadowExtent'
+    'inputShadowExtent',
   ],
   'CIPaletteCentroid': ['inputImage', 'inputPaletteImage', 'inputPerceptual'],
   'CIPalettize': ['inputImage', 'inputPaletteImage', 'inputPerceptual'],
@@ -564,7 +564,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputAngle',
     'inputAcuteAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CIPDF417BarcodeGenerator': [
     'inputMessage',
@@ -578,7 +578,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCompactionMode',
     'inputCompactStyle',
     'inputCorrectionLevel',
-    'inputAlwaysSpecifyCompaction'
+    'inputAlwaysSpecifyCompaction',
   ],
   'CIPersonSegmentation': ['inputImage', 'inputQualityLevel'],
   'CIPerspectiveCorrection': [
@@ -587,28 +587,28 @@ const Map<String, List<String>> kInputKeys = {
     'inputTopRight',
     'inputBottomRight',
     'inputBottomLeft',
-    'inputCrop'
+    'inputCrop',
   ],
   'CIPerspectiveRotate': [
     'inputImage',
     'inputFocalLength',
     'inputPitch',
     'inputYaw',
-    'inputRoll'
+    'inputRoll',
   ],
   'CIPerspectiveTile': [
     'inputImage',
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIPerspectiveTransform': [
     'inputImage',
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIPerspectiveTransformWithExtent': [
     'inputImage',
@@ -616,7 +616,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTopLeft',
     'inputTopRight',
     'inputBottomRight',
-    'inputBottomLeft'
+    'inputBottomLeft',
   ],
   'CIPhotoEffectChrome': ['inputImage'],
   'CIPhotoEffectFade': ['inputImage'],
@@ -630,7 +630,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputCenter',
     'inputRadius',
-    'inputScale'
+    'inputScale',
   ],
   'CIPinLightBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIPixellate': ['inputImage', 'inputCenter', 'inputScale'],
@@ -641,7 +641,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputRadius0',
     'inputRadius1',
     'inputColor0',
-    'inputColor1'
+    'inputColor1',
   ],
   'CIRandomGenerator': [],
   'CIRippleTransition': [
@@ -652,7 +652,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputExtent',
     'inputTime',
     'inputWidth',
-    'inputScale'
+    'inputScale',
   ],
   'CIRoundedRectangleGenerator': ['inputExtent', 'inputRadius', 'inputColor'],
   'CIRowAverage': ['inputImage', 'inputExtent'],
@@ -667,19 +667,19 @@ const Map<String, List<String>> kInputKeys = {
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CISixfoldRotatedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CISmoothLinearGradient': [
     'inputPoint0',
     'inputPoint1',
     'inputColor0',
-    'inputColor1'
+    'inputColor1',
   ],
   'CISoftLightBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CISourceAtopCompositing': ['inputImage', 'inputBackgroundImage'],
@@ -699,7 +699,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenterColor3',
     'inputReplacementColor3',
     'inputCloseness3',
-    'inputContrast3'
+    'inputContrast3',
   ],
   'CISpotLight': [
     'inputImage',
@@ -707,7 +707,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputLightPointsAt',
     'inputBrightness',
     'inputConcentration',
-    'inputColor'
+    'inputColor',
   ],
   'CISRGBToneCurveToLinear': ['inputImage'],
   'CIStarShineGenerator': [
@@ -718,21 +718,21 @@ const Map<String, List<String>> kInputKeys = {
     'inputCrossAngle',
     'inputCrossOpacity',
     'inputCrossWidth',
-    'inputEpsilon'
+    'inputEpsilon',
   ],
   'CIStraightenFilter': ['inputImage', 'inputAngle'],
   'CIStretchCrop': [
     'inputImage',
     'inputSize',
     'inputCropAmount',
-    'inputCenterStretchAmount'
+    'inputCenterStretchAmount',
   ],
   'CIStripesGenerator': [
     'inputCenter',
     'inputColor0',
     'inputColor1',
     'inputWidth',
-    'inputSharpness'
+    'inputSharpness',
   ],
   'CISubtractBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CISunbeamsGenerator': [
@@ -742,7 +742,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputMaxStriationRadius',
     'inputStriationStrength',
     'inputStriationContrast',
-    'inputTime'
+    'inputTime',
   ],
   'CISwipeTransition': [
     'inputImage',
@@ -752,7 +752,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputTime',
     'inputAngle',
     'inputWidth',
-    'inputOpacity'
+    'inputOpacity',
   ],
   'CITemperatureAndTint': ['inputImage', 'inputNeutral', 'inputTargetNeutral'],
   'CITextImageGenerator': [
@@ -760,7 +760,7 @@ const Map<String, List<String>> kInputKeys = {
     'inputFontName',
     'inputFontSize',
     'inputScaleFactor',
-    'inputPadding'
+    'inputPadding',
   ],
   'CIThermal': ['inputImage'],
   'CIToneCurve': [
@@ -769,34 +769,34 @@ const Map<String, List<String>> kInputKeys = {
     'inputPoint1',
     'inputPoint2',
     'inputPoint3',
-    'inputPoint4'
+    'inputPoint4',
   ],
   'CITorusLensDistortion': [
     'inputImage',
     'inputCenter',
     'inputRadius',
     'inputWidth',
-    'inputRefraction'
+    'inputRefraction',
   ],
   'CITriangleKaleidoscope': [
     'inputImage',
     'inputPoint',
     'inputSize',
     'inputRotation',
-    'inputDecay'
+    'inputDecay',
   ],
   'CITriangleTile': ['inputImage', 'inputCenter', 'inputAngle', 'inputWidth'],
   'CITwelvefoldReflectedTile': [
     'inputImage',
     'inputCenter',
     'inputAngle',
-    'inputWidth'
+    'inputWidth',
   ],
   'CITwirlDistortion': [
     'inputImage',
     'inputCenter',
     'inputRadius',
-    'inputAngle'
+    'inputAngle',
   ],
   'CIUnsharpMask': ['inputImage', 'inputRadius', 'inputIntensity'],
   'CIVibrance': ['inputImage', 'inputAmount'],
@@ -806,18 +806,18 @@ const Map<String, List<String>> kInputKeys = {
     'inputCenter',
     'inputRadius',
     'inputIntensity',
-    'inputFalloff'
+    'inputFalloff',
   ],
   'CIVividLightBlendMode': ['inputImage', 'inputBackgroundImage'],
   'CIVortexDistortion': [
     'inputImage',
     'inputCenter',
     'inputRadius',
-    'inputAngle'
+    'inputAngle',
   ],
   'CIWhitePointAdjust': ['inputImage', 'inputColor'],
   'CIXRay': ['inputImage'],
-  'CIZoomBlur': ['inputImage', 'inputCenter', 'inputAmount']
+  'CIZoomBlur': ['inputImage', 'inputCenter', 'inputAmount'],
 };
 
 const Map<String, List<String>> kInputKeysDisplayNames = {
@@ -827,7 +827,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Bottom Height',
     'Number of Folds',
     'Fold Shadow Amount',
-    'Time'
+    'Time',
   ],
   'CIAdditionCompositing': ['Image', 'Background Image'],
   'CIAffineClamp': ['Image', 'Transform'],
@@ -841,7 +841,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Scale',
     'Count',
     'Minimum Stop',
-    'Maximum Stop'
+    'Maximum Stop',
   ],
   'CIAreaMaximum': ['Image', 'Extent'],
   'CIAreaMaximumAlpha': ['Image', 'Extent'],
@@ -854,7 +854,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Message',
     'Correction Level',
     'Layers',
-    'Compact Style'
+    'Compact Style',
   ],
   'CIBarcodeGenerator': ['Barcode Descriptor'],
   'CIBarsSwipeTransition': [
@@ -863,7 +863,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Angle',
     'Width',
     'Bar Offset',
-    'Time'
+    'Time',
   ],
   'CIBicubicScaleTransform': ['Image', 'Scale', 'Aspect Ratio', 'B', 'C'],
   'CIBlendWithAlphaMask': ['Image', 'Background Image', 'Mask Image'],
@@ -878,14 +878,14 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
   'CICameraCalibrationLensCorrection': [
     'Image',
     'AVCameraCalibrationData',
-    'Use Inverse Look Up Table'
+    'Use Inverse Look Up Table',
   ],
   'CICheckerboardGenerator': [
     'Center',
     'Color 1',
     'Color 2',
     'Width',
-    'Sharpness'
+    'Sharpness',
   ],
   'CICircleSplashDistortion': ['Image', 'Center', 'Radius'],
   'CICircularScreen': ['Image', 'Center', 'Width', 'Sharpness'],
@@ -898,7 +898,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Angle',
     'Sharpness',
     'Gray Component Replacement',
-    'Under Color Removal'
+    'Under Color Removal',
   ],
   'CICode128BarcodeGenerator': ['Message', 'Quiet Space', 'Barcode Height'],
   'CIColorAbsoluteDifference': ['Image', 'Image2'],
@@ -910,7 +910,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Image',
     'Red Coefficients',
     'Green Coefficients',
-    'Blue Coefficients'
+    'Blue Coefficients',
   ],
   'CIColorCube': ['Image', 'Cube Dimension', 'Cube Data', 'Extrapolate'],
   'CIColorCubesMixedWithMask': [
@@ -920,14 +920,14 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Cube 0 Data',
     'Cube 1 Data',
     'Color Space',
-    'Extrapolate'
+    'Extrapolate',
   ],
   'CIColorCubeWithColorSpace': [
     'Image',
     'Cube Dimension',
     'Cube Data',
     'Extrapolate',
-    'Color Space'
+    'Color Space',
   ],
   'CIColorCurves': ['Image', 'Curves Data', 'Curves Domain', 'Color Space'],
   'CIColorDodgeBlendMode': ['Image', 'Background Image'],
@@ -939,7 +939,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Green Vector',
     'Blue Vector',
     'Alpha Vector',
-    'Bias Vector'
+    'Bias Vector',
   ],
   'CIColorMonochrome': ['Image', 'Color', 'Intensity'],
   'CIColorPolynomial': [
@@ -947,7 +947,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Red Coefficients',
     'Green Coefficients',
     'Blue Coefficients',
-    'Alpha Coefficients'
+    'Alpha Coefficients',
   ],
   'CIColorPosterize': ['Image', 'Levels'],
   'CIColorThreshold': ['Image', 'Threshold'],
@@ -975,13 +975,13 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Time',
     'Angle',
     'Width',
-    'Opacity'
+    'Opacity',
   ],
   'CICoreMLModelFilter': [
     'Image',
     'Model',
     'Head Index',
-    'Softmax Normalization'
+    'Softmax Normalization',
   ],
   'CICrop': ['Image', 'Rectangle'],
   'CICrystallize': ['Image', 'Radius', 'Center'],
@@ -1003,7 +1003,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Scale Factor',
     'Calibration Data',
     'Aux Data Metadata',
-    'Shape'
+    'Shape',
   ],
   'CIDepthOfField': [
     'Image',
@@ -1012,7 +1012,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Saturation',
     'Unsharp Mask Radius',
     'Unsharp Mask Intensity',
-    'Radius'
+    'Radius',
   ],
   'CIDepthToDisparity': ['Image'],
   'CIDifferenceBlendMode': ['Image', 'Background Image'],
@@ -1024,7 +1024,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Time',
     'Shadow Radius',
     'Shadow Density',
-    'Shadow Offset'
+    'Shadow Offset',
   ],
   'CIDisparityToDepth': ['Image'],
   'CIDisplacementDistortion': ['Image', 'Displacement Image', 'Scale'],
@@ -1040,13 +1040,13 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Strands',
     'Periodicity',
     'Rotation',
-    'Zoom'
+    'Zoom',
   ],
   'CIEdgePreserveUpsampleFilter': [
     'Image',
     'Small Image',
     'Spatial Sigma',
-    'Luma Sigma'
+    'Luma Sigma',
   ],
   'CIEdges': ['Image', 'Intensity'],
   'CIEdgeWork': ['Image', 'Radius'],
@@ -1064,14 +1064,14 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Maximum Striation Radius',
     'Striation Strength',
     'Striation Contrast',
-    'Fade Threshold'
+    'Fade Threshold',
   ],
   'CIFourfoldReflectedTile': [
     'Image',
     'Center',
     'Angle',
     'Width',
-    'Acute Angle'
+    'Acute Angle',
   ],
   'CIFourfoldRotatedTile': ['Image', 'Center', 'Angle', 'Width'],
   'CIFourfoldTranslatedTile': [
@@ -1079,7 +1079,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Center',
     'Angle',
     'Width',
-    'Acute Angle'
+    'Acute Angle',
   ],
   'CIGaborGradients': ['Image'],
   'CIGammaAdjust': ['Image', 'Power'],
@@ -1093,7 +1093,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Image',
     'A larger image to use as a guide.',
     'Radius',
-    'Epsilon'
+    'Epsilon',
   ],
   'CIHardLightBlendMode': ['Image', 'Background Image'],
   'CIHatchedScreen': ['Image', 'Center', 'Angle', 'Width', 'Sharpness'],
@@ -1103,7 +1103,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Image',
     'Radius',
     'Shadow Amount',
-    'Highlight Amount'
+    'Highlight Amount',
   ],
   'CIHistogramDisplayFilter': ['Image', 'Height', 'High Limit', 'Low Limit'],
   'CIHoleDistortion': ['Image', 'Center', 'Radius'],
@@ -1114,7 +1114,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Radius',
     'Softness',
     'Dither',
-    'Color Space'
+    'Color Space',
   ],
   'CIKaleidoscope': ['Image', 'Count', 'Center', 'Angle'],
   'CIKeystoneCorrectionCombined': [
@@ -1123,7 +1123,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIKeystoneCorrectionHorizontal': [
     'Image',
@@ -1131,7 +1131,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIKeystoneCorrectionVertical': [
     'Image',
@@ -1139,7 +1139,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIKMeans': ['Image', 'Extent', 'Means', 'Count', 'Passes', 'Perceptual'],
   'CILabDeltaE': ['Image', 'Image2'],
@@ -1152,7 +1152,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Halo Overlap',
     'Striation Strength',
     'Striation Contrast',
-    'Time'
+    'Time',
   ],
   'CILightenBlendMode': ['Image', 'Background Image'],
   'CILightTunnel': ['Image', 'Center', 'Rotation', 'Radius'],
@@ -1167,7 +1167,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'NR Sharpness',
     'Edge Intensity',
     'Threshold',
-    'Contrast'
+    'Contrast',
   ],
   'CILineScreen': ['Image', 'Center', 'Angle', 'Width', 'Sharpness'],
   'CILuminosityBlendMode': ['Image', 'Background Image'],
@@ -1187,7 +1187,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Time',
     'Angle',
     'Radius',
-    'Compression'
+    'Compression',
   ],
   'CIMorphologyGradient': ['Image', 'Radius'],
   'CIMorphologyMaximum': ['Image', 'Radius'],
@@ -1203,7 +1203,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Breakpoint0',
     'Breakpoint1',
     'Grow Amount',
-    'Flip Y Tiles'
+    'Flip Y Tiles',
   ],
   'CINoiseReduction': ['Image', 'Noise Level', 'Sharpness'],
   'CIOpTile': ['Image', 'Center', 'Scale', 'Angle', 'Width'],
@@ -1216,7 +1216,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Extent',
     'Time',
     'Angle',
-    'Radius'
+    'Radius',
   ],
   'CIPageCurlWithShadowTransition': [
     'Image',
@@ -1228,7 +1228,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Radius',
     'Shadow Size',
     'Shadow Amount',
-    'Shadow Extent'
+    'Shadow Extent',
   ],
   'CIPaletteCentroid': ['Image', 'Palette Image', 'Perceptual'],
   'CIPalettize': ['Image', 'Palette Image', 'Perceptual'],
@@ -1245,7 +1245,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Compaction Mode',
     'Compact Style',
     'Correction Level',
-    'Always Specify Compaction'
+    'Always Specify Compaction',
   ],
   'CIPersonSegmentation': ['Image', 'Quality Level'],
   'CIPerspectiveCorrection': [
@@ -1254,7 +1254,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Right',
     'Bottom Right',
     'Bottom Left',
-    'Crop'
+    'Crop',
   ],
   'CIPerspectiveRotate': ['Image', 'Focal Length', 'Pitch', 'Yaw', 'Roll'],
   'CIPerspectiveTile': [
@@ -1262,14 +1262,14 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIPerspectiveTransform': [
     'Image',
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIPerspectiveTransformWithExtent': [
     'Image',
@@ -1277,7 +1277,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Top Left',
     'Top Right',
     'Bottom Right',
-    'Bottom Left'
+    'Bottom Left',
   ],
   'CIPhotoEffectChrome': ['Image'],
   'CIPhotoEffectFade': ['Image'],
@@ -1302,7 +1302,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Extent',
     'Time',
     'Width',
-    'Scale'
+    'Scale',
   ],
   'CIRoundedRectangleGenerator': ['Extent', 'Radius', 'Color'],
   'CIRowAverage': ['Image', 'Extent'],
@@ -1334,7 +1334,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Center Color 3',
     'Replacement Color 3',
     'Closeness 3',
-    'Contrast 3'
+    'Contrast 3',
   ],
   'CISpotLight': [
     'Image',
@@ -1342,7 +1342,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Light Points At',
     'Brightness',
     'Concentration',
-    'Color'
+    'Color',
   ],
   'CISRGBToneCurveToLinear': ['Image'],
   'CIStarShineGenerator': [
@@ -1353,7 +1353,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Cross Angle',
     'Cross Opacity',
     'Cross Width',
-    'Epsilon'
+    'Epsilon',
   ],
   'CIStraightenFilter': ['Image', 'Angle'],
   'CIStretchCrop': ['Image', 'Size', 'Crop Amount', 'Center Stretch Amount'],
@@ -1366,7 +1366,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Maximum Striation Radius',
     'Striation Strength',
     'Striation Contrast',
-    'Time'
+    'Time',
   ],
   'CISwipeTransition': [
     'Image',
@@ -1376,7 +1376,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Time',
     'Angle',
     'Width',
-    'Opacity'
+    'Opacity',
   ],
   'CITemperatureAndTint': ['Image', 'Neutral', 'Target Neutral'],
   'CITextImageGenerator': [
@@ -1384,7 +1384,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Font Name',
     'Font Size',
     'Scale Factor',
-    'Padding'
+    'Padding',
   ],
   'CIThermal': ['Image'],
   'CIToneCurve': [
@@ -1393,7 +1393,7 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Point 1',
     'Point 2',
     'Point 3',
-    'Point 4'
+    'Point 4',
   ],
   'CITorusLensDistortion': ['Image', 'Center', 'Radius', 'Width', 'Refraction'],
   'CITriangleKaleidoscope': ['Image', 'Point', 'Size', 'Rotation', 'Decay'],

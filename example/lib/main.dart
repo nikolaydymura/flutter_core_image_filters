@@ -218,7 +218,7 @@ class _FilterPageState extends State<FilterPage> {
                 },
               ),
             ],
-          )
+          ),
         ],
       ),
       floatingActionButton: ConstrainedBox(

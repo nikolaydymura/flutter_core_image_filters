@@ -49,7 +49,7 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
         CICategory.interlaced,
         CICategory.nonSquarePixels,
         CICategory.highDynamicRange,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 
   @override

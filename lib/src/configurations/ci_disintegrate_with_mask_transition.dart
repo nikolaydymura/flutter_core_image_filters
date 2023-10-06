@@ -58,7 +58,7 @@ class CIDisintegrateWithMaskTransitionConfiguration
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.highDynamicRange
+        CICategory.highDynamicRange,
       };
 
   @override
@@ -68,6 +68,6 @@ class CIDisintegrateWithMaskTransitionConfiguration
         _shadowDensity,
         _shadowRadius,
         _targetImage,
-        _maskImage
+        _maskImage,
       ];
 }

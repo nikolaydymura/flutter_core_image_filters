@@ -20,7 +20,7 @@ class CIPersonSegmentationConfiguration extends CIFilterConfiguration {
         CICategory.video,
         CICategory.stillImage,
         CICategory.builtIn,
-        CICategory.stylize
+        CICategory.stylize,
       };
 
   @override

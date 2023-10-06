@@ -11,6 +11,6 @@ class CIDivideBlendModeConfiguration extends CIFilterConfiguration
         CICategory.stillImage,
         CICategory.interlaced,
         CICategory.nonSquarePixels,
-        CICategory.builtIn
+        CICategory.builtIn,
       };
 }

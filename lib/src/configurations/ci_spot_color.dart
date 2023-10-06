@@ -143,7 +143,7 @@ class CISpotColorConfiguration extends CIFilterConfiguration {
         CICategory.stillImage,
         CICategory.video,
         CICategory.highDynamicRange,
-        CICategory.stylize
+        CICategory.stylize,
       };
 
   @override
