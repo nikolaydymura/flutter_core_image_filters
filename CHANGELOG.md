@@ -1,3 +1,7 @@
+## 0.0.14
+
+Resolved async issues. Updated pigeon version to use swift code.
+
 ## 0.0.13
 
 Added `GroupCIFilterConfiguration` to allow for multiple filters to be applied at once.

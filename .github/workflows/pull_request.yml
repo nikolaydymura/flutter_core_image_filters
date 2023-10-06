@@ -4,21 +4,6 @@ on:
     types: [ opened, synchronize, edited, reopened ]
 
 jobs:
-  verify_formatting:
-    name: Flutter Format
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        name: Downloading sources
-      - uses: subosito/flutter-action@v2
-        name: Preparing Flutter SDK
-        with:
-          flutter-version: '3.10.6'
-          channel: 'stable'
-      - name: Format
-        run: |
-          dart format --set-exit-if-changed lib
-          dart format --set-exit-if-changed test
   analyze_code:
     name: Flutter Analyze
     runs-on: ubuntu-latest
@@ -28,7 +13,11 @@ jobs:
       - uses: subosito/flutter-action@v2
         name: Preparing Flutter SDK
         with:
-          flutter-version: '3.10.6'
+          flutter-version: '3.13.6'
           channel: 'stable'
       - name: Analyze
         run: flutter analyze
+      - name: Format
+        run: |
+          dart format --set-exit-if-changed lib
+          dart format --set-exit-if-changed test

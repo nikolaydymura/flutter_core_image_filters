@@ -7,65 +7,62 @@ import 'package:pigeon/pigeon.dart';
 @ConfigurePigeon(
   PigeonOptions(
     dartOut: 'lib/src/messages/preview_messages.g.dart',
-    objcHeaderOut: 'ios/Classes/PreviewMessages.g.h',
-    objcSourceOut: 'ios/Classes/PreviewMessages.g.m',
-    objcOptions: ObjcOptions(
-      prefix: 'FLT',
-    ),
+    swiftOut: 'ios/Classes/PreviewMessages.g.swift',
+    swiftOptions: SwiftOptions(),
     copyrightHeader: 'pigeons/copyright.txt',
   ),
 )
 
 @HostApi()
 abstract class ImagePreviewApi {
-  @ObjCSelector('create')
+  @SwiftFunction('create()')
   int create();
 
-  @ObjCSelector('connect: : :')
-  void connect(int textureId, List<int?> filters, String context);
+  @SwiftFunction('connect(_:_:_:)')
+  void connect(int textureId, List<int> filters, String context);
 
-  @ObjCSelector('disconnect:')
+  @SwiftFunction('disconnect(_:)')
   void disconnect(int textureId);
 
-  @ObjCSelector('setSource: asset:')
+  @SwiftFunction('setSource(_:asset:)')
   void setSourceAsset(int textureId, String path);
 
-  @ObjCSelector('setSource: path:')
+  @SwiftFunction('setSource(_:path:)')
   void setSourceFile(int textureId, String path);
 
-  @ObjCSelector('setSource: data:')
+  @SwiftFunction('setSource(_:data:)')
   void setData(int textureId, Uint8List data);
 
-  @ObjCSelector('setOutput: :')
-  void setOutput(int textureId, List<double?> value);
+  @SwiftFunction('setOutput(_:_:)')
+  void setOutput(int textureId, List<double> value);
 
-  @ObjCSelector('dispose:')
+  @SwiftFunction('dispose(_:)')
   void dispose(int textureId);
 }
 
 @HostApi()
 abstract class VideoPreviewApi {
-  @ObjCSelector('create')
+  @SwiftFunction('create()')
   int create();
 
-  @ObjCSelector('connect: : :')
-  void connect(int textureId, List<int?> filters, String context);
+  @SwiftFunction('connect(_:_:_:)')
+  void connect(int textureId, List<int> filters, String context);
 
-  @ObjCSelector('disconnect:')
+  @SwiftFunction('disconnect(_:)')
   void disconnect(int textureId);
 
-  @ObjCSelector('setSource: asset:')
+  @SwiftFunction('setSource(_:asset:)')
   void setSourceAsset(int textureId, String path);
 
-  @ObjCSelector('setSource: path:')
+  @SwiftFunction('setSource(_:path:)')
   void setSourceFile(int textureId, String path);
 
-  @ObjCSelector('resume:')
+  @SwiftFunction('resume(_:)')
   void resume(int textureId);
 
-  @ObjCSelector('pause:')
+  @SwiftFunction('pause(_:)')
   void pause(int textureId);
 
-  @ObjCSelector('dispose:')
+  @SwiftFunction('dispose(_:)')
   void dispose(int textureId);
 }

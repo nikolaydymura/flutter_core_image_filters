@@ -5,11 +5,9 @@ flutter pub run pigeon --input pigeons/messages_filter.dart
 cp -r ios/Classes/Filters/CILookupTableFilter.swift macos/Classes/
 cp -r ios/Classes/Filters/CISquareLookupTableFilter.swift macos/Classes/
 cp -r ios/Classes/CoreImageFilters.swift macos/Classes/
-cp -r ios/Classes/FilterMessages.g.h macos/Classes/
-cp -r ios/Classes/FilterMessages.g.m macos/Classes/
+cp -r ios/Classes/FilterMessages.g.swift macos/Classes/
 cp -r ios/Classes/ImagePreview.swift macos/Classes/
-cp -r ios/Classes/PreviewMessages.g.h macos/Classes/
-cp -r ios/Classes/PreviewMessages.g.m macos/Classes/
+cp -r ios/Classes/PreviewMessages.g.swift macos/Classes/
 cp -r ios/Classes/Extensions/Context+extensions.swift macos/Classes/Extensions/
 cp -r ios/Classes/Extensions/Image+extensions.swift macos/Classes/Extensions/
 

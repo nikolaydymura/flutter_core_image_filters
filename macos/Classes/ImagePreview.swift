@@ -122,7 +122,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func connect(_ textureId: NSNumber, _ filters: [NSNumber], _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.currentContext = CIContext.selectImageContext(context)
@@ -131,7 +131,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.currentContext = CIContext.selectImageContext()
@@ -140,7 +140,7 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func setOutput(_ textureId: NSNumber, _ value: [NSNumber], error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.outputRect = CGRect(x: CGFloat(value[0].floatValue),
@@ -152,20 +152,20 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func setSource(_ textureId: NSNumber, asset path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         #if os(iOS)
         let assetKey = registrar.lookupKey(forAsset: path)
 
         guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         #endif
         let url = URL(fileURLWithPath: path)
         guard let image = CIImage(contentsOf: url) else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.image = image
@@ -174,12 +174,12 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func setSource(_ textureId: NSNumber, path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         let url = URL(fileURLWithPath: path)
         guard let image = CIImage(contentsOf: url) else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.image = image
@@ -188,11 +188,11 @@ class ImagePreview: NSObject, FLTImagePreviewApi, FilterDelegate {
     
     func setSource(_ textureId: NSNumber, data: FlutterStandardTypedData, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
         guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         guard let image = CIImage(data: data.data) else {
-            error.pointee = FlutterError()
+            throw FlutterError()
             return
         }
         preview.image = image

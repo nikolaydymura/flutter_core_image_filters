@@ -166,7 +166,7 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       format.platformKey,
       config.context.platformKey,
       config.preset.platformKey,
-      period.inMilliseconds,
+      period.inMilliseconds.toDouble(),
     );
 
     final stream = EventChannel('AVAssetExportSession_$sessionId')

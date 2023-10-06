@@ -111,7 +111,7 @@ fileprivate class FLTFrameUpdater: NSObject {
     }
 }
 
-class VideoPreview: NSObject, FLTVideoPreviewApi {
+class VideoPreview: NSObject, VideoPreviewApi {
     
     private let registrar: FlutterPluginRegistrar
     private let filters: FiltersLocator
@@ -125,75 +125,67 @@ class VideoPreview: NSObject, FLTVideoPreviewApi {
         self.registry = registrar.textures()
     }
     
-    func create(_ error: AutoreleasingUnsafeMutablePointer<FlutterError?>) -> NSNumber? {
+    func create() throws -> Int64 {
         let preview = VideoPreviewTexture()
         let textureId = registry.register(preview)
         preview.frameUpdater = FLTFrameUpdater(textureId: textureId, registry: registry)
         previews[textureId] = preview
-        return NSNumber(value: textureId)
+        return textureId
     }
     
-    func connect(_ textureId: NSNumber, _ filters: [NSNumber], _ context: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
+    func connect(_ textureId: Int64, _ filters: [Int64], _ context: String) throws {
+        guard let preview = previews[textureId] else {
+            throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
         preview.currentContext = CIContext.selectVideoContext(context)
         preview.filters = self.filters[filters]
     }
     
-    func disconnect(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
+    func disconnect(_ textureId: Int64) throws {
+        guard let preview = previews[textureId] else {
+            throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
         preview.currentContext = nil
         preview.filters = []
     }
     
-    func setSource(_ textureId: NSNumber, asset path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
-        }
-        let assetKey = registrar.lookupKey(forAsset: path)
+    func setSource(_ textureId: Int64, asset: String) throws  {
+        #if os(iOS)
+        let assetKey = registrar.lookupKey(forAsset: asset)
         
         guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-            error.pointee = FlutterError()
-            return
+            throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
+        }
+        try setSource(textureId, path: path)
+        #else
+        try setSource(textureId, path: asset)
+        #endif
+    }
+    
+    func setSource(_ textureId: Int64, path: String) throws {
+        guard let preview = previews[textureId] else {
+            throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
         let url = URL(fileURLWithPath: path)
         preview.setSource(url: url)
     }
     
-    func setSource(_ textureId: NSNumber, path: String, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
-        }
-        let url = URL(fileURLWithPath: path)
-        preview.setSource(url: url)
-    }
-    
-    func resume(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
+    func resume(_ textureId: Int64) throws {
+        guard let preview = previews[textureId] else {
+            throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
         preview.play()
     }
     
-    func pause(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        guard let preview = previews[textureId.int64Value] else {
-            error.pointee = FlutterError()
-            return
+    func pause(_ textureId: Int64) throws {
+        guard let preview = previews[textureId] else {
+            throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
         preview.pause()
     }
     
-    func dispose(_ textureId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        
-        let preview = previews.removeValue(forKey: textureId.int64Value)
+    func dispose(_ textureId: Int64) throws {
+        let preview = previews.removeValue(forKey: textureId)
         preview?.filters = []
         preview?.stop()
     }
