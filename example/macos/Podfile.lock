@@ -1,5 +1,5 @@
 PODS:
-  - flutter_core_image_filters (0.0.1):
+  - flutter_core_image_filters (0.0.14):
     - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - path_provider_foundation (0.0.1):
@@ -20,7 +20,7 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
 
 SPEC CHECKSUMS:
-  flutter_core_image_filters: 99ff755b246b33ad9e9366800917d5d308410c48
+  flutter_core_image_filters: 3905dae142b33a03923bbdc4f6d39aa8c2201baa
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
 
