@@ -7,7 +7,13 @@
 
 import Foundation
 import AVFoundation
+#if os(iOS)
+import Flutter
+#elseif os(macOS)
 import FlutterMacOS
+#else
+#error("Unsupported platform.")
+#endif
 
 extension CIFilter {
     var originImage: CIImage? {
@@ -18,7 +24,7 @@ extension CIFilter {
     }
 }
 
-extension [Int64] {
+extension [Double] {
     var rect: CGRect {
         CGRect(x: self[0],
                y: self[1],
@@ -49,7 +55,7 @@ extension [CIFilter] {
 }
 
 protocol FiltersLocator {
-    subscript (ids: [NSNumber]) -> [CIFilter] { get }
+    subscript (ids: [Int64]) -> [CIFilter] { get }
 }
 
 protocol FilterDelegate {
@@ -95,15 +101,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setNSNumberParameter(_ filterId: Int64, _ key: String, _ value: Double) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "NSNumber" {
             filter.setValue(value, forKey: key)
@@ -115,15 +118,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setCIColorParameter(_ filterId: Int64, _ key: String, _ value: [Double]) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "CIColor" {
             let color = CIColor(red: CGFloat(value[0]),
@@ -138,15 +138,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setCIVectorParameter(_ filterId: Int64, _ key: String, _ value: [Double]) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "CIVector" {
             let values = value.map { CGFloat($0) }
@@ -159,15 +156,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setNSValueParameter(_ filterId: Int64, _ key: String, _ value: [Double]) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "CGAffineTransform" {
             let values = value.map { CGFloat($0) }
@@ -180,20 +174,16 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setCIImageDataParameter(_ filterId: Int64, _ key: String, _ data: FlutterStandardTypedData) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "CIImage" {
             guard let image = CIImage(data: data.data) else {
                 throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-                return
             }
             filter.setValue(image, forKey: key)
             filterDelegate?.didUpdated(filter: filter)
@@ -203,15 +193,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setCIImageSourceParameter(_ filterId: Int64, _ key: String, _ asset: Bool, _ path: String) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "CIImage" {
             if asset {
@@ -220,11 +207,9 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
                 
                 guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
                     throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-                    return
                 }
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: filePath)) else {
                     throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-                    return
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
@@ -232,7 +217,6 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             } else {
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else {
                     throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-                    return
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
@@ -243,15 +227,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setNSDataParameter(_ filterId: Int64, _ key: String, _ data: FlutterStandardTypedData) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "NSData" {
             filter.setValue(data.data, forKey: key)
@@ -262,15 +243,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setNSDataSourceParameter(_ filterId: Int64, _ key: String, _ asset: Bool, _ path: String) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "NSData" {
             var fileURL = URL(fileURLWithPath: path)
@@ -280,7 +258,6 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
                 
                 guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
                     throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-                    return
                 }
                 fileURL = URL(fileURLWithPath: filePath)
 #endif
@@ -294,29 +271,23 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
         
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         guard targetClass == "NSData" else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not match", details: nil)
-            return
         }
         
         guard let cubeDimension = filter.value(forKey: "inputCubeDimension") as? Int else {
             throw FlutterError(code: "core-image-filters", message: "Cube Dimension must be defined", details: nil)
-            return
         }
         
         guard let image = CIImage(data: data.data) else {
             throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-            return
         }
         if rows == columns {
             let result = image.cubeData(dimension: cubeDimension, colorSpace: CGColorSpaceCreateDeviceRGB())
@@ -340,25 +311,20 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setCIImageCubeSourceParameter(_ filterId: Int64, _ key: String, _ asset: Bool, _ path: String, _ size: Int64, _ columns: Int64, _ rows: Int64) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         guard targetClass == "NSData" else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not match", details: nil)
-            return
         }
 
         guard let cubeDimension = filter.value(forKey: "inputCubeDimension") as? Int else {
             throw FlutterError(code: "core-image-filters", message: "Cube Dimension must be defined", details: nil)
-            return
         }
         var fileURL = URL(fileURLWithPath: path)
         if asset {
@@ -367,14 +333,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             
             guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
                 throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-                return
             }
             fileURL = URL(fileURLWithPath: filePath)
 #endif
         }
         guard let image = CIImage(contentsOf: fileURL) else {
             throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
-            return
         }
         if rows == columns {
             let result = image.cubeData(dimension: cubeDimension,
@@ -399,15 +363,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
     func setNSStringParameter(_ filterId: Int64, _ key: String, _ value: String) throws {
         guard let filter = filters[filterId] else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
-            return
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
             throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
-            return
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
-            return
         }
         if targetClass == "NSObject" {
             if key == "inputColorSpace" {
@@ -416,8 +377,8 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
         }
     }
     
-    func disposeFilter(_ filterId: NSNumber, error: AutoreleasingUnsafeMutablePointer<FlutterError?>) {
-        filters.removeValue(forKey: filterId.int64Value)
+    func disposeFilter(_ filterId: Int64) throws {
+        filters.removeValue(forKey: filterId)
     }
     
 }
@@ -430,7 +391,7 @@ extension CoreImageFilters {
         guard !filter.isEmpty else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
-        guard var image = filter.process(extent: value?.rect) else {
+        guard let image = filter.process(extent: value?.rect) else {
             throw FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
         }
         
@@ -460,7 +421,7 @@ extension CoreImageFilters {
         guard !filter.isEmpty else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
-        guard var image = filter.process(extent: value?.rect) else {
+        guard let image = filter.process(extent: value?.rect) else {
             throw FlutterError(code: "core-image-filters", message: "Output image failed", details: nil)
         }
         
@@ -484,7 +445,7 @@ extension CoreImageFilters {
         }
     }
     
-    func exportVideoFile(_ filters: [Int64], _ asset: Bool, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: Int64) throws -> Int64 {
+    func exportVideoFile(_ filters: [Int64], _ asset: Bool, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: Double) throws -> Int64 {
         let filter = self[filters]
         guard !filter.isEmpty else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
@@ -532,7 +493,7 @@ extension CoreImageFilters {
         let eventChannel = FlutterEventChannel(name: "AVAssetExportSession_\(exportId)",
                                                binaryMessenger: registrar.messenger)
 #endif
-        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter,  withTimeInterval: period.doubleValue))
+        eventChannel.setStreamHandler(AVAssetExportSessionStreamHandler(session: exporter,  withTimeInterval: period))
         return exportId
         
     }

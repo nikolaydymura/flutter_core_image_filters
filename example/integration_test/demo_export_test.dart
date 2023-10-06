@@ -67,7 +67,7 @@ void main() {
       final config =
           VideoExportConfig(AssetInputSource('videos/demo.mp4'), output);
       final stream = configuration.exportVideoFile(config);
-      await for (final value in stream){
+      await for (final value in stream) {
         debugPrint(
           'Exporting ${(value * 100).toInt()}%',
         );

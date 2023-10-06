@@ -1,7 +1,5 @@
 import Flutter
 
-extension FlutterError: Error {}
-
 public class SwiftCoreImageFiltersPlugin: NSObject, FlutterPlugin {
     
     public static func register(with registrar: FlutterPluginRegistrar) {

@@ -59,10 +59,14 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
         let videoOutput = AVPlayerItemVideoOutput(pixelBufferAttributes: [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
             kCVPixelBufferIOSurfacePropertiesKey as String : [:] ])
-        
+        #if os(macOS)
+        let displayLink = CADisplayLink()
+        #else
         let displayLink = CADisplayLink(target: frameUpdater, selector: #selector(FLTFrameUpdater.onDisplayLink(_:)))
+        #endif
         displayLink.add(to: RunLoop.current, forMode: .common)
         displayLink.isPaused = true
+        
         
         let asset = AVAsset(url: url)
         let videoComposition = AVVideoComposition(asset: asset) { request in

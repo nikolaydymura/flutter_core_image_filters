@@ -12,7 +12,6 @@ import 'package:pigeon/pigeon.dart';
     copyrightHeader: 'pigeons/copyright.txt',
   ),
 )
-
 @HostApi()
 abstract class ImagePreviewApi {
   @SwiftFunction('create()')

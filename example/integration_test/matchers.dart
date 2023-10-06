@@ -18,7 +18,8 @@ Future<void> expectFilteredSuccessfully(
   CIContext context = CIContext.system,
   double diffTolerance = 0.0,
 }) async {
-  final crop = configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
+  final crop =
+      configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
   final image = await configuration.export(
     texture,
     format: ImageExportFormat.jpeg,
@@ -57,13 +58,14 @@ Future<void> expectFilteredSuccessfully(
 }
 
 Future<void> expectImageDataFilteredSuccessfully(
-    CIFilterConfiguration configuration,
-    InputSource texture,
-    String goldenKey, {
-      CIContext context = CIContext.system,
-      double diffTolerance = 0.0,
-    }) async {
-  final crop = configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
+  CIFilterConfiguration configuration,
+  InputSource texture,
+  String goldenKey, {
+  CIContext context = CIContext.system,
+  double diffTolerance = 0.0,
+}) async {
+  final crop =
+      configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
   final data = await configuration.exportData(
     texture,
     format: ImageExportFormat.jpeg,
@@ -99,7 +101,8 @@ Future<void> expectImageFileFilteredSuccessfully(
 }) async {
   final temp = await getTemporaryDirectory();
   final output = File('${temp.path}/${context.name}-$goldenKey');
-  final crop = configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
+  final crop =
+      configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300);
 
   await configuration.exportImageFile(
     ImageExportConfig(

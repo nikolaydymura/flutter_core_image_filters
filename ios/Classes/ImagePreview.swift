@@ -4,7 +4,13 @@
 //
 //  Created by Nikolay Dymura on 22.11.2022.
 //
+#if os(iOS)
 import Flutter
+#elseif os(macOS)
+import FlutterMacOS
+#else
+#error("Unsupported platform.")
+#endif
 import UIKit
 import Foundation
 

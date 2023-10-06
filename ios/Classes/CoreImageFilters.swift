@@ -7,7 +7,13 @@
 
 import Foundation
 import AVFoundation
+#if os(iOS)
 import Flutter
+#elseif os(macOS)
+import FlutterMacOS
+#else
+#error("Unsupported platform.")
+#endif
 
 extension CIFilter {
     var originImage: CIImage? {
