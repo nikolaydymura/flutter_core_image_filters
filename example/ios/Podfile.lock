@@ -1,7 +1,8 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_core_image_filters (0.0.14):
+  - flutter_core_image_filters (0.0.15):
     - Flutter
+    - FlutterMacOS
   - integration_test (0.0.1):
     - Flutter
   - path_provider_foundation (0.0.1):
@@ -10,7 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_core_image_filters (from `.symlinks/plugins/flutter_core_image_filters/ios`)
+  - flutter_core_image_filters (from `.symlinks/plugins/flutter_core_image_filters/darwin`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
 
@@ -18,7 +19,7 @@ EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
   flutter_core_image_filters:
-    :path: ".symlinks/plugins/flutter_core_image_filters/ios"
+    :path: ".symlinks/plugins/flutter_core_image_filters/darwin"
   integration_test:
     :path: ".symlinks/plugins/integration_test/ios"
   path_provider_foundation:
@@ -26,7 +27,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_core_image_filters: f30b345314658b013e4fbe5a4ea00f897945e6a1
+  flutter_core_image_filters: 6eab7eb47d2cebe7577cdfb0eeae40d89c0f6b9d
   integration_test: 13825b8a9334a850581300559b8839134b124670
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
 

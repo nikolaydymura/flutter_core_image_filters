@@ -1,5 +1,11 @@
-import Cocoa
+#if os(iOS)
+import Flutter
+#elseif os(macOS)
 import FlutterMacOS
+import Cocoa
+#else
+#error("Unsupported platform.")
+#endif
 
 public class CoreImageFiltersPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -10,8 +16,16 @@ public class CoreImageFiltersPlugin: NSObject, FlutterPlugin {
         let videoPreview = VideoPreview(registrar: registrar, filters: filtersApi)
 
         filtersApi.filterDelegate = imagePreview
+        #if os(iOS)
+        FilterApiSetup.setUp(binaryMessenger: registrar.messenger(), api: filtersApi)
+        ImagePreviewApiSetup.setUp(binaryMessenger: registrar.messenger(), api: imagePreview)
+        VideoPreviewApiSetup.setUp(binaryMessenger: registrar.messenger(), api: videoPreview)
+        #elseif os(macOS)
         FilterApiSetup.setUp(binaryMessenger: registrar.messenger, api: filtersApi)
         ImagePreviewApiSetup.setUp(binaryMessenger: registrar.messenger, api: imagePreview)
         VideoPreviewApiSetup.setUp(binaryMessenger: registrar.messenger, api: videoPreview)
+        #else
+        #error("Unsupported platform.")
+        #endif
   }
 }
