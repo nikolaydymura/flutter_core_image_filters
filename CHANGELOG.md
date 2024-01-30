@@ -1,3 +1,7 @@
+## 0.0.16
+
+Added `outputVideo` to aspect ratio
+
 ## 0.0.15
 
 Provided `darwin` sources

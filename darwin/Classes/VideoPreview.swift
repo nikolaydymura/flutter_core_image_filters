@@ -107,6 +107,54 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     }
 }
 
+extension VideoPreviewTexture: FlutterStreamHandler {
+    func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
+        guard let asset = player?.currentItem?.asset else {
+            return nil
+        }
+        Task.init {
+            await load(asset: asset, eventSink: events)
+        }
+        return nil
+    }
+    
+    func onCancel(withArguments arguments: Any?) -> FlutterError? {
+        return nil
+    }
+    
+    
+    func load(asset: AVAsset, eventSink: @escaping FlutterEventSink) async {
+        var naturalSize: CGSize?
+        var preferredTransform: CGAffineTransform?
+        if #available(iOS 15.0, *) {
+            guard let tracks = try? await asset.loadTracks(withMediaType: .video), let video = tracks.first else {
+                return
+            }
+
+            naturalSize = try? await video.load(.naturalSize)
+            preferredTransform = try? await video.load(.preferredTransform)
+        } else {
+            guard let video = asset.tracks(withMediaType: .video).first else {
+                return
+            }
+            naturalSize = video.naturalSize
+            preferredTransform = video.preferredTransform
+        }
+        if let size = naturalSize {
+            if let transform = preferredTransform {
+                let fixed = CGSizeApplyAffineTransform(size, transform)
+                DispatchQueue.main.async {
+                    eventSink(["width": fixed.width, "height": fixed.height])
+                }
+            } else {
+                DispatchQueue.main.async {
+                    eventSink(["width": size.width, "height": size.height])
+                }
+            }
+        }
+    }
+}
+
 fileprivate class FLTFrameUpdater: NSObject {
     private var textureId: Int64 = 0
     private(set) weak var registry: FlutterTextureRegistry?
@@ -182,6 +230,15 @@ class VideoPreview: NSObject, VideoPreviewApi {
         }
         let url = URL(fileURLWithPath: path)
         preview.setSource(url: url)
+#if os(iOS)
+        let eventChannel = FlutterEventChannel(name: "VideoPreviewTextureEvent_\(textureId)",
+                                               binaryMessenger: registrar.messenger())
+        
+#else
+        let eventChannel = FlutterEventChannel(name: "VideoPreviewTextureEvent_\(exportId)",
+                                               binaryMessenger: registrar.messenger)
+#endif
+        eventChannel.setStreamHandler(preview)
     }
     
     func resume(_ textureId: Int64) throws {
