@@ -1,3 +1,7 @@
+## 0.0.17
+
+Fixed video export and preview same time
+
 ## 0.0.16
 
 Added `outputVideo` to aspect ratio

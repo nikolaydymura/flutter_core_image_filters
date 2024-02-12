@@ -52,6 +52,18 @@ extension [CIFilter] {
         }
         return frame
     }
+    
+    func copy() -> [CIFilter]{
+        return map {
+            var parameters: [String: Any] = [:]
+            for key in $0.inputKeys.filter({ $0 != kCIInputImageKey }) {
+                if let v = $0.value(forKey: key) {
+                    parameters[key] = v
+                }
+            }
+            return CIFilter(name: $0.name, parameters: parameters)
+        }.compactMap { $0 }
+    }
 }
 
 protocol FiltersLocator {
@@ -446,7 +458,7 @@ extension CoreImageFilters {
     }
     
     func exportVideoFile(_ filters: [Int64], _ asset: Bool, _ input: String, _ output: String, _ format: String, _ context: String, _ preset: String, _ period: Double) throws -> Int64 {
-        let filter = self[filters]
+        let filter = self[filters].copy()
         guard !filter.isEmpty else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
