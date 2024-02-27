@@ -1,3 +1,7 @@
+## 0.0.18
+
+Added intensity to `CIColorCubeWithIntensityConfiguration`
+
 ## 0.0.17
 
 Fixed video export and preview same time

@@ -60,6 +60,7 @@ part 'src/configurations/ci_color_controls.dart';
 part 'src/configurations/ci_color_cross_polynomial.dart';
 part 'src/configurations/ci_color_cube.dart';
 part 'src/configurations/ci_color_cube_with_color_space.dart';
+part 'src/configurations/ci_color_cube_with_intensity.dart';
 part 'src/configurations/ci_color_cubes_mixed_with_mask.dart';
 part 'src/configurations/ci_color_curves.dart';
 part 'src/configurations/ci_color_dodge_blend_mode.dart';
@@ -311,6 +312,7 @@ class FlutterCoreImageFilters {
     'Color Cube': () => CIColorCubeConfiguration(),
     'Color Cubes Mixed With Mask': () =>
         CIColorCubesMixedWithMaskConfiguration(),
+    'Color Cube with Intensity': () => CIColorCubeWithIntensityConfiguration(),
     'Color Cube with ColorSpace': () =>
         CIColorCubeWithColorSpaceConfiguration(),
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),

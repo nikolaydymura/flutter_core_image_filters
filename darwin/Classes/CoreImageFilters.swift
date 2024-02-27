@@ -115,7 +115,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -132,7 +132,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -152,7 +152,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -170,7 +170,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -188,7 +188,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -207,7 +207,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -241,7 +241,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -257,7 +257,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -285,7 +285,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
@@ -325,7 +325,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
@@ -377,7 +377,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
         guard let attributes = filter.attributes[key] as? [AnyHashable: Any] else {
-            throw FlutterError(code: "core-image-filters", message: "Attributes not present", details: nil)
+            throw FlutterError(code: "core-image-filters", message: "Attribute not present: \(key)", details: nil)
         }
         guard let targetClass = attributes[kCIAttributeClass] as? String else {
             throw FlutterError(code: "core-image-filters", message: "Attribute class not found", details: nil)
