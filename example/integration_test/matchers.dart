@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:flutter_test/src/buffer_matcher.dart';
 import 'package:image/image.dart' as img;
 import 'package:path_provider/path_provider.dart';
 
@@ -43,7 +42,7 @@ Future<void> expectFilteredSuccessfully(
   );
 
   try {
-    await expectLater(data, bufferMatchesGoldenFile(output.path));
+    await expectLater(data, matchesGoldenFile(output.path));
   } on FlutterError catch (e) {
     final percents = _diffRegex.firstMatch('$e')?.group(1);
     if (percents == null) {
@@ -78,7 +77,7 @@ Future<void> expectImageDataFilteredSuccessfully(
   );
 
   try {
-    await expectLater(data, bufferMatchesGoldenFile(output.path));
+    await expectLater(data, matchesGoldenFile(output.path));
   } on FlutterError catch (e) {
     final percents = _diffRegex.firstMatch('$e')?.group(1);
     if (percents == null) {
@@ -120,7 +119,7 @@ Future<void> expectImageFileFilteredSuccessfully(
   );
 
   try {
-    await expectLater(data, bufferMatchesGoldenFile(golden.path));
+    await expectLater(data, matchesGoldenFile(golden.path));
   } on FlutterError catch (e) {
     final percents = _diffRegex.firstMatch('$e')?.group(1);
     if (percents == null) {

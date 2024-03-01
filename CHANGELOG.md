@@ -1,3 +1,7 @@
+## 0.0.19
+
+Fixed `CIColorCubeWithIntensityConfiguration` on export
+
 ## 0.0.18
 
 Added intensity to `CIColorCubeWithIntensityConfiguration`

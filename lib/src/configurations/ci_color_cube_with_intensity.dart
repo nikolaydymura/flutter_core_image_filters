@@ -2,13 +2,10 @@ part of flutter_core_image_filters;
 
 class CIColorCubeWithIntensityConfiguration extends CIFilterConfiguration
     with CubeDimensionMixin, CubeDataMixin {
-  final BoolParameter _extrapolate;
   final NumberParameter _intensity;
 
   CIColorCubeWithIntensityConfiguration()
-      : _extrapolate =
-            NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
-        _intensity = SliderNSNumberParameter(
+      : _intensity = SliderNSNumberParameter(
           'inputIntensity',
           'Intensity',
           1.0,
@@ -16,10 +13,6 @@ class CIColorCubeWithIntensityConfiguration extends CIFilterConfiguration
           max: 1.0,
         ),
         super('CIColorCubeWithIntensityFilter');
-
-  set extrapolate(bool value) {
-    _extrapolate.value = value;
-  }
 
   set intensity(double value) {
     _intensity.value = value;

@@ -81,7 +81,7 @@ class CIColorCubeWithIntensityFilter: CIFilter {
         fatalError("init(coder:) has not been implemented")
     }
     override var inputKeys: [String] {
-        Array(Set(cubeFilter.inputKeys + mixFilter.inputKeys))
+        return ["inputCubeDimension", "inputCubeData", "inputIntensity", kCIInputImageKey ]
     }
     
     override var outputImage: CIImage? {
