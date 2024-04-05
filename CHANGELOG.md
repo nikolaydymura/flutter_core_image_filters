@@ -1,3 +1,7 @@
+## 0.0.20
+
+Added `PrivacyInfo.xcprivacy` to the library
+
 ## 0.0.19
 
 Fixed `CIColorCubeWithIntensityConfiguration` on export

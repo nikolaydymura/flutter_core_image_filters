@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_core_image_filters'
-  s.version          = '0.0.19'
+  s.version          = '0.0.20'
   s.summary          = 'Core Image filters API'
   s.description      = <<-DESC
 Core Image filters API.
@@ -26,4 +26,5 @@ Core Image filters API.
      'LD_RUNPATH_SEARCH_PATHS' => '/usr/lib/swift',
   }
   s.swift_version = '5.0'
+  s.resource_bundles = {'shared_preferences_foundation_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
 end
