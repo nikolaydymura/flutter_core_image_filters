@@ -1,3 +1,7 @@
+## 0.0.21
+
+Fixed `PrivacyInfo.xcprivacy` in podspec
+
 ## 0.0.20
 
 Added `PrivacyInfo.xcprivacy` to the library
