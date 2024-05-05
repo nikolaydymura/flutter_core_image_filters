@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class CGColorSpaceParameter extends OptionStringParameter<CGColorSpace> {
   CGColorSpaceParameter(super.name, super.displayName, super.value);

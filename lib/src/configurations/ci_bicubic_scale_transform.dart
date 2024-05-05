@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBicubicScaleTransform filter.
 class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
   final NumberParameter _b;
   final NumberParameter _scale;
@@ -37,18 +38,30 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
         ),
         super('CIBicubicScaleTransform');
 
+  /// The value of the parameter b.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set b(double value) {
     _b.value = value;
   }
 
+  /// The value of the parameter scale.
+  ///
+  /// This value ranges from 0.0 to 100.0.
   set scale(double value) {
     _scale.value = value;
   }
 
+  /// The value of the parameter c.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set c(double value) {
     _c.value = value;
   }
 
+  /// The value of the parameter aspectRatio.
+  ///
+  /// This value ranges from 0.0 to 2.0.
   set aspectRatio(double value) {
     _aspectRatio.value = value;
   }

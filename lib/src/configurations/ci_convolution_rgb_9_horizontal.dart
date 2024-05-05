@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIConvolutionRGB9Horizontal filter.
 class CIConvolutionRGB9HorizontalConfiguration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final Mat3Parameter _weights;
@@ -13,10 +14,14 @@ class CIConvolutionRGB9HorizontalConfiguration extends CIFilterConfiguration {
         ),
         super('CIConvolutionRGB9Horizontal');
 
+  /// The bias value.
+  ///
+  /// Defaults to 0.
   set bias(double value) {
     _bias.value = value;
   }
 
+  /// The weights matrix.
   set weights(Matrix3 value) {
     _weights.value = value;
   }

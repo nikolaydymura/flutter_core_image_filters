@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
     with MessageMixin {
@@ -22,10 +22,16 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
         ),
         super('CICode128BarcodeGenerator');
 
+  /// The amount of space on the left and right sides of the barcode.
+  ///
+  /// This value ranges from 0 to 100.
   set quietSpace(int value) {
     _quietSpace.value = value;
   }
 
+  /// The height of the barcode.
+  ///
+  /// This value ranges from 1 to 500.
   set barcodeHeight(int value) {
     _barcodeHeight.value = value;
   }

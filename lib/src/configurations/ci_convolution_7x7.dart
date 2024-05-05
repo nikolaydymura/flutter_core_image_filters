@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIConvolution7X7 filter.
 class CIConvolution7X7Configuration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final Mat7Parameter _weights;
@@ -63,10 +64,14 @@ class CIConvolution7X7Configuration extends CIFilterConfiguration {
         ),
         super('CIConvolution7X7');
 
+  /// The bias value.
+  ///
+  /// Defaults to 0.
   set bias(double value) {
     _bias.value = value;
   }
 
+  /// The weights matrix.
   set weights(Mat7 value) {
     _weights.value = value;
   }

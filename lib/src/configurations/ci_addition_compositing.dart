@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAdditionCompositing filter.
 class CIAdditionCompositingConfiguration extends CIFilterConfiguration
     with BackgroundImageMixin {
   CIAdditionCompositingConfiguration() : super('CIAdditionCompositing');

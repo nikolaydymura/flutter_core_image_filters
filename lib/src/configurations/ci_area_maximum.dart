@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAreaMaximum filter.
 class CIAreaMaximumConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
@@ -11,6 +12,9 @@ class CIAreaMaximumConfiguration extends CIFilterConfiguration {
         ),
         super('CIAreaMaximum');
 
+  /// The extent of the area to average.
+  ///
+  /// The extent is specified in pixels.
   set extent(Rect value) {
     _extent.value = value;
   }

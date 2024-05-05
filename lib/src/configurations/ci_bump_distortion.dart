@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBumpDistortion filter.
 class CIBumpDistortionConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
   final NumberParameter _scale;
@@ -27,14 +28,23 @@ class CIBumpDistortionConfiguration extends CIFilterConfiguration {
         ),
         super('CIBumpDistortion');
 
+  /// The radius of the distortion.
+  ///
+  /// This value ranges from 0.0 to 600.0.
   set radius(double value) {
     _radius.value = value;
   }
 
+  /// The scale of the distortion.
+  ///
+  /// This value ranges from -1.0 to 1.0.
   set scale(double value) {
     _scale.value = value;
   }
 
+  /// The center of the distortion.
+  ///
+  /// Defaults to (150.0, 150.0).
   set center(Point<double> value) {
     _center.value = value;
   }

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAttributedTextImageGenerator filter.
 class CIAttributedTextImageGeneratorConfiguration
     extends CIFilterConfiguration {
   final NumberParameter _scaleFactor;
@@ -28,14 +29,21 @@ class CIAttributedTextImageGeneratorConfiguration
         ),
         super('CIAttributedTextImageGenerator');
 
+  /// The scale factor to apply to the text.
+  ///
+  /// This value ranges from 0.0 to 4.0.
   set scaleFactor(double value) {
     _scaleFactor.value = value;
   }
 
+  /// The padding to apply to the text.
+  ///
+  /// This value ranges from 0 to 200.
   set padding(int value) {
     _padding.value = value;
   }
 
+  /// The text to render.
   set text(String value) {
     _text.value = value;
   }

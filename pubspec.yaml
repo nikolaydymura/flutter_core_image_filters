@@ -1,6 +1,6 @@
 name: flutter_core_image_filters
 description: Image filters based on CoreImage fragment with useful image and video preview widgets
-version: 0.0.21
+version: 0.0.22
 homepage: https://github.com/nikolaydymura/flutter_core_image_filters
 repository: https://github.com/nikolaydymura/flutter_core_image_filters
 platforms:
@@ -23,11 +23,11 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  image: ^4.0.17
-  pigeon: ^12.0.0
-  flutter_lints: ^2.0.2
-  mockito: ^5.4.2
-  build_runner: ^2.4.6
+  image: ^4.1.7
+  pigeon: ^17.1.1
+  flutter_lints: ^3.0.1
+  mockito: ^5.4.4
+  build_runner: ^2.4.8
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

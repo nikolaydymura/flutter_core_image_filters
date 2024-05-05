@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDepthOfField filter.
 class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
   final PointParameter _point1;
   final NumberParameter _unsharpMaskRadius;
@@ -49,26 +50,44 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
         ),
         super('CIDepthOfField');
 
+  /// Set the first point
+  ///
+  /// The default value is `(300.0, 300.0)`
   set point1(Point<double> value) {
     _point1.value = value;
   }
 
+  /// Set the unsharp mask radius
+  ///
+  /// Range: `0.0 to 10.0`
   set unsharpMaskRadius(double value) {
     _unsharpMaskRadius.value = value;
   }
 
+  /// Set the saturation
+  ///
+  /// Range: `0.0 to 10.0`
   set saturation(double value) {
     _saturation.value = value;
   }
 
+  /// Set the radius
+  ///
+  /// Range: `0.0 to 30.0`
   set radius(double value) {
     _radius.value = value;
   }
 
+  /// Set the unsharp mask intensity
+  ///
+  /// Range: `0.0 to 10.0`
   set unsharpMaskIntensity(double value) {
     _unsharpMaskIntensity.value = value;
   }
 
+  /// Set the second point
+  ///
+  /// The default value is `(0, 300.0)`
   set point0(Point<double> value) {
     _point0.value = value;
   }

@@ -1,3 +1,7 @@
+## 0.0.22
+
+Updated dependencies
+
 ## 0.0.21
 
 Fixed `PrivacyInfo.xcprivacy` in podspec

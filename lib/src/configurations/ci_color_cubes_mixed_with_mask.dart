@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorCubesMixedWithMask filter.
 class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
     with MaskImageMixin, CubeDimensionMixin, ColorSpaceMixin {
   final CubeDataParameter _cubeData0;
@@ -13,40 +14,49 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
             NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
         super('CIColorCubesMixedWithMask');
 
+  /// Whether to extrapolate.
+  ///
+  /// Defaults to `false`.
   set extrapolate(bool value) {
     _extrapolate.value = value;
   }
 
+  /// The data for the first cube.
   set cubeData0(Uint8List value) {
     _cubeData0.data = value;
     _cubeData0.asset = null;
     _cubeData0.file = null;
   }
 
+  /// The asset name for the first cube.
   set cubeData0Asset(String value) {
     _cubeData0.data = null;
     _cubeData0.asset = value;
     _cubeData0.file = null;
   }
 
+  /// The file for the first cube.
   set cubeData0File(File value) {
     _cubeData0.data = null;
     _cubeData0.asset = null;
     _cubeData0.file = value;
   }
 
+  /// The data for the second cube.
   set cubeData1(Uint8List value) {
     _cubeData1.data = value;
     _cubeData1.asset = null;
     _cubeData1.file = null;
   }
 
+  /// The asset name for the second cube.
   set cubeData1Asset(String value) {
     _cubeData1.data = null;
     _cubeData1.asset = value;
     _cubeData1.file = null;
   }
 
+  /// The file for the second cube.
   set cubeData1File(File value) {
     _cubeData1.data = null;
     _cubeData1.asset = null;

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorMatrix filter.
 class CIColorMatrixConfiguration extends CIFilterConfiguration {
   final VectorParameter _gVector;
   final VectorParameter _biasVector;
@@ -35,22 +36,37 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorMatrix');
 
+  /// The green vector.
+  ///
+  /// Defaults to [0, 1, 0, 0].
   set gVector(List<double> value) {
     _gVector.value = value;
   }
 
+  /// The bias vector.
+  ///
+  /// Defaults to [0, 0, 0, 0].
   set biasVector(List<double> value) {
     _biasVector.value = value;
   }
 
+  /// The red vector.
+  ///
+  /// Defaults to [1, 0, 0, 0].
   set rVector(List<double> value) {
     _rVector.value = value;
   }
 
+  /// The alpha vector.
+  ///
+  /// Defaults to [0, 0, 0, 1].
   set aVector(List<double> value) {
     _aVector.value = value;
   }
 
+  /// The blue vector.
+  ///
+  /// Defaults to [0, 0, 1, 0].
   set bVector(List<double> value) {
     _bVector.value = value;
   }

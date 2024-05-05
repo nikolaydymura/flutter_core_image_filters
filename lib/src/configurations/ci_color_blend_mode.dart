@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorBlendMode filter.
 class CIColorBlendModeConfiguration extends CIFilterConfiguration
     with BackgroundImageMixin {
   CIColorBlendModeConfiguration() : super('CIColorBlendMode');

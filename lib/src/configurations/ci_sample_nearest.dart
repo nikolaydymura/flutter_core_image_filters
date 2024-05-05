@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class CISampleNearestConfiguration extends CIFilterConfiguration {
   CISampleNearestConfiguration() : super('CISampleNearest');

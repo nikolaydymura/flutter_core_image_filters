@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAztecCodeGenerator filter.
 class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
     with MessageMixin {
   final BoolParameter _compactStyle;
@@ -28,14 +29,21 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
         ),
         super('CIAztecCodeGenerator');
 
+  /// A Boolean value that determines whether the Aztec code is compact.
   set compactStyle(bool value) {
     _compactStyle.value = value;
   }
 
+  /// The error correction level for the Aztec code.
+  ///
+  /// This value ranges from 5 to 95.
   set correctionLevel(int value) {
     _correctionLevel.value = value;
   }
 
+  /// The number of layers in the Aztec code.
+  ///
+  /// This value ranges from 1 to 32.
   set layers(int value) {
     _layers.value = value;
   }

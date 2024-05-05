@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class CINinePartStretchedConfiguration extends CIFilterConfiguration {
   final PointParameter _breakpoint1;

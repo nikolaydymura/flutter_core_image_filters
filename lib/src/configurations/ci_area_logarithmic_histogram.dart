@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAreaLogarithmicHistogram filter.
 class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
   final NumberParameter _minimumStop;
   final NumberParameter _maximumStop;
@@ -43,18 +44,30 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
         ),
         super('CIAreaLogarithmicHistogram');
 
+  /// The minimum stop value.
+  ///
+  /// This value ranges from -12 to -4.
   set minimumStop(double value) {
     _minimumStop.value = value;
   }
 
+  /// The maximum stop value.
+  ///
+  /// This value ranges from 0 to 8.
   set maximumStop(double value) {
     _maximumStop.value = value;
   }
 
+  /// The scale of the histogram.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set extent(Rect value) {
     _extent.value = value;
   }
 
+  /// The extent of the area to average.
+  ///
+  /// The extent is specified in pixels.
   set count(double value) {
     _count.value = value;
   }

@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class NSBoolParameter extends BoolParameter {
   NSBoolParameter(super.name, super.displayName, super.value);

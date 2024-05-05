@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CICheckerboardGenerator filter.
 class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _sharpness;
   final ColorParameter _color0;
@@ -39,22 +40,37 @@ class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CICheckerboardGenerator');
 
+  /// The sharpness of the checkerboard.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set sharpness(double value) {
     _sharpness.value = value;
   }
 
+  /// The first color of the checkerboard.
+  ///
+  /// Defaults to Color.fromRGBO(255, 225, 225, 1.0).
   set color0(Color value) {
     _color0.value = value;
   }
 
+  /// The center of the checkerboard.
+  ///
+  /// Defaults to (150.0, 150.0).
   set center(Point<double> value) {
     _center.value = value;
   }
 
+  /// The width of the checkerboard.
+  ///
+  /// This value ranges from 0.0 to 800.0.
   set width(double value) {
     _width.value = value;
   }
 
+  /// The second color of the checkerboard.
+  ///
+  /// Defaults to Color.fromRGBO(0, 0, 0, 1.0).
   set color1(Color value) {
     _color1.value = value;
   }

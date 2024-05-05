@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDissolveTransition filter.
 class CIDissolveTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _time;
@@ -14,6 +15,9 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration
         ),
         super('CIDissolveTransition');
 
+  /// Set the time
+  ///
+  /// Values are clamped to the range [0, 1]. The default value is `0`
   set time(double value) {
     _time.value = value;
   }

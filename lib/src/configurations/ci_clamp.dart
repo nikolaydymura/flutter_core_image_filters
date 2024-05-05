@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIClamp filter.
 class CIClampConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
@@ -11,6 +12,9 @@ class CIClampConfiguration extends CIFilterConfiguration {
         ),
         super('CIClamp');
 
+  /// The extent of the clamp.
+  ///
+  /// Defaults to a rectangle with origin (0, 0) and size (640, 80).
   set extent(Rect value) {
     _extent.value = value;
   }

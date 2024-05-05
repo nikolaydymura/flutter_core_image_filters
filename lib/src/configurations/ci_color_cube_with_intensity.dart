@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorCubeWithIntensity filter.
 class CIColorCubeWithIntensityConfiguration extends CIFilterConfiguration
     with CubeDimensionMixin, CubeDataMixin {
   final NumberParameter _intensity;
@@ -14,6 +15,9 @@ class CIColorCubeWithIntensityConfiguration extends CIFilterConfiguration
         ),
         super('CIColorCubeWithIntensityFilter');
 
+  /// The intensity of the effect.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set intensity(double value) {
     _intensity.value = value;
   }

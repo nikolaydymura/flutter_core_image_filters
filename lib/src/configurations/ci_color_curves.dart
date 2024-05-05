@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorCurves filter.
 class CIColorCurvesConfiguration extends CIFilterConfiguration
     with ColorSpaceMixin {
   final DataParameter _curvesData;
@@ -17,22 +18,28 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration
         ),
         super('CIColorCurves');
 
+  /// The curves domain.
+  ///
+  /// Defaults to [0.0, 1.0].
   set curvesDomain(List<double> value) {
     _curvesDomain.value = value;
   }
 
+  /// The data for the curves.
   set curvesData(Uint8List value) {
     _curvesData.data = value;
     _curvesData.asset = null;
     _curvesData.file = null;
   }
 
+  /// The asset name for the curves.
   set curvesDataAsset(String value) {
     _curvesData.data = null;
     _curvesData.asset = value;
     _curvesData.file = null;
   }
 
+  /// The file for the curves.
   set curvesDataFile(File value) {
     _curvesData.data = null;
     _curvesData.asset = null;

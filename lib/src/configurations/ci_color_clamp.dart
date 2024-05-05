@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorClamp filter.
 class CIColorClampConfiguration extends CIFilterConfiguration {
   final VectorParameter _maxComponents;
   final VectorParameter _minComponents;
@@ -17,10 +18,16 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorClamp');
 
+  /// The maximum components.
+  ///
+  /// Defaults to [1, 1, 1, 1].
   set maxComponents(List<double> value) {
     _maxComponents.value = value;
   }
 
+  /// The minimum components.
+  ///
+  /// Defaults to [0, 0, 0, 0].
   set minComponents(List<double> value) {
     _minComponents.value = value;
   }

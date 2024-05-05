@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBarsSwipeTransition filter.
 class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _time;
@@ -38,18 +39,30 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
         ),
         super('CIBarsSwipeTransition');
 
+  /// The time at which the transition should be at its final state.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set time(double value) {
     _time.value = value;
   }
 
+  /// The angle of the bars.
+  ///
+  /// This value ranges from 0.0 to 6.2831853071795860.
   set angle(double value) {
     _angle.value = value;
   }
 
+  /// The width of the bars.
+  ///
+  /// This value ranges from 2 to 300.
   set width(double value) {
     _width.value = value;
   }
 
+  /// The offset of the bars.
+  ///
+  /// This value ranges from 1 to 100.
   set barOffset(double value) {
     _barOffset.value = value;
   }

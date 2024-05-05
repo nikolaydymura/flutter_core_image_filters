@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class _Mat7Parameter extends Mat7Parameter {
   _Mat7Parameter(super.name, super.displayName, super.value);

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBloom filter.
 class CIBloomConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
   final NumberParameter _intensity;
@@ -21,10 +22,16 @@ class CIBloomConfiguration extends CIFilterConfiguration {
         ),
         super('CIBloom');
 
+  /// The radius of the bloom.
+  ///
+  /// This value ranges from 0.0 to 100.0.
   set radius(double value) {
     _radius.value = value;
   }
 
+  /// The intensity of the bloom.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set intensity(double value) {
     _intensity.value = value;
   }

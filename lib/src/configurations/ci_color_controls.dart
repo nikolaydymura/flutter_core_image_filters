@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorControls filter.
 class CIColorControlsConfiguration extends CIFilterConfiguration {
   final NumberParameter _brightness;
   final NumberParameter _saturation;
@@ -29,14 +30,23 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorControls');
 
+  /// The brightness of the image.
+  ///
+  /// This value ranges from -1.0 to 1.0.
   set brightness(double value) {
     _brightness.value = value;
   }
 
+  /// The saturation of the image.
+  ///
+  /// This value ranges from 0.0 to 2.0.
   set saturation(double value) {
     _saturation.value = value;
   }
 
+  /// The contrast of the image.
+  ///
+  /// This value ranges from 0.0 to 4.0.
   set contrast(double value) {
     _contrast.value = value;
   }

@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class CISpotColorConfiguration extends CIFilterConfiguration {
   final ColorParameter _centerColor2;

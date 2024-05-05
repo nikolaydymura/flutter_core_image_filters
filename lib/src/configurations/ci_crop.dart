@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CICrop filter.
 class CICropConfiguration extends CIFilterConfiguration {
   final RectParameter _rectangle;
 
@@ -16,6 +17,7 @@ class CICropConfiguration extends CIFilterConfiguration {
         ),
         super('CICrop');
 
+  /// The rectangle to crop to.
   set rectangle(Rect value) {
     _rectangle.value = value;
   }

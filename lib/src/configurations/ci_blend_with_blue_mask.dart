@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBlendWithBlueMask filter.
 class CIBlendWithBlueMaskConfiguration extends CIFilterConfiguration
     with BackgroundImageMixin, MaskImageMixin {
   CIBlendWithBlueMaskConfiguration() : super('CIBlendWithBlueMask');

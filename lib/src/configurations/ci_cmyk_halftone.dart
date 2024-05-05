@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CICMYKHalftone filter.
 class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
   final NumberParameter _gCR;
   final NumberParameter _uCR;
@@ -51,26 +52,44 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
         ),
         super('CICMYKHalftone');
 
+  /// The gray component replacement.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set gCR(double value) {
     _gCR.value = value;
   }
 
+  /// The under color removal.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set uCR(double value) {
     _uCR.value = value;
   }
 
+  /// The width of the halftone dots.
+  ///
+  /// This value ranges from -2.0 to 100.0.
   set width(double value) {
     _width.value = value;
   }
 
+  /// The center of the halftone effect.
+  ///
+  /// Defaults to (150.0, 150.0).
   set center(Point<double> value) {
     _center.value = value;
   }
 
+  /// The angle of the halftone effect.
+  ///
+  /// This value ranges from -3.141592653589793 to 3.141592653589793.
   set angle(double value) {
     _angle.value = value;
   }
 
+  /// The sharpness of the halftone effect.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set sharpness(double value) {
     _sharpness.value = value;
   }

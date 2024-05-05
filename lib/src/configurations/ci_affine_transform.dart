@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAffineTransform filter.
 class CIAffineTransformConfiguration extends CIFilterConfiguration {
   final CGAffineTransformParameter _transform;
 
@@ -11,6 +12,7 @@ class CIAffineTransformConfiguration extends CIFilterConfiguration {
         ),
         super('CIAffineTransform');
 
+  /// The transform to apply to the image.
   set transform(CGAffineTransform value) {
     _transform.value = value;
   }

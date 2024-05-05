@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAreaHistogram filter.
 class CIAreaHistogramConfiguration extends CIFilterConfiguration {
   final NumberParameter _scale;
   final NumberParameter _count;
@@ -27,14 +28,23 @@ class CIAreaHistogramConfiguration extends CIFilterConfiguration {
         ),
         super('CIAreaHistogram');
 
+  /// The scale of the histogram.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set scale(double value) {
     _scale.value = value;
   }
 
+  /// The number of bins in the histogram.
+  ///
+  /// This value ranges from 1 to 2048.
   set count(double value) {
     _count.value = value;
   }
 
+  /// The extent of the area to average.
+  ///
+  /// The extent is specified in pixels.
   set extent(Rect value) {
     _extent.value = value;
   }

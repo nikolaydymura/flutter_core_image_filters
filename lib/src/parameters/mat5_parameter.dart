@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 class _Mat5Parameter extends Mat5Parameter {
   _Mat5Parameter(super.name, super.displayName, super.value);

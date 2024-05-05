@@ -1,4 +1,4 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
 abstract class CIVideoPreviewPlatform extends PlatformInterface {
   /// Constructs a VideoPreviewPlatform.

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIConvolution3X3 filter.
 class CIConvolution3X3Configuration extends CIFilterConfiguration {
   final NumberParameter _bias;
   final Mat3Parameter _weights;
@@ -13,10 +14,16 @@ class CIConvolution3X3Configuration extends CIFilterConfiguration {
         ),
         super('CIConvolution3X3');
 
+  /// The bias value.
+  ///
+  /// Defaults to 0.
   set bias(double value) {
     _bias.value = value;
   }
 
+  /// The weights matrix.
+  ///
+  /// Defaults to Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]).
   set weights(Matrix3 value) {
     _weights.value = value;
   }

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIBokehBlur filter.
 class CIBokehBlurConfiguration extends CIFilterConfiguration {
   final NumberParameter _softness;
   final NumberParameter _ringSize;
@@ -37,18 +38,30 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
         ),
         super('CIBokehBlur');
 
+  /// The softness of the bokeh.
+  ///
+  /// This value ranges from 0.0 to 10.0.
   set softness(double value) {
     _softness.value = value;
   }
 
+  /// The size of the bokeh rings.
+  ///
+  /// This value ranges from 0.0 to 0.2.
   set ringSize(double value) {
     _ringSize.value = value;
   }
 
+  /// The radius of the bokeh.
+  ///
+  /// This value ranges from 0.0 to 500.0.
   set radius(double value) {
     _radius.value = value;
   }
 
+  /// The amount of bokeh rings.
+  ///
+  /// This value ranges from 0.0 to 1.0.
   set ringAmount(double value) {
     _ringAmount.value = value;
   }

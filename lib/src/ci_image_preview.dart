@@ -1,9 +1,9 @@
-part of flutter_core_image_filters;
+part of '../flutter_core_image_filters.dart';
 
 class CIImagePreview extends StatelessWidget {
   final CIImagePreviewController controller;
 
-  const CIImagePreview({Key? key, required this.controller}) : super(key: key);
+  const CIImagePreview({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDisplacementDistortion filter.
 class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
     with DisplacementImageMixin {
   final NumberParameter _scale;
@@ -14,6 +15,9 @@ class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
         ),
         super('CIDisplacementDistortion');
 
+  /// Set the scale
+  ///
+  /// The default value is `50`
   set scale(double value) {
     _scale.value = value;
   }

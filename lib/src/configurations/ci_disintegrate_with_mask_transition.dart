@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDisintegrateWithMaskTransition filter.
 class CIDisintegrateWithMaskTransitionConfiguration
     extends CIFilterConfiguration with TargetImageMixin, MaskImageMixin {
   final NumberParameter _time;
@@ -36,18 +37,30 @@ class CIDisintegrateWithMaskTransitionConfiguration
         ),
         super('CIDisintegrateWithMaskTransition');
 
+  /// Set the time
+  ///
+  /// The default value is `0`
   set time(double value) {
     _time.value = value;
   }
 
+  /// Set the shadow offset
+  ///
+  /// The default value is `(0, -10)`
   set shadowOffset(Point<double> value) {
     _shadowOffset.value = value;
   }
 
+  /// Set the shadow density
+  ///
+  /// The default value is `0.65`
   set shadowDensity(double value) {
     _shadowDensity.value = value;
   }
 
+  /// Set the shadow radius
+  ///
+  /// The default value is `8`
   set shadowRadius(double value) {
     _shadowRadius.value = value;
   }

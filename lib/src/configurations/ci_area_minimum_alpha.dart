@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIAreaMinimumAlpha filter.
 class CIAreaMinimumAlphaConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
@@ -11,6 +12,9 @@ class CIAreaMinimumAlphaConfiguration extends CIFilterConfiguration {
         ),
         super('CIAreaMinimumAlpha');
 
+  /// The extent of the area to average.
+  ///
+  /// The extent is specified in pixels.
   set extent(Rect value) {
     _extent.value = value;
   }

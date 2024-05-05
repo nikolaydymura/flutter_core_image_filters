@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDither filter.
 class CIDitherConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
 
@@ -13,6 +14,9 @@ class CIDitherConfiguration extends CIFilterConfiguration {
         ),
         super('CIDither');
 
+  /// Set the intensity
+  ///
+  /// Values are clamped to the range [0, 5]. The default value is `0.1`
   set intensity(double value) {
     _intensity.value = value;
   }

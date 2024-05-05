@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorPolynomial filter.
 class CIColorPolynomialConfiguration extends CIFilterConfiguration {
   final VectorParameter _redCoefficients;
   final VectorParameter _greenCoefficients;
@@ -30,18 +31,30 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorPolynomial');
 
+  /// The red coefficients.
+  ///
+  /// Defaults to [0, 1, 0, 0].
   set redCoefficients(List<double> value) {
     _redCoefficients.value = value;
   }
 
+  /// The green coefficients.
+  ///
+  /// Defaults to [0, 1, 0, 0].
   set greenCoefficients(List<double> value) {
     _greenCoefficients.value = value;
   }
 
+  /// The blue coefficients.
+  ///
+  /// Defaults to [0, 1, 0, 0].
   set blueCoefficients(List<double> value) {
     _blueCoefficients.value = value;
   }
 
+  /// The alpha coefficients.
+  ///
+  /// Defaults to [0, 1, 0, 0].
   set alphaCoefficients(List<double> value) {
     _alphaCoefficients.value = value;
   }

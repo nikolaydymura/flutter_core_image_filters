@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIConstantColorGenerator filter.
 class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
   final ColorParameter _color;
 
@@ -14,6 +15,9 @@ class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
   @override
   bool get hasInputImage => false;
 
+  /// The color of the effect.
+  ///
+  /// Defaults to Color.fromRGBO(255, 0, 0, 1.0).
   set color(Color value) {
     _color.value = value;
   }

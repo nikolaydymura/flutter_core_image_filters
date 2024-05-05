@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDocumentEnhancer filter.
 class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
   final NumberParameter _amount;
 
@@ -13,6 +14,9 @@ class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
         ),
         super('CIDocumentEnhancer');
 
+  /// Set the amount
+  ///
+  /// The default value is `1`
   set amount(double value) {
     _amount.value = value;
   }

@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_core_image_filters'
-  s.version          = '0.0.21'
+  s.version          = '0.0.22'
   s.summary          = 'Core Image filters API'
   s.description      = <<-DESC
 Core Image filters API.

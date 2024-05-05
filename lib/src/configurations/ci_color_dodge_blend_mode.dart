@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorDodgeBlendMode filter.
 class CIColorDodgeBlendModeConfiguration extends CIFilterConfiguration
     with BackgroundImageMixin {
   CIColorDodgeBlendModeConfiguration() : super('CIColorDodgeBlendMode');

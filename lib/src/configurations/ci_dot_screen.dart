@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDotScreen filter.
 class CIDotScreenConfiguration extends CIFilterConfiguration {
   final NumberParameter _angle;
   final NumberParameter _width;
@@ -35,18 +36,30 @@ class CIDotScreenConfiguration extends CIFilterConfiguration {
         ),
         super('CIDotScreen');
 
+  /// Set the angle
+  ///
+  /// The default value is `0`
   set angle(double value) {
     _angle.value = value;
   }
 
+  /// Set the width
+  ///
+  /// The default value is `6`
   set width(double value) {
     _width.value = value;
   }
 
+  /// Set the center
+  ///
+  /// The default value is `(150.0, 150.0)`
   set center(Point<double> value) {
     _center.value = value;
   }
 
+  /// Set the sharpness
+  ///
+  /// The default value is `0.7`
   set sharpness(double value) {
     _sharpness.value = value;
   }

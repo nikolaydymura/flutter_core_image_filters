@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDiscBlur filter.
 class CIDiscBlurConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
 
@@ -13,6 +14,9 @@ class CIDiscBlurConfiguration extends CIFilterConfiguration {
         ),
         super('CIDiscBlur');
 
+  /// Set the radius
+  ///
+  /// The default value is `8`
   set radius(double value) {
     _radius.value = value;
   }

@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIDroste filter.
 class CIDrosteConfiguration extends CIFilterConfiguration {
   final PointParameter _insetPoint0;
   final NumberParameter _strands;
@@ -49,26 +50,44 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
         ),
         super('CIDroste');
 
+  /// Set the inset point 0
+  ///
+  /// The default value is `(200.0, 200.0)`
   set insetPoint0(Point<double> value) {
     _insetPoint0.value = value;
   }
 
+  /// Set the strands
+  ///
+  /// Values are clamped to the range [-10, 10]. The default value is `1`
   set strands(double value) {
     _strands.value = value;
   }
 
+  /// Set the inset point 1
+  ///
+  /// The default value is `(400.0, 400.0)`
   set insetPoint1(Point<double> value) {
     _insetPoint1.value = value;
   }
 
+  /// Set the periodicity
+  ///
+  /// Values are clamped to the range [1, 5]. The default value is `1`
   set periodicity(double value) {
     _periodicity.value = value;
   }
 
+  /// Set the zoom
+  ///
+  /// Values are clamped to the range [0.01, 5]. The default value is `1`
   set zoom(double value) {
     _zoom.value = value;
   }
 
+  /// Set the rotation
+  ///
+  /// Values are clamped to the range [0, 6.283185307179586]. The default value is `0`
   set rotation(double value) {
     _rotation.value = value;
   }

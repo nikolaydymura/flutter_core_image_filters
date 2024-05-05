@@ -1,5 +1,6 @@
-part of flutter_core_image_filters;
+part of '../../flutter_core_image_filters.dart';
 
+/// A configuration for a CIColorCube filter.
 class CIColorCubeConfiguration extends CIFilterConfiguration
     with CubeDimensionMixin, CubeDataMixin {
   final BoolParameter _extrapolate;
@@ -9,6 +10,9 @@ class CIColorCubeConfiguration extends CIFilterConfiguration
             NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
         super('CIColorCube');
 
+  /// Whether to extrapolate.
+  ///
+  /// Defaults to `false`.
   set extrapolate(bool value) {
     _extrapolate.value = value;
   }
