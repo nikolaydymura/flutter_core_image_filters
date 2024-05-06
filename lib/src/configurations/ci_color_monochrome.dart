@@ -1,10 +1,19 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorMonochrome filter.
+/// The properties you use to configure a color monochrome filter.
+///
+/// * [intensity] updates the `inputIntensity` value of filter.
+/// * [color] updates the `inputColor` value of filter.
+///
+/// See also:
+///
+///  * [CIColorMonochrome](https://developer.apple.com/documentation/coreimage/cicolormonochrome), which
+///    defines the exact information for filter.
 class CIColorMonochromeConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
   final ColorParameter _color;
 
+  /// Create a [CIColorMonochromeConfiguration] with default values.
   CIColorMonochromeConfiguration()
       : _intensity = SliderNSNumberParameter(
           'inputIntensity',
@@ -20,16 +29,18 @@ class CIColorMonochromeConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorMonochrome');
 
-  /// The intensity of the effect.
+  /// The intensity of the monochrome effect.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `1.0`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set intensity(double value) {
     _intensity.value = value;
   }
 
-  /// The color of the effect.
+  /// The monochrome color to apply to the image.
   ///
-  /// Defaults to Color.fromRGBO(153, 115, 76, 1.0).
+  /// Defaults to `Color.fromRGBO(153, 115, 76, 1.0)`.
   set color(Color value) {
     _color.value = value;
   }
