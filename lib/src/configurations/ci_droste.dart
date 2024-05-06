@@ -52,7 +52,7 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
 
   /// Set the inset point 0
   ///
-  /// The default value is `(200.0, 200.0)`
+  /// The default value is `const Point(200.0, 200.0)`
   set insetPoint0(Point<double> value) {
     _insetPoint0.value = value;
   }

@@ -16,12 +16,19 @@ class CIConvolution9HorizontalConfiguration extends CIFilterConfiguration {
 
   /// The bias value.
   ///
-  /// Defaults to 0.
+  /// Defaults to `0`.
   set bias(double value) {
     _bias.value = value;
   }
 
   /// The weights matrix.
+  ///
+  /// Defaults to
+  /// ```dart
+  /// Matrix3.fromList([0, 0, 0,
+  ///                   0, 1, 0,
+  ///                   0, 0, 0])
+  /// ```
   set weights(Matrix3 value) {
     _weights.value = value;
   }
