@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIDither filter.
+/// The properties you use to configure a dither filter.
+///
+/// * [intensity] updates the `inputIntensity` value of filter.
+///
+/// See also:
+///
+///  * [CIDither](https://developer.apple.com/documentation/coreimage/cidither), which
+///    defines the exact information for filter.
 class CIDitherConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
 
+  /// Create a [CIDitherConfiguration] with default values.
   CIDitherConfiguration()
       : _intensity = SliderNSNumberParameter(
           'inputIntensity',
@@ -14,9 +22,11 @@ class CIDitherConfiguration extends CIFilterConfiguration {
         ),
         super('CIDither');
 
-  /// Set the intensity
+  /// The intensity of the effect.
   ///
-  /// Values are clamped to the range [0, 5]. The default value is `0.1`
+  /// Defaults to `0.1`.
+  ///
+  /// Range: `0.0` to `5.0`.
   set intensity(double value) {
     _intensity.value = value;
   }

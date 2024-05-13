@@ -1,5 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a mod transition filter.
+///
+/// * [angle] updates the `inputAngle` value of filter.
+/// * [compression] updates the `inputCompression` value of filter.
+/// * [time] updates the `inputTime` value of filter.
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [center] updates the `inputCenter` value of filter.
+///
+/// See also:
+///
+///  * [CIModTransition](https://developer.apple.com/documentation/coreimage/cimodtransition), which
+///    defines the exact information for filter.
 class CIModTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _angle;
@@ -8,6 +20,7 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
   final NumberParameter _radius;
   final PointParameter _center;
 
+  /// Create a [CIModTransitionConfiguration] with default values.
   CIModTransitionConfiguration()
       : _angle = SliderNSNumberParameter(
           'inputAngle',
@@ -44,22 +57,45 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
         ),
         super('CIModTransition');
 
+  /// The angle of the mod hole pattern.
+  ///
+  /// Defaults to `2.0`.
+  ///
+  /// Range: `-6.283185307179586` to `6.283185307179586`.
   set angle(double value) {
     _angle.value = value;
   }
 
+  /// The amount of stretching applied to the mod hole pattern.
+  ///
+  /// Defaults to `300.0`.
+  ///
+  /// Range: `1.0` to `800.0`.
   set compression(double value) {
     _compression.value = value;
   }
 
+  /// The time.
+  ///
+  /// Defaults to `0.0`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set time(double value) {
     _time.value = value;
   }
 
+  /// The radius of the undistorted mod holes in the pattern.
+  ///
+  /// Defaults to `150.0`.
+  ///
+  /// Range: `1.0` to `200.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
+  /// The x and y position to use as the center of the effect.
+  ///
+  /// Defaults to `Point(150.0, 150.0)`.
   set center(Point<double> value) {
     _center.value = value;
   }

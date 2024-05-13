@@ -1,10 +1,19 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CICrystallize filter.
+/// The properties you use to configure a crystalize filter.
+///
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [center] updates the `inputCenter` value of filter.
+///
+/// See also:
+///
+///  * [CICrystallize](https://developer.apple.com/documentation/coreimage/cicrystallize), which
+///    defines the exact information for filter.
 class CICrystallizeConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
   final PointParameter _center;
 
+  /// Create a [CICrystallizeConfiguration] with default values.
   CICrystallizeConfiguration()
       : _radius = SliderNSNumberParameter(
           'inputRadius',
@@ -20,16 +29,18 @@ class CICrystallizeConfiguration extends CIFilterConfiguration {
         ),
         super('CICrystallize');
 
-  /// The radius value.
+  /// The radius, in pixels, of the effect.
   ///
-  /// Ranges from 1 to 100.
+  /// Defaults to `20.0`.
+  ///
+  /// This value ranges from `1.0` to `100.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
-  /// The center point.
+  /// The center of the effect as x and y coordinates.
   ///
-  /// Defaults to (150.0, 150.0).
+  /// Defaults to `Point(150.0, 150.0)`.
   set center(Point<double> value) {
     _center.value = value;
   }

@@ -1,12 +1,22 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorCubesMixedWithMask filter.
+/// The properties you use to configure a color cube mixed with mask filter.
+///
+/// * [cubeData0] updates the `inputCube0Data` value of filter.
+/// * [cubeData1] updates the `inputCube1Data` value of filter.
+/// * [extrapolate] updates the `inputExtrapolate` value of filter.
+///
+/// See also:
+///
+///  * [CIColorCubesMixedWithMask](https://developer.apple.com/documentation/coreimage/cicolorcubesmixedwithmask), which
+///    defines the exact information for filter.
 class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
     with MaskImageMixin, CubeDimensionMixin, ColorSpaceMixin {
   final CubeDataParameter _cubeData0;
   final CubeDataParameter _cubeData1;
   final BoolParameter _extrapolate;
 
+  /// Create a [CIColorCubesMixedWithMaskConfiguration] with default values.
   CIColorCubesMixedWithMaskConfiguration()
       : _cubeData0 = CubeDataParameter('inputCube0Data', 'Cube 0 Data'),
         _cubeData1 = CubeDataParameter('inputCube1Data', 'Cube 1 Data'),
@@ -21,7 +31,7 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
     _extrapolate.value = value;
   }
 
-  /// The data for the first cube.
+  /// The cube texture data to use as a color lookup table.
   set cubeData0(Uint8List value) {
     _cubeData0.data = value;
     _cubeData0.asset = null;
@@ -42,7 +52,7 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
     _cubeData0.file = value;
   }
 
-  /// The data for the second cube.
+  /// The cube texture data to use as a color lookup table.
   set cubeData1(Uint8List value) {
     _cubeData1.data = value;
     _cubeData1.asset = null;

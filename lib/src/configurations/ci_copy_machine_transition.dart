@@ -1,6 +1,18 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CICopyMachineTransition filter.
+/// The properties you use to configure a copy machine transition filter.
+///
+/// * [time] updates the `inputTime` value of filter.
+/// * [opacity] updates the `inputOpacity` value of filter.
+/// * [color] updates the `inputColor` value of filter.
+/// * [extent] updates the `inputExtent` value of filter.
+/// * [width] updates the `inputWidth` value of filter.
+/// * [angle] updates the `inputAngle` value of filter.
+///
+/// See also:
+///
+///  * [CICopyMachineTransition](https://developer.apple.com/documentation/coreimage/cicopymachinetransition), which
+///    defines the exact information for filter.
 class CICopyMachineTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _time;
@@ -10,6 +22,7 @@ class CICopyMachineTransitionConfiguration extends CIFilterConfiguration
   final NumberParameter _width;
   final NumberParameter _angle;
 
+  /// Create a [CICopyMachineTransitionConfiguration] with default values.
   CICopyMachineTransitionConfiguration()
       : _time = SliderNSNumberParameter(
           'inputTime',
@@ -53,42 +66,50 @@ class CICopyMachineTransitionConfiguration extends CIFilterConfiguration
 
   /// The time value.
   ///
-  /// Defaults to 0.
+  /// Defaults to `0.0`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set time(double value) {
     _time.value = value;
   }
 
-  /// The opacity value.
+  /// The opacity of the copier light.
   ///
-  /// Range from 0 to 3.
+  /// Defaults to `1.3`.
+  ///
+  /// This value ranges from `0.0` to `3.0`.
   set opacity(double value) {
     _opacity.value = value;
   }
 
-  /// The color of the copy machine.
+  /// The color of the copier light.
   ///
-  /// Defaults to Color.fromRGBO(153, 225, 204, 1.0).
+  /// Defaults to `Color.fromRGBO(153, 225, 204, 1.0)`.
   set color(Color value) {
     _color.value = value;
   }
 
-  /// The extent of the copy machine.
+  /// A rectangle that defines the extent of the effect.
   ///
-  /// Defaults to Rect.fromLTWH(0, 0, 300, 300).
+  /// Defaults to `Rect.fromLTWH(0, 0, 300, 300)`.
   set extent(Rect value) {
     _extent.value = value;
   }
 
-  /// The width of the copy machine.
+  /// The width of the copier light.
   ///
-  /// Range from 0.1 to 500.
+  /// Defaults to `200.0`.
+  ///
+  /// This value ranges from `0.1` to `500.0`.
   set width(double value) {
     _width.value = value;
   }
 
-  /// The angle of the copy machine.
+  /// The angle of the copier light.
   ///
-  /// Range from 0 to 6.283185307179586.
+  /// Defaults to `0.0`.
+  ///
+  /// Range from `0.0` to `6.283185307179586`.
   set angle(double value) {
     _angle.value = value;
   }

@@ -1,6 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIAreaLogarithmicHistogram filter.
+/// The properties you use to configure a color area logarithmic histogram filter.
+///
+/// * [minimumStop] updates the `inputMinimumStop` value of filter.
+/// * [maximumStop] updates the `inputMaximumStop` value of filter.
+/// * [scale] updates the `inputScale` value of filter.
+/// * [extent] updates the `inputExtent` value of filter.
+/// * [count] updates the `inputCount` value of filter.
+///
+/// See also:
+///
+///  * [CIAreaLogarithmicHistogram](https://developer.apple.com/documentation/coreimage/ciarealogarithmichistogram), which
+///    defines the exact information for filter.
 class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
   final NumberParameter _minimumStop;
   final NumberParameter _maximumStop;
@@ -8,6 +19,7 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
   final NumberParameter _count;
 
+  /// Create a [CIAreaLogarithmicHistogramConfiguration] with default values.
   CIAreaLogarithmicHistogramConfiguration()
       : _minimumStop = SliderNSNumberParameter(
           'inputMinimumStop',
@@ -46,28 +58,34 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
 
   /// The minimum stop value.
   ///
-  /// This value ranges from -12 to -4.
+  /// Defaults to `-10.0`.
+  ///
+  /// This value ranges from `-12.0` to `-4.0`.
   set minimumStop(double value) {
     _minimumStop.value = value;
   }
 
   /// The maximum stop value.
   ///
-  /// This value ranges from 0 to 8.
+  /// Defaults to `4.0`.
+  ///
+  /// This value ranges from `0.0` to `8.0`.
   set maximumStop(double value) {
     _maximumStop.value = value;
   }
 
-  /// The scale of the histogram.
+  /// The extent of the histogram.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `Rect.fromLTWH(0, 0, 640, 80)`.
   set extent(Rect value) {
     _extent.value = value;
   }
 
-  /// The extent of the area to average.
+  /// The count of the area to average.
   ///
-  /// The extent is specified in pixels.
+  /// Defaults to `64.0`.
+  ///
+  /// This value ranges from `1.0` to `2048.0`.
   set count(double value) {
     _count.value = value;
   }

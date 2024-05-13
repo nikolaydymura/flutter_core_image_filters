@@ -1,10 +1,18 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIDissolveTransition filter.
+/// The properties you use to configure a dissolve transition filter.
+///
+/// * [time] updates the `inputTime` value of filter.
+///
+/// See also:
+///
+///  * [CIDissolveTransition](https://developer.apple.com/documentation/coreimage/cidissolvetransition), which
+///    defines the exact information for filter.
 class CIDissolveTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _time;
 
+  /// Create a [CIDissolveTransitionConfiguration] with default values.
   CIDissolveTransitionConfiguration()
       : _time = SliderNSNumberParameter(
           'inputTime',
@@ -15,9 +23,11 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration
         ),
         super('CIDissolveTransition');
 
-  /// Set the time
+  /// The time.
   ///
-  /// Values are clamped to the range [0, 1]. The default value is `0`
+  /// Defaults to `0.0`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set time(double value) {
     _time.value = value;
   }

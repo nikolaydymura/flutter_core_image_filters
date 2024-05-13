@@ -1,10 +1,18 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIDisplacementDistortion filter.
+/// The properties you use to configure a displacement distortion filter.
+///
+/// * [scale] updates the `inputScale` value of filter.
+///
+/// See also:
+///
+///  * [CIDisplacementDistortion](https://developer.apple.com/documentation/coreimage/cidisplacementdistortion), which
+///    defines the exact information for filter.
 class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
     with DisplacementImageMixin {
   final NumberParameter _scale;
 
+  /// Create a [CIDisintegrateWithMaskTransitionConfiguration] with default values.
   CIDisplacementDistortionConfiguration()
       : _scale = SliderNSNumberParameter(
           'inputScale',
@@ -15,9 +23,11 @@ class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
         ),
         super('CIDisplacementDistortion');
 
-  /// Set the scale
+  /// Set the scale.
   ///
-  /// The default value is `50`
+  /// Defaults to `50.0`.
+  ///
+  /// Range: `0.0` to `200.0`.
   set scale(double value) {
     _scale.value = value;
   }

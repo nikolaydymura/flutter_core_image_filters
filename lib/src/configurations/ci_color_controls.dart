@@ -1,11 +1,21 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorControls filter.
+/// The properties you use to configure a color controls filter.
+///
+/// * [brightness] updates the `inputBrightness` value of filter.
+/// * [saturation] updates the `inputSaturation` value of filter.
+/// * [contrast] updates the `inputContrast` value of filter.
+///
+/// See also:
+///
+///  * [CIColorControls](https://developer.apple.com/documentation/coreimage/cicolorcontrols), which
+///    defines the exact information for filter.
 class CIColorControlsConfiguration extends CIFilterConfiguration {
   final NumberParameter _brightness;
   final NumberParameter _saturation;
   final NumberParameter _contrast;
 
+  /// Create a [CIColorControlsConfiguration] with default values.
   CIColorControlsConfiguration()
       : _brightness = SliderNSNumberParameter(
           'inputBrightness',
@@ -30,23 +40,29 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorControls');
 
-  /// The brightness of the image.
+  /// The amount of brightness to apply.
   ///
-  /// This value ranges from -1.0 to 1.0.
+  /// Defaults to `0.0`.
+  ///
+  /// This value ranges from `-1.0` to `1.0`.
   set brightness(double value) {
     _brightness.value = value;
   }
 
-  /// The saturation of the image.
+  /// The amount of saturation to apply.
   ///
-  /// This value ranges from 0.0 to 2.0.
+  /// Defaults to `1.0`.
+  ///
+  /// This value ranges from `0.0` to `2.0`.
   set saturation(double value) {
     _saturation.value = value;
   }
 
-  /// The contrast of the image.
+  /// The amount of contrast to apply.
   ///
-  /// This value ranges from 0.0 to 4.0.
+  /// Defaults to `1.0`.
+  ///
+  /// This value ranges from `0.0` to `4.0`.
   set contrast(double value) {
     _contrast.value = value;
   }
