@@ -1,6 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorMatrix filter.
+/// The properties you use to configure a color curves filter.
+///
+/// * [gVector] updates the `inputGVector` value of filter.
+/// * [biasVector] updates the `inputBiasVector` value of filter.
+/// * [rVector] updates the `inputRVector` value of filter.
+/// * [aVector] updates the `inputAVector` value of filter.
+/// * [bVector] updates the `inputBVector` value of filter.
+///
+/// See also:
+///
+///  * [CIColorMatrix](https://developer.apple.com/documentation/coreimage/cicolormatrix), which
+///    defines the exact information for filter.
 class CIColorMatrixConfiguration extends CIFilterConfiguration {
   final VectorParameter _gVector;
   final VectorParameter _biasVector;
@@ -8,6 +19,7 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
   final VectorParameter _aVector;
   final VectorParameter _bVector;
 
+  /// Create a [CIColorMatrixConfiguration] with default values.
   CIColorMatrixConfiguration()
       : _gVector = CIVectorParameter(
           'inputGVector',
@@ -36,37 +48,37 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorMatrix');
 
-  /// The green vector.
+  /// The amount of green to multiply the source color values by.
   ///
-  /// Defaults to [0, 1, 0, 0].
+  /// Defaults to `[0, 1, 0, 0]`.
   set gVector(List<double> value) {
     _gVector.value = value;
   }
 
-  /// The bias vector.
+  /// A vector that’s added to each color component.
   ///
-  /// Defaults to [0, 0, 0, 0].
+  /// Defaults to `[0, 0, 0, 0]`.
   set biasVector(List<double> value) {
     _biasVector.value = value;
   }
 
-  /// The red vector.
+  /// The amount of red to multiply the source color values by.
   ///
-  /// Defaults to [1, 0, 0, 0].
+  /// Defaults to `[1, 0, 0, 0]`.
   set rVector(List<double> value) {
     _rVector.value = value;
   }
 
-  /// The alpha vector.
+  /// The amount of alpha to multiply the source color values by.
   ///
-  /// Defaults to [0, 0, 0, 1].
+  /// Defaults to `[0, 0, 0, 1]`.
   set aVector(List<double> value) {
     _aVector.value = value;
   }
 
-  /// The blue vector.
+  /// The amount of blue to multiply the source color values by.
   ///
-  /// Defaults to [0, 0, 1, 0].
+  /// Defaults to `[0, 0, 1, 0]`.
   set bVector(List<double> value) {
     _bVector.value = value;
   }

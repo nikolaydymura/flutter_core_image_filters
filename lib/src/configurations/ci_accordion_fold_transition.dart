@@ -1,6 +1,16 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIAccordionFoldTransition filter.
+/// The properties you use to configure an accordion fold transition filter.
+///
+/// * [time] updates the `inputTime` value of filter.
+/// * [numberOfFolds] updates the `inputNumberOfFolds` value of filter.
+/// * [bottomHeight] updates the `inputBottomHeight` value of filter.
+/// * [foldShadowAmount] updates the `inputFoldShadowAmount` value of filter.
+///
+/// See also:
+///
+///  * [CIAccordionFoldTransition](https://developer.apple.com/documentation/coreimage/ciaccordionfoldtransition), which
+///    defines the exact information for filter.
 class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
     with TargetImageMixin {
   final NumberParameter _time;
@@ -8,6 +18,7 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
   final NumberParameter _bottomHeight;
   final NumberParameter _foldShadowAmount;
 
+  /// Create a [CIAccordionFoldTransitionConfiguration] with default values.
   CIAccordionFoldTransitionConfiguration()
       : _time = SliderNSNumberParameter(
           'inputTime',
@@ -40,28 +51,34 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
 
   /// The amount of the transition to complete.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `0.0`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set time(double value) {
     _time.value = value;
   }
 
-  /// The number of folds in the transition.
+  /// The number of folds used in the transition.
   ///
-  /// This value ranges from 1 to 50.
+  /// Defaults to `3.0`.
+  ///
+  /// This value ranges from `1.0` to `50.0`.
   set numberOfFolds(double value) {
     _numberOfFolds.value = value;
   }
 
-  /// The height of the bottom of the image.
+  /// The height of the accordion-fold part of the transition.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// This value ranges from `0.0` to `1.0`.
   set bottomHeight(double value) {
     _bottomHeight.value = value;
   }
 
-  /// The amount of shadow to apply to the folds.
+  /// A value that specifies the intensity of the shadow in the transition.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `0.1`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set foldShadowAmount(double value) {
     _foldShadowAmount.value = value;
   }

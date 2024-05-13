@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIAffineTile filter.
+/// The properties you use to configure an affine tile filter.
+///
+/// * [transform] updates the `inputTransform` value of filter.
+///
+/// See also:
+///
+///  * [CIAffineTile](https://developer.apple.com/documentation/coreimage/ciaffinetile), which
+///    defines the exact information for filter.
 class CIAffineTileConfiguration extends CIFilterConfiguration {
   final CGAffineTransformParameter _transform;
 
+  /// Create a [CIAffineTileConfiguration] with default values.
   CIAffineTileConfiguration()
       : _transform = CGAffineTransformParameter(
           'inputTransform',

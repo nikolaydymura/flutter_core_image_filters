@@ -1,11 +1,20 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorCurves filter.
+/// The properties you use to configure a color curves filter.
+///
+/// * [curvesData] updates the `inputCurvesData` value of filter.
+/// * [curvesDomain] updates the `inputCurvesDomain` value of filter.
+///
+/// See also:
+///
+///  * [CIColorCurves](https://developer.apple.com/documentation/coreimage/cicolorcurves), which
+///    defines the exact information for filter.
 class CIColorCurvesConfiguration extends CIFilterConfiguration
     with ColorSpaceMixin {
   final DataParameter _curvesData;
   final VectorParameter _curvesDomain;
 
+  /// Create a [CIColorCurvesConfiguration] with default values.
   CIColorCurvesConfiguration()
       : _curvesData = NSDataParameter(
           'inputCurvesData',
@@ -18,14 +27,14 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration
         ),
         super('CIColorCurves');
 
-  /// The curves domain.
+  /// A two-element vector that defines the minimum and maximum values of the curve data.
   ///
-  /// Defaults to [0.0, 1.0].
+  /// Defaults to `[0.0, 1.0]`.
   set curvesDomain(List<double> value) {
     _curvesDomain.value = value;
   }
 
-  /// The data for the curves.
+  /// Color values that determine the color curves transform.
   set curvesData(Uint8List value) {
     _curvesData.data = value;
     _curvesData.asset = null;

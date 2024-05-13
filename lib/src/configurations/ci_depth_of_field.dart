@@ -1,6 +1,18 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIDepthOfField filter.
+/// The properties you use to configure a depth-of-field filter.
+///
+/// * [point1] updates the `inputPoint1` value of filter.
+/// * [unsharpMaskRadius] updates the `inputUnsharpMaskRadius` value of filter.
+/// * [saturation] updates the `inputSaturation` value of filter.
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [unsharpMaskIntensity] updates the `inputUnsharpMaskIntensity` value of filter.
+/// * [point0] updates the `inputPoint0` value of filter.
+///
+/// See also:
+///
+///  * [CIDepthOfField](https://developer.apple.com/documentation/coreimage/cidepthoffield), which
+///    defines the exact information for filter.
 class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
   final PointParameter _point1;
   final NumberParameter _unsharpMaskRadius;
@@ -9,6 +21,7 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
   final NumberParameter _unsharpMaskIntensity;
   final PointParameter _point0;
 
+  /// Create a [CIDepthOfFieldConfiguration] with default values.
   CIDepthOfFieldConfiguration()
       : _point1 = CGPositionParameter(
           'inputPoint1',
@@ -50,44 +63,52 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
         ),
         super('CIDepthOfField');
 
-  /// Set the first point
+  /// The second point in the focused region of the output image.
   ///
-  /// The default value is `(300.0, 300.0)`
+  /// The default value is `Point(300.0, 300.0)`.
   set point1(Point<double> value) {
     _point1.value = value;
   }
 
-  /// Set the unsharp mask radius
+  /// The radius of the unsharp mask effect applied to the in-focus area.
   ///
-  /// Range: `0.0 to 10.0`
+  /// Defaults to `2.5`.
+  ///
+  /// Range: `0.0` to `10.0`.
   set unsharpMaskRadius(double value) {
     _unsharpMaskRadius.value = value;
   }
 
-  /// Set the saturation
+  /// The amount to adjust the saturation by.
   ///
-  /// Range: `0.0 to 10.0`
+  /// Defaults to `1.5`.
+  ///
+  /// Range: `0.0` to `10.0`.
   set saturation(double value) {
     _saturation.value = value;
   }
 
-  /// Set the radius
+  /// The distance from the center of the effect.
   ///
-  /// Range: `0.0 to 30.0`
+  /// Defaults to `6.0`.
+  ///
+  /// Range: `0.0` to `30.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
-  /// Set the unsharp mask intensity
+  /// The intensity of the unsharp mask effect applied to the in-focus area.
   ///
-  /// Range: `0.0 to 10.0`
+  /// Defaults to `0.5`.
+  ///
+  /// Range: `0.0` to `10.0`.
   set unsharpMaskIntensity(double value) {
     _unsharpMaskIntensity.value = value;
   }
 
-  /// Set the second point
+  /// The first point in the focused region of the output image.
   ///
-  /// The default value is `(0, 300.0)`
+  /// The default value is `Point(0.0, 300.0)`.
   set point0(Point<double> value) {
     _point0.value = value;
   }

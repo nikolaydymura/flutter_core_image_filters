@@ -1,12 +1,23 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIBokehBlur filter.
+/// The properties you use to configure a bokeh blur filter.
+///
+/// * [softness] updates the `inputSoftness` value of filter.
+/// * [ringSize] updates the `inputRingSize` value of filter.
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [ringAmount] updates the `inputRingAmount` value of filter.
+///
+/// See also:
+///
+///  * [CIBokehBlur](https://developer.apple.com/documentation/coreimage/cibokehblur), which
+///    defines the exact information for filter.
 class CIBokehBlurConfiguration extends CIFilterConfiguration {
   final NumberParameter _softness;
   final NumberParameter _ringSize;
   final NumberParameter _radius;
   final NumberParameter _ringAmount;
 
+  /// Create a [CIBokehBlurConfiguration] with default values.
   CIBokehBlurConfiguration()
       : _softness = SliderNSNumberParameter(
           'inputSoftness',
@@ -38,30 +49,38 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
         ),
         super('CIBokehBlur');
 
-  /// The softness of the bokeh.
+  /// The softness of the bokeh effect.
   ///
-  /// This value ranges from 0.0 to 10.0.
+  /// Defaults to `1.0`.
+  ///
+  /// This value ranges from `0.0` to `10.0`.
   set softness(double value) {
     _softness.value = value;
   }
 
-  /// The size of the bokeh rings.
+  /// The radius of the extra emphasis at the ring of the bokeh.
   ///
-  /// This value ranges from 0.0 to 0.2.
+  /// Defaults to `0.1`.
+  ///
+  /// This value ranges from `0.0` to`0.2`.
   set ringSize(double value) {
     _ringSize.value = value;
   }
 
-  /// The radius of the bokeh.
+  /// The radius of the blur, in pixels.
   ///
-  /// This value ranges from 0.0 to 500.0.
+  /// Defaults to `20.0`.
+  ///
+  /// This value ranges from `0.0` to `500.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
-  /// The amount of bokeh rings.
+  /// The amount of extra emphasis at the ring of the bokeh.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `0.0`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set ringAmount(double value) {
     _ringAmount.value = value;
   }

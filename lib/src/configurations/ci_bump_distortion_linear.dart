@@ -1,12 +1,23 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIBumpDistortionLinear filter.
+/// The properties you use to configure a bump distortion linear filter.
+///
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [scale] updates the `inputScale` value of filter.
+/// * [center] updates the `inputCenter` value of filter.
+/// * [angle] updates the `inputAngle` value of filter.
+///
+/// See also:
+///
+///  * [CIBumpDistortionLinear](https://developer.apple.com/documentation/coreimage/cibumpdistortionlinear), which
+///    defines the exact information for filter.
 class CIBumpDistortionLinearConfiguration extends CIFilterConfiguration {
   final PointParameter _center;
   final NumberParameter _radius;
   final NumberParameter _scale;
   final NumberParameter _angle;
 
+  /// Create a [CIBumpDistortionLinearConfiguration] with default values.
   CIBumpDistortionLinearConfiguration()
       : _center = CGPositionParameter(
           'inputCenter',
@@ -38,28 +49,34 @@ class CIBumpDistortionLinearConfiguration extends CIFilterConfiguration {
 
   /// The center of the distortion.
   ///
-  /// Defaults to (150.0, 150.0).
+  /// Defaults to `Point(150.0, 150.0)`.
   set center(Point<double> value) {
     _center.value = value;
   }
 
   /// The radius of the distortion.
   ///
-  /// This value ranges from 0.0 to 600.0.
+  /// Defaults to `300.0`.
+  ///
+  /// This value ranges from `0.0` to `600.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
   /// The scale of the distortion.
   ///
-  /// This value ranges from -1.0 to 1.0.
+  /// Defaults to `0.5`.
+  ///
+  /// This value ranges from `-1.0` to `1.0`.
   set scale(double value) {
     _scale.value = value;
   }
 
   /// The angle of the distortion.
   ///
-  /// This value ranges from 0.0 to 6.283185307179586.
+  /// Defaults to `0.0`.
+  ///
+  /// This value ranges from `0.0` to `6.283185307179586`.
   set angle(double value) {
     _angle.value = value;
   }

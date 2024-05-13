@@ -1,5 +1,24 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a spot color filter.
+///
+/// * [centerColor2] updates the `inputCenterColor2` value of filter.
+/// * [closeness2] updates the `inputCloseness2` value of filter.
+/// * [contrast1] updates the `inputContrast1` value of filter.
+/// * [contrast3] updates the `inputContrast3` value of filter.
+/// * [replacementColor2] updates the `inputReplacementColor2` value of filter.
+/// * [centerColor1] updates the `inputCenterColor1` value of filter.
+/// * [closeness1] updates the `inputCloseness1` value of filter.
+/// * [contrast2] updates the `inputContrast2` value of filter.
+/// * [replacementColor1] updates the `inputReplacementColor1` value of filter.
+/// * [centerColor3] updates the `inputCenterColor3` value of filter.
+/// * [closeness3] updates the `inputCloseness3` value of filter.
+/// * [replacementColor3] updates the `inputReplacementColor3` value of filter.
+///
+/// See also:
+///
+///  * [CISpotColor](https://developer.apple.com/documentation/coreimage/cispotcolor), which
+///    defines the exact information for filter.
 class CISpotColorConfiguration extends CIFilterConfiguration {
   final ColorParameter _centerColor2;
   final NumberParameter _closeness2;
@@ -14,6 +33,7 @@ class CISpotColorConfiguration extends CIFilterConfiguration {
   final NumberParameter _closeness3;
   final ColorParameter _replacementColor3;
 
+  /// Create a [CISpotColorConfiguration] with default values.
   CISpotColorConfiguration()
       : _centerColor2 = CIColorParameter(
           'inputCenterColor2',
@@ -89,50 +109,98 @@ class CISpotColorConfiguration extends CIFilterConfiguration {
         ),
         super('CISpotColor');
 
+  /// The center value of the second color range to replace.
+  ///
+  /// Defaults to `Color.fromRGBO(134, 78, 88, 1)`.
   set centerColor2(Color value) {
     _centerColor2.value = value;
   }
 
+  /// A value that indicates how closely the second color must match before it’s replaced.
+  ///
+  /// Defaults to `0.15`.
+  ///
+  /// Range: `0.0` to `0.5`.
   set closeness2(double value) {
     _closeness2.value = value;
   }
 
+  /// The contrast of the first replacement color.
+  ///
+  /// Defaults to `0.98`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set contrast1(double value) {
     _contrast1.value = value;
   }
 
+  /// A replacement color for the second color range.
+  ///
+  /// Defaults to `Color.fromRGBO(233, 143, 129, 1)`.
   set replacementColor2(Color value) {
     _replacementColor2.value = value;
   }
 
+  /// The center value of the first color range to replace.
+  ///
+  /// Defaults to `Color.fromRGBO(20, 16, 18, 1)`.
   set centerColor1(Color value) {
     _centerColor1.value = value;
   }
 
+  /// A value that indicates how closely the third color must match before it’s replaced.
+  ///
+  /// Defaults to `0.99`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set contrast3(double value) {
     _contrast3.value = value;
   }
 
+  /// A value that indicates how closely the first color must match before it’s replaced.
+  ///
+  /// Defaults to `0.22`.
+  ///
+  /// Range: `0.0` to `0.5`.
   set closeness1(double value) {
     _closeness1.value = value;
   }
 
+  /// The contrast of the second replacement color.
+  ///
+  /// Defaults to `0.98`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set contrast2(double value) {
     _contrast2.value = value;
   }
 
+  /// A replacement color for the first color range.
+  ///
+  /// Defaults to `Color.fromRGBO(112, 49, 50, 1)`.
   set replacementColor1(Color value) {
     _replacementColor1.value = value;
   }
 
+  /// The center value of the third color range to replace.
+  ///
+  /// Defaults to `Color.fromRGBO(235, 116, 85, 1)`.
   set centerColor3(Color value) {
     _centerColor3.value = value;
   }
 
+  /// A value that indicates how closely the third color must match before it’s replaced.
+  ///
+  /// Defaults to `0.5`.
+  ///
+  /// Range: `0.0` to `0.5`.
   set closeness3(double value) {
     _closeness3.value = value;
   }
 
+  /// A replacement color for the third color range.
+  ///
+  /// Defaults to `Color.fromRGBO(232, 192, 155, 1)`.
   set replacementColor3(Color value) {
     _replacementColor3.value = value;
   }

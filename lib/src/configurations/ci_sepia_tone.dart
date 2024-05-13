@@ -1,8 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a sepia-tone filter.
+///
+/// * [intensity] updates the `inputIntensity` value of filter.
+///
+/// See also:
+///
+///  * [CISepiaTone](https://developer.apple.com/documentation/coreimage/cisepiatone), which
+///    defines the exact information for filter.
 class CISepiaToneConfiguration extends CIFilterConfiguration {
   final NumberParameter _intensity;
 
+  /// Create a [CISepiaToneConfiguration] with default values.
   CISepiaToneConfiguration()
       : _intensity = SliderNSNumberParameter(
           'inputIntensity',
@@ -13,6 +22,11 @@ class CISepiaToneConfiguration extends CIFilterConfiguration {
         ),
         super('CISepiaTone');
 
+  /// The intensity of the sepia effect.
+  ///
+  /// Defaults to `1.0`.
+  ///
+  /// Range: `0.0` to `1.0`.
   set intensity(double value) {
     _intensity.value = value;
   }

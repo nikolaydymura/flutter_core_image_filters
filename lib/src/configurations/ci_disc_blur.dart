@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIDiscBlur filter.
+/// The properties you use to configure a disc blur filter.
+///
+/// * [radius] updates the `inputRadius` value of filter.
+///
+/// See also:
+///
+///  * [CIDiscBlur](https://developer.apple.com/documentation/coreimage/cidiscblur), which
+///    defines the exact information for filter.
 class CIDiscBlurConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
 
+  /// Create a [CIDiscBlurConfiguration] with default values.
   CIDiscBlurConfiguration()
       : _radius = SliderNSNumberParameter(
           'inputRadius',
@@ -14,9 +22,11 @@ class CIDiscBlurConfiguration extends CIFilterConfiguration {
         ),
         super('CIDiscBlur');
 
-  /// Set the radius
+  /// The radius of the blur, in pixels.
   ///
-  /// The default value is `8`
+  /// Defaults to `8.0`.
+  ///
+  /// Range: `0.0` to `100.0`.
   set radius(double value) {
     _radius.value = value;
   }

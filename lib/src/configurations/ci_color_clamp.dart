@@ -1,10 +1,19 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorClamp filter.
+/// The properties you use to configure a color clamp filter.
+///
+/// * [maxComponents] updates the `inputMaxComponents` value of filter.
+/// * [minComponents] updates the `inputMinComponents` value of filter.
+///
+/// See also:
+///
+///  * [CIColorClamp](https://developer.apple.com/documentation/coreimage/cicolorclamp), which
+///    defines the exact information for filter.
 class CIColorClampConfiguration extends CIFilterConfiguration {
   final VectorParameter _maxComponents;
   final VectorParameter _minComponents;
 
+  /// Create a [CIColorClampConfiguration] with default values.
   CIColorClampConfiguration()
       : _maxComponents = CIVectorParameter(
           'inputMaxComponents',
@@ -18,16 +27,16 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorClamp');
 
-  /// The maximum components.
+  /// A vector containing the higher clamping values.
   ///
-  /// Defaults to [1, 1, 1, 1].
+  /// Defaults to `[1, 1, 1, 1]`.
   set maxComponents(List<double> value) {
     _maxComponents.value = value;
   }
 
-  /// The minimum components.
+  /// A vector containing the lower clamping values.
   ///
-  /// Defaults to [0, 0, 0, 0].
+  /// Defaults to `[0, 0, 0, 0]`.
   set minComponents(List<double> value) {
     _minComponents.value = value;
   }

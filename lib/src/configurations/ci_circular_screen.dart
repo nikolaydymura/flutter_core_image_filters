@@ -1,11 +1,21 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CICircularScreen filter.
+/// The properties you use to configure a circular screen filter.
+///
+/// * [center] updates the `inputCenter` value of filter.
+/// * [sharpness] updates the `inputSharpness` value of filter.
+/// * [width] updates the `inputWidth` value of filter.
+///
+/// See also:
+///
+///  * [CICircularScreen](https://developer.apple.com/documentation/coreimage/cicircularscreen), which
+///    defines the exact information for filter.
 class CICircularScreenConfiguration extends CIFilterConfiguration {
   final PointParameter _center;
   final NumberParameter _sharpness;
   final NumberParameter _width;
 
+  /// Create a [CICircularScreenConfiguration] with default values.
   CICircularScreenConfiguration()
       : _center = CGPositionParameter(
           'inputCenter',
@@ -28,23 +38,27 @@ class CICircularScreenConfiguration extends CIFilterConfiguration {
         ),
         super('CICircularScreen');
 
-  /// The center of the screen.
+  /// The x and y position to use as the center of the circular screen pattern.
   ///
-  /// Defaults to (150.0, 150.0).
+  /// Defaults to `Point(150.0, 150.0)`.
   set center(Point<double> value) {
     _center.value = value;
   }
 
-  /// The sharpness of the screen.
+  /// The sharpness of the circles.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `0.7`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set sharpness(double value) {
     _sharpness.value = value;
   }
 
-  /// The width of the screen.
+  /// The distance between each circle in the pattern.
   ///
-  /// This value ranges from 1.0 to 50.0.
+  /// Defaults to `6.0`.
+  ///
+  /// This value ranges from `1.0` to `50.0`.
   set width(double value) {
     _width.value = value;
   }

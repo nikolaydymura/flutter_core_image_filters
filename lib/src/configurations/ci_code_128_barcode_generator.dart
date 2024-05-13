@@ -1,10 +1,20 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a Code 128 barcode generator filter.
+///
+/// * [quietSpace] updates the `inputQuietSpace` value of filter.
+/// * [barcodeHeight] updates the `inputBarcodeHeight` value of filter.
+///
+/// See also:
+///
+///  * [CICode128BarcodeGenerator](https://developer.apple.com/documentation/coreimage/cicode128barcodegenerator), which
+///    defines the exact information for filter.
 class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
     with MessageMixin {
   final NumberParameter _quietSpace;
   final NumberParameter _barcodeHeight;
 
+  /// Create a [CICode128BarcodeGeneratorConfiguration] with default values.
   CICode128BarcodeGeneratorConfiguration()
       : _quietSpace = SliderNSIntegerParameter(
           'inputQuietSpace',
@@ -22,16 +32,20 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
         ),
         super('CICode128BarcodeGenerator');
 
-  /// The amount of space on the left and right sides of the barcode.
+  /// The number of empty white pixels that should surround the barcode.
   ///
-  /// This value ranges from 0 to 100.
+  ///  Defaults to `10.0`.
+  ///
+  /// This value ranges from `0.0` to `100.0`.
   set quietSpace(int value) {
     _quietSpace.value = value;
   }
 
-  /// The height of the barcode.
+  /// The height, in pixels, of the generated barcode.
   ///
-  /// This value ranges from 1 to 500.
+  /// Defaults to `32.0`.
+  ///
+  /// This value ranges from `1.0` to `500.0`.
   set barcodeHeight(int value) {
     _barcodeHeight.value = value;
   }

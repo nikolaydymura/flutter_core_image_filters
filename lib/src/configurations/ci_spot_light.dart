@@ -1,5 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a spotlight filter.
+///
+/// * [lightPointsAt] updates the `inputLightPointsAt` value of filter.
+/// * [color] updates the `inputColor` value of filter.
+/// * [concentration] updates the `inputConcentration` value of filter.
+/// * [brightness] updates the `inputBrightness` value of filter.
+/// * [lightPosition] updates the `inputLightPosition` value of filter.
+///
+/// See also:
+///
+///  * [CISpotLight](https://developer.apple.com/documentation/coreimage/cispotlight), which
+///    defines the exact information for filter.
 class CISpotLightConfiguration extends CIFilterConfiguration {
   final VectorParameter _lightPointsAt;
   final ColorParameter _color;
@@ -7,6 +19,7 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
   final NumberParameter _brightness;
   final VectorParameter _lightPosition;
 
+  /// Create a [CISpotLightConfiguration] with default values.
   CISpotLightConfiguration()
       : _lightPointsAt = CIVectorParameter(
           'inputLightPointsAt',
@@ -39,22 +52,41 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
         ),
         super('CISpotLight');
 
+  /// The x and y position that the spotlight points at.
+  ///
+  /// Defaults to `[200, 200, 0]`.
   set lightPointsAt(List<double> value) {
     _lightPointsAt.value = value;
   }
 
+  /// The color of the spotlight.
+  ///
+  /// Defaults to `Color.fromRGBO(255, 255, 255, 1)`.
   set color(Color value) {
     _color.value = value;
   }
 
+  /// The size of the spotlight.
+  ///
+  /// Defaults to `0.1`.
+  ///
+  /// Range: `0.001` to `1.5`.
   set concentration(double value) {
     _concentration.value = value;
   }
 
+  /// The brightness of the spotlight.
+  ///
+  /// Defaults to `3.0`.
+  ///
+  /// Range: `0.0` to `10.0`.
   set brightness(double value) {
     _brightness.value = value;
   }
 
+  /// The x and y position of the spotlight.
+  ///
+  /// Defaults to `[400, 600, 150]`.
   set lightPosition(List<double> value) {
     _lightPosition.value = value;
   }

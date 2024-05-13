@@ -1,10 +1,19 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIBloom filter.
+/// The properties you use to configure a bloom filter.
+///
+/// * [radius] updates the `inputRadius` value of filter.
+/// * [intensity] updates the `inputIntensity` value of filter.
+///
+/// See also:
+///
+///  * [CIBloom](https://developer.apple.com/documentation/coreimage/cibloom), which
+///    defines the exact information for filter.
 class CIBloomConfiguration extends CIFilterConfiguration {
   final NumberParameter _radius;
   final NumberParameter _intensity;
 
+  /// Create a [CIBloomConfiguration] with default values.
   CIBloomConfiguration()
       : _radius = SliderNSNumberParameter(
           'inputRadius',
@@ -22,16 +31,20 @@ class CIBloomConfiguration extends CIFilterConfiguration {
         ),
         super('CIBloom');
 
-  /// The radius of the bloom.
+  /// The radius, in pixels, of the effect.
   ///
-  /// This value ranges from 0.0 to 100.0.
+  /// Defaults to `10.0`.
+  ///
+  /// This value ranges from `0.0` to `100.0`.
   set radius(double value) {
     _radius.value = value;
   }
 
-  /// The intensity of the bloom.
+  /// The intensity of the effect.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `0.5`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set intensity(double value) {
     _intensity.value = value;
   }

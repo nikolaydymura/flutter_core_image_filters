@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIAffineClamp filter.
+/// The properties you use to configure an affine clamp filter.
+///
+/// * [transform] updates the `inputTransform` value of filter.
+///
+/// See also:
+///
+///  * [CIAffineClamp](https://developer.apple.com/documentation/coreimage/ciaffineclamp), which
+///    defines the exact information for filter.
 class CIAffineClampConfiguration extends CIFilterConfiguration {
   final CGAffineTransformParameter _transform;
 
+  /// Create a [CIAffineClampConfiguration] with default values.
   CIAffineClampConfiguration()
       : _transform = CGAffineTransformParameter(
           'inputTransform',

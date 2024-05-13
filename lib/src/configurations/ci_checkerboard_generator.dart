@@ -1,6 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CICheckerboardGenerator filter.
+/// The properties you use to configure a checkerboard generator filter.
+///
+/// * [sharpness] updates the `inputSharpness` value of filter.
+/// * [color0] updates the `inputColor0` value of filter.
+/// * [center] updates the `inputCenter` value of filter.
+/// * [width] updates the `inputWidth` value of filter.
+/// * [color1] updates the `inputColor1` value of filter.
+///
+/// See also:
+///
+///  * [CICheckerboardGenerator](https://developer.apple.com/documentation/coreimage/cicheckerboardgenerator), which
+///    defines the exact information for filter.
 class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _sharpness;
   final ColorParameter _color0;
@@ -8,6 +19,7 @@ class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
   final NumberParameter _width;
   final ColorParameter _color1;
 
+  /// Create a [CICheckerboardGeneratorConfiguration] with default values.
   CICheckerboardGeneratorConfiguration()
       : _sharpness = SliderNSNumberParameter(
           'inputSharpness',
@@ -40,37 +52,41 @@ class CICheckerboardGeneratorConfiguration extends CIFilterConfiguration {
         ),
         super('CICheckerboardGenerator');
 
-  /// The sharpness of the checkerboard.
+  /// The sharpness of the edges in the pattern.
   ///
-  /// This value ranges from 0.0 to 1.0.
+  /// Defaults to `1.0`.
+  ///
+  /// This value ranges from `0.0` to `1.0`.
   set sharpness(double value) {
     _sharpness.value = value;
   }
 
-  /// The first color of the checkerboard.
+  /// A color to use for the first set of squares.
   ///
-  /// Defaults to Color.fromRGBO(255, 225, 225, 1.0).
+  /// Defaults to `Color.fromRGBO(255, 225, 225, 1.0)`.
   set color0(Color value) {
     _color0.value = value;
   }
 
-  /// The center of the checkerboard.
+  /// The center of the effect as x and y coordinates.
   ///
-  /// Defaults to (150.0, 150.0).
+  /// Defaults to `Point(150.0, 150.0)`.
   set center(Point<double> value) {
     _center.value = value;
   }
 
-  /// The width of the checkerboard.
+  /// The width of the squares in the pattern.
   ///
-  /// This value ranges from 0.0 to 800.0.
+  /// Defaults to `80.0`.
+  ///
+  /// This value ranges from `0.0` to `800.0`.
   set width(double value) {
     _width.value = value;
   }
 
-  /// The second color of the checkerboard.
+  /// A color to use for the second set of squares.
   ///
-  /// Defaults to Color.fromRGBO(0, 0, 0, 1.0).
+  /// Defaults to `Color.fromRGBO(0, 0, 0, 1.0)`.
   set color1(Color value) {
     _color1.value = value;
   }

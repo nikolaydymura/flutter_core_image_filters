@@ -1,8 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
+/// The properties you use to configure a gamma adjust filter.
+///
+/// * [power] updates the `inputPower` value of filter.
+///
+/// See also:
+///
+///  * [CIGammaAdjust](https://developer.apple.com/documentation/coreimage/cigammaadjust), which
+///    defines the exact information for filter.
 class CIGammaAdjustConfiguration extends CIFilterConfiguration {
   final NumberParameter _power;
 
+  /// Create a [CIGammaAdjustConfiguration] with default values.
   CIGammaAdjustConfiguration()
       : _power = SliderNSNumberParameter(
           'inputPower',
@@ -13,6 +22,11 @@ class CIGammaAdjustConfiguration extends CIFilterConfiguration {
         ),
         super('CIGammaAdjust');
 
+  /// A gamma value to use to correct image brightness.
+  ///
+  /// Defaults to `1.0`.
+  ///
+  /// Range: `0.25` to `4.0`.
   set power(double value) {
     _power.value = value;
   }

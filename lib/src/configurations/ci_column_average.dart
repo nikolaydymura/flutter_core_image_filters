@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColumnAverage filter.
+/// The properties you use to configure a column average filter.
+///
+/// * [extent] updates the `inputExtent` value of filter.
+///
+/// See also:
+///
+///  * [CIColumnAverage](https://developer.apple.com/documentation/coreimage/cicolumnaverage), which
+///    defines the exact information for filter.
 class CIColumnAverageConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
+  /// Create a [CIColumnAverageConfiguration] with default values.
   CIColumnAverageConfiguration()
       : _extent = CGRectParameter(
           'inputExtent',
@@ -14,7 +22,7 @@ class CIColumnAverageConfiguration extends CIFilterConfiguration {
 
   /// The extent of the columns to average.
   ///
-  /// Defaults to a rectangle with an origin of (0, 0) and a size of (640, 80).
+  /// Defaults to `Rect.fromLTWH(0, 0, 640, 80)`.
   set extent(Rect value) {
     _extent.value = value;
   }

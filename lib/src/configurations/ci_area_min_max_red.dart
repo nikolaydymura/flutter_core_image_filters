@@ -1,9 +1,17 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIAreaMinMaxRed filter.
+/// The properties you use to configure a color area min max red filter.
+///
+/// * [extent] updates the `inputExtent` value of filter.
+///
+/// See also:
+///
+///  * [CIAreaMinMaxRed](https://developer.apple.com/documentation/coreimage/ciareaminmaxred), which
+///    defines the exact information for filter.
 class CIAreaMinMaxRedConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
+  /// Create a [CIAreaMinMaxRedConfiguration] with default values.
   CIAreaMinMaxRedConfiguration()
       : _extent = CGRectParameter(
           'inputExtent',
@@ -14,7 +22,7 @@ class CIAreaMinMaxRedConfiguration extends CIFilterConfiguration {
 
   /// The extent of the area to average.
   ///
-  /// The extent is specified in pixels.
+  /// Defaults to `Rect.fromLTWH(0, 0, 640, 80)`.
   set extent(Rect value) {
     _extent.value = value;
   }

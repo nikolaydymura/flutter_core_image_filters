@@ -1,6 +1,16 @@
 part of '../../flutter_core_image_filters.dart';
 
-/// A configuration for a CIColorPolynomial filter.
+/// The properties you use to configure a color polynomial filter.
+///
+/// * [redCoefficients] updates the `inputRedCoefficients` value of filter.
+/// * [greenCoefficients] updates the `inputGreenCoefficients` value of filter.
+/// * [alphaCoefficients] updates the `inputAlphaCoefficients` value of filter.
+/// * [blueCoefficients] updates the `inputBlueCoefficients` value of filter.
+///
+/// See also:
+///
+///  * [CIColorPolynomial](https://developer.apple.com/documentation/coreimage/cicolorpolynomial), which
+///    defines the exact information for filter.
 class CIColorPolynomialConfiguration extends CIFilterConfiguration {
   final VectorParameter _redCoefficients;
   final VectorParameter _greenCoefficients;
@@ -8,6 +18,7 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
 
   final VectorParameter _blueCoefficients;
 
+  /// Create a [CIColorPolynomialConfiguration] with default values.
   CIColorPolynomialConfiguration()
       : _redCoefficients = CIVectorParameter(
           'inputRedCoefficients',
@@ -31,30 +42,30 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
         ),
         super('CIColorPolynomial');
 
-  /// The red coefficients.
+  /// Polynomial coefficients for the red channel.
   ///
-  /// Defaults to [0, 1, 0, 0].
+  /// Defaults to `[0, 1, 0, 0]`.
   set redCoefficients(List<double> value) {
     _redCoefficients.value = value;
   }
 
-  /// The green coefficients.
+  /// Polynomial coefficients for the green channel.
   ///
-  /// Defaults to [0, 1, 0, 0].
+  /// Defaults to `[0, 1, 0, 0]`.
   set greenCoefficients(List<double> value) {
     _greenCoefficients.value = value;
   }
 
-  /// The blue coefficients.
+  /// Polynomial coefficients for the blue channel.
   ///
-  /// Defaults to [0, 1, 0, 0].
+  /// Defaults to `[0, 1, 0, 0]`.
   set blueCoefficients(List<double> value) {
     _blueCoefficients.value = value;
   }
 
-  /// The alpha coefficients.
+  /// Polynomial coefficients for the alpha channel.
   ///
-  /// Defaults to [0, 1, 0, 0].
+  /// Defaults to `[0, 1, 0, 0]`.
   set alphaCoefficients(List<double> value) {
     _alphaCoefficients.value = value;
   }
