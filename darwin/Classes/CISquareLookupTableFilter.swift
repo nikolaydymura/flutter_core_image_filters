@@ -30,12 +30,12 @@ class CISquareLookupTableFilterRegister: CIFilterConstructor {
 }
 
 
-class CISquareLookupTableFilter: CIFilter {
+open class CISquareLookupTableFilter: CIFilter {
     @objc dynamic var inputImage: CIImage?
     @objc dynamic var inputIntensity: NSNumber?
     @objc dynamic var inputImage2: CIImage?
     
-    let lutColorKernel = CIKernel(source:
+    private let lutColorKernel = CIKernel(source:
          """
     kernel vec4 lutColor(sampler image, sampler lutImage, float inputIntensity)
     {
@@ -72,14 +72,20 @@ class CISquareLookupTableFilter: CIFilter {
     """
     )
     
-    override var outputImage: CIImage? {
+    open var colorKernel: CIKernel? {
+        get {
+            lutColorKernel
+        }
+    }
+    
+    open override var outputImage: CIImage? {
         guard let image = inputImage else {
             return nil
         }
         guard let lutImage = inputImage2 else {
             return image
         }
-        guard let  lutColorKernel = lutColorKernel else {
+        guard let lutColorKernel = colorKernel else {
             return image
         }
         let intensity = inputIntensity ?? 1.0
@@ -95,11 +101,11 @@ class CISquareLookupTableFilter: CIFilter {
                                        arguments: arguments)
     }
     
-    override var inputKeys: [String] {
+    open override var inputKeys: [String] {
         return [kCIInputImageKey, "inputIntensity", "inputImage2"]
     }
     
-    override var attributes: [String : Any] {
+    open override var attributes: [String : Any] {
         
         return [
             kCIAttributeFilterDisplayName: "Square Lookup Table",

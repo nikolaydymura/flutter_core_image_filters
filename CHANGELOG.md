@@ -1,3 +1,7 @@
+## 0.0.23
+
+Opened `CISquareLookupTableFilter` to extend in custom code
+
 ## 0.0.22
 
 Updated dependencies
