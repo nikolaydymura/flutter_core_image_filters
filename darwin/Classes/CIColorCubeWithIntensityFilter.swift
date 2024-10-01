@@ -36,65 +36,62 @@ class CIColorCubeWithIntensityFilter: CIFilter {
     private let cubeFilter: CIFilter
     private let mixFilter: CIFilter
     
-    @objc dynamic var inputImage: CIImage? {
-        set {
-            cubeFilter.setValue(newValue, forKey: kCIInputImageKey)
-        }
-        get {
-            cubeFilter.value(forKey: kCIInputImageKey) as? CIImage
-        }
-    }
-    @objc dynamic var inputIntensity: NSNumber? {
-        set {
-            mixFilter.setValue(newValue, forKey: kCIInputAmountKey)
-        }
-        get {
-            mixFilter.value(forKey: kCIInputAmountKey) as? NSNumber
-        }
-    }
-    
-    @objc dynamic var inputCubeDimension: NSNumber? {
-        set {
-            cubeFilter.setValue(newValue, forKey: "inputCubeDimension")
-        }
-        get {
-            cubeFilter.value(forKey: "inputCubeDimension") as? NSNumber
-        }
-    }
-    
-    @objc dynamic var inputCubeData: NSData? {
-        set {
-            cubeFilter.setValue(newValue, forKey: "inputCubeData")
-        }
-        get {
-            cubeFilter.value(forKey: "inputCubeData") as? NSData
-        }
-    }
-    
+    var inputImage: CIImage?
+
     override init() {
         self.cubeFilter = CIFilter(name: "CIColorCubeWithColorSpace")!
         self.mixFilter = CIFilter(name: "CIMix")!
         super.init()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     override var inputKeys: [String] {
         return ["inputCubeDimension", "inputCubeData", "inputIntensity", kCIInputImageKey ]
     }
-    
+
+    override func setValue(_ value: Any?, forKey key: String) {
+        switch key {
+        case kCIInputImageKey:
+            inputImage = value as? CIImage
+        case "inputIntensity":
+            mixFilter.setValue(value, forKey: kCIInputAmountKey)
+        case "inputCubeDimension":
+            cubeFilter.setValue(value, forKey: "inputCubeDimension")
+        case "inputCubeData":
+            cubeFilter.setValue(value, forKey: "inputCubeData")
+        default:
+            super.setValue(value, forKey: key)
+        }
+    }
+
+    override func value(forKey key: String) -> Any? {
+        switch key {
+        case kCIInputImageKey:
+            return inputImage
+        case "inputIntensity":
+            return mixFilter.value(forKey: kCIInputAmountKey)
+        case "inputCubeDimension":
+            return cubeFilter.value(forKey: "inputCubeDimension")
+        case "inputCubeData":
+            return cubeFilter.value(forKey: "inputCubeData")
+        default:
+            return super.value(forKey: key)
+        }
+    }
+
     override var outputImage: CIImage? {
         guard let source = inputImage else {
             return nil
         }
-        
+        cubeFilter.setValue(source, forKey: kCIInputImageKey)
         mixFilter.setValue(source, forKey: kCIInputBackgroundImageKey)
         mixFilter.setValue(cubeFilter.outputImage, forKey: kCIInputImageKey)
-        
+
         return mixFilter.outputImage
     }
-    
+
     override var attributes: [String : Any] {
         return [
             kCIAttributeFilterDisplayName: "Color Cube with Intensity",
@@ -109,7 +106,7 @@ class CIColorCubeWithIntensityFilter: CIFilter {
                 kCIAttributeDisplayName: "Image",
                 kCIAttributeType: kCIAttributeTypeImage
             ],
-            #keyPath(inputIntensity): [
+            "inputIntensity": [
                 kCIAttributeIdentity: 0,
                 kCIAttributeClass: "NSNumber",
                 kCIAttributeDisplayName: "Intensity",
@@ -119,8 +116,8 @@ class CIColorCubeWithIntensityFilter: CIFilter {
                 kCIAttributeSliderMax: 1,
                 kCIAttributeType: kCIAttributeTypeScalar
             ],
-            #keyPath(inputCubeDimension): cubeFilter.attributes["inputCubeDimension"],
-            #keyPath(inputCubeData):
+            "inputCubeDimension": cubeFilter.attributes["inputCubeDimension"],
+            "inputCubeData":
                 cubeFilter.attributes["inputCubeData"],
             kCIOutputImageKey: [
                 kCIAttributeClass: "CIImage",

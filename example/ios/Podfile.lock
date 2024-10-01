@@ -1,6 +1,6 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_core_image_filters (0.0.15):
+  - flutter_core_image_filters (0.0.24):
     - Flutter
     - FlutterMacOS
   - integration_test (0.0.1):
@@ -27,10 +27,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_core_image_filters: 6eab7eb47d2cebe7577cdfb0eeae40d89c0f6b9d
-  integration_test: 13825b8a9334a850581300559b8839134b124670
+  flutter_core_image_filters: b33a2fd2e92d83758f2e66afa3ce443a4dac84db
+  integration_test: 252f60fa39af5e17c3aa9899d35d908a0721b573
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
 
 PODFILE CHECKSUM: cc1f88378b4bfcf93a6ce00d2c587857c6008d3b
 
-COCOAPODS: 1.14.2
+COCOAPODS: 1.15.2
