@@ -81,13 +81,19 @@ class CIColorCubeWithIntensityFilter: CIFilter {
         }
     }
 
-    override var outputImage: CIImage? {
+   override var outputImage: CIImage? {
         guard let source = inputImage else {
             return nil
         }
+        if source.extent.isInfinite || source.extent.isEmpty {
+            return nil
+        }
         cubeFilter.setValue(source, forKey: kCIInputImageKey)
+        guard let processed = cubeFilter.outputImage else  {
+            return nil
+        }
         mixFilter.setValue(source, forKey: kCIInputBackgroundImageKey)
-        mixFilter.setValue(cubeFilter.outputImage, forKey: kCIInputImageKey)
+        mixFilter.setValue(processed, forKey: kCIInputImageKey)
 
         return mixFilter.outputImage
     }

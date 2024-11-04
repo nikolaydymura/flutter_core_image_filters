@@ -1,3 +1,7 @@
+## 0.0.25
+
+Updated `CIColorCubeWithIntensityFilter`
+
 ## 0.0.24
 
 Opened `CIColorCubeWithIntensityFilter` to extend in custom code
