@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.6 <4.0.0'
+  sdk: ^3.7.0
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -42,6 +42,10 @@ dependencies:
   flutter_gpu_filters_interface: ^0.0.18
   flutter_core_image_filters:
     path: ../
+
+dependency_overrides:
+  win32: 5.5.4
+  web: ^1.0.0
 
 dev_dependencies:
   integration_test:

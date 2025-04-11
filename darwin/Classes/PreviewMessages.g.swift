@@ -13,7 +13,7 @@ import Foundation
 #endif
 
 /// Error class for passing custom error details to Dart side.
-final class PigeonError: Error {
+fileprivate final class PigeonError: Error {
   let code: String
   let message: String?
   let details: Sendable?
