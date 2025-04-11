@@ -31,9 +31,9 @@ class CIColorParameter extends ColorParameter {
 
   @override
   List<double> get values => [
-    value.red / 255.0,
-    value.green / 255.0,
-    value.blue / 255.0,
-    value.alpha / 255.0,
+    value.r / 255.0,
+    value.g / 255.0,
+    value.b / 255.0,
+    value.a / 255.0,
   ];
 }
