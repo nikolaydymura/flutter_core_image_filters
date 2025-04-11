@@ -10,30 +10,36 @@ void main() {
   });
   group('CITorusLensDistortion', () {
     test('change inputWidth', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputWidth')
+              as NumberParameter;
       expect(parameter.value, 80);
       configuration.width = 100;
       expect(parameter.value, 100);
     });
     test('change inputCenter', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputCenter')
+              as CGPositionParameter;
       expect(parameter.value, const Point(150, 150));
       configuration.center = const Point(100, 100);
       expect(parameter.value, const Point(100, 100));
     });
 
     test('change inputRefraction', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRefraction') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputRefraction',
+              )
+              as NumberParameter;
       expect(parameter.value, 1.7);
       configuration.refraction = 2.5;
       expect(parameter.value, 2.5);
     });
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 160);
       configuration.radius = 250;
       expect(parameter.value, 250);

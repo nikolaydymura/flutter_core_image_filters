@@ -19,33 +19,33 @@ class CITriangleKaleidoscopeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CITriangleKaleidoscopeConfiguration] with default values.
   CITriangleKaleidoscopeConfiguration()
-      : _decay = SliderNSNumberParameter(
-          'inputDecay',
-          'Decay',
-          0.85,
-          min: 0,
-          max: 1,
-        ),
-        _point = CGPositionParameter(
-          'inputPoint',
-          'Point',
-          const Point(150.0, 150.0),
-        ),
-        _rotation = SliderNSNumberParameter(
-          'inputRotation',
-          'Rotation',
-          5.924285296593801,
-          min: 0,
-          max: 6.283185307179586,
-        ),
-        _size = SliderNSNumberParameter(
-          'inputSize',
-          'Size',
-          700,
-          min: 0,
-          max: 1000,
-        ),
-        super('CITriangleKaleidoscope');
+    : _decay = SliderNSNumberParameter(
+        'inputDecay',
+        'Decay',
+        0.85,
+        min: 0,
+        max: 1,
+      ),
+      _point = CGPositionParameter(
+        'inputPoint',
+        'Point',
+        const Point(150.0, 150.0),
+      ),
+      _rotation = SliderNSNumberParameter(
+        'inputRotation',
+        'Rotation',
+        5.924285296593801,
+        min: 0,
+        max: 6.283185307179586,
+      ),
+      _size = SliderNSNumberParameter(
+        'inputSize',
+        'Size',
+        700,
+        min: 0,
+        max: 1000,
+      ),
+      super('CITriangleKaleidoscope');
 
   /// A value that determines how fast the color fades from the center triangle.
   ///
@@ -83,14 +83,18 @@ class CITriangleKaleidoscopeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_decay, _point, _rotation, _size];
+  List<ConfigurationParameter> get parameters => [
+    _decay,
+    _point,
+    _rotation,
+    _size,
+  ];
 }

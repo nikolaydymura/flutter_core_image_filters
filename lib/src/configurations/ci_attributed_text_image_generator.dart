@@ -18,26 +18,22 @@ class CIAttributedTextImageGeneratorConfiguration
 
   /// Create a [CIAttributedTextImageGeneratorConfiguration] with default values.
   CIAttributedTextImageGeneratorConfiguration()
-      : _scaleFactor = SliderNSNumberParameter(
-          'inputScaleFactor',
-          'Scale Factor',
-          1,
-          min: 0,
-          max: 4,
-        ),
-        _padding = SliderNSIntegerParameter(
-          'inputPadding',
-          'Padding',
-          0,
-          min: 0,
-          max: 200,
-        ),
-        _text = NSStringParameter(
-          'inputText',
-          'Text',
-          '',
-        ),
-        super('CIAttributedTextImageGenerator');
+    : _scaleFactor = SliderNSNumberParameter(
+        'inputScaleFactor',
+        'Scale Factor',
+        1,
+        min: 0,
+        max: 4,
+      ),
+      _padding = SliderNSIntegerParameter(
+        'inputPadding',
+        'Padding',
+        0,
+        min: 0,
+        max: 200,
+      ),
+      _text = NSStringParameter('inputText', 'Text', ''),
+      super('CIAttributedTextImageGenerator');
 
   /// The scale factor to apply to the text.
   ///
@@ -66,15 +62,18 @@ class CIAttributedTextImageGeneratorConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_scaleFactor, _padding, _text];
+  List<ConfigurationParameter> get parameters => [
+    _scaleFactor,
+    _padding,
+    _text,
+  ];
 
   @override
   bool get hasInputImage => false;

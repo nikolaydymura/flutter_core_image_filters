@@ -17,26 +17,26 @@ class CIVortexDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIVortexDistortionConfiguration] with default values.
   CIVortexDistortionConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          56.54866776461628,
-          min: -94.24777960769379,
-          max: 94.24777960769379,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 800,
-        ),
-        super('CIVortexDistortion');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        56.54866776461628,
+        min: -94.24777960769379,
+        max: 94.24777960769379,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 800,
+      ),
+      super('CIVortexDistortion');
 
   /// The angle.
   ///
@@ -65,12 +65,12 @@ class CIVortexDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _radius];

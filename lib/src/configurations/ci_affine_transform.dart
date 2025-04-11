@@ -5,12 +5,12 @@ class CIAffineTransformConfiguration extends CIFilterConfiguration {
   final CGAffineTransformParameter _transform;
 
   CIAffineTransformConfiguration()
-      : _transform = CGAffineTransformParameter(
-          'inputTransform',
-          'Transform',
-          const CGAffineTransform(),
-        ),
-        super('CIAffineTransform');
+    : _transform = CGAffineTransformParameter(
+        'inputTransform',
+        'Transform',
+        const CGAffineTransform(),
+      ),
+      super('CIAffineTransform');
 
   /// The transform to apply to the image.
   set transform(CGAffineTransform value) {
@@ -19,12 +19,12 @@ class CIAffineTransformConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_transform];

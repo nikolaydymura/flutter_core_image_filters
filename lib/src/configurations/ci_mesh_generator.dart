@@ -17,24 +17,20 @@ class CIMeshGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMeshGeneratorConfiguration] with default values.
   CIMeshGeneratorConfiguration()
-      : _mesh = CIVectorParameter(
-          'inputMesh',
-          'Mesh',
-          [],
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          1.5,
-          min: 0,
-          max: 10,
-        ),
-        _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        super('CIMeshGenerator');
+    : _mesh = CIVectorParameter('inputMesh', 'Mesh', []),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        1.5,
+        min: 0,
+        max: 10,
+      ),
+      _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      super('CIMeshGenerator');
 
   @override
   bool get hasInputImage => false;
@@ -64,12 +60,12 @@ class CIMeshGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_mesh, _width, _color];

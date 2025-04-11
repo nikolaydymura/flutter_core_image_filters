@@ -26,52 +26,46 @@ class CIPageCurlWithShadowTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIPageCurlWithShadowTransitionConfiguration] with default values.
   CIPageCurlWithShadowTransitionConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 0, 0),
-        ),
-        _shadowExtent = CGRectParameter(
-          'inputShadowExtent',
-          'Shadow Extent',
-          const Rect.fromLTWH(0, 0, 0, 0),
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _shadowAmount = SliderNSNumberParameter(
-          'inputShadowAmount',
-          'Shadow Amount',
-          0.7,
-          min: 0,
-          max: 1,
-        ),
-        _shadowSize = SliderNSNumberParameter(
-          'inputShadowSize',
-          'Shadow Size',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          100,
-          min: 0.01,
-          max: 400,
-        ),
-        super('CIPageCurlWithShadowTransition');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 0, 0),
+      ),
+      _shadowExtent = CGRectParameter(
+        'inputShadowExtent',
+        'Shadow Extent',
+        const Rect.fromLTWH(0, 0, 0, 0),
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _shadowAmount = SliderNSNumberParameter(
+        'inputShadowAmount',
+        'Shadow Amount',
+        0.7,
+        min: 0,
+        max: 1,
+      ),
+      _shadowSize = SliderNSNumberParameter(
+        'inputShadowSize',
+        'Shadow Size',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        100,
+        min: 0.01,
+        max: 400,
+      ),
+      super('CIPageCurlWithShadowTransition');
 
   /// The extent of the effect.
   ///
@@ -134,23 +128,23 @@ class CIPageCurlWithShadowTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _extent,
-        _shadowExtent,
-        _shadowSize,
-        _time,
-        _shadowAmount,
-        _angle,
-        _radius,
-        _backsideImage,
-        _targetImage,
-      ];
+    _extent,
+    _shadowExtent,
+    _shadowSize,
+    _time,
+    _shadowAmount,
+    _angle,
+    _radius,
+    _backsideImage,
+    _targetImage,
+  ];
 }

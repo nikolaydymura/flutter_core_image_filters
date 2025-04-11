@@ -17,28 +17,28 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorControlsConfiguration] with default values.
   CIColorControlsConfiguration()
-      : _brightness = SliderNSNumberParameter(
-          'inputBrightness',
-          'Brightness',
-          0,
-          min: -1,
-          max: 1,
-        ),
-        _saturation = SliderNSNumberParameter(
-          'inputSaturation',
-          'Saturation',
-          1,
-          min: 0,
-          max: 2,
-        ),
-        _contrast = SliderNSNumberParameter(
-          'inputContrast',
-          'Contrast',
-          1,
-          min: 0.0,
-          max: 4,
-        ),
-        super('CIColorControls');
+    : _brightness = SliderNSNumberParameter(
+        'inputBrightness',
+        'Brightness',
+        0,
+        min: -1,
+        max: 1,
+      ),
+      _saturation = SliderNSNumberParameter(
+        'inputSaturation',
+        'Saturation',
+        1,
+        min: 0,
+        max: 2,
+      ),
+      _contrast = SliderNSNumberParameter(
+        'inputContrast',
+        'Contrast',
+        1,
+        min: 0.0,
+        max: 4,
+      ),
+      super('CIColorControls');
 
   /// The amount of brightness to apply.
   ///
@@ -69,16 +69,19 @@ class CIColorControlsConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_brightness, _saturation, _contrast];
+  List<ConfigurationParameter> get parameters => [
+    _brightness,
+    _saturation,
+    _contrast,
+  ];
 }

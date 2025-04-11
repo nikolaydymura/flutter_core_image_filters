@@ -13,14 +13,14 @@ class CIGammaAdjustConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIGammaAdjustConfiguration] with default values.
   CIGammaAdjustConfiguration()
-      : _power = SliderNSNumberParameter(
-          'inputPower',
-          'Power',
-          1,
-          min: 0.25,
-          max: 4,
-        ),
-        super('CIGammaAdjust');
+    : _power = SliderNSNumberParameter(
+        'inputPower',
+        'Power',
+        1,
+        min: 0.25,
+        max: 4,
+      ),
+      super('CIGammaAdjust');
 
   /// A gamma value to use to correct image brightness.
   ///
@@ -33,14 +33,14 @@ class CIGammaAdjustConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_power];

@@ -21,36 +21,36 @@ class CIStripesGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIStripesGeneratorConfiguration] with default values.
   CIStripesGeneratorConfiguration()
-      : _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          80,
-          min: 0,
-          max: 800,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _color0 = CIColorParameter(
-          'inputColor0',
-          'Color 1',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        _color1 = CIColorParameter(
-          'inputColor1',
-          'Color 2',
-          const Color.fromRGBO(0, 0, 0, 1),
-        ),
-        super('CIStripesGenerator');
+    : _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        80,
+        min: 0,
+        max: 800,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _color0 = CIColorParameter(
+        'inputColor0',
+        'Color 1',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      _color1 = CIColorParameter(
+        'inputColor1',
+        'Color 2',
+        const Color.fromRGBO(0, 0, 0, 1),
+      ),
+      super('CIStripesGenerator');
 
   /// The width of a stripe.
   ///
@@ -93,16 +93,21 @@ class CIStripesGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_width, _center, _sharpness, _color0, _color1];
+  List<ConfigurationParameter> get parameters => [
+    _width,
+    _center,
+    _sharpness,
+    _color0,
+    _color1,
+  ];
 
   @override
   bool get hasInputImage => false;

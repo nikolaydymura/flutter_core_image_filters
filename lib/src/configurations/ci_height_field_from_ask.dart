@@ -13,14 +13,14 @@ class CIHeightFieldFromMaskConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHeightFieldFromMaskConfiguration] with default values.
   CIHeightFieldFromMaskConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          10,
-          min: 0,
-          max: 300,
-        ),
-        super('CIHeightFieldFromMask');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        10,
+        min: 0,
+        max: 300,
+      ),
+      super('CIHeightFieldFromMask');
 
   /// The length of the height-field transition.
   ///
@@ -33,11 +33,11 @@ class CIHeightFieldFromMaskConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

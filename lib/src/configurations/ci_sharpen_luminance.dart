@@ -15,21 +15,21 @@ class CISharpenLuminanceConfiguration extends CIFilterConfiguration {
 
   /// Create a [CISharpenLuminanceConfiguration] with default values.
   CISharpenLuminanceConfiguration()
-      : _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.4,
-          min: 0,
-          max: 2,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          1.69,
-          min: 0,
-          max: 20,
-        ),
-        super('CISharpenLuminance');
+    : _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.4,
+        min: 0,
+        max: 2,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        1.69,
+        min: 0,
+        max: 20,
+      ),
+      super('CISharpenLuminance');
 
   /// The amount of sharpening to apply.
   ///
@@ -51,12 +51,12 @@ class CISharpenLuminanceConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.sharpen,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.sharpen,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_sharpness, _radius];

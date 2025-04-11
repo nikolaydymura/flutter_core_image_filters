@@ -16,21 +16,21 @@ class CIEdgePreserveUpsampleFilterConfiguration extends CIFilterConfiguration
 
   /// Create a [CIEdgePreserveUpsampleFilterConfiguration] with default values.
   CIEdgePreserveUpsampleFilterConfiguration()
-      : _lumaSigma = SliderNSNumberParameter(
-          'inputLumaSigma',
-          'Luma Sigma',
-          0.15,
-          min: 0,
-          max: 1,
-        ),
-        _spatialSigma = SliderNSNumberParameter(
-          'inputSpatialSigma',
-          'Spatial Sigma',
-          3,
-          min: 0,
-          max: 5,
-        ),
-        super('CIEdgePreserveUpsampleFilter');
+    : _lumaSigma = SliderNSNumberParameter(
+        'inputLumaSigma',
+        'Luma Sigma',
+        0.15,
+        min: 0,
+        max: 1,
+      ),
+      _spatialSigma = SliderNSNumberParameter(
+        'inputSpatialSigma',
+        'Spatial Sigma',
+        3,
+        min: 0,
+        max: 5,
+      ),
+      super('CIEdgePreserveUpsampleFilter');
 
   /// A value that specifies the influence of the input image’s luma information on the upsampling operation.
   ///
@@ -52,16 +52,19 @@ class CIEdgePreserveUpsampleFilterConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_lumaSigma, _spatialSigma, _smallImage];
+  List<ConfigurationParameter> get parameters => [
+    _lumaSigma,
+    _spatialSigma,
+    _smallImage,
+  ];
 }

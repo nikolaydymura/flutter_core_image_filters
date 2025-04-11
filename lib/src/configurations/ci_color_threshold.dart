@@ -13,14 +13,14 @@ class CIColorThresholdConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorThresholdConfiguration] with default values.
   CIColorThresholdConfiguration()
-      : _threshold = SliderNSNumberParameter(
-          'inputThreshold',
-          'Threshold',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        super('CIColorThreshold');
+    : _threshold = SliderNSNumberParameter(
+        'inputThreshold',
+        'Threshold',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      super('CIColorThreshold');
 
   /// The threshold value.
   ///
@@ -33,13 +33,13 @@ class CIColorThresholdConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_threshold];

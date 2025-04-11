@@ -7,12 +7,12 @@ class CIColorAbsoluteDifferenceConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }

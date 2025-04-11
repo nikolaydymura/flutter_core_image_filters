@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a cube data parameter to a filter configuration.
 mixin CubeDataMixin on CIFilterConfiguration {
-  final CubeDataParameter _cubeData =
-      CubeDataParameter('inputCubeData', 'Cube Data');
+  final CubeDataParameter _cubeData = CubeDataParameter(
+    'inputCubeData',
+    'Cube Data',
+  );
 
   /// The cube data
   ///
@@ -48,11 +50,13 @@ mixin CubeDataMixin on CIFilterConfiguration {
     _cubeData.rows = value;
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _cubeData];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _cubeData,
+  ];
+  // coverage:ignore-end
 }
 
 /// A mixin that provides a cube dimension parameter to a filter configuration.
@@ -72,11 +76,13 @@ mixin CubeDimensionMixin on CIFilterConfiguration {
     _cubeDimension.value = value;
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _cubeDimension];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _cubeDimension,
+  ];
+  // coverage:ignore-end
 }
 
 /// A mixin that provides a color space parameter to a filter configuration.
@@ -94,9 +100,11 @@ mixin ColorSpaceMixin on CIFilterConfiguration {
     _colorSpace.value = value;
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _colorSpace];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _colorSpace,
+  ];
+  // coverage:ignore-end
 }

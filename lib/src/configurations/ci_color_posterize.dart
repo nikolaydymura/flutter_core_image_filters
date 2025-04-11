@@ -13,14 +13,14 @@ class CIColorPosterizeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorPosterizeConfiguration] with default values.
   CIColorPosterizeConfiguration()
-      : _levels = SliderNSNumberParameter(
-          'inputLevels',
-          'Levels',
-          6,
-          min: 1,
-          max: 30,
-        ),
-        super('CIColorPosterize');
+    : _levels = SliderNSNumberParameter(
+        'inputLevels',
+        'Levels',
+        6,
+        min: 1,
+        max: 30,
+      ),
+      super('CIColorPosterize');
 
   /// The number of brightness levels to use for each color component.
   ///
@@ -33,14 +33,14 @@ class CIColorPosterizeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_levels];

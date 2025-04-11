@@ -13,14 +13,14 @@ class CIMorphologyMinimumConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMorphologyMinimumConfiguration] with default values.
   CIMorphologyMinimumConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          0,
-          min: 0,
-          max: 50,
-        ),
-        super('CIMorphologyMinimum');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        0,
+        min: 0,
+        max: 50,
+      ),
+      super('CIMorphologyMinimum');
 
   /// The properties you use to configure a morphology minimum filter.
   ///
@@ -33,12 +33,12 @@ class CIMorphologyMinimumConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

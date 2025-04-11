@@ -23,45 +23,45 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIDrosteConfiguration] with default values.
   CIDrosteConfiguration()
-      : _insetPoint0 = CGPositionParameter(
-          'inputInsetPoint0',
-          'Inset Point 0',
-          const Point(200.0, 200.0),
-        ),
-        _strands = SliderNSNumberParameter(
-          'inputStrands',
-          'Strands',
-          1,
-          min: -10,
-          max: 10,
-        ),
-        _insetPoint1 = CGPositionParameter(
-          'inputInsetPoint1',
-          'Inset Point 1',
-          const Point(400.0, 400.0),
-        ),
-        _periodicity = SliderNSNumberParameter(
-          'inputPeriodicity',
-          'Periodicity',
-          1,
-          min: 1,
-          max: 5,
-        ),
-        _zoom = SliderNSNumberParameter(
-          'inputZoom',
-          'Zoom',
-          1,
-          min: 0.01,
-          max: 5,
-        ),
-        _rotation = SliderNSNumberParameter(
-          'inputRotation',
-          'Rotation',
-          0,
-          min: 0,
-          max: 6.283185307179586,
-        ),
-        super('CIDroste');
+    : _insetPoint0 = CGPositionParameter(
+        'inputInsetPoint0',
+        'Inset Point 0',
+        const Point(200.0, 200.0),
+      ),
+      _strands = SliderNSNumberParameter(
+        'inputStrands',
+        'Strands',
+        1,
+        min: -10,
+        max: 10,
+      ),
+      _insetPoint1 = CGPositionParameter(
+        'inputInsetPoint1',
+        'Inset Point 1',
+        const Point(400.0, 400.0),
+      ),
+      _periodicity = SliderNSNumberParameter(
+        'inputPeriodicity',
+        'Periodicity',
+        1,
+        min: 1,
+        max: 5,
+      ),
+      _zoom = SliderNSNumberParameter(
+        'inputZoom',
+        'Zoom',
+        1,
+        min: 0.01,
+        max: 5,
+      ),
+      _rotation = SliderNSNumberParameter(
+        'inputRotation',
+        'Rotation',
+        0,
+        min: 0,
+        max: 6.283185307179586,
+      ),
+      super('CIDroste');
 
   /// Set the inset point 0.
   ///
@@ -115,14 +115,20 @@ class CIDrosteConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_insetPoint0, _strands, _insetPoint1, _periodicity, _zoom, _rotation];
+  List<ConfigurationParameter> get parameters => [
+    _insetPoint0,
+    _strands,
+    _insetPoint1,
+    _periodicity,
+    _zoom,
+    _rotation,
+  ];
 }

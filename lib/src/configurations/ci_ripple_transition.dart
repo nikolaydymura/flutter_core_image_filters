@@ -22,43 +22,32 @@ class CIRippleTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIRippleTransitionConfiguration] with default values.
   CIRippleTransitionConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(
-            0,
-            0,
-            300,
-            300,
-          ),
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          50,
-          min: -50,
-          max: 50,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 1,
-          max: 300,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIRippleTransition');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 300, 300),
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        50,
+        min: -50,
+        max: 50,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 1,
+        max: 300,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIRippleTransition');
 
   /// A rectangle that defines the extent of the effect.
   ///
@@ -103,21 +92,21 @@ class CIRippleTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _extent,
-        _time,
-        _scale,
-        _width,
-        _center,
-        _shadingImage,
-        _targetImage,
-      ];
+    _extent,
+    _time,
+    _scale,
+    _width,
+    _center,
+    _shadingImage,
+    _targetImage,
+  ];
 }

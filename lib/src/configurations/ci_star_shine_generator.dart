@@ -27,59 +27,59 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIStarShineGeneratorConfiguration] with default values.
   CIStarShineGeneratorConfiguration()
-      : _epsilon = SliderNSNumberParameter(
-          'inputEpsilon',
-          'Epsilon',
-          -2,
-          min: -8,
-          max: 0,
-        ),
-        _crossAngle = SliderNSNumberParameter(
-          'inputCrossAngle',
-          'Cross Angle',
-          0.6,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          50,
-          min: 0,
-          max: 300,
-        ),
-        _crossScale = SliderNSNumberParameter(
-          'inputCrossScale',
-          'Cross Scale',
-          15,
-          min: 0,
-          max: 100,
-        ),
-        _crossOpacity = SliderNSNumberParameter(
-          'inputCrossOpacity',
-          'Cross Opacity',
-          -2,
-          min: -8,
-          max: 0,
-        ),
-        _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 204, 153, 1),
-        ),
-        _crossWidth = SliderNSNumberParameter(
-          'inputCrossWidth',
-          'Cross Width',
-          2.5,
-          min: 0.0,
-          max: 10,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIStarShineGenerator');
+    : _epsilon = SliderNSNumberParameter(
+        'inputEpsilon',
+        'Epsilon',
+        -2,
+        min: -8,
+        max: 0,
+      ),
+      _crossAngle = SliderNSNumberParameter(
+        'inputCrossAngle',
+        'Cross Angle',
+        0.6,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        50,
+        min: 0,
+        max: 300,
+      ),
+      _crossScale = SliderNSNumberParameter(
+        'inputCrossScale',
+        'Cross Scale',
+        15,
+        min: 0,
+        max: 100,
+      ),
+      _crossOpacity = SliderNSNumberParameter(
+        'inputCrossOpacity',
+        'Cross Opacity',
+        -2,
+        min: -8,
+        max: 0,
+      ),
+      _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 204, 153, 1),
+      ),
+      _crossWidth = SliderNSNumberParameter(
+        'inputCrossWidth',
+        'Cross Width',
+        2.5,
+        min: 0.0,
+        max: 10,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIStarShineGenerator');
 
   /// The length of the cross spikes.
   ///
@@ -151,24 +151,24 @@ class CIStarShineGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _epsilon,
-        _crossAngle,
-        _radius,
-        _crossScale,
-        _crossOpacity,
-        _color,
-        _crossWidth,
-        _center,
-      ];
+    _epsilon,
+    _crossAngle,
+    _radius,
+    _crossScale,
+    _crossOpacity,
+    _color,
+    _crossWidth,
+    _center,
+  ];
 
   @override
   bool get hasInputImage => false;

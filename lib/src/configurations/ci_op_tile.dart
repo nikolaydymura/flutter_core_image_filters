@@ -19,33 +19,33 @@ class CIOpTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIOpTileConfiguration] with default values.
   CIOpTileConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          65,
-          min: 0,
-          max: 1000,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          2.8,
-          min: 0.0,
-          max: 10,
-        ),
-        super('CIOpTile');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        65,
+        min: 0,
+        max: 1000,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        2.8,
+        min: 0.0,
+        max: 10,
+      ),
+      super('CIOpTile');
 
   /// The x and y position to use as the center of the effect.
   ///
@@ -83,14 +83,18 @@ class CIOpTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_center, _width, _angle, _scale];
+  List<ConfigurationParameter> get parameters => [
+    _center,
+    _width,
+    _angle,
+    _scale,
+  ];
 }

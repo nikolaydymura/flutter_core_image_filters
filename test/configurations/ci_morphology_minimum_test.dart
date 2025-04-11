@@ -9,8 +9,9 @@ void main() {
   });
   group('CIMorphologyMinimum', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.radius = 30;
       expect(parameter.value, 30);

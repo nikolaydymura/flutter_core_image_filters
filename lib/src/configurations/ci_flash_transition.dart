@@ -28,57 +28,51 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIFlashTransitionConfiguration] with default values.
   CIFlashTransitionConfiguration()
-      : _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 204, 153, 1.0),
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _maxStriationRadius = SliderNSNumberParameter(
-          'inputMaxStriationRadius',
-          'Maximum Striation Radius',
-          2.58,
-          min: 0,
-          max: 10,
-        ),
-        _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 300, 300),
-        ),
-        _striationStrength = SliderNSNumberParameter(
-          'inputStriationStrength',
-          'Striation Strength',
-          0.5,
-          min: 0,
-          max: 3,
-        ),
-        _fadeThreshold = SliderNSNumberParameter(
-          'inputFadeThreshold',
-          'Fade Threshold',
-          0.85,
-          min: 0,
-          max: 1,
-        ),
-        _striationContrast = SliderNSNumberParameter(
-          'inputStriationContrast',
-          'Striation Contrast',
-          1.375,
-          min: 0,
-          max: 5,
-        ),
-        super('CIFlashTransition');
+    : _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 204, 153, 1.0),
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _maxStriationRadius = SliderNSNumberParameter(
+        'inputMaxStriationRadius',
+        'Maximum Striation Radius',
+        2.58,
+        min: 0,
+        max: 10,
+      ),
+      _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 300, 300),
+      ),
+      _striationStrength = SliderNSNumberParameter(
+        'inputStriationStrength',
+        'Striation Strength',
+        0.5,
+        min: 0,
+        max: 3,
+      ),
+      _fadeThreshold = SliderNSNumberParameter(
+        'inputFadeThreshold',
+        'Fade Threshold',
+        0.85,
+        min: 0,
+        max: 1,
+      ),
+      _striationContrast = SliderNSNumberParameter(
+        'inputStriationContrast',
+        'Striation Contrast',
+        1.375,
+        min: 0,
+        max: 5,
+      ),
+      super('CIFlashTransition');
 
   /// The color of the light rays emanating from the flash.
   ///
@@ -148,23 +142,23 @@ class CIFlashTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _color,
-        _time,
-        _center,
-        _maxStriationRadius,
-        _extent,
-        _striationStrength,
-        _fadeThreshold,
-        _striationContrast,
-        _targetImage,
-      ];
+    _color,
+    _time,
+    _center,
+    _maxStriationRadius,
+    _extent,
+    _striationStrength,
+    _fadeThreshold,
+    _striationContrast,
+    _targetImage,
+  ];
 }

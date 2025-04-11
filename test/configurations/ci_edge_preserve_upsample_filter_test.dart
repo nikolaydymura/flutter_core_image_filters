@@ -9,16 +9,20 @@ void main() {
   });
   group('CIEdgePreserveUpsampleFilter', () {
     test('change inputLumaSigma', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputLumaSigma') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputLumaSigma')
+              as NumberParameter;
       expect(parameter.value, 0.15);
       configuration.lumaSigma = 0.5;
       expect(parameter.value, 0.5);
     });
 
     test('change inputSpatialSigma', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputSpatialSigma') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputSpatialSigma',
+              )
+              as NumberParameter;
       expect(parameter.value, 3);
       configuration.spatialSigma = 2.5;
       expect(parameter.value, 2.5);

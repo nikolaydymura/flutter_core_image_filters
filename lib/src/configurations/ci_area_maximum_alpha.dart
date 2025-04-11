@@ -13,12 +13,12 @@ class CIAreaMaximumAlphaConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIAreaMaximumAlphaConfiguration] with default values.
   CIAreaMaximumAlphaConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        super('CIAreaMaximumAlpha');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      super('CIAreaMaximumAlpha');
 
   /// The extent of the area to average.
   ///
@@ -29,12 +29,12 @@ class CIAreaMaximumAlphaConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_extent];

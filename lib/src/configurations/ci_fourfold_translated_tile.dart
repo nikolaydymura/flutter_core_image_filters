@@ -19,33 +19,33 @@ class CIFourfoldTranslatedTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIFourfoldTranslatedTileConfiguration] with default values.
   CIFourfoldTranslatedTileConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _acuteAngle = SliderNSNumberParameter(
-          'inputAcuteAngle',
-          'Acute Angle',
-          1.570796326794897,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        super('CIFourfoldTranslatedTile');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _acuteAngle = SliderNSNumberParameter(
+        'inputAcuteAngle',
+        'Acute Angle',
+        1.570796326794897,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      super('CIFourfoldTranslatedTile');
 
   /// The x and y position to use as the center of the effect.
   ///
@@ -83,14 +83,18 @@ class CIFourfoldTranslatedTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_center, _angle, _acuteAngle, _width];
+  List<ConfigurationParameter> get parameters => [
+    _center,
+    _angle,
+    _acuteAngle,
+    _width,
+  ];
 }

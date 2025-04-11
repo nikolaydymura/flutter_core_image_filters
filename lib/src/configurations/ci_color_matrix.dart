@@ -21,32 +21,27 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorMatrixConfiguration] with default values.
   CIColorMatrixConfiguration()
-      : _gVector = CIVectorParameter(
-          'inputGVector',
-          'Green Vector',
-          [0, 1, 0, 0],
-        ),
-        _biasVector = CIVectorParameter(
-          'inputBiasVector',
-          'Bias Vector',
-          [0, 0, 0, 0],
-        ),
-        _rVector = CIVectorParameter(
-          'inputRVector',
-          'Red Vector',
-          [1, 0, 0, 0],
-        ),
-        _aVector = CIVectorParameter(
-          'inputAVector',
-          'Alpha Vector',
-          [0, 0, 0, 1],
-        ),
-        _bVector = CIVectorParameter(
-          'inputBVector',
-          'Blue Vector',
-          [0, 0, 1, 0],
-        ),
-        super('CIColorMatrix');
+    : _gVector = CIVectorParameter('inputGVector', 'Green Vector', [
+        0,
+        1,
+        0,
+        0,
+      ]),
+      _biasVector = CIVectorParameter('inputBiasVector', 'Bias Vector', [
+        0,
+        0,
+        0,
+        0,
+      ]),
+      _rVector = CIVectorParameter('inputRVector', 'Red Vector', [1, 0, 0, 0]),
+      _aVector = CIVectorParameter('inputAVector', 'Alpha Vector', [
+        0,
+        0,
+        0,
+        1,
+      ]),
+      _bVector = CIVectorParameter('inputBVector', 'Blue Vector', [0, 0, 1, 0]),
+      super('CIColorMatrix');
 
   /// The amount of green to multiply the source color values by.
   ///
@@ -85,16 +80,21 @@ class CIColorMatrixConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_gVector, _biasVector, _rVector, _aVector, _bVector];
+  List<ConfigurationParameter> get parameters => [
+    _gVector,
+    _biasVector,
+    _rVector,
+    _aVector,
+    _bVector,
+  ];
 }

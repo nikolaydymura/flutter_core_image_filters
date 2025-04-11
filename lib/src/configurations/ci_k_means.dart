@@ -19,31 +19,27 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
 
   /// Create a [CIKMeansConfiguration] with default values.
   CIKMeansConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        _perceptual = NSBoolParameter(
-          'inputPerceptual',
-          'Perceptual',
-          false,
-        ),
-        _count = SliderNSIntegerParameter(
-          'inputCount',
-          'Count',
-          8,
-          min: 0,
-          max: 128,
-        ),
-        _passes = SliderNSIntegerParameter(
-          'inputPasses',
-          'Passes',
-          5,
-          min: 0,
-          max: 20,
-        ),
-        super('CIKMeans');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      _perceptual = NSBoolParameter('inputPerceptual', 'Perceptual', false),
+      _count = SliderNSIntegerParameter(
+        'inputCount',
+        'Count',
+        8,
+        min: 0,
+        max: 128,
+      ),
+      _passes = SliderNSIntegerParameter(
+        'inputPasses',
+        'Passes',
+        5,
+        min: 0,
+        max: 20,
+      ),
+      super('CIKMeans');
 
   /// The extent.
   ///
@@ -79,14 +75,19 @@ class CIKMeansConfiguration extends CIFilterConfiguration with MeansImageMixin {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_extent, _perceptual, _count, _passes, _meansImage];
+  List<ConfigurationParameter> get parameters => [
+    _extent,
+    _perceptual,
+    _count,
+    _passes,
+    _meansImage,
+  ];
 }

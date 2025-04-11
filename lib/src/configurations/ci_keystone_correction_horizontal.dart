@@ -22,32 +22,28 @@ class CIKeystoneCorrectionHorizontalConfiguration
 
   /// Create a [CIKeystoneCorrectionHorizontalConfiguration] with default values.
   CIKeystoneCorrectionHorizontalConfiguration()
-      : _topRight = CGPositionParameter(
-          'inputTopRight',
-          'Top Right',
-          const Point(0.0, 0.0),
-        ),
-        _topLeft = CGPositionParameter(
-          'inputTopLeft',
-          'Top Left',
-          const Point(0.0, 0.0),
-        ),
-        _bottomLeft = CGPositionParameter(
-          'inputBottomLeft',
-          'Bottom Left',
-          const Point(0.0, 0.0),
-        ),
-        _bottomRight = CGPositionParameter(
-          'inputBottomRight',
-          'Bottom Right',
-          const Point(0.0, 0.0),
-        ),
-        _focalLength = NSNumberParameter(
-          'inputFocalLength',
-          'Focal Length',
-          28,
-        ),
-        super('CIKeystoneCorrectionHorizontal');
+    : _topRight = CGPositionParameter(
+        'inputTopRight',
+        'Top Right',
+        const Point(0.0, 0.0),
+      ),
+      _topLeft = CGPositionParameter(
+        'inputTopLeft',
+        'Top Left',
+        const Point(0.0, 0.0),
+      ),
+      _bottomLeft = CGPositionParameter(
+        'inputBottomLeft',
+        'Bottom Left',
+        const Point(0.0, 0.0),
+      ),
+      _bottomRight = CGPositionParameter(
+        'inputBottomRight',
+        'Bottom Right',
+        const Point(0.0, 0.0),
+      ),
+      _focalLength = NSNumberParameter('inputFocalLength', 'Focal Length', 28),
+      super('CIKeystoneCorrectionHorizontal');
 
   /// The topRight.
   ///
@@ -86,14 +82,19 @@ class CIKeystoneCorrectionHorizontalConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_topRight, _topLeft, _bottomLeft, _bottomRight, _focalLength];
+  List<ConfigurationParameter> get parameters => [
+    _topRight,
+    _topLeft,
+    _bottomLeft,
+    _bottomRight,
+    _focalLength,
+  ];
 }

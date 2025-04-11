@@ -15,19 +15,19 @@ class CICrystallizeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CICrystallizeConfiguration] with default values.
   CICrystallizeConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          20,
-          min: 1,
-          max: 100,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CICrystallize');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        20,
+        min: 1,
+        max: 100,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CICrystallize');
 
   /// The radius, in pixels, of the effect.
   ///
@@ -47,12 +47,12 @@ class CICrystallizeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _center];

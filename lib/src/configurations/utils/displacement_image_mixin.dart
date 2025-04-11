@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a displacement image parameter to a filter configuration.
 mixin DisplacementImageMixin on CIFilterConfiguration {
-  final DataParameter _displacementImage =
-      CIImageParameter('inputDisplacementImage', 'Displacement Image');
+  final DataParameter _displacementImage = CIImageParameter(
+    'inputDisplacementImage',
+    'Displacement Image',
+  );
 
   /// The displacement image data
   ///
@@ -34,7 +36,9 @@ mixin DisplacementImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _displacementImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _displacementImage,
+  ];
+  // coverage:ignore-end
 }

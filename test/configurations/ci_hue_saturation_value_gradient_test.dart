@@ -9,38 +9,44 @@ void main() {
   });
   group('CIHueSaturationValueGradient', () {
     test('change inputColorSpace', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputColorSpace')
-          as OptionStringParameter<CGColorSpace>;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputColorSpace',
+              )
+              as OptionStringParameter<CGColorSpace>;
       expect(parameter.value.platformKey, '');
       configuration.colorSpace = CGColorSpace.sRGB;
       expect(parameter.value.platformKey, 'sRGB');
     });
 
     test('change inputDither', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputDither') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputDither')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.dither = 2;
       expect(parameter.value, 2);
     });
     test('change inputSoftness', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputSoftness') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputSoftness')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.softness = 0.5;
       expect(parameter.value, 0.5);
     });
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 300);
       configuration.radius = 500;
       expect(parameter.value, 500);
     });
     test('change inputValue', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputValue') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputValue')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.value = 0.5;
       expect(parameter.value, 0.5);

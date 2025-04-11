@@ -9,8 +9,9 @@ void main() {
   });
   group('CIDiscBlur', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 8);
       configuration.radius = 50;
       expect(parameter.value, 50);

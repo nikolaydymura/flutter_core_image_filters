@@ -9,23 +9,26 @@ void main() {
   });
   group('CIHistogramDisplayFilter', () {
     test('change inputLowLimit', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputLowLimit') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputLowLimit')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.lowLimit = 0.5;
       expect(parameter.value, 0.5);
     });
 
     test('change inputHighLimit', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputHighLimit') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputHighLimit')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.highLimit = 0.5;
       expect(parameter.value, 0.5);
     });
     test('change inputHeight', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputHeight') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputHeight')
+              as NumberParameter;
       expect(parameter.value, 100);
       configuration.height = 55;
       expect(parameter.value, 55);

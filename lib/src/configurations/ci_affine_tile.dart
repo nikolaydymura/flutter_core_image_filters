@@ -13,12 +13,12 @@ class CIAffineTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIAffineTileConfiguration] with default values.
   CIAffineTileConfiguration()
-      : _transform = CGAffineTransformParameter(
-          'inputTransform',
-          'Transform',
-          const CGAffineTransform(),
-        ),
-        super('CIAffineTile');
+    : _transform = CGAffineTransformParameter(
+        'inputTransform',
+        'Transform',
+        const CGAffineTransform(),
+      ),
+      super('CIAffineTile');
 
   /// The transform to apply to the image.
   set transform(CGAffineTransform value) {
@@ -27,12 +27,12 @@ class CIAffineTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_transform];

@@ -17,26 +17,26 @@ class CILightTunnelConfiguration extends CIFilterConfiguration {
 
   /// Create a [CILightTunnelConfiguration] with default values.
   CILightTunnelConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          100,
-          min: 1,
-          max: 500,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _rotation = SliderNSNumberParameter(
-          'inputRotation',
-          'Rotation',
-          0,
-          min: 0,
-          max: 1.5707963267948966,
-        ),
-        super('CILightTunnel');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        100,
+        min: 1,
+        max: 500,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _rotation = SliderNSNumberParameter(
+        'inputRotation',
+        'Rotation',
+        0,
+        min: 0,
+        max: 1.5707963267948966,
+      ),
+      super('CILightTunnel');
 
   /// The radius.
   ///
@@ -65,12 +65,12 @@ class CILightTunnelConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _center, _rotation];

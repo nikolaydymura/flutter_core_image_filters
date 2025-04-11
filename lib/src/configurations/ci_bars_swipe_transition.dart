@@ -20,35 +20,29 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIBarsSwipeTransitionConfiguration] with default values.
   CIBarsSwipeTransitionConfiguration()
-      : _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          3.141592653589793,
-          min: 0,
-          max: 6.2831853071795860,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          30,
-          min: 2,
-          max: 300,
-        ),
-        _barOffset = SliderNSNumberParameter(
-          'inputBarOffset',
-          'Bar Offset',
-          10,
-          min: 1,
-          max: 100,
-        ),
-        super('CIBarsSwipeTransition');
+    : _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        3.141592653589793,
+        min: 0,
+        max: 6.2831853071795860,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        30,
+        min: 2,
+        max: 300,
+      ),
+      _barOffset = SliderNSNumberParameter(
+        'inputBarOffset',
+        'Bar Offset',
+        10,
+        min: 1,
+        max: 100,
+      ),
+      super('CIBarsSwipeTransition');
 
   /// The time at which the transition should be at its final state.
   ///
@@ -88,14 +82,19 @@ class CIBarsSwipeTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_time, _angle, _width, _barOffset, _targetImage];
+  List<ConfigurationParameter> get parameters => [
+    _time,
+    _angle,
+    _width,
+    _barOffset,
+    _targetImage,
+  ];
 }

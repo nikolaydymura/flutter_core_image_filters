@@ -20,33 +20,27 @@ class CIPageCurlTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIPageCurlTransitionConfiguration] with default values.
   CIPageCurlTransitionConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 300, 300),
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          100,
-          min: 0.01,
-          max: 400,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIPageCurlTransition');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 300, 300),
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        100,
+        min: 0.01,
+        max: 400,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIPageCurlTransition');
 
   /// The extent of the effect.
   ///
@@ -84,21 +78,21 @@ class CIPageCurlTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _extent,
-        _time,
-        _radius,
-        _angle,
-        _shadingImage,
-        _targetImage,
-        _backsideImage,
-      ];
+    _extent,
+    _time,
+    _radius,
+    _angle,
+    _shadingImage,
+    _targetImage,
+    _backsideImage,
+  ];
 }

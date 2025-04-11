@@ -18,15 +18,17 @@ void main() {
       expect(parameter.value, 500);
     });
     test('change inputColor0', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColor0') as CIColorParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputColor0')
+              as CIColorParameter;
       expect(parameter.value, const Color.fromRGBO(255, 255, 255, 1));
       configuration.color0 = Colors.orange;
       expect(parameter.value, Colors.orange);
     });
     test('change inputCenter', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputCenter')
+              as CGPositionParameter;
       expect(parameter.value, const Point(150, 150));
       configuration.center = const Point(100, 100);
       expect(parameter.value, const Point(100, 100));
@@ -40,8 +42,9 @@ void main() {
       expect(parameter.value, 500);
     });
     test('change inputColor1', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColor1') as CIColorParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputColor1')
+              as CIColorParameter;
       expect(parameter.value, const Color.fromRGBO(0, 0, 0, 1));
       configuration.color1 = Colors.orange;
       expect(parameter.value, Colors.orange);

@@ -13,14 +13,14 @@ class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIDocumentEnhancerConfiguration] with default values.
   CIDocumentEnhancerConfiguration()
-      : _amount = SliderNSNumberParameter(
-          'inputAmount',
-          'Amount',
-          1,
-          min: 0,
-          max: 10,
-        ),
-        super('CIDocumentEnhancer');
+    : _amount = SliderNSNumberParameter(
+        'inputAmount',
+        'Amount',
+        1,
+        min: 0,
+        max: 10,
+      ),
+      super('CIDocumentEnhancer');
 
   /// The amount of enhancement.
   ///
@@ -33,11 +33,11 @@ class CIDocumentEnhancerConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_amount];

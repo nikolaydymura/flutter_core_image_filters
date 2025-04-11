@@ -9,8 +9,9 @@ void main() {
   });
   group('CIHueAdjust', () {
     test('change inputAngle', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputAngle')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.angle = -1;
       expect(parameter.value, -1);

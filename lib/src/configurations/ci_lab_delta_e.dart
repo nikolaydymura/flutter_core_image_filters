@@ -5,11 +5,11 @@ class CILabDeltaEConfiguration extends CIFilterConfiguration with Image2Mixin {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }

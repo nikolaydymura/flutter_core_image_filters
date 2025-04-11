@@ -6,13 +6,13 @@ class CIConvolutionRGB9HorizontalConfiguration extends CIFilterConfiguration {
   final Mat3Parameter _weights;
 
   CIConvolutionRGB9HorizontalConfiguration()
-      : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = _Mat3Parameter(
-          'inputWeights',
-          'Weights',
-          Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]),
-        ),
-        super('CIConvolutionRGB9Horizontal');
+    : _bias = NSNumberParameter('inputBias', 'Bias', 0),
+      _weights = _Mat3Parameter(
+        'inputWeights',
+        'Weights',
+        Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]),
+      ),
+      super('CIConvolutionRGB9Horizontal');
 
   /// The bias value.
   ///
@@ -28,12 +28,12 @@ class CIConvolutionRGB9HorizontalConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_bias, _weights];

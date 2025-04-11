@@ -13,14 +13,8 @@ class CIExposureAdjustConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIExposureAdjustConfiguration] with default values.
   CIExposureAdjustConfiguration()
-      : _eV = SliderNSNumberParameter(
-          'inputEV',
-          'EV',
-          0,
-          min: -10,
-          max: 10,
-        ),
-        super('CIExposureAdjust');
+    : _eV = SliderNSNumberParameter('inputEV', 'EV', 0, min: -10, max: 10),
+      super('CIExposureAdjust');
 
   /// The amount to adjust the exposure of the image by.
   ///
@@ -33,15 +27,15 @@ class CIExposureAdjustConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_eV];

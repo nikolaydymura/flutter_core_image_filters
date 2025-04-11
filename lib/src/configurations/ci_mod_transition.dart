@@ -22,40 +22,34 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIModTransitionConfiguration] with default values.
   CIModTransitionConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          2,
-          min: -6.283185307179586,
-          max: 6.283185307179586,
-        ),
-        _compression = SliderNSNumberParameter(
-          'inputCompression',
-          'Compression',
-          300,
-          min: 1,
-          max: 800,
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          150,
-          min: 1,
-          max: 200,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIModTransition');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        2,
+        min: -6.283185307179586,
+        max: 6.283185307179586,
+      ),
+      _compression = SliderNSNumberParameter(
+        'inputCompression',
+        'Compression',
+        300,
+        min: 1,
+        max: 800,
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        150,
+        min: 1,
+        max: 200,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIModTransition');
 
   /// The angle of the mod hole pattern.
   ///
@@ -102,14 +96,20 @@ class CIModTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_angle, _compression, _time, _targetImage, _radius, _center];
+  List<ConfigurationParameter> get parameters => [
+    _angle,
+    _compression,
+    _time,
+    _targetImage,
+    _radius,
+    _center,
+  ];
 }

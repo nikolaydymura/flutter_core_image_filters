@@ -13,14 +13,14 @@ class CIBoxBlurConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIBoxBlurConfiguration] with default values.
   CIBoxBlurConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          10,
-          min: 1,
-          max: 100,
-        ),
-        super('CIBoxBlur');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        10,
+        min: 1,
+        max: 100,
+      ),
+      super('CIBoxBlur');
 
   /// The radius of the blur, in pixels.
   ///
@@ -33,12 +33,12 @@ class CIBoxBlurConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

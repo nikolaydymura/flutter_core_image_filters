@@ -19,33 +19,33 @@ class CIHatchedScreenConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHatchedScreenConfiguration] with default values.
   CIHatchedScreenConfiguration()
-      : _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          6,
-          min: 1,
-          max: 50,
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.7,
-          min: 0,
-          max: 1,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIHatchedScreen');
+    : _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        6,
+        min: 1,
+        max: 50,
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.7,
+        min: 0,
+        max: 1,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIHatchedScreen');
 
   /// The distance between lines in the pattern.
   ///
@@ -83,13 +83,17 @@ class CIHatchedScreenConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.halftoneEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.halftoneEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_width, _sharpness, _angle, _center];
+  List<ConfigurationParameter> get parameters => [
+    _width,
+    _sharpness,
+    _angle,
+    _center,
+  ];
 }

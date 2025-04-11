@@ -17,26 +17,26 @@ class CIBumpDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIBumpDistortionConfiguration] with default values.
   CIBumpDistortionConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 600,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          0.5,
-          min: -1,
-          max: 1,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIBumpDistortion');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 600,
+      ),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        0.5,
+        min: -1,
+        max: 1,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIBumpDistortion');
 
   /// The radius of the distortion.
   ///
@@ -65,12 +65,12 @@ class CIBumpDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _scale, _center];

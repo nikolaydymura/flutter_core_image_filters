@@ -9,8 +9,9 @@ void main() {
   });
   group('CIVibrance', () {
     test('change inputAmount', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAmount') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputAmount')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.amount = 0.25;
       expect(parameter.value, 0.25);

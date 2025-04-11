@@ -12,10 +12,10 @@ class CIImagePreview extends StatelessWidget {
 }
 
 class CIImagePreviewController {
-// coverage:ignore-start
+  // coverage:ignore-start
   static final ImagePreviewApi _gApi = ImagePreviewApi();
 
-// coverage:ignore-end
+  // coverage:ignore-end
   final ImagePreviewApi _api;
   final int _textureId;
 
@@ -25,36 +25,32 @@ class CIImagePreviewController {
     if (source is DataInputSource) {
       await _api.setData(_textureId, source.data);
     } else if (source is FileInputSource) {
-      await _api.setSourceFile(
-        _textureId,
-        source.path,
-      );
+      await _api.setSourceFile(_textureId, source.path);
     } else if (source is AssetInputSource) {
-      await _api.setSourceAsset(
-        _textureId,
-        source.path,
-      );
+      await _api.setSourceAsset(_textureId, source.path);
     }
   }
 
   Future<void> setOutputSurface(Rect rect) async {
-    await _api.setOutput(
-      _textureId,
-      [rect.left, rect.top, rect.width, rect.height],
-    );
+    await _api.setOutput(_textureId, [
+      rect.left,
+      rect.top,
+      rect.width,
+      rect.height,
+    ]);
   }
 
   static Future<CIImagePreviewController> initialize({
     @visibleForTesting ImagePreviewApi? previewApi,
   }) async {
-// coverage:ignore-start
+    // coverage:ignore-start
     final api = previewApi ?? _gApi;
-// coverage:ignore-end
+    // coverage:ignore-end
     final textureId = await api.create();
     return CIImagePreviewController._(api, textureId);
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   static Future<CIImagePreviewController> fromFile(File file) async {
     final controller = await initialize();
     await controller.setImageSource(FileInputSource(file));
@@ -79,7 +75,7 @@ class CIImagePreviewController {
     return controller;
   }
 
-// coverage:ignore-end
+  // coverage:ignore-end
   Future<void> connect(
     CIFilterConfiguration configuration, {
     CIContext context = CIContext.mlt,

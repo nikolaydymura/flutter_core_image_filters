@@ -17,26 +17,26 @@ class CIEightfoldReflectedTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIEightfoldReflectedTileConfiguration] with default values.
   CIEightfoldReflectedTileConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIEightfoldReflectedTile');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIEightfoldReflectedTile');
 
   /// The x and y position to use as the center of the effect.
   ///
@@ -65,12 +65,12 @@ class CIEightfoldReflectedTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _width, _angle];

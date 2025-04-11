@@ -34,14 +34,13 @@ class MockCIFilterPlatform extends _i1.Mock
     with _i2.MockPlatformInterfaceMixin
     implements _i3.CIFilterPlatform {
   @override
-  _i4.Future<int> create(String? name) => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [name],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+  _i4.Future<int> create(String? name) =>
+      (super.noSuchMethod(
+            Invocation.method(#create, [name]),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
   _i4.Future<_i5.Uint8List> exportData(
@@ -51,19 +50,13 @@ class MockCIFilterPlatform extends _i1.Mock
     List<double>? crop,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportData,
-          [
-            filterId,
-            format,
-            context,
-            crop,
-          ],
-        ),
-        returnValue: _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
-        returnValueForMissingStub:
-            _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
-      ) as _i4.Future<_i5.Uint8List>);
+            Invocation.method(#exportData, [filterId, format, context, crop]),
+            returnValue: _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
+            returnValueForMissingStub: _i4.Future<_i5.Uint8List>.value(
+              _i5.Uint8List(0),
+            ),
+          )
+          as _i4.Future<_i5.Uint8List>);
 
   @override
   _i4.Future<void> exportImageFile(
@@ -74,19 +67,17 @@ class MockCIFilterPlatform extends _i1.Mock
     List<double>? crop,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportImageFile,
-          [
-            filterId,
-            path,
-            format,
-            context,
-            crop,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#exportImageFile, [
+              filterId,
+              path,
+              format,
+              context,
+              crop,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<int> exportVideoFile(
@@ -100,73 +91,47 @@ class MockCIFilterPlatform extends _i1.Mock
     int? period,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportVideoFile,
-          [
-            filterId,
-            asset,
-            input,
-            output,
-            format,
-            context,
-            preset,
-            period,
-          ],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+            Invocation.method(#exportVideoFile, [
+              filterId,
+              asset,
+              input,
+              output,
+              format,
+              context,
+              preset,
+              period,
+            ]),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
-  _i4.Future<void> setInputData(
-    int? filterId,
-    _i5.Uint8List? data,
-  ) =>
+  _i4.Future<void> setInputData(int? filterId, _i5.Uint8List? data) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputData,
-          [
-            filterId,
-            data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputData, [filterId, data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setInputAsset(
-    int? filterId,
-    String? path,
-  ) =>
+  _i4.Future<void> setInputAsset(int? filterId, String? path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputAsset,
-          [
-            filterId,
-            path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputAsset, [filterId, path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setInputFile(
-    int? filterId,
-    String? path,
-  ) =>
+  _i4.Future<void> setInputFile(int? filterId, String? path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputFile,
-          [
-            filterId,
-            path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputFile, [filterId, path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSNumberParameter(
@@ -175,17 +140,11 @@ class MockCIFilterPlatform extends _i1.Mock
     double? value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSNumberParameter,
-          [
-            filterId,
-            key,
-            value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSNumberParameter, [filterId, key, value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIColorParameter(
@@ -194,17 +153,11 @@ class MockCIFilterPlatform extends _i1.Mock
     List<double>? value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIColorParameter,
-          [
-            filterId,
-            key,
-            value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIColorParameter, [filterId, key, value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSValueParameter(
@@ -213,17 +166,11 @@ class MockCIFilterPlatform extends _i1.Mock
     List<double>? value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSValueParameter,
-          [
-            filterId,
-            key,
-            value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSValueParameter, [filterId, key, value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIVectorParameter(
@@ -232,17 +179,11 @@ class MockCIFilterPlatform extends _i1.Mock
     List<double>? value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIVectorParameter,
-          [
-            filterId,
-            key,
-            value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIVectorParameter, [filterId, key, value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageDataParameter(
@@ -251,17 +192,11 @@ class MockCIFilterPlatform extends _i1.Mock
     _i5.Uint8List? data,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageDataParameter,
-          [
-            filterId,
-            key,
-            data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageDataParameter, [filterId, key, data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageSourceParameter(
@@ -271,18 +206,16 @@ class MockCIFilterPlatform extends _i1.Mock
     String? path,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageSourceParameter,
-          [
-            filterId,
-            key,
-            asset,
-            path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageSourceParameter, [
+              filterId,
+              key,
+              asset,
+              path,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSDataParameter(
@@ -291,17 +224,11 @@ class MockCIFilterPlatform extends _i1.Mock
     _i5.Uint8List? data,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSDataParameter,
-          [
-            filterId,
-            key,
-            data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSDataParameter, [filterId, key, data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSDataSourceParameter(
@@ -311,18 +238,16 @@ class MockCIFilterPlatform extends _i1.Mock
     String? path,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSDataSourceParameter,
-          [
-            filterId,
-            key,
-            asset,
-            path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSDataSourceParameter, [
+              filterId,
+              key,
+              asset,
+              path,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSStringParameter(
@@ -331,27 +256,20 @@ class MockCIFilterPlatform extends _i1.Mock
     String? value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSStringParameter,
-          [
-            filterId,
-            key,
-            value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSStringParameter, [filterId, key, value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? filterId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [filterId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> dispose(int? filterId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [filterId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }
 
 /// A class which mocks [CIImagePreviewPlatform].
@@ -361,43 +279,31 @@ class MockCIImagePreviewPlatform extends _i1.Mock
     with _i2.MockPlatformInterfaceMixin
     implements _i3.CIImagePreviewPlatform {
   @override
-  _i4.Future<int> create() => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
-
-  @override
-  _i4.Future<void> connect(
-    int? textureId,
-    int? filterId,
-    String? context,
-  ) =>
+  _i4.Future<int> create() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [
-            textureId,
-            filterId,
-            context,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#create, []),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
-  _i4.Future<void> disconnect(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #disconnect,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> connect(int? textureId, int? filterId, String? context) =>
+      (super.noSuchMethod(
+            Invocation.method(#connect, [textureId, filterId, context]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> disconnect(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#disconnect, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setSource(
@@ -406,61 +312,38 @@ class MockCIImagePreviewPlatform extends _i1.Mock
     bool? asset = false,
   ]) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSource,
-          [
-            textureId,
-            path,
-            asset,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setSource, [textureId, path, asset]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setData(
-    int? textureId,
-    _i5.Uint8List? data,
-  ) =>
+  _i4.Future<void> setData(int? textureId, _i5.Uint8List? data) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setData,
-          [
-            textureId,
-            data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setData, [textureId, data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setOutput(
-    int? textureId,
-    List<double>? rect,
-  ) =>
+  _i4.Future<void> setOutput(int? textureId, List<double>? rect) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setOutput,
-          [
-            textureId,
-            rect,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setOutput, [textureId, rect]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> dispose(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }
 
 /// A class which mocks [CIVideoPreviewPlatform].
@@ -470,43 +353,31 @@ class MockCIVideoPreviewPlatform extends _i1.Mock
     with _i2.MockPlatformInterfaceMixin
     implements _i3.CIVideoPreviewPlatform {
   @override
-  _i4.Future<int> create() => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
-
-  @override
-  _i4.Future<void> connect(
-    int? textureId,
-    int? filterId,
-    String? context,
-  ) =>
+  _i4.Future<int> create() =>
       (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [
-            textureId,
-            filterId,
-            context,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#create, []),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
-  _i4.Future<void> disconnect(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #disconnect,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> connect(int? textureId, int? filterId, String? context) =>
+      (super.noSuchMethod(
+            Invocation.method(#connect, [textureId, filterId, context]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> disconnect(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#disconnect, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setSource(
@@ -515,47 +386,38 @@ class MockCIVideoPreviewPlatform extends _i1.Mock
     bool? asset = false,
   ]) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSource,
-          [
-            textureId,
-            path,
-            asset,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setSource, [textureId, path, asset]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> resume(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #resume,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> resume(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#resume, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> pause(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #pause,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> pause(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#pause, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> dispose(int? textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }
 
 /// A class which mocks [FilterApi].
@@ -563,14 +425,13 @@ class MockCIVideoPreviewPlatform extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
   @override
-  _i4.Future<int> create(String? arg_name) => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [arg_name],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+  _i4.Future<int> create(String? arg_name) =>
+      (super.noSuchMethod(
+            Invocation.method(#create, [arg_name]),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
   _i4.Future<_i5.Uint8List> exportData(
@@ -580,19 +441,18 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     List<double?>? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportData,
-          [
-            arg_filters,
-            arg_format,
-            arg_context,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
-        returnValueForMissingStub:
-            _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
-      ) as _i4.Future<_i5.Uint8List>);
+            Invocation.method(#exportData, [
+              arg_filters,
+              arg_format,
+              arg_context,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<_i5.Uint8List>.value(_i5.Uint8List(0)),
+            returnValueForMissingStub: _i4.Future<_i5.Uint8List>.value(
+              _i5.Uint8List(0),
+            ),
+          )
+          as _i4.Future<_i5.Uint8List>);
 
   @override
   _i4.Future<void> exportImageFile(
@@ -603,19 +463,17 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     List<double?>? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportImageFile,
-          [
-            arg_filters,
-            arg_path,
-            arg_format,
-            arg_context,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#exportImageFile, [
+              arg_filters,
+              arg_path,
+              arg_format,
+              arg_context,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<int> exportVideoFile(
@@ -629,73 +487,47 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     double? arg_period,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #exportVideoFile,
-          [
-            arg_filters,
-            arg_asset,
-            arg_input,
-            arg_output,
-            arg_format,
-            arg_context,
-            arg_preset,
-            arg_period,
-          ],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+            Invocation.method(#exportVideoFile, [
+              arg_filters,
+              arg_asset,
+              arg_input,
+              arg_output,
+              arg_format,
+              arg_context,
+              arg_preset,
+              arg_period,
+            ]),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
-  _i4.Future<void> setInputData(
-    int? arg_filterId,
-    _i5.Uint8List? arg_data,
-  ) =>
+  _i4.Future<void> setInputData(int? arg_filterId, _i5.Uint8List? arg_data) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputData,
-          [
-            arg_filterId,
-            arg_data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputData, [arg_filterId, arg_data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setInputAsset(
-    int? arg_filterId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> setInputAsset(int? arg_filterId, String? arg_path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputAsset,
-          [
-            arg_filterId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputAsset, [arg_filterId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setInputFile(
-    int? arg_filterId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> setInputFile(int? arg_filterId, String? arg_path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setInputFile,
-          [
-            arg_filterId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setInputFile, [arg_filterId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSNumberParameter(
@@ -704,17 +536,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     double? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSNumberParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSNumberParameter, [
+              arg_filterId,
+              arg_key,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIColorParameter(
@@ -723,17 +553,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     List<double?>? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIColorParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIColorParameter, [
+              arg_filterId,
+              arg_key,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSValueParameter(
@@ -742,17 +570,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     List<double?>? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSValueParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSValueParameter, [
+              arg_filterId,
+              arg_key,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIVectorParameter(
@@ -761,17 +587,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     List<double?>? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIVectorParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIVectorParameter, [
+              arg_filterId,
+              arg_key,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageDataParameter(
@@ -780,17 +604,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     _i5.Uint8List? arg_data,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageDataParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageDataParameter, [
+              arg_filterId,
+              arg_key,
+              arg_data,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageSourceParameter(
@@ -800,18 +622,16 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     String? arg_path,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageSourceParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_asset,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageSourceParameter, [
+              arg_filterId,
+              arg_key,
+              arg_asset,
+              arg_path,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageCubeDataParameter(
@@ -823,20 +643,18 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     int? arg_rows,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageCubeDataParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_data,
-            arg_size,
-            arg_columns,
-            arg_rows,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageCubeDataParameter, [
+              arg_filterId,
+              arg_key,
+              arg_data,
+              arg_size,
+              arg_columns,
+              arg_rows,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setCIImageCubeSourceParameter(
@@ -849,21 +667,19 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     int? arg_rows,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setCIImageCubeSourceParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_asset,
-            arg_path,
-            arg_size,
-            arg_columns,
-            arg_rows,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setCIImageCubeSourceParameter, [
+              arg_filterId,
+              arg_key,
+              arg_asset,
+              arg_path,
+              arg_size,
+              arg_columns,
+              arg_rows,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSDataParameter(
@@ -872,17 +688,15 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     _i5.Uint8List? arg_data,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSDataParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSDataParameter, [
+              arg_filterId,
+              arg_key,
+              arg_data,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSDataSourceParameter(
@@ -892,18 +706,16 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     String? arg_path,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSDataSourceParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_asset,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSDataSourceParameter, [
+              arg_filterId,
+              arg_key,
+              arg_asset,
+              arg_path,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
   _i4.Future<void> setNSStringParameter(
@@ -912,27 +724,24 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
     String? arg_value,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setNSStringParameter,
-          [
-            arg_filterId,
-            arg_key,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setNSStringParameter, [
+              arg_filterId,
+              arg_key,
+              arg_value,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? arg_filterId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [arg_filterId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> dispose(int? arg_filterId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [arg_filterId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }
 
 /// A class which mocks [VideoPreviewApi].
@@ -940,14 +749,13 @@ class MockFilterApi extends _i1.Mock implements _i6.FilterApi {
 /// See the documentation for Mockito's code generation for more information.
 class MockVideoPreviewApi extends _i1.Mock implements _i7.VideoPreviewApi {
   @override
-  _i4.Future<int> create() => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+  _i4.Future<int> create() =>
+      (super.noSuchMethod(
+            Invocation.method(#create, []),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
   _i4.Future<void> connect(
@@ -956,91 +764,69 @@ class MockVideoPreviewApi extends _i1.Mock implements _i7.VideoPreviewApi {
     String? arg_context,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [
-            arg_textureId,
-            arg_filters,
-            arg_context,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#connect, [
+              arg_textureId,
+              arg_filters,
+              arg_context,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> disconnect(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #disconnect,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
-  _i4.Future<void> setSourceAsset(
-    int? arg_textureId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> disconnect(int? arg_textureId) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSourceAsset,
-          [
-            arg_textureId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#disconnect, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setSourceFile(
-    int? arg_textureId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> setSourceAsset(int? arg_textureId, String? arg_path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSourceFile,
-          [
-            arg_textureId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setSourceAsset, [arg_textureId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> resume(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #resume,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> setSourceFile(int? arg_textureId, String? arg_path) =>
+      (super.noSuchMethod(
+            Invocation.method(#setSourceFile, [arg_textureId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> pause(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #pause,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> resume(int? arg_textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#resume, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> pause(int? arg_textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#pause, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> dispose(int? arg_textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }
 
 /// A class which mocks [ImagePreviewApi].
@@ -1048,14 +834,13 @@ class MockVideoPreviewApi extends _i1.Mock implements _i7.VideoPreviewApi {
 /// See the documentation for Mockito's code generation for more information.
 class MockImagePreviewApi extends _i1.Mock implements _i7.ImagePreviewApi {
   @override
-  _i4.Future<int> create() => (super.noSuchMethod(
-        Invocation.method(
-          #create,
-          [],
-        ),
-        returnValue: _i4.Future<int>.value(0),
-        returnValueForMissingStub: _i4.Future<int>.value(0),
-      ) as _i4.Future<int>);
+  _i4.Future<int> create() =>
+      (super.noSuchMethod(
+            Invocation.method(#create, []),
+            returnValue: _i4.Future<int>.value(0),
+            returnValueForMissingStub: _i4.Future<int>.value(0),
+          )
+          as _i4.Future<int>);
 
   @override
   _i4.Future<void> connect(
@@ -1064,103 +849,67 @@ class MockImagePreviewApi extends _i1.Mock implements _i7.ImagePreviewApi {
     String? arg_context,
   ) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #connect,
-          [
-            arg_textureId,
-            arg_filters,
-            arg_context,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#connect, [
+              arg_textureId,
+              arg_filters,
+              arg_context,
+            ]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> disconnect(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #disconnect,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
-
-  @override
-  _i4.Future<void> setSourceAsset(
-    int? arg_textureId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> disconnect(int? arg_textureId) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSourceAsset,
-          [
-            arg_textureId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#disconnect, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setSourceFile(
-    int? arg_textureId,
-    String? arg_path,
-  ) =>
+  _i4.Future<void> setSourceAsset(int? arg_textureId, String? arg_path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setSourceFile,
-          [
-            arg_textureId,
-            arg_path,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setSourceAsset, [arg_textureId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setData(
-    int? arg_textureId,
-    _i5.Uint8List? arg_data,
-  ) =>
+  _i4.Future<void> setSourceFile(int? arg_textureId, String? arg_path) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setData,
-          [
-            arg_textureId,
-            arg_data,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setSourceFile, [arg_textureId, arg_path]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> setOutput(
-    int? arg_textureId,
-    List<double?>? arg_value,
-  ) =>
+  _i4.Future<void> setData(int? arg_textureId, _i5.Uint8List? arg_data) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #setOutput,
-          [
-            arg_textureId,
-            arg_value,
-          ],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+            Invocation.method(#setData, [arg_textureId, arg_data]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 
   @override
-  _i4.Future<void> dispose(int? arg_textureId) => (super.noSuchMethod(
-        Invocation.method(
-          #dispose,
-          [arg_textureId],
-        ),
-        returnValue: _i4.Future<void>.value(),
-        returnValueForMissingStub: _i4.Future<void>.value(),
-      ) as _i4.Future<void>);
+  _i4.Future<void> setOutput(int? arg_textureId, List<double?>? arg_value) =>
+      (super.noSuchMethod(
+            Invocation.method(#setOutput, [arg_textureId, arg_value]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> dispose(int? arg_textureId) =>
+      (super.noSuchMethod(
+            Invocation.method(#dispose, [arg_textureId]),
+            returnValue: _i4.Future<void>.value(),
+            returnValueForMissingStub: _i4.Future<void>.value(),
+          )
+          as _i4.Future<void>);
 }

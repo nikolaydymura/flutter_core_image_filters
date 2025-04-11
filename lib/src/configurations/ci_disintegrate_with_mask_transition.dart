@@ -12,7 +12,8 @@ part of '../../flutter_core_image_filters.dart';
 ///  * [CIDisintegrateWithMaskTransition](https://developer.apple.com/documentation/coreimage/cidisintegratewithmasktransition), which
 ///    defines the exact information for filter.
 class CIDisintegrateWithMaskTransitionConfiguration
-    extends CIFilterConfiguration with TargetImageMixin, MaskImageMixin {
+    extends CIFilterConfiguration
+    with TargetImageMixin, MaskImageMixin {
   final NumberParameter _time;
   final PointParameter _shadowOffset;
   final NumberParameter _shadowDensity;
@@ -20,33 +21,27 @@ class CIDisintegrateWithMaskTransitionConfiguration
 
   /// Create a [CIDisintegrateWithMaskTransitionConfiguration] with default values.
   CIDisintegrateWithMaskTransitionConfiguration()
-      : _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _shadowOffset = CGPositionParameter(
-          'inputShadowOffset',
-          'Shadow Offset',
-          const Point(0, -10),
-        ),
-        _shadowDensity = SliderNSNumberParameter(
-          'inputShadowDensity',
-          'Shadow Density',
-          0.65,
-          min: 0,
-          max: 1,
-        ),
-        _shadowRadius = SliderNSNumberParameter(
-          'inputShadowRadius',
-          'Shadow Radius',
-          8,
-          min: 0,
-          max: 50,
-        ),
-        super('CIDisintegrateWithMaskTransition');
+    : _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _shadowOffset = CGPositionParameter(
+        'inputShadowOffset',
+        'Shadow Offset',
+        const Point(0, -10),
+      ),
+      _shadowDensity = SliderNSNumberParameter(
+        'inputShadowDensity',
+        'Shadow Density',
+        0.65,
+        min: 0,
+        max: 1,
+      ),
+      _shadowRadius = SliderNSNumberParameter(
+        'inputShadowRadius',
+        'Shadow Radius',
+        8,
+        min: 0,
+        max: 50,
+      ),
+      super('CIDisintegrateWithMaskTransition');
 
   /// Set the time.
   ///
@@ -84,20 +79,20 @@ class CIDisintegrateWithMaskTransitionConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _time,
-        _shadowOffset,
-        _shadowDensity,
-        _shadowRadius,
-        _targetImage,
-        _maskImage,
-      ];
+    _time,
+    _shadowOffset,
+    _shadowDensity,
+    _shadowRadius,
+    _targetImage,
+    _maskImage,
+  ];
 }

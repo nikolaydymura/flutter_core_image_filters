@@ -17,28 +17,28 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHistogramDisplayFilterConfiguration] with default values.
   CIHistogramDisplayFilterConfiguration()
-      : _lowLimit = SliderNSNumberParameter(
-          'inputLowLimit',
-          'Low Limit',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _highLimit = SliderNSNumberParameter(
-          'inputHighLimit',
-          'High Limit',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _height = SliderNSNumberParameter(
-          'inputHeight',
-          'Height',
-          100,
-          min: 1,
-          max: 200,
-        ),
-        super('CIHistogramDisplayFilter');
+    : _lowLimit = SliderNSNumberParameter(
+        'inputLowLimit',
+        'Low Limit',
+        0,
+        min: 0,
+        max: 1,
+      ),
+      _highLimit = SliderNSNumberParameter(
+        'inputHighLimit',
+        'High Limit',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _height = SliderNSNumberParameter(
+        'inputHeight',
+        'Height',
+        100,
+        min: 1,
+        max: 200,
+      ),
+      super('CIHistogramDisplayFilter');
 
   /// The lowLimit.
   ///
@@ -69,13 +69,16 @@ class CIHistogramDisplayFilterConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_lowLimit, _highLimit, _height];
+  List<ConfigurationParameter> get parameters => [
+    _lowLimit,
+    _highLimit,
+    _height,
+  ];
 }

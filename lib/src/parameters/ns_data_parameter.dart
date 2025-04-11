@@ -54,8 +54,11 @@ class NSDataParameter extends DataParameter {
         file!.absolute.path,
       );
     } else if (data != null) {
-      await configuration._api
-          .setNSDataParameter(configuration._filterId, name, data!);
+      await configuration._api.setNSDataParameter(
+        configuration._filterId,
+        name,
+        data!,
+      );
     }
   }
 }
@@ -178,8 +181,11 @@ class CubeDataParameter extends DataParameter {
           file!.absolute.path,
         );
       } else if (data != null) {
-        await configuration._api
-            .setNSDataParameter(configuration._filterId, name, data!);
+        await configuration._api.setNSDataParameter(
+          configuration._filterId,
+          name,
+          data!,
+        );
       }
     }
   }

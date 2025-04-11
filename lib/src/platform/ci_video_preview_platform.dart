@@ -33,11 +33,7 @@ abstract class CIVideoPreviewPlatform extends PlatformInterface {
     throw UnimplementedError('disconnect() has not been implemented.');
   }
 
-  Future<void> setSource(
-    int textureId,
-    String path, [
-    bool asset = false,
-  ]) {
+  Future<void> setSource(int textureId, String path, [bool asset = false]) {
     throw UnimplementedError('setSource() has not been implemented.');
   }
 

@@ -17,26 +17,26 @@ class CIStretchCropConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIStretchCropConfiguration] with default values.
   CIStretchCropConfiguration()
-      : _centerStretchAmount = SliderNSNumberParameter(
-          'inputCenterStretchAmount',
-          'Center Stretch Amount',
-          0.25,
-          min: 0,
-          max: 1,
-        ),
-        _cropAmount = SliderNSNumberParameter(
-          'inputCropAmount',
-          'Crop Amount',
-          0.25,
-          min: 0,
-          max: 1,
-        ),
-        _size = CGPositionParameter(
-          'inputSize',
-          'Size',
-          const Point(1280.0, 720.0),
-        ),
-        super('CIStretchCrop');
+    : _centerStretchAmount = SliderNSNumberParameter(
+        'inputCenterStretchAmount',
+        'Center Stretch Amount',
+        0.25,
+        min: 0,
+        max: 1,
+      ),
+      _cropAmount = SliderNSNumberParameter(
+        'inputCropAmount',
+        'Crop Amount',
+        0.25,
+        min: 0,
+        max: 1,
+      ),
+      _size = CGPositionParameter(
+        'inputSize',
+        'Size',
+        const Point(1280.0, 720.0),
+      ),
+      super('CIStretchCrop');
 
   /// The centerStretchAmount.
   ///
@@ -65,14 +65,17 @@ class CIStretchCropConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_centerStretchAmount, _cropAmount, _size];
+  List<ConfigurationParameter> get parameters => [
+    _centerStretchAmount,
+    _cropAmount,
+    _size,
+  ];
 }

@@ -54,8 +54,11 @@ class CIImageParameter extends DataParameter {
         file!.absolute.path,
       );
     } else if (data != null) {
-      await configuration._api
-          .setCIImageDataParameter(configuration._filterId, name, data!);
+      await configuration._api.setCIImageDataParameter(
+        configuration._filterId,
+        name,
+        data!,
+      );
     }
   }
 }

@@ -5,12 +5,12 @@ class CIClampConfiguration extends CIFilterConfiguration {
   final RectParameter _extent;
 
   CIClampConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        super('CIClamp');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      super('CIClamp');
 
   /// The extent of the clamp.
   ///
@@ -21,12 +21,12 @@ class CIClampConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_extent];

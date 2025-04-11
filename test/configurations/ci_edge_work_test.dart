@@ -9,8 +9,9 @@ void main() {
   });
   group('CIEdgeWork', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 3);
       configuration.radius = 10;
       expect(parameter.value, 10);

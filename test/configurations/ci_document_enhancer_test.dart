@@ -9,8 +9,9 @@ void main() {
   });
   group('CIDocumentEnhancer', () {
     test('change inputAmount', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAmount') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputAmount')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.amount = 1.5;
       expect(parameter.value, 1.5);

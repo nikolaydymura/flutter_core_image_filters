@@ -15,19 +15,19 @@ class CIZoomBlurConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIZoomBlurConfiguration] with default values.
   CIZoomBlurConfiguration()
-      : _amount = SliderNSNumberParameter(
-          'inputAmount',
-          'Amount',
-          20,
-          min: -200,
-          max: 200,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIZoomBlur');
+    : _amount = SliderNSNumberParameter(
+        'inputAmount',
+        'Amount',
+        20,
+        min: -200,
+        max: 200,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIZoomBlur');
 
   ///The zoom-in amount.
   ///
@@ -47,12 +47,12 @@ class CIZoomBlurConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.stillImage,
-        CICategory.video,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.stillImage,
+    CICategory.video,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_amount, _center];

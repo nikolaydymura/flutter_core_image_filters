@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a guide image parameter to a filter configuration.
 mixin GuideImageMixin on CIFilterConfiguration {
-  final DataParameter _guideImage =
-      CIImageParameter('inputGuideImage', 'A larger image to use as a guide.');
+  final DataParameter _guideImage = CIImageParameter(
+    'inputGuideImage',
+    'A larger image to use as a guide.',
+  );
 
   /// The guide image data
   ///
@@ -34,7 +36,9 @@ mixin GuideImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _guideImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _guideImage,
+  ];
+  // coverage:ignore-end
 }

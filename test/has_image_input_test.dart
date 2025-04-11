@@ -14,17 +14,14 @@ print(items.joined(separator: ",\n"))
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
     bool ignore = displayName.contains('Lookup Table');
-    test(
-      '`$displayName` has image input',
-      () {
-        final configuration =
-            FlutterCoreImageFilters.createFilter(displayName: displayName);
-        final hasInputImage = configuration.hasInputImage;
-        final ciHasImageInput = kHasImageInput[configuration.name];
-        expect(ciHasImageInput, isNotNull);
-        expect(hasInputImage, ciHasImageInput, reason: configuration.name);
-      },
-      skip: ignore,
-    );
+    test('`$displayName` has image input', () {
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: displayName,
+      );
+      final hasInputImage = configuration.hasInputImage;
+      final ciHasImageInput = kHasImageInput[configuration.name];
+      expect(ciHasImageInput, isNotNull);
+      expect(hasInputImage, ciHasImageInput, reason: configuration.name);
+    }, skip: ignore);
   }
 }

@@ -15,21 +15,21 @@ class CIUnsharpMaskConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIUnsharpMaskConfiguration] with default values.
   CIUnsharpMaskConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          2.5,
-          min: 0,
-          max: 100,
-        ),
-        _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        super('CIUnsharpMask');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        2.5,
+        min: 0,
+        max: 100,
+      ),
+      _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      super('CIUnsharpMask');
 
   /// The radius of the unsharp mask effect.
   ///
@@ -51,12 +51,12 @@ class CIUnsharpMaskConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.sharpen,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.sharpen,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _intensity];

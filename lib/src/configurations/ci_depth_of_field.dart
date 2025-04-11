@@ -23,45 +23,45 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIDepthOfFieldConfiguration] with default values.
   CIDepthOfFieldConfiguration()
-      : _point1 = CGPositionParameter(
-          'inputPoint1',
-          'Point 1',
-          const Point(300.0, 300.0),
-        ),
-        _unsharpMaskRadius = SliderNSNumberParameter(
-          'inputUnsharpMaskRadius',
-          'Unsharp Mask Radius',
-          2.5,
-          min: 0,
-          max: 10,
-        ),
-        _saturation = SliderNSNumberParameter(
-          'inputSaturation',
-          'Saturation',
-          1.5,
-          min: 0,
-          max: 10,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          6,
-          min: 0,
-          max: 30,
-        ),
-        _unsharpMaskIntensity = SliderNSNumberParameter(
-          'inputUnsharpMaskIntensity',
-          'Unsharp Mask Intensity',
-          0.5,
-          min: 0,
-          max: 10,
-        ),
-        _point0 = CGPositionParameter(
-          'inputPoint0',
-          'Point 0',
-          const Point(0, 300.0),
-        ),
-        super('CIDepthOfField');
+    : _point1 = CGPositionParameter(
+        'inputPoint1',
+        'Point 1',
+        const Point(300.0, 300.0),
+      ),
+      _unsharpMaskRadius = SliderNSNumberParameter(
+        'inputUnsharpMaskRadius',
+        'Unsharp Mask Radius',
+        2.5,
+        min: 0,
+        max: 10,
+      ),
+      _saturation = SliderNSNumberParameter(
+        'inputSaturation',
+        'Saturation',
+        1.5,
+        min: 0,
+        max: 10,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        6,
+        min: 0,
+        max: 30,
+      ),
+      _unsharpMaskIntensity = SliderNSNumberParameter(
+        'inputUnsharpMaskIntensity',
+        'Unsharp Mask Intensity',
+        0.5,
+        min: 0,
+        max: 10,
+      ),
+      _point0 = CGPositionParameter(
+        'inputPoint0',
+        'Point 0',
+        const Point(0, 300.0),
+      ),
+      super('CIDepthOfField');
 
   /// The second point in the focused region of the output image.
   ///
@@ -115,19 +115,19 @@ class CIDepthOfFieldConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _point1,
-        _unsharpMaskRadius,
-        _saturation,
-        _radius,
-        _unsharpMaskIntensity,
-        _point0,
-      ];
+    _point1,
+    _unsharpMaskRadius,
+    _saturation,
+    _radius,
+    _unsharpMaskIntensity,
+    _point0,
+  ];
 }

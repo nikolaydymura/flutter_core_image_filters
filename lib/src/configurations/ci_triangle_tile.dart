@@ -17,26 +17,26 @@ class CITriangleTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CITriangleTileConfiguration] with default values.
   CITriangleTileConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        super('CITriangleTile');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      super('CITriangleTile');
 
   /// The angle, in radians, of the tiled pattern.
   ///
@@ -65,12 +65,12 @@ class CITriangleTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _width];

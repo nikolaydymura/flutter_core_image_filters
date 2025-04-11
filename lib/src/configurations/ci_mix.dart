@@ -14,14 +14,14 @@ class CIMixConfiguration extends CIFilterConfiguration
 
   /// Create a [CIMixConfiguration] with default values.
   CIMixConfiguration()
-      : _amount = SliderNSNumberParameter(
-          'inputAmount',
-          'Amount',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        super('CIMix');
+    : _amount = SliderNSNumberParameter(
+        'inputAmount',
+        'Amount',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      super('CIMix');
 
   /// The amount of the effect.
   ///
@@ -34,12 +34,12 @@ class CIMixConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_amount, _backgroundImage];

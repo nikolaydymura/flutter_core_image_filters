@@ -15,21 +15,21 @@ class CIMotionBlurConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMotionBlurConfiguration] with default values.
   CIMotionBlurConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          20,
-          min: 0,
-          max: 100,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIMotionBlur');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        20,
+        min: 0,
+        max: 100,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIMotionBlur');
 
   /// The radius of the blur, in pixels.
   ///
@@ -51,12 +51,12 @@ class CIMotionBlurConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.stillImage,
-        CICategory.video,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.stillImage,
+    CICategory.video,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _angle];

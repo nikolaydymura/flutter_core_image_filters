@@ -9,16 +9,18 @@ void main() {
   });
   group('CIBloom', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 10);
       configuration.radius = 50;
       expect(parameter.value, 50);
     });
 
     test('change inputIntensity', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputIntensity')
+              as NumberParameter;
       expect(parameter.value, 0.5);
       configuration.intensity = 0.8;
       expect(parameter.value, 0.8);

@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a small image parameter to a filter configuration.
 mixin SmallImageMixin on CIFilterConfiguration {
-  final DataParameter _smallImage =
-      CIImageParameter('inputSmallImage', 'Small Image');
+  final DataParameter _smallImage = CIImageParameter(
+    'inputSmallImage',
+    'Small Image',
+  );
 
   /// The small image data
   ///
@@ -34,7 +36,9 @@ mixin SmallImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _smallImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _smallImage,
+  ];
+  // coverage:ignore-end
 }

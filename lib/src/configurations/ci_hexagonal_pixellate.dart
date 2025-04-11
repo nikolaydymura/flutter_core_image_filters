@@ -15,19 +15,19 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHexagonalPixellateConfiguration] with default values.
   CIHexagonalPixellateConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          8,
-          min: 1,
-          max: 100,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIHexagonalPixellate');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        8,
+        min: 1,
+        max: 100,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIHexagonalPixellate');
 
   /// The size of the hexagons.
   ///
@@ -47,12 +47,12 @@ class CIHexagonalPixellateConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _center];

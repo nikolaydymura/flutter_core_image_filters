@@ -2,18 +2,18 @@ part of '../../flutter_core_image_filters.dart';
 
 abstract class CIFilterConfiguration extends FilterConfiguration
     with VideoFilterConfiguration {
-// coverage:ignore-start
+  // coverage:ignore-start
   final FilterApi _gAPI = FilterApi();
 
-// coverage:ignore-end
+  // coverage:ignore-end
 
   int _filterId = -1;
   final String name;
 
-// coverage:ignore-start
+  // coverage:ignore-start
   FilterApi get _api => _gAPI;
 
-// coverage:ignore-end
+  // coverage:ignore-end
 
   @override
   bool get ready => _filterId != -1;
@@ -70,9 +70,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
         debugPrint('Input image not supported for $name');
       }
       if (format == ImageExportFormat.auto) {
-        format = source.file.path.endsWith('.png')
-            ? ImageExportFormat.png
-            : ImageExportFormat.jpeg;
+        format =
+            source.file.path.endsWith('.png')
+                ? ImageExportFormat.png
+                : ImageExportFormat.jpeg;
       }
     } else if (source is AssetInputSource) {
       if (hasInputImage) {
@@ -81,9 +82,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
         debugPrint('Input image not supported for $name');
       }
       if (format == ImageExportFormat.auto) {
-        format = source.path.endsWith('.png')
-            ? ImageExportFormat.png
-            : ImageExportFormat.jpeg;
+        format =
+            source.path.endsWith('.png')
+                ? ImageExportFormat.png
+                : ImageExportFormat.jpeg;
       }
     }
     Uint8List bytes = await _api.exportData(
@@ -101,8 +103,12 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     CIContext context = CIContext.system,
     Rect? crop,
   }) async {
-    final bytes =
-        await exportData(source, format: format, crop: crop, context: context);
+    final bytes = await exportData(
+      source,
+      format: format,
+      crop: crop,
+      context: context,
+    );
     final Image image = await decodeImageFromList(bytes);
     return image;
   }
@@ -127,9 +133,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       debugPrint('Input image not supported for $name');
     }
     if (format == ImageExportFormat.auto) {
-      format = output.path.endsWith('.png')
-          ? ImageExportFormat.png
-          : ImageExportFormat.jpeg;
+      format =
+          output.path.endsWith('.png')
+              ? ImageExportFormat.png
+              : ImageExportFormat.jpeg;
     }
     await _api.exportImageFile(
       _filters,
@@ -152,9 +159,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     final output = config.output;
     var format = config.format;
     if (format == VideoExportFormat.auto) {
-      format = output.path.endsWith('.mp4')
-          ? VideoExportFormat.mp4
-          : VideoExportFormat.mov;
+      format =
+          output.path.endsWith('.mp4')
+              ? VideoExportFormat.mp4
+              : VideoExportFormat.mov;
     }
     final bool asset = source is AssetInputSource;
 
@@ -169,9 +177,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       period.inMilliseconds.toDouble(),
     );
 
-    final stream = EventChannel('AVAssetExportSession_$sessionId')
-        .receiveBroadcastStream()
-        .distinct();
+    final stream =
+        EventChannel(
+          'AVAssetExportSession_$sessionId',
+        ).receiveBroadcastStream().distinct();
     await for (num event in stream) {
       if (event == -100.0) {
         return;
@@ -180,10 +189,10 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     }
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   @override
   List<ConfigurationParameter> get parameters => [];
-// coverage:ignore-end
+  // coverage:ignore-end
 }
 
 class RectInputSource extends InputSource {
@@ -205,7 +214,7 @@ class CIVideoExportConfig extends VideoExportConfig {
   });
 
   CIVideoExportConfig.copy(VideoExportConfig config)
-      : this(config.source, config.output, format: config.format);
+    : this(config.source, config.output, format: config.format);
 }
 
 @visibleForTesting
@@ -228,8 +237,8 @@ class GroupCIFilterConfiguration extends CIFilterConfiguration {
 
   GroupCIFilterConfiguration([
     List<CIFilterConfiguration> configurations = const [],
-  ])  : _configurations = [...configurations],
-        super(configurations.map((e) => e.name).join(' + '));
+  ]) : _configurations = [...configurations],
+       super(configurations.map((e) => e.name).join(' + '));
 
   @override
   String get name => _configurations.map((e) => e.name).join(' + ');

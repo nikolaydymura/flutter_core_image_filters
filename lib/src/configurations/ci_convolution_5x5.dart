@@ -6,39 +6,39 @@ class CIConvolution5X5Configuration extends CIFilterConfiguration {
   final Mat5Parameter _weights;
 
   CIConvolution5X5Configuration()
-      : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = _Mat5Parameter(
-          'inputWeights',
-          'Weights',
-          Mat5([
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            1,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-            0,
-          ]),
-        ),
-        super('CIConvolution5X5');
+    : _bias = NSNumberParameter('inputBias', 'Bias', 0),
+      _weights = _Mat5Parameter(
+        'inputWeights',
+        'Weights',
+        Mat5([
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+        ]),
+      ),
+      super('CIConvolution5X5');
 
   /// The bias value.
   ///
@@ -54,12 +54,12 @@ class CIConvolution5X5Configuration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_bias, _weights];

@@ -9,30 +9,34 @@ void main() {
   });
   group('CIBarsSwipeTransition', () {
     test('change inputTime', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTime') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputTime')
+              as NumberParameter;
       expect(parameter.value, 0.0);
       configuration.time = 0.5;
       expect(parameter.value, 0.5);
     });
 
     test('change inputAngle', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputAngle')
+              as NumberParameter;
       expect(parameter.value, 3.141592653589793);
       configuration.angle = 5;
       expect(parameter.value, 5);
     });
     test('change inputWidth', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputWidth')
+              as NumberParameter;
       expect(parameter.value, 30);
       configuration.width = 2;
       expect(parameter.value, 2);
     });
     test('change inputBarOffset', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBarOffset') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputBarOffset')
+              as NumberParameter;
       expect(parameter.value, 10);
       configuration.barOffset = 50;
       expect(parameter.value, 50);

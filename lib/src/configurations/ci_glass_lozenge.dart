@@ -19,31 +19,31 @@ class CIGlassLozengeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIGlassLozengeConfiguration] with default values.
   CIGlassLozengeConfiguration()
-      : _refraction = SliderNSNumberParameter(
-          'inputRefraction',
-          'Refraction',
-          1.7,
-          min: 0,
-          max: 5,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          100,
-          min: 0,
-          max: 1000,
-        ),
-        _point0 = CGPositionParameter(
-          'inputPoint0',
-          'Point 0',
-          const Point(150.0, 150.0),
-        ),
-        _point1 = CGPositionParameter(
-          'inputPoint1',
-          'Point 1',
-          const Point(350.0, 150.0),
-        ),
-        super('CIGlassLozenge');
+    : _refraction = SliderNSNumberParameter(
+        'inputRefraction',
+        'Refraction',
+        1.7,
+        min: 0,
+        max: 5,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        100,
+        min: 0,
+        max: 1000,
+      ),
+      _point0 = CGPositionParameter(
+        'inputPoint0',
+        'Point 0',
+        const Point(150.0, 150.0),
+      ),
+      _point1 = CGPositionParameter(
+        'inputPoint1',
+        'Point 1',
+        const Point(350.0, 150.0),
+      ),
+      super('CIGlassLozenge');
 
   /// The refraction of the filter.
   ///
@@ -79,14 +79,18 @@ class CIGlassLozengeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_refraction, _radius, _point0, _point1];
+  List<ConfigurationParameter> get parameters => [
+    _refraction,
+    _radius,
+    _point0,
+    _point1,
+  ];
 }

@@ -17,26 +17,26 @@ class CITwirlDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CITwirlDistortionConfiguration] with default values.
   CITwirlDistortionConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          3.141592653589793,
-          min: -12.566370614359172,
-          max: 12.566370614359172,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 500,
-        ),
-        super('CITwirlDistortion');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        3.141592653589793,
+        min: -12.566370614359172,
+        max: 12.566370614359172,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 500,
+      ),
+      super('CITwirlDistortion');
 
   /// The angle.
   ///
@@ -65,12 +65,12 @@ class CITwirlDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _radius];

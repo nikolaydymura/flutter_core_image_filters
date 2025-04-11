@@ -15,21 +15,21 @@ class CILanczosScaleTransformConfiguration extends CIFilterConfiguration {
 
   /// Create a [CILanczosScaleTransformConfiguration] with default values.
   CILanczosScaleTransformConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          1,
-          min: 0.0,
-          max: 1.5,
-        ),
-        _aspectRatio = SliderNSNumberParameter(
-          'inputAspectRatio',
-          'Aspect Ratio',
-          1,
-          min: 0.0,
-          max: 2,
-        ),
-        super('CILanczosScaleTransform');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        1,
+        min: 0.0,
+        max: 1.5,
+      ),
+      _aspectRatio = SliderNSNumberParameter(
+        'inputAspectRatio',
+        'Aspect Ratio',
+        1,
+        min: 0.0,
+        max: 2,
+      ),
+      super('CILanczosScaleTransform');
 
   /// The scaling factor to use on the image.
   ///
@@ -51,12 +51,12 @@ class CILanczosScaleTransformConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _aspectRatio];

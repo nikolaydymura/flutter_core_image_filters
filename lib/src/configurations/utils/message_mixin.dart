@@ -2,10 +2,7 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a message parameter to a filter configuration.
 mixin MessageMixin on CIFilterConfiguration {
-  final DataParameter _message = NSDataParameter(
-    'inputMessage',
-    'Message',
-  );
+  final DataParameter _message = NSDataParameter('inputMessage', 'Message');
 
   /// The message data
   ///
@@ -36,7 +33,9 @@ mixin MessageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _message];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _message,
+  ];
+  // coverage:ignore-end
 }

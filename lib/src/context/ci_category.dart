@@ -21,7 +21,7 @@ enum CICategory {
   halftoneEffect,
   xmpSerializable,
   gradient,
-  sharpen
+  sharpen,
 }
 
 extension CICategoryX on CICategory {

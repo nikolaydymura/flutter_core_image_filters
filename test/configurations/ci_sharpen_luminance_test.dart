@@ -9,15 +9,17 @@ void main() {
   });
   group('CISharpenLuminance', () {
     test('change inputSharpness', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputSharpness') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputSharpness')
+              as NumberParameter;
       expect(parameter.value, 0.4);
       configuration.sharpness = 1;
       expect(parameter.value, 1);
     });
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 1.69);
       configuration.radius = 10;
       expect(parameter.value, 10);

@@ -6,21 +6,21 @@ class CIGuidedFilterConfiguration extends CIFilterConfiguration
   final NumberParameter _radius;
 
   CIGuidedFilterConfiguration()
-      : _epsilon = SliderNSNumberParameter(
-          'inputEpsilon',
-          'Epsilon',
-          0.0001,
-          min: 0.000000001,
-          max: 0.1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          1,
-          min: 1,
-          max: 10,
-        ),
-        super('CIGuidedFilter');
+    : _epsilon = SliderNSNumberParameter(
+        'inputEpsilon',
+        'Epsilon',
+        0.0001,
+        min: 0.000000001,
+        max: 0.1,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        1,
+        min: 1,
+        max: 10,
+      ),
+      super('CIGuidedFilter');
 
   set epsilon(double value) {
     _epsilon.value = value;
@@ -32,14 +32,17 @@ class CIGuidedFilterConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_radius, _epsilon, _guideImage];
+  List<ConfigurationParameter> get parameters => [
+    _radius,
+    _epsilon,
+    _guideImage,
+  ];
 }

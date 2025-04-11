@@ -15,21 +15,21 @@ class CIVignetteConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIVignetteConfiguration] with default values.
   CIVignetteConfiguration()
-      : _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          0,
-          min: -1,
-          max: 1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          1,
-          min: 0,
-          max: 2,
-        ),
-        super('CIVignette');
+    : _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        0,
+        min: -1,
+        max: 1,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        1,
+        min: 0,
+        max: 2,
+      ),
+      super('CIVignette');
 
   /// The intensity of the effect.
   ///
@@ -51,13 +51,13 @@ class CIVignetteConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_intensity, _radius];

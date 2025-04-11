@@ -14,12 +14,12 @@ class CIQRCodeGeneratorConfiguration extends CIFilterConfiguration
 
   /// Create a [CIQRCodeGeneratorConfiguration] with default values.
   CIQRCodeGeneratorConfiguration()
-      : _correctionLevel = NSStringParameter(
-          'inputCorrectionLevel',
-          'Correction Level',
-          'M',
-        ),
-        super('CIQRCodeGenerator');
+    : _correctionLevel = NSStringParameter(
+        'inputCorrectionLevel',
+        'Correction Level',
+        'M',
+      ),
+      super('CIQRCodeGenerator');
 
   @override
   bool get hasInputImage => false;
@@ -32,8 +32,11 @@ class CIQRCodeGeneratorConfiguration extends CIFilterConfiguration
   }
 
   @override
-  Iterable<CICategory> get categories =>
-      {CICategory.generator, CICategory.stillImage, CICategory.builtIn};
+  Iterable<CICategory> get categories => {
+    CICategory.generator,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_correctionLevel, _message];

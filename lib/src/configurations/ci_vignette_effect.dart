@@ -19,33 +19,33 @@ class CIVignetteEffectConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIVignetteEffectConfiguration] with default values.
   CIVignetteEffectConfiguration()
-      : _falloff = SliderNSNumberParameter(
-          'inputFalloff',
-          'Falloff',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          1,
-          min: -1,
-          max: 1,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          150,
-          min: 0,
-          max: 2000,
-        ),
-        super('CIVignetteEffect');
+    : _falloff = SliderNSNumberParameter(
+        'inputFalloff',
+        'Falloff',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        1,
+        min: -1,
+        max: 1,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        150,
+        min: 0,
+        max: 2000,
+      ),
+      super('CIVignetteEffect');
 
   /// The falloff of the effect.
   ///
@@ -83,15 +83,19 @@ class CIVignetteEffectConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_falloff, _intensity, _center, _radius];
+  List<ConfigurationParameter> get parameters => [
+    _falloff,
+    _intensity,
+    _center,
+    _radius,
+  ];
 }

@@ -14,12 +14,8 @@ class CIPaletteCentroidConfiguration extends CIFilterConfiguration
 
   /// Create a [CIPaletteCentroidConfiguration] with default values.
   CIPaletteCentroidConfiguration()
-      : _perceptual = NSBoolParameter(
-          'inputPerceptual',
-          'Perceptual',
-          false,
-        ),
-        super('CIPaletteCentroid');
+    : _perceptual = NSBoolParameter('inputPerceptual', 'Perceptual', false),
+      super('CIPaletteCentroid');
 
   /// A Boolean value that specifies whether the filter applies the color palette in a perceptual color space.
   ///
@@ -30,11 +26,11 @@ class CIPaletteCentroidConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_perceptual, _paletteImage];

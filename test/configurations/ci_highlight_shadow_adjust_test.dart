@@ -9,24 +9,30 @@ void main() {
   });
   group('CIHighlightShadowAdjust', () {
     test('change inputHighlightAmount', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputHighlightAmount')
-          as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputHighlightAmount',
+              )
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.highlightAmount = 0.5;
       expect(parameter.value, 0.5);
     });
 
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.radius = 5;
       expect(parameter.value, 5);
     });
     test('change inputShadowAmount', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputShadowAmount') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputShadowAmount',
+              )
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.shadowAmount = -0.5;
       expect(parameter.value, -0.5);

@@ -17,26 +17,26 @@ class CIGlideReflectedTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIGlideReflectedTileConfiguration] with default values.
   CIGlideReflectedTileConfiguration()
-      : _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIGlideReflectedTile');
+    : _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIGlideReflectedTile');
 
   /// The width of a tile.
   ///
@@ -65,12 +65,12 @@ class CIGlideReflectedTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_width, _center, _angle];

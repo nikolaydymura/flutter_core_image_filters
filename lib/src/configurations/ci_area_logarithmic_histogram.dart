@@ -21,40 +21,40 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIAreaLogarithmicHistogramConfiguration] with default values.
   CIAreaLogarithmicHistogramConfiguration()
-      : _minimumStop = SliderNSNumberParameter(
-          'inputMinimumStop',
-          'Minimum Stop',
-          -10,
-          min: -12,
-          max: -4,
-        ),
-        _maximumStop = SliderNSNumberParameter(
-          'inputMaximumStop',
-          'Maximum Stop',
-          4,
-          min: 0,
-          max: 8,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        _count = SliderNSNumberParameter(
-          'inputCount',
-          'Count',
-          64,
-          min: 1,
-          max: 2048,
-        ),
-        super('CIAreaLogarithmicHistogram');
+    : _minimumStop = SliderNSNumberParameter(
+        'inputMinimumStop',
+        'Minimum Stop',
+        -10,
+        min: -12,
+        max: -4,
+      ),
+      _maximumStop = SliderNSNumberParameter(
+        'inputMaximumStop',
+        'Maximum Stop',
+        4,
+        min: 0,
+        max: 8,
+      ),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      _count = SliderNSNumberParameter(
+        'inputCount',
+        'Count',
+        64,
+        min: 1,
+        max: 2048,
+      ),
+      super('CIAreaLogarithmicHistogram');
 
   /// The minimum stop value.
   ///
@@ -92,14 +92,19 @@ class CIAreaLogarithmicHistogramConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_minimumStop, _maximumStop, _extent, _count, _scale];
+  List<ConfigurationParameter> get parameters => [
+    _minimumStop,
+    _maximumStop,
+    _extent,
+    _count,
+    _scale,
+  ];
 }

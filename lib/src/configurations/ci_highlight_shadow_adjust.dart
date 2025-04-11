@@ -17,28 +17,28 @@ class CIHighlightShadowAdjustConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHighlightShadowAdjustConfiguration] with default values.
   CIHighlightShadowAdjustConfiguration()
-      : _highlightAmount = SliderNSNumberParameter(
-          'inputHighlightAmount',
-          'Highlight Amount',
-          1,
-          min: 0.0,
-          max: 1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          0,
-          min: 0,
-          max: 10,
-        ),
-        _shadowAmount = SliderNSNumberParameter(
-          'inputShadowAmount',
-          'Shadow Amount',
-          0,
-          min: -1,
-          max: 1,
-        ),
-        super('CIHighlightShadowAdjust');
+    : _highlightAmount = SliderNSNumberParameter(
+        'inputHighlightAmount',
+        'Highlight Amount',
+        1,
+        min: 0.0,
+        max: 1,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        0,
+        min: 0,
+        max: 10,
+      ),
+      _shadowAmount = SliderNSNumberParameter(
+        'inputShadowAmount',
+        'Shadow Amount',
+        0,
+        min: -1,
+        max: 1,
+      ),
+      super('CIHighlightShadowAdjust');
 
   /// The amount of adjustment to the highlights in the image.
   ///
@@ -69,14 +69,17 @@ class CIHighlightShadowAdjustConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_highlightAmount, _radius, _shadowAmount];
+  List<ConfigurationParameter> get parameters => [
+    _highlightAmount,
+    _radius,
+    _shadowAmount,
+  ];
 }

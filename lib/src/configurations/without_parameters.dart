@@ -4,14 +4,14 @@ class CIColorInvertConfiguration extends CIFilterConfiguration {
   CIColorInvertConfiguration() : super('CIColorInvert');
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }
 
 class CIColorThresholdOtsuConfiguration extends CIFilterConfiguration {
@@ -19,13 +19,13 @@ class CIColorThresholdOtsuConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }
 
 class CIDepthToDisparityConfiguration extends CIFilterConfiguration {
@@ -33,11 +33,11 @@ class CIDepthToDisparityConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }
 
 class CIDisparityToDepthConfiguration extends CIFilterConfiguration {
@@ -45,11 +45,11 @@ class CIDisparityToDepthConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }
 
 class CILinearToSRGBToneCurveConfiguration extends CIFilterConfiguration {
@@ -57,14 +57,14 @@ class CILinearToSRGBToneCurveConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }
 
 class CIMaskToAlphaConfiguration extends CIFilterConfiguration {
@@ -72,13 +72,13 @@ class CIMaskToAlphaConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }
 
 class CIMaximumComponentConfiguration extends CIFilterConfiguration {
@@ -86,14 +86,14 @@ class CIMaximumComponentConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }
 
 class CIMedianFilterConfiguration extends CIFilterConfiguration {
@@ -101,12 +101,12 @@ class CIMedianFilterConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.stillImage,
-        CICategory.video,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.stillImage,
+    CICategory.video,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 }
 
 class CIMinimumComponentConfiguration extends CIFilterConfiguration {
@@ -114,14 +114,14 @@ class CIMinimumComponentConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }
 
 class CIPhotoEffectChromeConfiguration extends CIFilterConfiguration {
@@ -129,14 +129,14 @@ class CIPhotoEffectChromeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectFadeConfiguration extends CIFilterConfiguration {
@@ -144,14 +144,14 @@ class CIPhotoEffectFadeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectInstantConfiguration extends CIFilterConfiguration {
@@ -159,14 +159,14 @@ class CIPhotoEffectInstantConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectMonoConfiguration extends CIFilterConfiguration {
@@ -174,14 +174,14 @@ class CIPhotoEffectMonoConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectNoirConfiguration extends CIFilterConfiguration {
@@ -189,14 +189,14 @@ class CIPhotoEffectNoirConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectProcessConfiguration extends CIFilterConfiguration {
@@ -204,14 +204,14 @@ class CIPhotoEffectProcessConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectTonalConfiguration extends CIFilterConfiguration {
@@ -219,14 +219,14 @@ class CIPhotoEffectTonalConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CIPhotoEffectTransferConfiguration extends CIFilterConfiguration {
@@ -234,14 +234,14 @@ class CIPhotoEffectTransferConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 }
 
 class CISRGBToneCurveToLinearConfiguration extends CIFilterConfiguration {
@@ -249,14 +249,14 @@ class CISRGBToneCurveToLinearConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 }
 
 class CIThermalConfiguration extends CIFilterConfiguration {
@@ -264,13 +264,13 @@ class CIThermalConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }
 
 class CIXRayConfiguration extends CIFilterConfiguration {
@@ -278,11 +278,11 @@ class CIXRayConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 }

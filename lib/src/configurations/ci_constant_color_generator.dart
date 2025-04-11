@@ -5,12 +5,12 @@ class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
   final ColorParameter _color;
 
   CIConstantColorGeneratorConfiguration()
-      : _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 0, 0, 1.0),
-        ),
-        super('CIConstantColorGenerator');
+    : _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 0, 0, 1.0),
+      ),
+      super('CIConstantColorGenerator');
 
   @override
   bool get hasInputImage => false;
@@ -24,12 +24,12 @@ class CIConstantColorGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_color];

@@ -1,10 +1,10 @@
 part of '../flutter_core_image_filters.dart';
 
 class CIVideoPreviewController extends VideoPreviewController {
-// coverage:ignore-start
+  // coverage:ignore-start
   static final VideoPreviewApi _gApi = VideoPreviewApi();
 
-// coverage:ignore-end
+  // coverage:ignore-end
   final VideoPreviewApi _api;
   @override
   final int textureId;
@@ -14,29 +14,23 @@ class CIVideoPreviewController extends VideoPreviewController {
   @override
   Future<void> setVideoSource(PathInputSource source) async {
     if (source is FileInputSource) {
-      await _api.setSourceFile(
-        textureId,
-        source.path,
-      );
+      await _api.setSourceFile(textureId, source.path);
     } else if (source is AssetInputSource) {
-      await _api.setSourceAsset(
-        textureId,
-        source.path,
-      );
+      await _api.setSourceAsset(textureId, source.path);
     }
   }
 
   static Future<CIVideoPreviewController> initialize({
     @visibleForTesting VideoPreviewApi? previewApi,
   }) async {
-// coverage:ignore-start
+    // coverage:ignore-start
     final api = previewApi ?? _gApi;
-// coverage:ignore-end
+    // coverage:ignore-end
     final textureId = await api.create();
     return CIVideoPreviewController._(api, textureId);
   }
 
-// coverage:ignore-start
+  // coverage:ignore-start
   static Future<CIVideoPreviewController> fromFile(File file) async {
     final controller = await initialize();
     await controller.setVideoSource(FileInputSource(file));
@@ -49,18 +43,14 @@ class CIVideoPreviewController extends VideoPreviewController {
     return controller;
   }
 
-// coverage:ignore-end
+  // coverage:ignore-end
   @override
   Future<void> connect(
     covariant CIFilterConfiguration configuration, {
     CIContext context = CIContext.mlt,
   }) async {
     await super.connect(configuration);
-    await _api.connect(
-      textureId,
-      configuration._filters,
-      context.platformKey,
-    );
+    await _api.connect(textureId, configuration._filters, context.platformKey);
   }
 
   @override
@@ -83,13 +73,9 @@ class CIVideoPreviewController extends VideoPreviewController {
     await _api.pause(textureId);
   }
 
-  Stream<Size> get videoSize =>
-      EventChannel('VideoPreviewTextureEvent_$textureId')
-          .receiveBroadcastStream()
-          .map((event) {
-        return Size(
-          event['width'].toDouble(),
-          event['height'].toDouble(),
-        );
-      });
+  Stream<Size> get videoSize => EventChannel(
+    'VideoPreviewTextureEvent_$textureId',
+  ).receiveBroadcastStream().map((event) {
+    return Size(event['width'].toDouble(), event['height'].toDouble());
+  });
 }

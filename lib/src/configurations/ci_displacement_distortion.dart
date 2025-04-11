@@ -14,14 +14,14 @@ class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIDisintegrateWithMaskTransitionConfiguration] with default values.
   CIDisplacementDistortionConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          50,
-          min: 0,
-          max: 200,
-        ),
-        super('CIDisplacementDistortion');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        50,
+        min: 0,
+        max: 200,
+      ),
+      super('CIDisplacementDistortion');
 
   /// Set the scale.
   ///
@@ -34,12 +34,12 @@ class CIDisplacementDistortionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _displacementImage];

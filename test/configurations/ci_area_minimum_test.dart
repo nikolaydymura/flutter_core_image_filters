@@ -10,8 +10,9 @@ void main() {
   });
   group('CIAreaMinimum', () {
     test('change inputExtent', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputExtent')
+              as CGRectParameter;
       expect(parameter.value, const Rect.fromLTWH(0, 0, 640, 80));
       configuration.extent = const Rect.fromLTWH(0, 0, 300, 300);
       expect(parameter.value, const Rect.fromLTWH(0, 0, 300, 300));

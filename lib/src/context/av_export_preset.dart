@@ -8,21 +8,21 @@ enum AVAssetExportPreset {
   hevcHighestQuality,
   hevcHighestQualityWithAlpha,
 
-//Size Presets
+  //Size Presets
   preset640x480,
   preset960x540,
   preset1280x720,
   preset1920x1080,
   preset3840x2160,
 
-//HEVC Size Presets
+  //HEVC Size Presets
   hevc1920x1080,
   hevc3840x2160,
   hevc1920x1080WithAlpha,
   hevc3840x2160WithAlpha,
   hevc7680x4320,
 
-//M4V Presets
+  //M4V Presets
   appleM4V480pSD,
   appleM4V720pHD,
   appleM4V1080pHD,
@@ -31,14 +31,14 @@ enum AVAssetExportPreset {
   appleM4VCellular,
   appleM4VWiFi,
 
-//Apple ProRes Presets
+  //Apple ProRes Presets
   appleProRes422LPCM,
   appleProRes4444LPCM,
 
-//Passthrough Presets
+  //Passthrough Presets
   passthrough,
 
-//Audio-only Presets
+  //Audio-only Presets
   appleM4A,
 }
 

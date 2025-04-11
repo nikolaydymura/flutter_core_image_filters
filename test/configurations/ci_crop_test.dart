@@ -10,8 +10,9 @@ void main() {
   });
   group('CICrop', () {
     test('change inputRectangle', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRectangle') as CGRectParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRectangle')
+              as CGRectParameter;
       expect(
         parameter.value,
         const Rect.fromLTWH(

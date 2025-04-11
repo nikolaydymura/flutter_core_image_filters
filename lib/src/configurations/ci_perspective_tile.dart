@@ -19,27 +19,27 @@ class CIPerspectiveTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPerspectiveTileConfiguration] with default values.
   CIPerspectiveTileConfiguration()
-      : _bottomLeft = CGPositionParameter(
-          'inputBottomLeft',
-          'Bottom Left',
-          const Point(155.0, 153.0),
-        ),
-        _topLeft = CGPositionParameter(
-          'inputTopLeft',
-          'Top Left',
-          const Point(118.0, 484.0),
-        ),
-        _topRight = CGPositionParameter(
-          'inputTopRight',
-          'Top Right',
-          const Point(646.0, 507.0),
-        ),
-        _bottomRight = CGPositionParameter(
-          'inputBottomRight',
-          'Bottom Right',
-          const Point(548.0, 140.0),
-        ),
-        super('CIPerspectiveTile');
+    : _bottomLeft = CGPositionParameter(
+        'inputBottomLeft',
+        'Bottom Left',
+        const Point(155.0, 153.0),
+      ),
+      _topLeft = CGPositionParameter(
+        'inputTopLeft',
+        'Top Left',
+        const Point(118.0, 484.0),
+      ),
+      _topRight = CGPositionParameter(
+        'inputTopRight',
+        'Top Right',
+        const Point(646.0, 507.0),
+      ),
+      _bottomRight = CGPositionParameter(
+        'inputBottomRight',
+        'Bottom Right',
+        const Point(548.0, 140.0),
+      ),
+      super('CIPerspectiveTile');
 
   /// The bottom-left coordinate of a tile.
   ///
@@ -71,14 +71,18 @@ class CIPerspectiveTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_bottomLeft, _topRight, _topLeft, _bottomRight];
+  List<ConfigurationParameter> get parameters => [
+    _bottomLeft,
+    _topRight,
+    _topLeft,
+    _bottomRight,
+  ];
 }

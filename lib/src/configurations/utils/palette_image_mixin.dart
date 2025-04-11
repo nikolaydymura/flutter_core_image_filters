@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a palette image parameter to a filter configuration.
 mixin PaletteImageMixin on CIFilterConfiguration {
-  final DataParameter _paletteImage =
-      CIImageParameter('inputPaletteImage', 'Palette Image');
+  final DataParameter _paletteImage = CIImageParameter(
+    'inputPaletteImage',
+    'Palette Image',
+  );
 
   /// The palette image data
   ///
@@ -34,7 +36,9 @@ mixin PaletteImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _paletteImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _paletteImage,
+  ];
+  // coverage:ignore-end
 }

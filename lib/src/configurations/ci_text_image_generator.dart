@@ -21,38 +21,34 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CITextImageGeneratorConfiguration] with default values.
   CITextImageGeneratorConfiguration()
-      : _fontName = NSStringParameter(
-          'inputFontName',
-          'Font Name',
-          'HelveticaNeue',
-        ),
-        _text = NSStringParameter(
-          'inputText',
-          'Text',
-          '',
-        ),
-        _fontSize = SliderNSNumberParameter(
-          'inputFontSize',
-          'Font Size',
-          12,
-          min: 0,
-          max: 128,
-        ),
-        _padding = SliderNSIntegerParameter(
-          'inputPadding',
-          'Padding',
-          0,
-          min: 0,
-          max: 200,
-        ),
-        _scaleFactor = SliderNSNumberParameter(
-          'inputScaleFactor',
-          'Scale Factor',
-          1,
-          min: 0,
-          max: 4,
-        ),
-        super('CITextImageGenerator');
+    : _fontName = NSStringParameter(
+        'inputFontName',
+        'Font Name',
+        'HelveticaNeue',
+      ),
+      _text = NSStringParameter('inputText', 'Text', ''),
+      _fontSize = SliderNSNumberParameter(
+        'inputFontSize',
+        'Font Size',
+        12,
+        min: 0,
+        max: 128,
+      ),
+      _padding = SliderNSIntegerParameter(
+        'inputPadding',
+        'Padding',
+        0,
+        min: 0,
+        max: 200,
+      ),
+      _scaleFactor = SliderNSNumberParameter(
+        'inputScaleFactor',
+        'Scale Factor',
+        1,
+        min: 0,
+        max: 4,
+      ),
+      super('CITextImageGenerator');
 
   @override
   bool get hasInputImage => false;
@@ -98,13 +94,18 @@ class CITextImageGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_fontName, _text, _fontSize, _padding, _scaleFactor];
+  List<ConfigurationParameter> get parameters => [
+    _fontName,
+    _text,
+    _fontSize,
+    _padding,
+    _scaleFactor,
+  ];
 }

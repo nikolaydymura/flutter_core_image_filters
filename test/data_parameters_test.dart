@@ -15,8 +15,9 @@ print(categories.joined(separator: ",\n"))
  */
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    final configuration =
-        FlutterCoreImageFilters.createFilter(displayName: displayName);
+    final configuration = FlutterCoreImageFilters.createFilter(
+      displayName: displayName,
+    );
     final parameters = configuration.parameters.whereType<DataParameter>();
     for (final parameter in parameters) {
       testGroup(displayName, parameter.name);
@@ -30,24 +31,15 @@ void testGroup(String displayName, String parameterName) {
     setUp(() {
       config = FlutterCoreImageFilters.createFilter(displayName: displayName);
     });
-    test(
-      'image file',
-      () {
-        testImageFileParameter(config, parameterName);
-      },
-    );
-    test(
-      'image data',
-      () {
-        testImageParameter(config, parameterName);
-      },
-    );
-    test(
-      'image asset',
-      () {
-        testImageAssetParameter(config, parameterName);
-      },
-    );
+    test('image file', () {
+      testImageFileParameter(config, parameterName);
+    });
+    test('image data', () {
+      testImageParameter(config, parameterName);
+    });
+    test('image asset', () {
+      testImageAssetParameter(config, parameterName);
+    });
   });
 }
 
@@ -55,8 +47,9 @@ void testImageFileParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter = configuration.parameters
-      .firstWhere((e) => e.name == parameterName) as DataParameter;
+  final parameter =
+      configuration.parameters.firstWhere((e) => e.name == parameterName)
+          as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);
@@ -71,8 +64,9 @@ void testImageParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter = configuration.parameters
-      .firstWhere((e) => e.name == parameterName) as DataParameter;
+  final parameter =
+      configuration.parameters.firstWhere((e) => e.name == parameterName)
+          as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);
@@ -87,8 +81,9 @@ void testImageAssetParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter = configuration.parameters
-      .firstWhere((e) => e.name == parameterName) as DataParameter;
+  final parameter =
+      configuration.parameters.firstWhere((e) => e.name == parameterName)
+          as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);

@@ -15,19 +15,19 @@ class CIPointillizeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPointillizeConfiguration] with default values.
   CIPointillizeConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          20,
-          min: 1,
-          max: 100,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIPointillize');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        20,
+        min: 1,
+        max: 100,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIPointillize');
 
   /// The radius of the circles in the resulting pattern.
   ///
@@ -47,12 +47,12 @@ class CIPointillizeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _center];

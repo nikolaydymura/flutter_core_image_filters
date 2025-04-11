@@ -20,34 +20,28 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIAccordionFoldTransitionConfiguration] with default values.
   CIAccordionFoldTransitionConfiguration()
-      : _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _numberOfFolds = SliderNSNumberParameter(
-          'inputNumberOfFolds',
-          'Number of Folds',
-          3,
-          min: 1,
-          max: 50,
-        ),
-        _bottomHeight = SliderNSNumberParameter(
-          'inputBottomHeight',
-          'Bottom Height',
-          0,
-          min: 0,
-        ),
-        _foldShadowAmount = SliderNSNumberParameter(
-          'inputFoldShadowAmount',
-          'Fold Shadow Amount',
-          0.1,
-          min: 0,
-          max: 1,
-        ),
-        super('CIAccordionFoldTransition');
+    : _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _numberOfFolds = SliderNSNumberParameter(
+        'inputNumberOfFolds',
+        'Number of Folds',
+        3,
+        min: 1,
+        max: 50,
+      ),
+      _bottomHeight = SliderNSNumberParameter(
+        'inputBottomHeight',
+        'Bottom Height',
+        0,
+        min: 0,
+      ),
+      _foldShadowAmount = SliderNSNumberParameter(
+        'inputFoldShadowAmount',
+        'Fold Shadow Amount',
+        0.1,
+        min: 0,
+        max: 1,
+      ),
+      super('CIAccordionFoldTransition');
 
   /// The amount of the transition to complete.
   ///
@@ -85,14 +79,19 @@ class CIAccordionFoldTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_time, _numberOfFolds, _bottomHeight, _foldShadowAmount, _targetImage];
+  List<ConfigurationParameter> get parameters => [
+    _time,
+    _numberOfFolds,
+    _bottomHeight,
+    _foldShadowAmount,
+    _targetImage,
+  ];
 }

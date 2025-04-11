@@ -11,23 +11,30 @@ void main() {
   });
   group('CICode128BarcodeGenerator', () {
     test('change inputQuietSpace', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputQuietSpace') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputQuietSpace',
+              )
+              as NumberParameter;
       expect(parameter.value, 10);
       configuration.quietSpace = 15;
       expect(parameter.value, 15);
     });
 
     test('change inputBarcodeHeight', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBarcodeHeight') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputBarcodeHeight',
+              )
+              as NumberParameter;
       expect(parameter.value, 32);
       configuration.barcodeHeight = 20;
       expect(parameter.value, 20);
     });
     test('change inputMessage', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMessage') as DataParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputMessage')
+              as DataParameter;
       expect(parameter.data, isNull);
       configuration.messageData = Uint8List(0);
       expect(parameter.data, isNotNull);

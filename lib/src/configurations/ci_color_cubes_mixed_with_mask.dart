@@ -18,11 +18,10 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
 
   /// Create a [CIColorCubesMixedWithMaskConfiguration] with default values.
   CIColorCubesMixedWithMaskConfiguration()
-      : _cubeData0 = CubeDataParameter('inputCube0Data', 'Cube 0 Data'),
-        _cubeData1 = CubeDataParameter('inputCube1Data', 'Cube 1 Data'),
-        _extrapolate =
-            NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
-        super('CIColorCubesMixedWithMask');
+    : _cubeData0 = CubeDataParameter('inputCube0Data', 'Cube 0 Data'),
+      _cubeData1 = CubeDataParameter('inputCube1Data', 'Cube 1 Data'),
+      _extrapolate = NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
+      super('CIColorCubesMixedWithMask');
 
   /// Whether to extrapolate.
   ///
@@ -107,20 +106,20 @@ class CIColorCubesMixedWithMaskConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        ...super.parameters,
-        _cubeData0,
-        _cubeData1,
-        _extrapolate,
-      ];
+    ...super.parameters,
+    _cubeData0,
+    _cubeData1,
+    _extrapolate,
+  ];
 }

@@ -9,8 +9,9 @@ void main() {
   });
   group('CIDisplacementDistortion', () {
     test('change inputScale', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScale') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputScale')
+              as NumberParameter;
       expect(parameter.value, 50);
       configuration.scale = 100;
       expect(parameter.value, 100);

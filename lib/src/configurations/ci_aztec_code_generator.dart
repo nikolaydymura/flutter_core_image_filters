@@ -18,26 +18,26 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
 
   /// Create a [CIAztecCodeGeneratorConfiguration] with default values.
   CIAztecCodeGeneratorConfiguration()
-      : _compactStyle = NSBoolParameter(
-          'inputCompactStyle',
-          'Compact Style',
-          false,
-        ),
-        _correctionLevel = SliderNSIntegerParameter(
-          'inputCorrectionLevel',
-          'Correction Level',
-          23,
-          min: 5,
-          max: 95,
-        ),
-        _layers = SliderNSIntegerParameter(
-          'inputLayers',
-          'Layers',
-          double.nan,
-          min: 1,
-          max: 32,
-        ),
-        super('CIAztecCodeGenerator');
+    : _compactStyle = NSBoolParameter(
+        'inputCompactStyle',
+        'Compact Style',
+        false,
+      ),
+      _correctionLevel = SliderNSIntegerParameter(
+        'inputCorrectionLevel',
+        'Correction Level',
+        23,
+        min: 5,
+        max: 95,
+      ),
+      _layers = SliderNSIntegerParameter(
+        'inputLayers',
+        'Layers',
+        double.nan,
+        min: 1,
+        max: 32,
+      ),
+      super('CIAztecCodeGenerator');
 
   /// A Boolean value that determines whether the Aztec code is compact.
   ///
@@ -65,12 +65,19 @@ class CIAztecCodeGeneratorConfiguration extends CIFilterConfiguration
   }
 
   @override
-  Iterable<CICategory> get categories =>
-      {CICategory.generator, CICategory.stillImage, CICategory.builtIn};
+  Iterable<CICategory> get categories => {
+    CICategory.generator,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_compactStyle, _correctionLevel, _layers, _message];
+  List<ConfigurationParameter> get parameters => [
+    _compactStyle,
+    _correctionLevel,
+    _layers,
+    _message,
+  ];
 
   @override
   bool get hasInputImage => false;

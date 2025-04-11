@@ -19,33 +19,33 @@ class CIFourfoldReflectedTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIFourfoldReflectedTileConfiguration] with default values.
   CIFourfoldReflectedTileConfiguration()
-      : _acuteAngle = SliderNSNumberParameter(
-          'inputAcuteAngle',
-          'Acute Angle',
-          1.570796326794897,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        super('CIFourfoldReflectedTile');
+    : _acuteAngle = SliderNSNumberParameter(
+        'inputAcuteAngle',
+        'Acute Angle',
+        1.570796326794897,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      super('CIFourfoldReflectedTile');
 
   /// The primary angle for the repeating reflected tile.
   ///
@@ -83,14 +83,18 @@ class CIFourfoldReflectedTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_acuteAngle, _center, _angle, _width];
+  List<ConfigurationParameter> get parameters => [
+    _acuteAngle,
+    _center,
+    _angle,
+    _width,
+  ];
 }

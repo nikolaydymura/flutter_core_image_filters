@@ -286,12 +286,12 @@ class FlutterCoreImageFilters {
 
   static Iterable<String> get availableImageOnlyFilters => availableFilters;
 
-  static final Map<String, CIFilterConfiguration Function()> _availableFilters =
-      {
+  static final Map<String, CIFilterConfiguration Function()>
+  _availableFilters = {
     'Accordion Fold Transition': () => CIAccordionFoldTransitionConfiguration(),
     'Addition': () => CIAdditionCompositingConfiguration(),
-    'Attributed Text Image Generator': () =>
-        CIAttributedTextImageGeneratorConfiguration(),
+    'Attributed Text Image Generator':
+        () => CIAttributedTextImageGeneratorConfiguration(),
     'Aztec Code Generator': () => CIAztecCodeGeneratorConfiguration(),
     'Barcode Generator': () => CIBarcodeGeneratorConfiguration(),
     'Bars Swipe Transition': () => CIBarsSwipeTransitionConfiguration(),
@@ -303,18 +303,18 @@ class FlutterCoreImageFilters {
     'Bloom': () => CIBloomConfiguration(),
     'Bokeh Blur': () => CIBokehBlurConfiguration(),
     'Box Blur': () => CIBoxBlurConfiguration(),
-    'Code 128 Barcode Generator': () =>
-        CICode128BarcodeGeneratorConfiguration(),
+    'Code 128 Barcode Generator':
+        () => CICode128BarcodeGeneratorConfiguration(),
     'Color Absolute Difference': () => CIColorAbsoluteDifferenceConfiguration(),
     'Color Blend Mode': () => CIColorBlendModeConfiguration(),
     'Color Burn Blend Mode': () => CIColorBurnBlendModeConfiguration(),
     'Color Controls': () => CIColorControlsConfiguration(),
     'Color Cube': () => CIColorCubeConfiguration(),
-    'Color Cubes Mixed With Mask': () =>
-        CIColorCubesMixedWithMaskConfiguration(),
+    'Color Cubes Mixed With Mask':
+        () => CIColorCubesMixedWithMaskConfiguration(),
     'Color Cube with Intensity': () => CIColorCubeWithIntensityConfiguration(),
-    'Color Cube with ColorSpace': () =>
-        CIColorCubeWithColorSpaceConfiguration(),
+    'Color Cube with ColorSpace':
+        () => CIColorCubeWithColorSpaceConfiguration(),
     'Color Dodge Blend Mode': () => CIColorDodgeBlendModeConfiguration(),
     'Color Invert': () => CIColorInvertConfiguration(),
     'Color Map': () => CIColorMapConfiguration(),
@@ -334,8 +334,8 @@ class FlutterCoreImageFilters {
     'Dither': () => CIDitherConfiguration(),
     'Divide Blend Mode': () => CIDivideBlendModeConfiguration(),
     'Document Enhancer': () => CIDocumentEnhancerConfiguration(),
-    'Edge Preserve Upsample Filter': () =>
-        CIEdgePreserveUpsampleFilterConfiguration(),
+    'Edge Preserve Upsample Filter':
+        () => CIEdgePreserveUpsampleFilterConfiguration(),
     'Edge Work': () => CIEdgeWorkConfiguration(),
     'Edges': () => CIEdgesConfiguration(),
     'Exclusion Blend Mode': () => CIExclusionBlendModeConfiguration(),
@@ -372,10 +372,10 @@ class FlutterCoreImageFilters {
     'Morphology Gradient': () => CIMorphologyGradientConfiguration(),
     'Morphology Maximum': () => CIMorphologyMaximumConfiguration(),
     'Morphology Minimum': () => CIMorphologyMinimumConfiguration(),
-    'Morphology Rectangle Maximum': () =>
-        CIMorphologyRectangleMaximumConfiguration(),
-    'Morphology Rectangle Minimum': () =>
-        CIMorphologyRectangleMinimumConfiguration(),
+    'Morphology Rectangle Maximum':
+        () => CIMorphologyRectangleMaximumConfiguration(),
+    'Morphology Rectangle Minimum':
+        () => CIMorphologyRectangleMinimumConfiguration(),
     'Motion Blur': () => CIMotionBlurConfiguration(),
     'Multiply Blend Mode': () => CIMultiplyBlendModeConfiguration(),
     'Multiply': () => CIMultiplyCompositingConfiguration(),
@@ -418,8 +418,8 @@ class FlutterCoreImageFilters {
     'X-Ray': () => CIXRayConfiguration(),
     'Area Average': () => CIAreaAverageConfiguration(),
     'Area Histogram': () => CIAreaHistogramConfiguration(),
-    'Area Logarithmic Histogram': () =>
-        CIAreaLogarithmicHistogramConfiguration(),
+    'Area Logarithmic Histogram':
+        () => CIAreaLogarithmicHistogramConfiguration(),
     'Area Maximum': () => CIAreaMaximumConfiguration(),
     'Area Maximum Alpha': () => CIAreaMaximumAlphaConfiguration(),
     'Area Minimum': () => CIAreaMinimumConfiguration(),
@@ -434,13 +434,13 @@ class FlutterCoreImageFilters {
     'Flash': () => CIFlashTransitionConfiguration(),
     'KMeans': () => CIKMeansConfiguration(),
     'Page Curl': () => CIPageCurlTransitionConfiguration(),
-    'Page Curl With Shadow': () =>
-        CIPageCurlWithShadowTransitionConfiguration(),
-    'Perspective Transform with Extent': () =>
-        CIPerspectiveTransformWithExtentConfiguration(),
+    'Page Curl With Shadow':
+        () => CIPageCurlWithShadowTransitionConfiguration(),
+    'Perspective Transform with Extent':
+        () => CIPerspectiveTransformWithExtentConfiguration(),
     'Ripple': () => CIRippleTransitionConfiguration(),
-    'Rounded Rectangle Generator': () =>
-        CIRoundedRectangleGeneratorConfiguration(),
+    'Rounded Rectangle Generator':
+        () => CIRoundedRectangleGeneratorConfiguration(),
     'Row Average': () => CIRowAverageConfiguration(),
     'Swipe': () => CISwipeTransitionConfiguration(),
     'Bump Distortion': () => CIBumpDistortionConfiguration(),
@@ -466,12 +466,12 @@ class FlutterCoreImageFilters {
     'Hexagonal Pixelate': () => CIHexagonalPixellateConfiguration(),
     'Hole Distortion': () => CIHoleDistortionConfiguration(),
     'Kaleidoscope': () => CIKaleidoscopeConfiguration(),
-    'Combined Keystone Correction': () =>
-        CIKeystoneCorrectionCombinedConfiguration(),
-    'Horizontal Keystone Correction': () =>
-        CIKeystoneCorrectionHorizontalConfiguration(),
-    'Vertical Keystone Correction': () =>
-        CIKeystoneCorrectionVerticalConfiguration(),
+    'Combined Keystone Correction':
+        () => CIKeystoneCorrectionCombinedConfiguration(),
+    'Horizontal Keystone Correction':
+        () => CIKeystoneCorrectionHorizontalConfiguration(),
+    'Vertical Keystone Correction':
+        () => CIKeystoneCorrectionVerticalConfiguration(),
     'Lenticular Halo': () => CILenticularHaloGeneratorConfiguration(),
     'Light Tunnel Distortion': () => CILightTunnelConfiguration(),
     'Linear Gradient': () => CILinearGradientConfiguration(),
@@ -518,12 +518,12 @@ class FlutterCoreImageFilters {
     '3 by 3 RGB Convolution': () => CIConvolutionRGB3X3Configuration(),
     '5 by 5 RGB Convolution': () => CIConvolutionRGB5X5Configuration(),
     '7 by 7 RGB Convolution': () => CIConvolutionRGB7X7Configuration(),
-    'Horizontal 9 RGB Convolution': () =>
-        CIConvolutionRGB9HorizontalConfiguration(),
-    'Vertical 9 RGB Convolution': () =>
-        CIConvolutionRGB9VerticalConfiguration(),
-    'Disintegrate With Mask': () =>
-        CIDisintegrateWithMaskTransitionConfiguration(),
+    'Horizontal 9 RGB Convolution':
+        () => CIConvolutionRGB9HorizontalConfiguration(),
+    'Vertical 9 RGB Convolution':
+        () => CIConvolutionRGB9VerticalConfiguration(),
+    'Disintegrate With Mask':
+        () => CIDisintegrateWithMaskTransitionConfiguration(),
     'Linear Light Blend Mode': () => CILinearLightBlendModeConfiguration(),
     'Mesh Generator': () => CIMeshGeneratorConfiguration(),
     'Person Segmentation': () => CIPersonSegmentationConfiguration(),
@@ -535,8 +535,8 @@ class FlutterCoreImageFilters {
     'Tone Curve': () => CIToneCurveConfiguration(),
     'Vivid Light Blend Mode': () => CIVividLightBlendModeConfiguration(),
     'Color Curves': () => CIColorCurvesConfiguration(),
-    'Hue/Saturation/Value Gradient': () =>
-        CIHueSaturationValueGradientConfiguration(),
+    'Hue/Saturation/Value Gradient':
+        () => CIHueSaturationValueGradientConfiguration(),
     'Convert Lab to RGB': () => CIConvertLabToRGBConfiguration(),
     'Convert RGB to Lab': () => CIConvertRGBToLabConfiguration(),
   };

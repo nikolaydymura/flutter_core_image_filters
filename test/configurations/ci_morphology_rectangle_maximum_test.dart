@@ -9,16 +9,18 @@ void main() {
   });
   group('CIMorphologyRectangleMaximum', () {
     test('change inputHeight', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputHeight') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputHeight')
+              as NumberParameter;
       expect(parameter.value, 5);
       configuration.height = 30;
       expect(parameter.value, 30);
     });
 
     test('change inputWidth', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputWidth')
+              as NumberParameter;
       expect(parameter.value, 5);
       configuration.width = 30;
       expect(parameter.value, 30);

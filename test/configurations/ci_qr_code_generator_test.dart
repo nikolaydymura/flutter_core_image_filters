@@ -11,16 +11,19 @@ void main() {
   });
   group('CIQRCodeGenerator', () {
     test('change inputCorrectionLevel', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputCorrectionLevel')
-          as StringParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputCorrectionLevel',
+              )
+              as StringParameter;
       expect(parameter.value, 'M');
       configuration.correctionLevel = 'L';
       expect(parameter.value, 'L');
     });
     test('change inputMessage', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMessage') as DataParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputMessage')
+              as DataParameter;
       expect(parameter.data, isNull);
       configuration.messageData = Uint8List(0);
       expect(parameter.data, isNotNull);

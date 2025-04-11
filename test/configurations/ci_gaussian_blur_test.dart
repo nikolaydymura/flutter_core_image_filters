@@ -9,8 +9,9 @@ void main() {
   });
   group('CIGaussianBlur', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 10);
       configuration.radius = 20;
       expect(parameter.value, 20);

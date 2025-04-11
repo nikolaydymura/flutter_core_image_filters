@@ -245,8 +245,9 @@ void main() {
       'Zoom Blur',
     ];
     for (final name in filters) {
-      final configuration =
-          FlutterCoreImageFilters.createFilter(displayName: name);
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: name,
+      );
       expect(configuration, isNotNull, reason: '`$name` not implemented');
     }
     for (final name in FlutterCoreImageFilters.availableFilters) {
@@ -488,8 +489,9 @@ void main() {
       'Zoom Blur',
     ];
     for (final name in filters) {
-      final configuration =
-          FlutterCoreImageFilters.createFilter(displayName: name);
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: name,
+      );
       expect(
         configuration.categories.contains(CICategory.video),
         true,
@@ -734,8 +736,9 @@ void main() {
       'Zoom Blur',
     ];
     for (final name in filters) {
-      final configuration =
-          FlutterCoreImageFilters.createFilter(displayName: name);
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: name,
+      );
       expect(
         configuration.categories.contains(CICategory.stillImage),
         true,

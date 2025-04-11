@@ -21,36 +21,36 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
 
   /// Create a [CISpotLightConfiguration] with default values.
   CISpotLightConfiguration()
-      : _lightPointsAt = CIVectorParameter(
-          'inputLightPointsAt',
-          'Light Points At',
-          const [200, 200, 0],
-        ),
-        _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        _concentration = SliderNSNumberParameter(
-          'inputConcentration',
-          'Concentration',
-          0.1,
-          min: 0.001,
-          max: 1.5,
-        ),
-        _brightness = SliderNSNumberParameter(
-          'inputBrightness',
-          'Brightness',
-          3,
-          min: 0,
-          max: 10,
-        ),
-        _lightPosition = CIVectorParameter(
-          'inputLightPosition',
-          'Light Position',
-          [400, 600, 150],
-        ),
-        super('CISpotLight');
+    : _lightPointsAt = CIVectorParameter(
+        'inputLightPointsAt',
+        'Light Points At',
+        const [200, 200, 0],
+      ),
+      _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      _concentration = SliderNSNumberParameter(
+        'inputConcentration',
+        'Concentration',
+        0.1,
+        min: 0.001,
+        max: 1.5,
+      ),
+      _brightness = SliderNSNumberParameter(
+        'inputBrightness',
+        'Brightness',
+        3,
+        min: 0,
+        max: 10,
+      ),
+      _lightPosition = CIVectorParameter(
+        'inputLightPosition',
+        'Light Position',
+        [400, 600, 150],
+      ),
+      super('CISpotLight');
 
   /// The x and y position that the spotlight points at.
   ///
@@ -93,19 +93,19 @@ class CISpotLightConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _lightPointsAt,
-        _color,
-        _concentration,
-        _brightness,
-        _lightPosition,
-      ];
+    _lightPointsAt,
+    _color,
+    _concentration,
+    _brightness,
+    _lightPosition,
+  ];
 }

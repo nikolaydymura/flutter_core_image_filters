@@ -9,8 +9,9 @@ void main() {
   });
   group('CIShadedMaterial', () {
     test('change inputScale', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScale') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputScale')
+              as NumberParameter;
       expect(parameter.value, 10);
       configuration.scale = 100;
       expect(parameter.value, 100);

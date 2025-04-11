@@ -13,14 +13,14 @@ class CISepiaToneConfiguration extends CIFilterConfiguration {
 
   /// Create a [CISepiaToneConfiguration] with default values.
   CISepiaToneConfiguration()
-      : _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        super('CISepiaTone');
+    : _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      super('CISepiaTone');
 
   /// The intensity of the sepia effect.
   ///
@@ -33,15 +33,15 @@ class CISepiaToneConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-        CICategory.xmpSerializable,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+    CICategory.xmpSerializable,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_intensity];

@@ -20,35 +20,35 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration
 
   /// Create a [CIHueSaturationValueGradientConfiguration] with default values.
   CIHueSaturationValueGradientConfiguration()
-      : _dither = SliderNSNumberParameter(
-          'inputDither',
-          'Dither',
-          1,
-          min: 0,
-          max: 3,
-        ),
-        _softness = SliderNSNumberParameter(
-          'inputSoftness',
-          'Softness',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 800,
-        ),
-        _value = SliderNSNumberParameter(
-          'inputValue',
-          'Value',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        super('CIHueSaturationValueGradient');
+    : _dither = SliderNSNumberParameter(
+        'inputDither',
+        'Dither',
+        1,
+        min: 0,
+        max: 3,
+      ),
+      _softness = SliderNSNumberParameter(
+        'inputSoftness',
+        'Softness',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 800,
+      ),
+      _value = SliderNSNumberParameter(
+        'inputValue',
+        'Value',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      super('CIHueSaturationValueGradient');
 
   @override
   bool get hasInputImage => false;
@@ -91,13 +91,18 @@ class CIHueSaturationValueGradientConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.gradient,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.gradient,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _dither, _softness, _radius, _value];
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _dither,
+    _softness,
+    _radius,
+    _value,
+  ];
 }

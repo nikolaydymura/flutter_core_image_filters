@@ -46,8 +46,12 @@ void main() {
     parameter.value = const Rect.fromLTWH(0, 0, 200, 100);
     await parameter.update(configuration);
     verify(
-      mockFilterApi
-          .setCIVectorParameter(101, 'inputValue', [0.0, 0.0, 200.0, 100.0]),
+      mockFilterApi.setCIVectorParameter(101, 'inputValue', [
+        0.0,
+        0.0,
+        200.0,
+        100.0,
+      ]),
     );
   });
   test('CIColorParameter', () async {
@@ -55,62 +59,43 @@ void main() {
     parameter.value = Colors.orange;
     await parameter.update(configuration);
     verify(
-      mockFilterApi.setCIColorParameter(
-        101,
-        'inputValue',
-        [1.0, 0.596078431372549, 0.0, 1.0],
-      ),
+      mockFilterApi.setCIColorParameter(101, 'inputValue', [
+        1.0,
+        0.596078431372549,
+        0.0,
+        1.0,
+      ]),
     );
   });
   test('CGPositionParameter', () async {
     final parameter = CGPositionParameter(
       'inputValue',
       'Value',
-      const Point(
-        0.0,
-        0.0,
-      ),
+      const Point(0.0, 0.0),
     );
     parameter.value = const Point(640.0, 80.0);
     await parameter.update(configuration);
     verify(
-      mockFilterApi.setCIVectorParameter(
-        101,
-        'inputValue',
-        [640.0, 80.0],
-      ),
+      mockFilterApi.setCIVectorParameter(101, 'inputValue', [640.0, 80.0]),
     );
   });
   test('CIVectorParameter', () async {
-    final parameter = CIVectorParameter(
-      'inputValue',
-      'Value',
-      [0.0, 0.0],
-    );
+    final parameter = CIVectorParameter('inputValue', 'Value', [0.0, 0.0]);
     parameter.value = [640.0, 80.0];
     await parameter.update(configuration);
     verify(
-      mockFilterApi.setCIVectorParameter(
-        101,
-        'inputValue',
-        [640.0, 80.0],
-      ),
+      mockFilterApi.setCIVectorParameter(101, 'inputValue', [640.0, 80.0]),
     );
   });
   test('CIVectorParameter', () async {
-    final parameter = CIVectorParameter(
-      'inputValue',
-      'Value',
-      [0.0, 0.0, 0.0],
-      3,
-    );
+    final parameter = CIVectorParameter('inputValue', 'Value', [
+      0.0,
+      0.0,
+      0.0,
+    ], 3);
     parameter.value = [640.0, 80.0];
     verifyNever(
-      mockFilterApi.setCIVectorParameter(
-        101,
-        'inputValue',
-        [0.0, 0.0, 0.0],
-      ),
+      mockFilterApi.setCIVectorParameter(101, 'inputValue', [0.0, 0.0, 0.0]),
     );
   });
   test('CGAffineTransformParameter', () async {
@@ -124,11 +109,14 @@ void main() {
     await parameter.update(configuration);
     expect(parameter.value, affineTransform);
     verify(
-      mockFilterApi.setNSValueParameter(
-        101,
-        'inputValue',
-        [1.0, 0.0, 0.0, 1.0, 0.0, 0.0],
-      ),
+      mockFilterApi.setNSValueParameter(101, 'inputValue', [
+        1.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+      ]),
     );
   });
   group('NSDataParameter', () {
@@ -207,9 +195,7 @@ void main() {
     final parameter = NSBoolParameter('inputValue', 'Value', false);
     parameter.value = true;
     await parameter.update(configuration);
-    verify(
-      mockFilterApi.setNSNumberParameter(101, 'inputValue', 1),
-    );
+    verify(mockFilterApi.setNSNumberParameter(101, 'inputValue', 1));
   });
   test('NSStringParameter', () async {
     final parameter = NSStringParameter('inputValue', 'Value', '');

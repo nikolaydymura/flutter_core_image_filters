@@ -13,14 +13,14 @@ class CIDitherConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIDitherConfiguration] with default values.
   CIDitherConfiguration()
-      : _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          0.1,
-          min: 0,
-          max: 5,
-        ),
-        super('CIDither');
+    : _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        0.1,
+        min: 0,
+        max: 5,
+      ),
+      super('CIDither');
 
   /// The intensity of the effect.
   ///
@@ -33,12 +33,12 @@ class CIDitherConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_intensity];

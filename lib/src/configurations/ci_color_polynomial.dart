@@ -20,27 +20,27 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorPolynomialConfiguration] with default values.
   CIColorPolynomialConfiguration()
-      : _redCoefficients = CIVectorParameter(
-          'inputRedCoefficients',
-          'Red Coefficients',
-          [0, 1, 0, 0],
-        ),
-        _greenCoefficients = CIVectorParameter(
-          'inputGreenCoefficients',
-          'Green Coefficients',
-          [0, 1, 0, 0],
-        ),
-        _alphaCoefficients = CIVectorParameter(
-          'inputAlphaCoefficients',
-          'Alpha Coefficients',
-          [0, 1, 0, 0],
-        ),
-        _blueCoefficients = CIVectorParameter(
-          'inputBlueCoefficients',
-          'Blue Coefficients',
-          [0, 1, 0, 0],
-        ),
-        super('CIColorPolynomial');
+    : _redCoefficients = CIVectorParameter(
+        'inputRedCoefficients',
+        'Red Coefficients',
+        [0, 1, 0, 0],
+      ),
+      _greenCoefficients = CIVectorParameter(
+        'inputGreenCoefficients',
+        'Green Coefficients',
+        [0, 1, 0, 0],
+      ),
+      _alphaCoefficients = CIVectorParameter(
+        'inputAlphaCoefficients',
+        'Alpha Coefficients',
+        [0, 1, 0, 0],
+      ),
+      _blueCoefficients = CIVectorParameter(
+        'inputBlueCoefficients',
+        'Blue Coefficients',
+        [0, 1, 0, 0],
+      ),
+      super('CIColorPolynomial');
 
   /// Polynomial coefficients for the red channel.
   ///
@@ -72,20 +72,20 @@ class CIColorPolynomialConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _redCoefficients,
-        _greenCoefficients,
-        _alphaCoefficients,
-        _blueCoefficients,
-      ];
+    _redCoefficients,
+    _greenCoefficients,
+    _alphaCoefficients,
+    _blueCoefficients,
+  ];
 }

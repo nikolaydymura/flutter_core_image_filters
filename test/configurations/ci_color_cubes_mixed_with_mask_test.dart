@@ -12,31 +12,42 @@ void main() {
   });
   group('CIColorCubesMixedWithMask', () {
     test('change inputCubeDimension', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCubeDimension') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputCubeDimension',
+              )
+              as NumberParameter;
       expect(parameter.value, 2);
       configuration.cubeDimension = 64;
       expect(parameter.value, 64);
     });
     test('change inputColorSpace', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputColorSpace')
-          as OptionStringParameter<CGColorSpace>;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputColorSpace',
+              )
+              as OptionStringParameter<CGColorSpace>;
       expect(parameter.value.platformKey, '');
       configuration.colorSpace = CGColorSpace.sRGB;
       expect(parameter.value.platformKey, 'sRGB');
     });
     test('change inputExtrapolate', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputExtrapolate') as BoolParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputExtrapolate',
+              )
+              as BoolParameter;
       expect(parameter.value, false);
       configuration.extrapolate = true;
       expect(parameter.value, true);
     });
     group('inputCube0Data', () {
       test('change data', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube0Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube0Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);
@@ -47,8 +58,11 @@ void main() {
         expect(parameter.asset, isNull);
       });
       test('change asset', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube0Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube0Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);
@@ -59,8 +73,11 @@ void main() {
         expect(parameter.asset, asset);
       });
       test('change file', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube0Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube0Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);
@@ -73,8 +90,11 @@ void main() {
     });
     group('inputCube1Data', () {
       test('change data', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube1Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube1Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);
@@ -85,8 +105,11 @@ void main() {
         expect(parameter.asset, isNull);
       });
       test('change asset', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube1Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube1Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);
@@ -97,8 +120,11 @@ void main() {
         expect(parameter.asset, asset);
       });
       test('change file', () {
-        final parameter = configuration.parameters
-            .firstWhere((e) => e.name == 'inputCube1Data') as DataParameter;
+        final parameter =
+            configuration.parameters.firstWhere(
+                  (e) => e.name == 'inputCube1Data',
+                )
+                as DataParameter;
         expect(parameter.data, isNull);
         expect(parameter.file, isNull);
         expect(parameter.asset, isNull);

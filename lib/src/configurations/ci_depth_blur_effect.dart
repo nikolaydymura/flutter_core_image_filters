@@ -13,58 +13,54 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
   final RectParameter _focusRect;
 
   CIDepthBlurEffectConfiguration()
-      : _chinPositions = CGPositionParameter(
-          'inputChinPositions',
-          'ChinPositions',
-          const Point(-1.0, -1.0),
-        ),
-        _leftEyePositions = CGPositionParameter(
-          'inputLeftEyePositions',
-          'LeftEyePositions',
-          const Point(-1.0, -1.0),
-        ),
-        _shape = NSStringParameter(
-          'inputShape',
-          'Shape',
-          '',
-        ),
-        _scaleFactor = SliderNSNumberParameter(
-          'inputScaleFactor',
-          'ScaleFactor',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _rightEyePositions = CGPositionParameter(
-          'inputRightEyePositions',
-          'RightEyePositions',
-          const Point(-1.0, -1.0),
-        ),
-        _lumaNoiseScale = SliderNSNumberParameter(
-          'inputLumaNoiseScale',
-          'LumaNoiseScale',
-          0,
-          min: 0,
-          max: 0.1,
-        ),
-        _nosePositions = CGPositionParameter(
-          'inputNosePositions',
-          'NosePositions',
-          const Point(-1.0, -1.0),
-        ),
-        _aperture = SliderNSNumberParameter(
-          'inputAperture',
-          'Aperture',
-          0,
-          min: 0,
-          max: 22,
-        ),
-        _focusRect = CGRectParameter(
-          'inputFocusRect',
-          'FocusRect',
-          const Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
-        ),
-        super('CIDepthBlurEffect');
+    : _chinPositions = CGPositionParameter(
+        'inputChinPositions',
+        'ChinPositions',
+        const Point(-1.0, -1.0),
+      ),
+      _leftEyePositions = CGPositionParameter(
+        'inputLeftEyePositions',
+        'LeftEyePositions',
+        const Point(-1.0, -1.0),
+      ),
+      _shape = NSStringParameter('inputShape', 'Shape', ''),
+      _scaleFactor = SliderNSNumberParameter(
+        'inputScaleFactor',
+        'ScaleFactor',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _rightEyePositions = CGPositionParameter(
+        'inputRightEyePositions',
+        'RightEyePositions',
+        const Point(-1.0, -1.0),
+      ),
+      _lumaNoiseScale = SliderNSNumberParameter(
+        'inputLumaNoiseScale',
+        'LumaNoiseScale',
+        0,
+        min: 0,
+        max: 0.1,
+      ),
+      _nosePositions = CGPositionParameter(
+        'inputNosePositions',
+        'NosePositions',
+        const Point(-1.0, -1.0),
+      ),
+      _aperture = SliderNSNumberParameter(
+        'inputAperture',
+        'Aperture',
+        0,
+        min: 0,
+        max: 22,
+      ),
+      _focusRect = CGRectParameter(
+        'inputFocusRect',
+        'FocusRect',
+        const Rect.fromLTWH(0.0, 0.0, 0.0, 0.0),
+      ),
+      super('CIDepthBlurEffect');
 
   /// The chin positions.
   ///
@@ -129,23 +125,23 @@ class CIDepthBlurEffectConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _chinPositions,
-        _leftEyePositions,
-        _shape,
-        _scaleFactor,
-        _rightEyePositions,
-        _lumaNoiseScale,
-        _nosePositions,
-        _aperture,
-        _focusRect,
-      ];
+    _chinPositions,
+    _leftEyePositions,
+    _shape,
+    _scaleFactor,
+    _rightEyePositions,
+    _lumaNoiseScale,
+    _nosePositions,
+    _aperture,
+    _focusRect,
+  ];
 }

@@ -13,14 +13,14 @@ class CIStraightenFilterConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIStraightenFilterConfiguration] with default values.
   CIStraightenFilterConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIStraightenFilter');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIStraightenFilter');
 
   /// The rotation angle, in radians.
   ///
@@ -33,12 +33,12 @@ class CIStraightenFilterConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle];

@@ -9,8 +9,9 @@ void main() {
   });
   group('CIMorphologyGradient', () {
     test('change inputRadius', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputRadius') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputRadius')
+              as NumberParameter;
       expect(parameter.value, 5);
       configuration.radius = 25;
       expect(parameter.value, 25);

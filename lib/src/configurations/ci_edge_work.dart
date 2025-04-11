@@ -13,14 +13,14 @@ class CIEdgeWorkConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIEdgeWorkConfiguration] with default values.
   CIEdgeWorkConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          3,
-          min: 0,
-          max: 20,
-        ),
-        super('CIEdgeWork');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        3,
+        min: 0,
+        max: 20,
+      ),
+      super('CIEdgeWork');
 
   /// The thickness of the edges.
   ///
@@ -33,11 +33,11 @@ class CIEdgeWorkConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a shading image parameter to a filter configuration.
 mixin ShadingImageMixin on CIFilterConfiguration {
-  final DataParameter _shadingImage =
-      CIImageParameter('inputShadingImage', 'Shading Image');
+  final DataParameter _shadingImage = CIImageParameter(
+    'inputShadingImage',
+    'Shading Image',
+  );
 
   /// The shading image data
   ///
@@ -34,7 +36,9 @@ mixin ShadingImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _shadingImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _shadingImage,
+  ];
+  // coverage:ignore-end
 }

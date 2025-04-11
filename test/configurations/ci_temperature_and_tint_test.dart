@@ -11,15 +11,19 @@ void main() {
   });
   group('CITemperatureAndTint', () {
     test('change inputTargetNeutral', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTargetNeutral') as PointParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputTargetNeutral',
+              )
+              as PointParameter;
       expect(parameter.value, const Point(6500.0, 0.0));
       configuration.targetNeutral = const Point(6000.0, 0.0);
       expect(parameter.value, const Point(6000.0, 0.0));
     });
     test('change inputNeutral', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputNeutral') as PointParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputNeutral')
+              as PointParameter;
       expect(parameter.value, const Point(6500.0, 0.0));
       configuration.neutral = const Point(6000.0, 0.0);
       expect(parameter.value, const Point(6000.0, 0.0));

@@ -8,18 +8,22 @@ void main() {
   });
   group('CIColorClamp', () {
     test('change inputMaxComponents', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputMaxComponents')
-          as CIVectorParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputMaxComponents',
+              )
+              as CIVectorParameter;
       expect(parameter.value, [1, 1, 1, 1]);
       configuration.maxComponents = [0.9, 0.9, 0.9, 0.9];
       expect(parameter.value, [0.9, 0.9, 0.9, 0.9]);
     });
 
     test('change inputMinComponents', () {
-      final parameter = configuration.parameters
-              .firstWhere((e) => e.name == 'inputMinComponents')
-          as CIVectorParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputMinComponents',
+              )
+              as CIVectorParameter;
       expect(parameter.value, [0, 0, 0, 0]);
       configuration.minComponents = [0.1, 0.1, 0.1, 0.1];
       expect(parameter.value, [0.1, 0.1, 0.1, 0.1]);

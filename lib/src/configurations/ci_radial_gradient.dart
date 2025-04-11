@@ -21,36 +21,36 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIRadialGradientConfiguration] with default values.
   CIRadialGradientConfiguration()
-      : _radius1 = SliderNSNumberParameter(
-          'inputRadius1',
-          'Radius 2',
-          100,
-          min: 0,
-          max: 800,
-        ),
-        _color0 = CIColorParameter(
-          'inputColor0',
-          'Color 1',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _radius0 = SliderNSNumberParameter(
-          'inputRadius0',
-          'Radius 1',
-          5,
-          min: 0,
-          max: 800,
-        ),
-        _color1 = CIColorParameter(
-          'inputColor1',
-          'Color 2',
-          const Color.fromRGBO(0, 0, 0, 1),
-        ),
-        super('CIRadialGradient');
+    : _radius1 = SliderNSNumberParameter(
+        'inputRadius1',
+        'Radius 2',
+        100,
+        min: 0,
+        max: 800,
+      ),
+      _color0 = CIColorParameter(
+        'inputColor0',
+        'Color 1',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _radius0 = SliderNSNumberParameter(
+        'inputRadius0',
+        'Radius 1',
+        5,
+        min: 0,
+        max: 800,
+      ),
+      _color1 = CIColorParameter(
+        'inputColor1',
+        'Color 2',
+        const Color.fromRGBO(0, 0, 0, 1),
+      ),
+      super('CIRadialGradient');
 
   /// The radius of the ending circle to use in the gradient.
   ///
@@ -93,16 +93,21 @@ class CIRadialGradientConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.gradient,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.gradient,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_radius1, _color0, _center, _radius0, _color1];
+  List<ConfigurationParameter> get parameters => [
+    _radius1,
+    _color0,
+    _center,
+    _radius0,
+    _color1,
+  ];
 
   @override
   bool get hasInputImage => false;

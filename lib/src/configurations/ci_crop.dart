@@ -5,17 +5,17 @@ class CICropConfiguration extends CIFilterConfiguration {
   final RectParameter _rectangle;
 
   CICropConfiguration()
-      : _rectangle = CGRectParameter(
-          'inputRectangle',
-          'Rectangle',
-          const Rect.fromLTWH(
-            -8.98847e+307,
-            -8.98847e+307,
-            1.79769e+308,
-            1.79769e+308,
-          ),
+    : _rectangle = CGRectParameter(
+        'inputRectangle',
+        'Rectangle',
+        const Rect.fromLTWH(
+          -8.98847e+307,
+          -8.98847e+307,
+          1.79769e+308,
+          1.79769e+308,
         ),
-        super('CICrop');
+      ),
+      super('CICrop');
 
   /// The rectangle to crop to.
   set rectangle(Rect value) {
@@ -24,12 +24,12 @@ class CICropConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_rectangle];

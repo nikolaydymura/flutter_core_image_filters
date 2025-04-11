@@ -14,9 +14,8 @@ class CIColorCubeWithColorSpaceConfiguration extends CIFilterConfiguration
 
   /// Create a [CIColorCubeWithColorSpaceConfiguration] with default values.
   CIColorCubeWithColorSpaceConfiguration()
-      : _extrapolate =
-            NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
-        super('CIColorCubeWithColorSpace');
+    : _extrapolate = NSBoolParameter('inputExtrapolate', 'Extrapolate', false),
+      super('CIColorCubeWithColorSpace');
 
   /// Whether to extrapolate.
   ///
@@ -27,18 +26,18 @@ class CIColorCubeWithColorSpaceConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        ...super.parameters,
-        _extrapolate,
-      ];
+    ...super.parameters,
+    _extrapolate,
+  ];
 }

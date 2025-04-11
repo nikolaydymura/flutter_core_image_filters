@@ -9,8 +9,9 @@ void main() {
   });
   group('CIGammaAdjust', () {
     test('change inputPower', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputPower') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputPower')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.power = 2;
       expect(parameter.value, 2);

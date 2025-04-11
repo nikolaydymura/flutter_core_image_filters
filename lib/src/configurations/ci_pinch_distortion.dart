@@ -17,26 +17,26 @@ class CIPinchDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPinchDistortionConfiguration] with default values.
   CIPinchDistortionConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          0.5,
-          min: 0,
-          max: 2,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 1000,
-        ),
-        super('CIPinchDistortion');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        0.5,
+        min: 0,
+        max: 2,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 1000,
+      ),
+      super('CIPinchDistortion');
 
   /// The center.
   ///
@@ -65,12 +65,12 @@ class CIPinchDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _scale, _radius];

@@ -17,26 +17,26 @@ class CIKaleidoscopeConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIKaleidoscopeConfiguration] with default values.
   CIKaleidoscopeConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _count = SliderNSNumberParameter(
-          'inputCount',
-          'Count',
-          6,
-          min: 1,
-          max: 64,
-        ),
-        super('CIKaleidoscope');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _count = SliderNSNumberParameter(
+        'inputCount',
+        'Count',
+        6,
+        min: 1,
+        max: 64,
+      ),
+      super('CIKaleidoscope');
 
   /// The angle of the reflection.
   ///
@@ -65,12 +65,12 @@ class CIKaleidoscopeConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_angle, _center, _count];

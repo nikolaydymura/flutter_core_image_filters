@@ -18,8 +18,9 @@ void main() {
     mockPreviewApi = MockImagePreviewApi();
     when(mockFilterApi.create(any)).thenAnswer((_) async => 202);
     when(mockPreviewApi.create()).thenAnswer((_) async => 101);
-    controller =
-        await CIImagePreviewController.initialize(previewApi: mockPreviewApi);
+    controller = await CIImagePreviewController.initialize(
+      previewApi: mockPreviewApi,
+    );
   });
   tearDown(() {
     verify(mockPreviewApi.create()).called(1);
@@ -41,8 +42,9 @@ void main() {
       verify(mockPreviewApi.setSourceFile(101, file.absolute.path)).called(1);
     });
     test('no image source', () async {
-      await controller
-          .setOutputSurface(const Rect.fromLTWH(0.0, 0.0, 640.0, 480.0));
+      await controller.setOutputSurface(
+        const Rect.fromLTWH(0.0, 0.0, 640.0, 480.0),
+      );
       verify(mockPreviewApi.setOutput(any, [0.0, 0.0, 640.0, 480.0])).called(1);
     });
     test('dispose', () async {

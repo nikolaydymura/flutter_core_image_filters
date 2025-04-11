@@ -15,21 +15,21 @@ class CINoiseReductionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CINoiseReductionConfiguration] with default values.
   CINoiseReductionConfiguration()
-      : _noiseLevel = SliderNSNumberParameter(
-          'inputNoiseLevel',
-          'Noise Level',
-          0.02,
-          min: 0,
-          max: 0.1,
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.4,
-          min: 0,
-          max: 2,
-        ),
-        super('CINoiseReduction');
+    : _noiseLevel = SliderNSNumberParameter(
+        'inputNoiseLevel',
+        'Noise Level',
+        0.02,
+        min: 0,
+        max: 0.1,
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.4,
+        min: 0,
+        max: 2,
+      ),
+      super('CINoiseReduction');
 
   /// The amount of noise reduction.
   ///
@@ -51,12 +51,12 @@ class CINoiseReductionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_noiseLevel, _sharpness];

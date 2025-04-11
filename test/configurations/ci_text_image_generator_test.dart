@@ -9,36 +9,43 @@ void main() {
   });
   group('CITextImageGenerator', () {
     test('change inputFontName', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputFontName') as StringParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputFontName')
+              as StringParameter;
       expect(parameter.value, 'HelveticaNeue');
       configuration.fontName = 'TimesNewRoman';
       expect(parameter.value, 'TimesNewRoman');
     });
     test('change inputText', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputText') as StringParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputText')
+              as StringParameter;
       expect(parameter.value, '');
       configuration.text = 'a';
       expect(parameter.value, 'a');
     });
     test('change inputFontSize', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputFontSize') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputFontSize')
+              as NumberParameter;
       expect(parameter.value, 12);
       configuration.fontSize = 16;
       expect(parameter.value, 16);
     });
     test('change inputPadding', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputPadding') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputPadding')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.padding = 100;
       expect(parameter.value, 100);
     });
     test('change inputScaleFactor', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScaleFactor') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputScaleFactor',
+              )
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.scaleFactor = 2;
       expect(parameter.value, 2);

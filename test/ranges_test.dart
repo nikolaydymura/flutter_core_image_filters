@@ -55,9 +55,11 @@ import 'metadata/ranges.dart';
  */
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    final configuration =
-        FlutterCoreImageFilters.createFilter(displayName: displayName);
-    bool noParams = displayName.contains('Lookup Table') ||
+    final configuration = FlutterCoreImageFilters.createFilter(
+      displayName: displayName,
+    );
+    bool noParams =
+        displayName.contains('Lookup Table') ||
         configuration.parameters.whereType<RangeNumberParameter>().isEmpty;
     if (noParams) {
       continue;
@@ -65,31 +67,28 @@ void main() {
     final numParams =
         configuration.parameters.whereType<RangeNumberParameter>();
     for (final numParam in numParams) {
-      test(
-        'ranges for ${numParam.name} values of `${configuration.name}`',
-        () {
-          final paramValues = kInputRanges[configuration.name];
-          expect(paramValues, isNotNull);
-          final Map<String, double>? number = paramValues?[numParam.name];
-          expect(
-            number,
-            isNotNull,
-            reason: '${numParam.name} in ${configuration.name}',
-          );
-          expect(
-            numParam.min,
-            number?['min'],
-            reason:
-                '${numParam.name} in ${configuration.name} has invalid minimum',
-          );
-          expect(
-            numParam.max,
-            number?['max'],
-            reason:
-                '${numParam.name} in ${configuration.name} has invalid maximum',
-          );
-        },
-      );
+      test('ranges for ${numParam.name} values of `${configuration.name}`', () {
+        final paramValues = kInputRanges[configuration.name];
+        expect(paramValues, isNotNull);
+        final Map<String, double>? number = paramValues?[numParam.name];
+        expect(
+          number,
+          isNotNull,
+          reason: '${numParam.name} in ${configuration.name}',
+        );
+        expect(
+          numParam.min,
+          number?['min'],
+          reason:
+              '${numParam.name} in ${configuration.name} has invalid minimum',
+        );
+        expect(
+          numParam.max,
+          number?['max'],
+          reason:
+              '${numParam.name} in ${configuration.name} has invalid maximum',
+        );
+      });
     }
   }
 }

@@ -13,12 +13,12 @@ class CIPersonSegmentationConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPersonSegmentationConfiguration] with default values.
   CIPersonSegmentationConfiguration()
-      : _qualityLevel = NSNumberParameter(
-          'inputQualityLevel',
-          'Quality Level',
-          double.nan,
-        ),
-        super('CIPersonSegmentation');
+    : _qualityLevel = NSNumberParameter(
+        'inputQualityLevel',
+        'Quality Level',
+        double.nan,
+      ),
+      super('CIPersonSegmentation');
 
   /// The qualityLevel.
   ///
@@ -29,11 +29,11 @@ class CIPersonSegmentationConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.stylize,
-      };
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.stylize,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_qualityLevel];

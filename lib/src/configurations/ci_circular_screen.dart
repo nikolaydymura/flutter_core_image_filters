@@ -17,26 +17,26 @@ class CICircularScreenConfiguration extends CIFilterConfiguration {
 
   /// Create a [CICircularScreenConfiguration] with default values.
   CICircularScreenConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.7,
-          min: 0,
-          max: 1,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          6,
-          min: 1,
-          max: 50,
-        ),
-        super('CICircularScreen');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.7,
+        min: 0,
+        max: 1,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        6,
+        min: 1,
+        max: 50,
+      ),
+      super('CICircularScreen');
 
   /// The x and y position to use as the center of the circular screen pattern.
   ///
@@ -65,11 +65,11 @@ class CICircularScreenConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.halftoneEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.halftoneEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _sharpness, _width];

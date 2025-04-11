@@ -19,27 +19,11 @@ class CIPerspectiveRotateConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPerspectiveRotateConfiguration] with default values.
   CIPerspectiveRotateConfiguration()
-      : _focalLength = NSNumberParameter(
-          'inputFocalLength',
-          'Focal Length',
-          28,
-        ),
-        _roll = NSNumberParameter(
-          'inputRoll',
-          'Roll',
-          0,
-        ),
-        _pitch = NSNumberParameter(
-          'inputPitch',
-          'Pitch',
-          0,
-        ),
-        _yaw = NSNumberParameter(
-          'inputYaw',
-          'Yaw',
-          0,
-        ),
-        super('CIPerspectiveRotate');
+    : _focalLength = NSNumberParameter('inputFocalLength', 'Focal Length', 28),
+      _roll = NSNumberParameter('inputRoll', 'Roll', 0),
+      _pitch = NSNumberParameter('inputPitch', 'Pitch', 0),
+      _yaw = NSNumberParameter('inputYaw', 'Yaw', 0),
+      super('CIPerspectiveRotate');
 
   /// The focalLength.
   ///
@@ -71,14 +55,18 @@ class CIPerspectiveRotateConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_focalLength, _roll, _pitch, _yaw];
+  List<ConfigurationParameter> get parameters => [
+    _focalLength,
+    _roll,
+    _pitch,
+    _yaw,
+  ];
 }

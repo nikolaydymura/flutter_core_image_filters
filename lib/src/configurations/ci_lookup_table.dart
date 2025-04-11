@@ -5,14 +5,14 @@ class CILookupTableConfiguration extends CIFilterConfiguration
   final RangeNumberParameter _intensity;
 
   CILookupTableConfiguration()
-      : _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          1.0,
-          min: 0.0,
-          max: 1.0,
-        ),
-        super('CISquareLookupTable');
+    : _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        1.0,
+        min: 0.0,
+        max: 1.0,
+      ),
+      super('CISquareLookupTable');
 
   set intensity(double value) {
     _intensity.value = value;
@@ -20,14 +20,14 @@ class CILookupTableConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_intensity, _image2];

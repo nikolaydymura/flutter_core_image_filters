@@ -9,16 +9,20 @@ void main() {
   });
   group('CINoiseReduction', () {
     test('change inputNoiseLevel', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputNoiseLevel') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputNoiseLevel',
+              )
+              as NumberParameter;
       expect(parameter.value, 0.02);
       configuration.noiseLevel = 0.05;
       expect(parameter.value, 0.05);
     });
 
     test('change inputSharpness', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputSharpness') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputSharpness')
+              as NumberParameter;
       expect(parameter.value, 0.4);
       configuration.sharpness = 1;
       expect(parameter.value, 1);

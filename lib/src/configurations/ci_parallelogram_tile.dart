@@ -19,33 +19,33 @@ class CIParallelogramTileConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIParallelogramTileConfiguration] with default values.
   CIParallelogramTileConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          100,
-          min: 0,
-          max: 200,
-        ),
-        _acuteAngle = SliderNSNumberParameter(
-          'inputAcuteAngle',
-          'Acute Angle',
-          1.570796326794897,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        super('CIParallelogramTile');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        100,
+        min: 0,
+        max: 200,
+      ),
+      _acuteAngle = SliderNSNumberParameter(
+        'inputAcuteAngle',
+        'Acute Angle',
+        1.570796326794897,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      super('CIParallelogramTile');
 
   /// The x and y position to use as the center of the effect.
   ///
@@ -83,14 +83,18 @@ class CIParallelogramTileConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.tileEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.tileEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_center, _width, _acuteAngle, _angle];
+  List<ConfigurationParameter> get parameters => [
+    _center,
+    _width,
+    _acuteAngle,
+    _angle,
+  ];
 }

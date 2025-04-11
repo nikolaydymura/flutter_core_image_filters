@@ -13,14 +13,14 @@ class CIMorphologyMaximumConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMorphologyMaximumConfiguration] with default values.
   CIMorphologyMaximumConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          0,
-          min: 0,
-          max: 50,
-        ),
-        super('CIMorphologyMaximum');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        0,
+        min: 0,
+        max: 50,
+      ),
+      super('CIMorphologyMaximum');
 
   /// The radius of the circular morphological structuring element.
   ///
@@ -33,12 +33,12 @@ class CIMorphologyMaximumConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

@@ -19,35 +19,35 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIBokehBlurConfiguration] with default values.
   CIBokehBlurConfiguration()
-      : _softness = SliderNSNumberParameter(
-          'inputSoftness',
-          'Softness',
-          1,
-          min: 0,
-          max: 10,
-        ),
-        _ringSize = SliderNSNumberParameter(
-          'inputRingSize',
-          'Ring Size',
-          0.1,
-          min: 0,
-          max: 0.2,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          20,
-          min: 0,
-          max: 500,
-        ),
-        _ringAmount = SliderNSNumberParameter(
-          'inputRingAmount',
-          'Ring Amount',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        super('CIBokehBlur');
+    : _softness = SliderNSNumberParameter(
+        'inputSoftness',
+        'Softness',
+        1,
+        min: 0,
+        max: 10,
+      ),
+      _ringSize = SliderNSNumberParameter(
+        'inputRingSize',
+        'Ring Size',
+        0.1,
+        min: 0,
+        max: 0.2,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        20,
+        min: 0,
+        max: 500,
+      ),
+      _ringAmount = SliderNSNumberParameter(
+        'inputRingAmount',
+        'Ring Amount',
+        0,
+        min: 0,
+        max: 1,
+      ),
+      super('CIBokehBlur');
 
   /// The softness of the bokeh effect.
   ///
@@ -87,14 +87,18 @@ class CIBokehBlurConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_softness, _ringSize, _radius, _ringAmount];
+  List<ConfigurationParameter> get parameters => [
+    _softness,
+    _ringSize,
+    _radius,
+    _ringAmount,
+  ];
 }

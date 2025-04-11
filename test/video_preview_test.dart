@@ -17,8 +17,9 @@ void main() {
     mockPreviewApi = MockVideoPreviewApi();
     when(mockFilterApi.create(any)).thenAnswer((_) async => 202);
     when(mockPreviewApi.create()).thenAnswer((_) async => 101);
-    controller =
-        await CIVideoPreviewController.initialize(previewApi: mockPreviewApi);
+    controller = await CIVideoPreviewController.initialize(
+      previewApi: mockPreviewApi,
+    );
   });
   tearDown(() {
     verify(mockPreviewApi.create()).called(1);

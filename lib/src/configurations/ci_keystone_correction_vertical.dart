@@ -22,32 +22,28 @@ class CIKeystoneCorrectionVerticalConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIKeystoneCorrectionVerticalConfiguration] with default values.
   CIKeystoneCorrectionVerticalConfiguration()
-      : _topRight = CGPositionParameter(
-          'inputTopRight',
-          'Top Right',
-          const Point(0.0, 0.0),
-        ),
-        _topLeft = CGPositionParameter(
-          'inputTopLeft',
-          'Top Left',
-          const Point(0.0, 0.0),
-        ),
-        _bottomRight = CGPositionParameter(
-          'inputBottomRight',
-          'Bottom Right',
-          const Point(0.0, 0.0),
-        ),
-        _bottomLeft = CGPositionParameter(
-          'inputBottomLeft',
-          'Bottom Left',
-          const Point(0.0, 0.0),
-        ),
-        _focalLength = NSNumberParameter(
-          'inputFocalLength',
-          'Focal Length',
-          28,
-        ),
-        super('CIKeystoneCorrectionVertical');
+    : _topRight = CGPositionParameter(
+        'inputTopRight',
+        'Top Right',
+        const Point(0.0, 0.0),
+      ),
+      _topLeft = CGPositionParameter(
+        'inputTopLeft',
+        'Top Left',
+        const Point(0.0, 0.0),
+      ),
+      _bottomRight = CGPositionParameter(
+        'inputBottomRight',
+        'Bottom Right',
+        const Point(0.0, 0.0),
+      ),
+      _bottomLeft = CGPositionParameter(
+        'inputBottomLeft',
+        'Bottom Left',
+        const Point(0.0, 0.0),
+      ),
+      _focalLength = NSNumberParameter('inputFocalLength', 'Focal Length', 28),
+      super('CIKeystoneCorrectionVertical');
 
   /// The topRight.
   ///
@@ -86,14 +82,19 @@ class CIKeystoneCorrectionVerticalConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_topRight, _topLeft, _bottomRight, _bottomLeft, _focalLength];
+  List<ConfigurationParameter> get parameters => [
+    _topRight,
+    _topLeft,
+    _bottomRight,
+    _bottomLeft,
+    _focalLength,
+  ];
 }

@@ -14,14 +14,8 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIDissolveTransitionConfiguration] with default values.
   CIDissolveTransitionConfiguration()
-      : _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        super('CIDissolveTransition');
+    : _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      super('CIDissolveTransition');
 
   /// The time.
   ///
@@ -34,14 +28,14 @@ class CIDissolveTransitionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.transition,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.transition,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_time, _targetImage];

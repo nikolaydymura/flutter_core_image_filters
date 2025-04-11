@@ -17,26 +17,26 @@ class CIAreaHistogramConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIAreaHistogramConfiguration] with default values.
   CIAreaHistogramConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _count = SliderNSNumberParameter(
-          'inputCount',
-          'Count',
-          64,
-          min: 1,
-          max: 2048,
-        ),
-        _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        super('CIAreaHistogram');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _count = SliderNSNumberParameter(
+        'inputCount',
+        'Count',
+        64,
+        min: 1,
+        max: 2048,
+      ),
+      _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      super('CIAreaHistogram');
 
   /// The scale of the histogram.
   ///
@@ -65,11 +65,11 @@ class CIAreaHistogramConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _count, _extent];

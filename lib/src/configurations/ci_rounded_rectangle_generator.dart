@@ -17,29 +17,24 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIRoundedRectangleGeneratorConfiguration] with default values.
   CIRoundedRectangleGeneratorConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(
-            0,
-            0,
-            100,
-            100,
-          ),
-        ),
-        _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 255, 255, 1.0),
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          10,
-          min: 0,
-          max: 100,
-        ),
-        super('CIRoundedRectangleGenerator');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 100, 100),
+      ),
+      _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 255, 255, 1.0),
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        10,
+        min: 0,
+        max: 100,
+      ),
+      super('CIRoundedRectangleGenerator');
 
   /// The extent.
   ///
@@ -66,11 +61,11 @@ class CIRoundedRectangleGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_extent, _color, _radius];

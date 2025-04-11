@@ -23,7 +23,10 @@ class NSNumberParameter extends NumberParameter {
       return;
     }
     _needsUpdate = false;
-    await configuration._api
-        .setNSNumberParameter(configuration._filterId, name, floatValue);
+    await configuration._api.setNSNumberParameter(
+      configuration._filterId,
+      name,
+      floatValue,
+    );
   }
 }

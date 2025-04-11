@@ -15,19 +15,19 @@ class CIPixellateConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPixellateConfiguration] with default values.
   CIPixellateConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          8,
-          min: 1,
-          max: 100,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIPixellate');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        8,
+        min: 1,
+        max: 100,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIPixellate');
 
   /// A value that determines the size of the squares.
   ///
@@ -47,12 +47,12 @@ class CIPixellateConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_center, _scale];

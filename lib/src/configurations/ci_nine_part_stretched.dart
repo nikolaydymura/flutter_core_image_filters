@@ -17,22 +17,22 @@ class CINinePartStretchedConfiguration extends CIFilterConfiguration {
 
   /// Create a [CINinePartStretchedConfiguration] with default values.
   CINinePartStretchedConfiguration()
-      : _breakpoint1 = CGPositionParameter(
-          'inputBreakpoint1',
-          'Breakpoint1',
-          const Point(150.0, 150.0),
-        ),
-        _growAmount = CGPositionParameter(
-          'inputGrowAmount',
-          'Grow Amount',
-          const Point(100.0, 100.0),
-        ),
-        _breakpoint0 = CGPositionParameter(
-          'inputBreakpoint0',
-          'Breakpoint0',
-          const Point(50.0, 50.0),
-        ),
-        super('CINinePartStretched');
+    : _breakpoint1 = CGPositionParameter(
+        'inputBreakpoint1',
+        'Breakpoint1',
+        const Point(150.0, 150.0),
+      ),
+      _growAmount = CGPositionParameter(
+        'inputGrowAmount',
+        'Grow Amount',
+        const Point(100.0, 100.0),
+      ),
+      _breakpoint0 = CGPositionParameter(
+        'inputBreakpoint0',
+        'Breakpoint0',
+        const Point(50.0, 50.0),
+      ),
+      super('CINinePartStretched');
 
   /// The breakpoint1.
   ///
@@ -57,14 +57,17 @@ class CINinePartStretchedConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_breakpoint1, _growAmount, _breakpoint0];
+  List<ConfigurationParameter> get parameters => [
+    _breakpoint1,
+    _growAmount,
+    _breakpoint0,
+  ];
 }

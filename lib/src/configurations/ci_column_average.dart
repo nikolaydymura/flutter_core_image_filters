@@ -13,12 +13,12 @@ class CIColumnAverageConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColumnAverageConfiguration] with default values.
   CIColumnAverageConfiguration()
-      : _extent = CGRectParameter(
-          'inputExtent',
-          'Extent',
-          const Rect.fromLTWH(0, 0, 640, 80),
-        ),
-        super('CIColumnAverage');
+    : _extent = CGRectParameter(
+        'inputExtent',
+        'Extent',
+        const Rect.fromLTWH(0, 0, 640, 80),
+      ),
+      super('CIColumnAverage');
 
   /// The extent of the columns to average.
   ///
@@ -29,12 +29,12 @@ class CIColumnAverageConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.reduction,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.reduction,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_extent];

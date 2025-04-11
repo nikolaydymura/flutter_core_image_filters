@@ -27,59 +27,53 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CILenticularHaloGeneratorConfiguration] with default values.
   CILenticularHaloGeneratorConfiguration()
-      : _haloRadius = SliderNSNumberParameter(
-          'inputHaloRadius',
-          'Halo Radius',
-          70,
-          min: 0,
-          max: 1000,
-        ),
-        _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 229, 204, 1),
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _striationContrast = SliderNSNumberParameter(
-          'inputStriationContrast',
-          'Striation Contrast',
-          1,
-          min: 0,
-          max: 5,
-        ),
-        _haloOverlap = SliderNSNumberParameter(
-          'inputHaloOverlap',
-          'Halo Overlap',
-          0.77,
-          min: 0,
-          max: 1,
-        ),
-        _time = SliderNSNumberParameter(
-          'inputTime',
-          'Time',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _striationStrength = SliderNSNumberParameter(
-          'inputStriationStrength',
-          'Striation Strength',
-          0.5,
-          min: 0,
-          max: 3,
-        ),
-        _haloWidth = SliderNSNumberParameter(
-          'inputHaloWidth',
-          'Halo Width',
-          87,
-          min: 0,
-          max: 300,
-        ),
-        super('CILenticularHaloGenerator');
+    : _haloRadius = SliderNSNumberParameter(
+        'inputHaloRadius',
+        'Halo Radius',
+        70,
+        min: 0,
+        max: 1000,
+      ),
+      _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 229, 204, 1),
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _striationContrast = SliderNSNumberParameter(
+        'inputStriationContrast',
+        'Striation Contrast',
+        1,
+        min: 0,
+        max: 5,
+      ),
+      _haloOverlap = SliderNSNumberParameter(
+        'inputHaloOverlap',
+        'Halo Overlap',
+        0.77,
+        min: 0,
+        max: 1,
+      ),
+      _time = SliderNSNumberParameter('inputTime', 'Time', 0, min: 0, max: 1),
+      _striationStrength = SliderNSNumberParameter(
+        'inputStriationStrength',
+        'Striation Strength',
+        0.5,
+        min: 0,
+        max: 3,
+      ),
+      _haloWidth = SliderNSNumberParameter(
+        'inputHaloWidth',
+        'Halo Width',
+        87,
+        min: 0,
+        max: 300,
+      ),
+      super('CILenticularHaloGenerator');
 
   /// The radius of the halo.
   ///
@@ -151,25 +145,25 @@ class CILenticularHaloGeneratorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.generator,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.generator,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [
-        _haloRadius,
-        _color,
-        _center,
-        _striationContrast,
-        _haloOverlap,
-        _time,
-        _striationStrength,
-        _haloWidth,
-        _haloRadius,
-      ];
+    _haloRadius,
+    _color,
+    _center,
+    _striationContrast,
+    _haloOverlap,
+    _time,
+    _striationStrength,
+    _haloWidth,
+    _haloRadius,
+  ];
 
   @override
   bool get hasInputImage => false;

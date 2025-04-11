@@ -9,8 +9,9 @@ void main() {
   });
   group('CIDissolveTransition', () {
     test('change inputTime', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTime') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputTime')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.time = 0.5;
       expect(parameter.value, 0.5);

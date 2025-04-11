@@ -6,13 +6,13 @@ class CIConvolution3X3Configuration extends CIFilterConfiguration {
   final Mat3Parameter _weights;
 
   CIConvolution3X3Configuration()
-      : _bias = NSNumberParameter('inputBias', 'Bias', 0),
-        _weights = _Mat3Parameter(
-          'inputWeights',
-          'Weights',
-          Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]),
-        ),
-        super('CIConvolution3X3');
+    : _bias = NSNumberParameter('inputBias', 'Bias', 0),
+      _weights = _Mat3Parameter(
+        'inputWeights',
+        'Weights',
+        Matrix3.fromList([0, 0, 0, 0, 1, 0, 0, 0, 0]),
+      ),
+      super('CIConvolution3X3');
 
   /// The bias value.
   ///
@@ -30,12 +30,12 @@ class CIConvolution3X3Configuration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_bias, _weights];

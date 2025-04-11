@@ -44,8 +44,9 @@ void main() {
     group('exportData', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportData([101], 'jpeg', 'system', null))
-            .thenAnswer(
+        when(
+          mockFilterApi.exportData([101], 'jpeg', 'system', null),
+        ).thenAnswer(
           (_) async => File('example/images/demo.jpeg').readAsBytesSync(),
         );
         when(mockFilterApi.exportData([101], 'png', 'system', null)).thenAnswer(
@@ -63,8 +64,9 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputAsset(101, asset));
-        verify(mockFilterApi.exportData([101], 'jpeg', 'system', null))
-            .called(1);
+        verify(
+          mockFilterApi.exportData([101], 'jpeg', 'system', null),
+        ).called(1);
       });
       test('export from data', () async {
         final data = Uint8List.fromList([]);
@@ -72,8 +74,9 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputData(101, data));
-        verify(mockFilterApi.exportData([101], 'png', 'system', null))
-            .called(1);
+        verify(
+          mockFilterApi.exportData([101], 'png', 'system', null),
+        ).called(1);
       });
       test('export from file', () async {
         final file = File('demo.jpeg');
@@ -81,17 +84,20 @@ void main() {
         expect(image.width, 1800);
         expect(image.height, 1075);
         verify(mockFilterApi.setInputFile(101, file.absolute.path));
-        verify(mockFilterApi.exportData([101], 'jpeg', 'system', null))
-            .called(1);
+        verify(
+          mockFilterApi.exportData([101], 'jpeg', 'system', null),
+        ).called(1);
       });
     });
     group('exportImageFile', () {
       setUp(() async {
         await configuration.prepare();
-        when(mockFilterApi.exportImageFile([101], any, 'jpeg', 'system', null))
-            .thenAnswer((_) async {});
-        when(mockFilterApi.exportImageFile([101], any, 'png', 'system', null))
-            .thenAnswer((_) async {});
+        when(
+          mockFilterApi.exportImageFile([101], any, 'jpeg', 'system', null),
+        ).thenAnswer((_) async {});
+        when(
+          mockFilterApi.exportImageFile([101], any, 'png', 'system', null),
+        ).thenAnswer((_) async {});
       });
       tearDown(() async {
         await configuration.dispose();

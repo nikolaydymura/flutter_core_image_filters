@@ -14,12 +14,8 @@ class CIPalettizeConfiguration extends CIFilterConfiguration
 
   /// Create a [CIPalettizeConfiguration] with default values.
   CIPalettizeConfiguration()
-      : _perceptual = NSBoolParameter(
-          'inputPerceptual',
-          'Perceptual',
-          false,
-        ),
-        super('CIPalettize');
+    : _perceptual = NSBoolParameter('inputPerceptual', 'Perceptual', false),
+      super('CIPalettize');
 
   /// A Boolean value that specifies whether the filter applies the color palette in a perceptual color space.
   ///
@@ -30,11 +26,11 @@ class CIPalettizeConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_perceptual, _paletteImage];

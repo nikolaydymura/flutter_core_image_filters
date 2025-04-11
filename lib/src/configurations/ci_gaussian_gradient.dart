@@ -19,29 +19,29 @@ class CIGaussianGradientConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIGaussianGradientConfiguration] with default values.
   CIGaussianGradientConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 800,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _color1 = CIColorParameter(
-          'inputColor1',
-          'Color 2',
-          const Color.fromRGBO(0, 0, 0, 0),
-        ),
-        _color0 = CIColorParameter(
-          'inputColor0',
-          'Color 1',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        super('CIGaussianGradient');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 800,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _color1 = CIColorParameter(
+        'inputColor1',
+        'Color 2',
+        const Color.fromRGBO(0, 0, 0, 0),
+      ),
+      _color0 = CIColorParameter(
+        'inputColor0',
+        'Color 1',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      super('CIGaussianGradient');
 
   /// The radius of the Gaussian distribution.
   ///
@@ -75,16 +75,20 @@ class CIGaussianGradientConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.gradient,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.gradient,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_radius, _center, _color1, _color0];
+  List<ConfigurationParameter> get parameters => [
+    _radius,
+    _center,
+    _color1,
+    _color0,
+  ];
 
   @override
   bool get hasInputImage => false;

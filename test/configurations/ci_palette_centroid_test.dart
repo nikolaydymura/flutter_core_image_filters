@@ -9,8 +9,11 @@ void main() {
   });
   group('CIPaletteCentroid', () {
     test('change inputPerceptual', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputPerceptual') as BoolParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputPerceptual',
+              )
+              as BoolParameter;
       expect(parameter.value, false);
       configuration.perceptual = true;
       expect(parameter.value, true);

@@ -9,8 +9,9 @@ void main() {
   });
   group('CIEdges', () {
     test('change inputIntensity', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputIntensity') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputIntensity')
+              as NumberParameter;
       expect(parameter.value, 1);
       configuration.intensity = 6;
       expect(parameter.value, 6);

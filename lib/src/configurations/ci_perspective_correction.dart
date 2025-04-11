@@ -21,32 +21,28 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIPerspectiveCorrectionConfiguration] with default values.
   CIPerspectiveCorrectionConfiguration()
-      : _bottomLeft = CGPositionParameter(
-          'inputBottomLeft',
-          'Bottom Left',
-          const Point(155.0, 153.0),
-        ),
-        _topRight = CGPositionParameter(
-          'inputTopRight',
-          'Top Right',
-          const Point(646.0, 507.0),
-        ),
-        _topLeft = CGPositionParameter(
-          'inputTopLeft',
-          'Top Left',
-          const Point(118.0, 484.0),
-        ),
-        _crop = NSBoolParameter(
-          'inputCrop',
-          'Crop',
-          true,
-        ),
-        _bottomRight = CGPositionParameter(
-          'inputBottomRight',
-          'Bottom Right',
-          const Point(548.0, 140.0),
-        ),
-        super('CIPerspectiveCorrection');
+    : _bottomLeft = CGPositionParameter(
+        'inputBottomLeft',
+        'Bottom Left',
+        const Point(155.0, 153.0),
+      ),
+      _topRight = CGPositionParameter(
+        'inputTopRight',
+        'Top Right',
+        const Point(646.0, 507.0),
+      ),
+      _topLeft = CGPositionParameter(
+        'inputTopLeft',
+        'Top Left',
+        const Point(118.0, 484.0),
+      ),
+      _crop = NSBoolParameter('inputCrop', 'Crop', true),
+      _bottomRight = CGPositionParameter(
+        'inputBottomRight',
+        'Bottom Right',
+        const Point(548.0, 140.0),
+      ),
+      super('CIPerspectiveCorrection');
 
   /// The bottomLeft.
   ///
@@ -85,14 +81,19 @@ class CIPerspectiveCorrectionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.stillImage,
-        CICategory.video,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.stillImage,
+    CICategory.video,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_bottomLeft, _topRight, _topLeft, _crop, _bottomRight];
+  List<ConfigurationParameter> get parameters => [
+    _bottomLeft,
+    _topRight,
+    _topLeft,
+    _crop,
+    _bottomRight,
+  ];
 }

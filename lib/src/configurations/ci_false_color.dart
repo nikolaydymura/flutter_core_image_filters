@@ -15,17 +15,17 @@ class CIFalseColorConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIFalseColorConfiguration] with default values.
   CIFalseColorConfiguration()
-      : _color0 = CIColorParameter(
-          'inputColor0',
-          'Color 1',
-          const Color.fromRGBO(0, 0, 0, 1.0),
-        ),
-        _color1 = CIColorParameter(
-          'inputColor1',
-          'Color 2',
-          const Color.fromRGBO(0, 0, 0, 1.0),
-        ),
-        super('CIFalseColor');
+    : _color0 = CIColorParameter(
+        'inputColor0',
+        'Color 1',
+        const Color.fromRGBO(0, 0, 0, 1.0),
+      ),
+      _color1 = CIColorParameter(
+        'inputColor1',
+        'Color 2',
+        const Color.fromRGBO(0, 0, 0, 1.0),
+      ),
+      super('CIFalseColor');
 
   /// The first color to use for the color ramp.
   ///
@@ -43,14 +43,14 @@ class CIFalseColorConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_color0, _color1];

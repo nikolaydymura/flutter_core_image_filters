@@ -21,32 +21,32 @@ class CIToneCurveConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIToneCurveConfiguration] with default values.
   CIToneCurveConfiguration()
-      : _point0 = CGPositionParameter(
-          'inputPoint0',
-          'Point 0',
-          const Point(0.0, 0.0),
-        ),
-        _point1 = CGPositionParameter(
-          'inputPoint1',
-          'Point 1',
-          const Point(0.25, 0.25),
-        ),
-        _point2 = CGPositionParameter(
-          'inputPoint2',
-          'Point 2',
-          const Point(0.5, 0.5),
-        ),
-        _point3 = CGPositionParameter(
-          'inputPoint3',
-          'Point 3',
-          const Point(0.75, 0.75),
-        ),
-        _point4 = CGPositionParameter(
-          'inputPoint4',
-          'Point 4',
-          const Point(1.0, 1.0),
-        ),
-        super('CIToneCurve');
+    : _point0 = CGPositionParameter(
+        'inputPoint0',
+        'Point 0',
+        const Point(0.0, 0.0),
+      ),
+      _point1 = CGPositionParameter(
+        'inputPoint1',
+        'Point 1',
+        const Point(0.25, 0.25),
+      ),
+      _point2 = CGPositionParameter(
+        'inputPoint2',
+        'Point 2',
+        const Point(0.5, 0.5),
+      ),
+      _point3 = CGPositionParameter(
+        'inputPoint3',
+        'Point 3',
+        const Point(0.75, 0.75),
+      ),
+      _point4 = CGPositionParameter(
+        'inputPoint4',
+        'Point 4',
+        const Point(1.0, 1.0),
+      ),
+      super('CIToneCurve');
 
   /// A vector containing the position of the first point of the tone curve.
   ///
@@ -85,15 +85,20 @@ class CIToneCurveConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_point0, _point1, _point2, _point3, _point4];
+  List<ConfigurationParameter> get parameters => [
+    _point0,
+    _point1,
+    _point2,
+    _point3,
+    _point4,
+  ];
 }

@@ -19,33 +19,33 @@ class CITorusLensDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CITorusLensDistortionConfiguration] with default values.
   CITorusLensDistortionConfiguration()
-      : _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          80,
-          min: 0,
-          max: 200,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _refraction = SliderNSNumberParameter(
-          'inputRefraction',
-          'Refraction',
-          1.7,
-          min: 0,
-          max: 5,
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          160,
-          min: 0,
-          max: 500,
-        ),
-        super('CITorusLensDistortion');
+    : _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        80,
+        min: 0,
+        max: 200,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _refraction = SliderNSNumberParameter(
+        'inputRefraction',
+        'Refraction',
+        1.7,
+        min: 0,
+        max: 5,
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        160,
+        min: 0,
+        max: 500,
+      ),
+      super('CITorusLensDistortion');
 
   /// The width.
   ///
@@ -83,14 +83,18 @@ class CITorusLensDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_width, _center, _refraction, _radius];
+  List<ConfigurationParameter> get parameters => [
+    _width,
+    _center,
+    _refraction,
+    _radius,
+  ];
 }

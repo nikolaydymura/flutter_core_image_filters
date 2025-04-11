@@ -16,16 +16,12 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration
 
   /// Create a [CIColorCurvesConfiguration] with default values.
   CIColorCurvesConfiguration()
-      : _curvesData = NSDataParameter(
-          'inputCurvesData',
-          'Curves Data',
-        ),
-        _curvesDomain = CIVectorParameter(
-          'inputCurvesDomain',
-          'Curves Domain',
-          [0.0, 1.0],
-        ),
-        super('CIColorCurves');
+    : _curvesData = NSDataParameter('inputCurvesData', 'Curves Data'),
+      _curvesDomain = CIVectorParameter('inputCurvesDomain', 'Curves Domain', [
+        0.0,
+        1.0,
+      ]),
+      super('CIColorCurves');
 
   /// A two-element vector that defines the minimum and maximum values of the curve data.
   ///
@@ -57,15 +53,18 @@ class CIColorCurvesConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorEffect,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorEffect,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _curvesData, _curvesDomain];
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _curvesData,
+    _curvesDomain,
+  ];
 }

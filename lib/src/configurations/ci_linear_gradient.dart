@@ -19,27 +19,27 @@ class CILinearGradientConfiguration extends CIFilterConfiguration {
 
   /// Create a [CILinearGradientConfiguration] with default values.
   CILinearGradientConfiguration()
-      : _color0 = CIColorParameter(
-          'inputColor0',
-          'Color 1',
-          const Color.fromRGBO(255, 255, 255, 1),
-        ),
-        _point1 = CGPositionParameter(
-          'inputPoint1',
-          'Point 1',
-          const Point(200.0, 200.0),
-        ),
-        _point0 = CGPositionParameter(
-          'inputPoint0',
-          'Point 0',
-          const Point(0.0, 0.0),
-        ),
-        _color1 = CIColorParameter(
-          'inputColor1',
-          'Color 2',
-          const Color.fromRGBO(0, 0, 0, 1),
-        ),
-        super('CILinearGradient');
+    : _color0 = CIColorParameter(
+        'inputColor0',
+        'Color 1',
+        const Color.fromRGBO(255, 255, 255, 1),
+      ),
+      _point1 = CGPositionParameter(
+        'inputPoint1',
+        'Point 1',
+        const Point(200.0, 200.0),
+      ),
+      _point0 = CGPositionParameter(
+        'inputPoint0',
+        'Point 0',
+        const Point(0.0, 0.0),
+      ),
+      _color1 = CIColorParameter(
+        'inputColor1',
+        'Color 2',
+        const Color.fromRGBO(0, 0, 0, 1),
+      ),
+      super('CILinearGradient');
 
   /// The first color to use in the gradient.
   ///
@@ -71,16 +71,20 @@ class CILinearGradientConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.gradient,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.gradient,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_color0, _point1, _point0, _color1];
+  List<ConfigurationParameter> get parameters => [
+    _color0,
+    _point1,
+    _point0,
+    _color1,
+  ];
 
   @override
   bool get hasInputImage => false;

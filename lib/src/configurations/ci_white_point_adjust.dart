@@ -13,12 +13,12 @@ class CIWhitePointAdjustConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIWhitePointAdjustConfiguration] with default values.
   CIWhitePointAdjustConfiguration()
-      : _color = CIColorParameter(
-          'inputColor',
-          'Color',
-          const Color.fromRGBO(255, 255, 255, 1.0),
-        ),
-        super('CIWhitePointAdjust');
+    : _color = CIColorParameter(
+        'inputColor',
+        'Color',
+        const Color.fromRGBO(255, 255, 255, 1.0),
+      ),
+      super('CIWhitePointAdjust');
 
   /// A color to use as the white point.
   ///
@@ -29,14 +29,14 @@ class CIWhitePointAdjustConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_color];

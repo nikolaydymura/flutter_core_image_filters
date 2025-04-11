@@ -5,11 +5,11 @@ class CISaliencyMapFilterConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.stylize,
-      };
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.stylize,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [];

@@ -15,21 +15,21 @@ class CIMorphologyRectangleMaximumConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMorphologyRectangleMaximumConfiguration] with default values.
   CIMorphologyRectangleMaximumConfiguration()
-      : _height = SliderNSIntegerParameter(
-          'inputHeight',
-          'Height',
-          5,
-          min: 1,
-          max: 49,
-        ),
-        _width = SliderNSIntegerParameter(
-          'inputWidth',
-          'Width',
-          5,
-          min: 1,
-          max: 49,
-        ),
-        super('CIMorphologyRectangleMaximum');
+    : _height = SliderNSIntegerParameter(
+        'inputHeight',
+        'Height',
+        5,
+        min: 1,
+        max: 49,
+      ),
+      _width = SliderNSIntegerParameter(
+        'inputWidth',
+        'Width',
+        5,
+        min: 1,
+        max: 49,
+      ),
+      super('CIMorphologyRectangleMaximum');
 
   /// The height, in pixels, of the morphological structuring element.
   ///
@@ -51,12 +51,12 @@ class CIMorphologyRectangleMaximumConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_height, _width];

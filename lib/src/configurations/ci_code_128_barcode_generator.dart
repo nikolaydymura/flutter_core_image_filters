@@ -16,21 +16,21 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
 
   /// Create a [CICode128BarcodeGeneratorConfiguration] with default values.
   CICode128BarcodeGeneratorConfiguration()
-      : _quietSpace = SliderNSIntegerParameter(
-          'inputQuietSpace',
-          'Quiet Space',
-          10,
-          min: 0,
-          max: 100,
-        ),
-        _barcodeHeight = SliderNSIntegerParameter(
-          'inputBarcodeHeight',
-          'Barcode Height',
-          32,
-          min: 1,
-          max: 500,
-        ),
-        super('CICode128BarcodeGenerator');
+    : _quietSpace = SliderNSIntegerParameter(
+        'inputQuietSpace',
+        'Quiet Space',
+        10,
+        min: 0,
+        max: 100,
+      ),
+      _barcodeHeight = SliderNSIntegerParameter(
+        'inputBarcodeHeight',
+        'Barcode Height',
+        32,
+        min: 1,
+        max: 500,
+      ),
+      super('CICode128BarcodeGenerator');
 
   /// The number of empty white pixels that should surround the barcode.
   ///
@@ -51,12 +51,18 @@ class CICode128BarcodeGeneratorConfiguration extends CIFilterConfiguration
   }
 
   @override
-  Iterable<CICategory> get categories =>
-      {CICategory.generator, CICategory.stillImage, CICategory.builtIn};
+  Iterable<CICategory> get categories => {
+    CICategory.generator,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_quietSpace, _barcodeHeight, _message];
+  List<ConfigurationParameter> get parameters => [
+    _quietSpace,
+    _barcodeHeight,
+    _message,
+  ];
 
   @override
   bool get hasInputImage => false;

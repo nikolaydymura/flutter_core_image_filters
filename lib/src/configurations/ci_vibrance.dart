@@ -13,14 +13,14 @@ class CIVibranceConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIVibranceConfiguration] with default values.
   CIVibranceConfiguration()
-      : _amount = SliderNSNumberParameter(
-          'inputAmount',
-          'Amount',
-          0,
-          min: -1,
-          max: 1,
-        ),
-        super('CIVibrance');
+    : _amount = SliderNSNumberParameter(
+        'inputAmount',
+        'Amount',
+        0,
+        min: -1,
+        max: 1,
+      ),
+      super('CIVibrance');
 
   /// The amount to adjust the saturation by.
   ///
@@ -33,13 +33,13 @@ class CIVibranceConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_amount];

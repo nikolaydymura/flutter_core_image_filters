@@ -15,21 +15,21 @@ class CIGloomConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIGloomConfiguration] with default values.
   CIGloomConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          10,
-          min: 0,
-          max: 100,
-        ),
-        _intensity = SliderNSNumberParameter(
-          'inputIntensity',
-          'Intensity',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        super('CIGloom');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        10,
+        min: 0,
+        max: 100,
+      ),
+      _intensity = SliderNSNumberParameter(
+        'inputIntensity',
+        'Intensity',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      super('CIGloom');
 
   /// The radius, in pixels, of the effect.
   ///
@@ -51,12 +51,12 @@ class CIGloomConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.stylize,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.highDynamicRange,
-        CICategory.builtIn,
-      };
+    CICategory.stylize,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.highDynamicRange,
+    CICategory.builtIn,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _intensity];

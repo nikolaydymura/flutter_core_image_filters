@@ -11,29 +11,37 @@ void main() {
   });
   group('CIAreaLogarithmicHistogram', () {
     test('change inputMinimumStop', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMinimumStop') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputMinimumStop',
+              )
+              as NumberParameter;
       expect(parameter.value, -10);
       configuration.minimumStop = -6;
       expect(parameter.value, -6);
     });
     test('change inputMaximumStop', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputMaximumStop') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere(
+                (e) => e.name == 'inputMaximumStop',
+              )
+              as NumberParameter;
       expect(parameter.value, 4);
       configuration.maximumStop = 2;
       expect(parameter.value, 2);
     });
     test('change inputExtent', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputExtent')
+              as CGRectParameter;
       expect(parameter.value, const Rect.fromLTWH(0, 0, 640, 80));
       configuration.extent = const Rect.fromLTWH(0, 0, 300, 300);
       expect(parameter.value, const Rect.fromLTWH(0, 0, 300, 300));
     });
     test('change inputCount', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCount') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputCount')
+              as NumberParameter;
       expect(parameter.value, 64);
       configuration.count = 500;
       expect(parameter.value, 500);

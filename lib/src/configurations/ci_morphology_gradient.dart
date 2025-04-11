@@ -13,14 +13,14 @@ class CIMorphologyGradientConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIMorphologyGradientConfiguration] with default values.
   CIMorphologyGradientConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          5,
-          min: 0,
-          max: 50,
-        ),
-        super('CIMorphologyGradient');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        5,
+        min: 0,
+        max: 50,
+      ),
+      super('CIMorphologyGradient');
 
   /// The radius of the circular morphological structuring element.
   ///
@@ -33,12 +33,12 @@ class CIMorphologyGradientConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius];

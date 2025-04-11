@@ -19,35 +19,23 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIBicubicScaleTransformConfiguration] with default values.
   CIBicubicScaleTransformConfiguration()
-      : _b = SliderNSNumberParameter(
-          'inputB',
-          'B',
-          0,
-          min: 0,
-          max: 1,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          1,
-          min: 0.00,
-          max: 100,
-        ),
-        _c = SliderNSNumberParameter(
-          'inputC',
-          'C',
-          0.75,
-          min: 0,
-          max: 1,
-        ),
-        _aspectRatio = SliderNSNumberParameter(
-          'inputAspectRatio',
-          'Aspect Ratio',
-          1,
-          min: 0,
-          max: 2,
-        ),
-        super('CIBicubicScaleTransform');
+    : _b = SliderNSNumberParameter('inputB', 'B', 0, min: 0, max: 1),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        1,
+        min: 0.00,
+        max: 100,
+      ),
+      _c = SliderNSNumberParameter('inputC', 'C', 0.75, min: 0, max: 1),
+      _aspectRatio = SliderNSNumberParameter(
+        'inputAspectRatio',
+        'Aspect Ratio',
+        1,
+        min: 0,
+        max: 2,
+      ),
+      super('CIBicubicScaleTransform');
 
   /// The value of B to use for the cubic resampling function.
   ///
@@ -87,13 +75,13 @@ class CIBicubicScaleTransformConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.geometryAdjustment,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.nonSquarePixels,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.geometryAdjustment,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.nonSquarePixels,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_b, _scale, _c, _aspectRatio];

@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a background image parameter to a filter configuration.
 mixin BackgroundImageMixin on CIFilterConfiguration {
-  final DataParameter _backgroundImage =
-      CIImageParameter('inputBackgroundImage', 'Background Image');
+  final DataParameter _backgroundImage = CIImageParameter(
+    'inputBackgroundImage',
+    'Background Image',
+  );
 
   /// The background image data
   ///
@@ -34,7 +36,9 @@ mixin BackgroundImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _backgroundImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _backgroundImage,
+  ];
+  // coverage:ignore-end
 }

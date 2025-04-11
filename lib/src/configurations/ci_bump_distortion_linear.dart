@@ -19,33 +19,33 @@ class CIBumpDistortionLinearConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIBumpDistortionLinearConfiguration] with default values.
   CIBumpDistortionLinearConfiguration()
-      : _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          300,
-          min: 0,
-          max: 600,
-        ),
-        _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          0.5,
-          min: -1,
-          max: 1,
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: 0,
-          max: 6.283185307179586,
-        ),
-        super('CIBumpDistortionLinear');
+    : _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        300,
+        min: 0,
+        max: 600,
+      ),
+      _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        0.5,
+        min: -1,
+        max: 1,
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: 0,
+        max: 6.283185307179586,
+      ),
+      super('CIBumpDistortionLinear');
 
   /// The center of the distortion.
   ///
@@ -83,14 +83,18 @@ class CIBumpDistortionLinearConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_radius, _scale, _center, _angle];
+  List<ConfigurationParameter> get parameters => [
+    _radius,
+    _scale,
+    _center,
+    _angle,
+  ];
 }

@@ -23,47 +23,47 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
 
   /// Create a [CICMYKHalftoneConfiguration] with default values.
   CICMYKHalftoneConfiguration()
-      : _gCR = SliderNSNumberParameter(
-          'inputGCR',
-          'Gray Component Replacement',
-          1,
-          min: 0,
-          max: 1,
-        ),
-        _uCR = SliderNSNumberParameter(
-          'inputUCR',
-          'Under Color Removal',
-          0.5,
-          min: 0,
-          max: 1,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          6,
-          min: -2,
-          max: 100,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.7,
-          min: 0.0,
-          max: 1,
-        ),
-        super('CICMYKHalftone');
+    : _gCR = SliderNSNumberParameter(
+        'inputGCR',
+        'Gray Component Replacement',
+        1,
+        min: 0,
+        max: 1,
+      ),
+      _uCR = SliderNSNumberParameter(
+        'inputUCR',
+        'Under Color Removal',
+        0.5,
+        min: 0,
+        max: 1,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        6,
+        min: -2,
+        max: 100,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.7,
+        min: 0.0,
+        max: 1,
+      ),
+      super('CICMYKHalftone');
 
   /// The gray component replacement value.
   ///
@@ -119,13 +119,19 @@ class CICMYKHalftoneConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.halftoneEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.halftoneEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_gCR, _uCR, _width, _center, _angle, _sharpness];
+  List<ConfigurationParameter> get parameters => [
+    _gCR,
+    _uCR,
+    _width,
+    _center,
+    _angle,
+    _sharpness,
+  ];
 }

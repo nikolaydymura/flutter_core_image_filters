@@ -14,18 +14,15 @@ print(categories.joined(separator: ",\n"))
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
     bool ignore = displayName.contains('Lookup Table');
-    test(
-      'categories of `$displayName`',
-      () {
-        final configuration =
-            FlutterCoreImageFilters.createFilter(displayName: displayName);
-        final categories =
-            configuration.categories.map((e) => e.displayName).toSet();
-        final ciCategories = kCategories[configuration.name]?.toSet();
-        expect(ciCategories, isNotNull);
-        expect(categories, ciCategories?.toSet());
-      },
-      skip: ignore,
-    );
+    test('categories of `$displayName`', () {
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: displayName,
+      );
+      final categories =
+          configuration.categories.map((e) => e.displayName).toSet();
+      final ciCategories = kCategories[configuration.name]?.toSet();
+      expect(ciCategories, isNotNull);
+      expect(categories, ciCategories?.toSet());
+    }, skip: ignore);
   }
 }

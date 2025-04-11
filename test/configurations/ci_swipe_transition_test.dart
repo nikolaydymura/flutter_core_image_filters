@@ -10,43 +10,49 @@ void main() {
   });
   group('CISwipeTransition', () {
     test('change inputAngle', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputAngle') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputAngle')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.angle = 0.25;
       expect(parameter.value, 0.25);
     });
     test('change inputColor', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputColor') as ColorParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputColor')
+              as ColorParameter;
       expect(parameter.value, const Color.fromRGBO(255, 255, 255, 1.0));
       configuration.color = Colors.orange;
       expect(parameter.value, Colors.orange);
     });
     test('change inputExtent', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputExtent') as CGRectParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputExtent')
+              as CGRectParameter;
       expect(parameter.value, const Rect.fromLTWH(0, 0, 300, 300));
       configuration.extent = const Rect.fromLTWH(0, 0, 640, 80);
       expect(parameter.value, const Rect.fromLTWH(0, 0, 640, 80));
     });
     test('change inputOpacity', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputOpacity') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputOpacity')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.opacity = 0.25;
       expect(parameter.value, 0.25);
     });
     test('change inputTime', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputTime') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputTime')
+              as NumberParameter;
       expect(parameter.value, 0);
       configuration.time = 0.25;
       expect(parameter.value, 0.25);
     });
     test('change inputWidth', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWidth') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputWidth')
+              as NumberParameter;
       expect(parameter.value, 300);
       configuration.width = 500;
       expect(parameter.value, 500);

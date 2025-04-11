@@ -19,33 +19,33 @@ class CIDotScreenConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIDotScreenConfiguration] with default values.
   CIDotScreenConfiguration()
-      : _angle = SliderNSNumberParameter(
-          'inputAngle',
-          'Angle',
-          0,
-          min: -3.141592653589793,
-          max: 3.141592653589793,
-        ),
-        _width = SliderNSNumberParameter(
-          'inputWidth',
-          'Width',
-          6,
-          min: 1,
-          max: 50,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        _sharpness = SliderNSNumberParameter(
-          'inputSharpness',
-          'Sharpness',
-          0.7,
-          min: 0,
-          max: 1,
-        ),
-        super('CIDotScreen');
+    : _angle = SliderNSNumberParameter(
+        'inputAngle',
+        'Angle',
+        0,
+        min: -3.141592653589793,
+        max: 3.141592653589793,
+      ),
+      _width = SliderNSNumberParameter(
+        'inputWidth',
+        'Width',
+        6,
+        min: 1,
+        max: 50,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      _sharpness = SliderNSNumberParameter(
+        'inputSharpness',
+        'Sharpness',
+        0.7,
+        min: 0,
+        max: 1,
+      ),
+      super('CIDotScreen');
 
   /// The angle of the pattern.
   ///
@@ -83,13 +83,17 @@ class CIDotScreenConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.halftoneEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.halftoneEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_angle, _width, _center, _sharpness];
+  List<ConfigurationParameter> get parameters => [
+    _angle,
+    _width,
+    _center,
+    _sharpness,
+  ];
 }

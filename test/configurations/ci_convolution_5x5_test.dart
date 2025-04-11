@@ -9,16 +9,18 @@ void main() {
   });
   group('CIConvolution5X5', () {
     test('change inputBias', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputBias') as NSNumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputBias')
+              as NSNumberParameter;
       expect(parameter.value, 0);
       configuration.bias = 1;
       expect(parameter.value, 1);
     });
 
     test('change inputWeights', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputWeights') as Mat5Parameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputWeights')
+              as Mat5Parameter;
       expect(parameter.value.storage, [
         0,
         0,

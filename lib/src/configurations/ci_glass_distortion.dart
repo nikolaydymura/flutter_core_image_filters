@@ -16,19 +16,19 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration
 
   /// Create a [CIGlassDistortionConfiguration] with default values.
   CIGlassDistortionConfiguration()
-      : _scale = SliderNSNumberParameter(
-          'inputScale',
-          'Scale',
-          200,
-          min: 0.0,
-          max: 500,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIGlassDistortion');
+    : _scale = SliderNSNumberParameter(
+        'inputScale',
+        'Scale',
+        200,
+        min: 0.0,
+        max: 500,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIGlassDistortion');
 
   /// The scale of the filter.
   ///
@@ -48,12 +48,12 @@ class CIGlassDistortionConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_scale, _center, _texture];

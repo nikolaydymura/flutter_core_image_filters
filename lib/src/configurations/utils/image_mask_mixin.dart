@@ -2,8 +2,10 @@ part of '../../../flutter_core_image_filters.dart';
 
 /// A mixin that provides a mask image parameter to a filter configuration.
 mixin MaskImageMixin on CIFilterConfiguration {
-  late final DataParameter _maskImage =
-      CIImageParameter(_maskImageInputKey, _maskImageInputName);
+  late final DataParameter _maskImage = CIImageParameter(
+    _maskImageInputKey,
+    _maskImageInputName,
+  );
   String get _maskImageInputKey => 'inputMaskImage';
   String get _maskImageInputName => 'Mask Image';
 
@@ -36,7 +38,9 @@ mixin MaskImageMixin on CIFilterConfiguration {
 
   // coverage:ignore-start
   @override
-  List<ConfigurationParameter> get parameters =>
-      [...super.parameters, _maskImage];
-// coverage:ignore-end
+  List<ConfigurationParameter> get parameters => [
+    ...super.parameters,
+    _maskImage,
+  ];
+  // coverage:ignore-end
 }

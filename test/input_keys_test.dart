@@ -14,42 +14,40 @@ print(categories.joined(separator: ",\n"))
  */
 void main() {
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    bool ignore = displayName.contains('Lookup Table') ||
+    bool ignore =
+        displayName.contains('Lookup Table') ||
         displayName == 'Barcode Generator' ||
         displayName == 'Depth Blur Effect';
-    test(
-      'inputKeys of `$displayName`',
-      () {
-        final configuration =
-            FlutterCoreImageFilters.createFilter(displayName: displayName);
-        final inputKeys = configuration.parameters.map((e) => e.name).toSet();
-        final ciInputKeys = kInputKeys[configuration.name]
-            ?.whereNot((e) => e == 'inputImage')
-            .toSet();
-        expect(ciInputKeys, isNotNull);
-        expect(inputKeys, ciInputKeys?.toSet());
-      },
-      skip: ignore,
-    );
+    test('inputKeys of `$displayName`', () {
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: displayName,
+      );
+      final inputKeys = configuration.parameters.map((e) => e.name).toSet();
+      final ciInputKeys =
+          kInputKeys[configuration.name]
+              ?.whereNot((e) => e == 'inputImage')
+              .toSet();
+      expect(ciInputKeys, isNotNull);
+      expect(inputKeys, ciInputKeys?.toSet());
+    }, skip: ignore);
   }
   for (final displayName in FlutterCoreImageFilters.availableFilters) {
-    bool ignore = displayName.contains('Lookup Table') ||
+    bool ignore =
+        displayName.contains('Lookup Table') ||
         displayName == 'Barcode Generator' ||
         displayName == 'Depth Blur Effect';
-    test(
-      'display name for inputKeys of `$displayName`',
-      () {
-        final configuration =
-            FlutterCoreImageFilters.createFilter(displayName: displayName);
-        final displayNames =
-            configuration.parameters.map((e) => e.displayName).toSet();
-        final ciDisplayNames = kInputKeysDisplayNames[configuration.name]
-            ?.whereNot((e) => e == 'Image')
-            .toSet();
-        expect(ciDisplayNames, isNotNull);
-        expect(displayNames, ciDisplayNames?.toSet());
-      },
-      skip: ignore,
-    );
+    test('display name for inputKeys of `$displayName`', () {
+      final configuration = FlutterCoreImageFilters.createFilter(
+        displayName: displayName,
+      );
+      final displayNames =
+          configuration.parameters.map((e) => e.displayName).toSet();
+      final ciDisplayNames =
+          kInputKeysDisplayNames[configuration.name]
+              ?.whereNot((e) => e == 'Image')
+              .toSet();
+      expect(ciDisplayNames, isNotNull);
+      expect(displayNames, ciDisplayNames?.toSet());
+    }, skip: ignore);
   }
 }

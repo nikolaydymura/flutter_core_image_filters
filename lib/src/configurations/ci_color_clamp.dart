@@ -15,17 +15,17 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIColorClampConfiguration] with default values.
   CIColorClampConfiguration()
-      : _maxComponents = CIVectorParameter(
-          'inputMaxComponents',
-          'Max Components',
-          [1, 1, 1, 1],
-        ),
-        _minComponents = CIVectorParameter(
-          'inputMinComponents',
-          'Min Components',
-          [0, 0, 0, 0],
-        ),
-        super('CIColorClamp');
+    : _maxComponents = CIVectorParameter(
+        'inputMaxComponents',
+        'Max Components',
+        [1, 1, 1, 1],
+      ),
+      _minComponents = CIVectorParameter(
+        'inputMinComponents',
+        'Min Components',
+        [0, 0, 0, 0],
+      ),
+      super('CIColorClamp');
 
   /// A vector containing the higher clamping values.
   ///
@@ -43,15 +43,17 @@ class CIColorClampConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.colorAdjustment,
-        CICategory.video,
-        CICategory.interlaced,
-        CICategory.nonSquarePixels,
-        CICategory.stillImage,
-        CICategory.builtIn,
-      };
+    CICategory.colorAdjustment,
+    CICategory.video,
+    CICategory.interlaced,
+    CICategory.nonSquarePixels,
+    CICategory.stillImage,
+    CICategory.builtIn,
+  };
 
   @override
-  List<ConfigurationParameter> get parameters =>
-      [_maxComponents, _minComponents];
+  List<ConfigurationParameter> get parameters => [
+    _maxComponents,
+    _minComponents,
+  ];
 }

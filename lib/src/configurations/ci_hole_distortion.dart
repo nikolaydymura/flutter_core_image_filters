@@ -15,19 +15,19 @@ class CIHoleDistortionConfiguration extends CIFilterConfiguration {
 
   /// Create a [CIHoleDistortionConfiguration] with default values.
   CIHoleDistortionConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          150,
-          min: 0.01,
-          max: 1000,
-        ),
-        _center = CGPositionParameter(
-          'inputCenter',
-          'Center',
-          const Point(150.0, 150.0),
-        ),
-        super('CIHoleDistortion');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        150,
+        min: 0.01,
+        max: 1000,
+      ),
+      _center = CGPositionParameter(
+        'inputCenter',
+        'Center',
+        const Point(150.0, 150.0),
+      ),
+      super('CIHoleDistortion');
 
   /// The radius.
   ///
@@ -47,12 +47,12 @@ class CIHoleDistortionConfiguration extends CIFilterConfiguration {
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.distortionEffect,
-        CICategory.video,
-        CICategory.stillImage,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.distortionEffect,
+    CICategory.video,
+    CICategory.stillImage,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _center];

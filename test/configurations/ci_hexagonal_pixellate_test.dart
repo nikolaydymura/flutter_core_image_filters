@@ -10,15 +10,17 @@ void main() {
   });
   group('CIHexagonalPixellate', () {
     test('change inputScale', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputScale') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputScale')
+              as NumberParameter;
       expect(parameter.value, 8);
       configuration.scale = 250;
       expect(parameter.value, 250);
     });
     test('change inputCenter', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputCenter') as CGPositionParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputCenter')
+              as CGPositionParameter;
       expect(parameter.value, const Point(150, 150));
       configuration.center = const Point(100, 100);
       expect(parameter.value, const Point(100, 100));

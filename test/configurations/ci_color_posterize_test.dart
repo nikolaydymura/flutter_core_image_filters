@@ -9,8 +9,9 @@ void main() {
   });
   group('CIColorPosterize', () {
     test('change inputLevels', () {
-      final parameter = configuration.parameters
-          .firstWhere((e) => e.name == 'inputLevels') as NumberParameter;
+      final parameter =
+          configuration.parameters.firstWhere((e) => e.name == 'inputLevels')
+              as NumberParameter;
       expect(parameter.value, 6);
       configuration.levels = 16;
       expect(parameter.value, 16);

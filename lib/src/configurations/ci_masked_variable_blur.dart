@@ -20,14 +20,14 @@ class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration
 
   /// Create a [CIMaskedVariableBlurConfiguration] with default values.
   CIMaskedVariableBlurConfiguration()
-      : _radius = SliderNSNumberParameter(
-          'inputRadius',
-          'Radius',
-          5,
-          min: 0,
-          max: 10,
-        ),
-        super('CIMaskedVariableBlur');
+    : _radius = SliderNSNumberParameter(
+        'inputRadius',
+        'Radius',
+        5,
+        min: 0,
+        max: 10,
+      ),
+      super('CIMaskedVariableBlur');
 
   /// The distance from the center of the effect.
   ///
@@ -40,12 +40,12 @@ class CIMaskedVariableBlurConfiguration extends CIFilterConfiguration
 
   @override
   Iterable<CICategory> get categories => {
-        CICategory.blur,
-        CICategory.stillImage,
-        CICategory.video,
-        CICategory.builtIn,
-        CICategory.highDynamicRange,
-      };
+    CICategory.blur,
+    CICategory.stillImage,
+    CICategory.video,
+    CICategory.builtIn,
+    CICategory.highDynamicRange,
+  };
 
   @override
   List<ConfigurationParameter> get parameters => [_radius, _maskImage];
