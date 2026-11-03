@@ -305,6 +305,15 @@ const Map<String, List<String>> kCategories = {
     'CICategoryHighDynamicRange',
     'CICategoryBuiltIn',
   ],
+  'CIColorCubeWithIntensityFilter': [
+    'CICategoryColorEffect',
+    'CICategoryVideo',
+    'CICategoryInterlaced',
+    'CICategoryNonSquarePixels',
+    'CICategoryStillImage',
+    'CICategoryHighDynamicRange',
+    'CICategoryBuiltIn',
+  ],
   'CIColorCubesMixedWithMask': [
     'CICategoryColorEffect',
     'CICategoryVideo',

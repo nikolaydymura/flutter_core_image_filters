@@ -116,6 +116,10 @@ const Map<String, Map<String, Map<String, double>>> kInputRanges = {
     'inputCubeDimension': {'min': 2.0, 'max': 64.0},
     'inputExtrapolate': {'min': 0.0, 'max': 1.0},
   },
+  'CIColorCubeWithIntensityFilter': {
+    'inputCubeDimension': {'min': 2.0, 'max': 64.0},
+    'inputIntensity': {'min': 0.0, 'max': 1.0},
+  },
   'CIColorCubesMixedWithMask': {
     'inputCubeDimension': {'min': 2.0, 'max': 64.0},
     'inputExtrapolate': {'min': 0.0, 'max': 1.0},

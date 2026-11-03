@@ -57,16 +57,16 @@ void main() {
   });
   test('CIColorParameter', () async {
     final parameter = CIColorParameter('inputValue', 'Value', Colors.black);
-    parameter.value = Colors.orange;
+    parameter.value = Color.fromARGB(255, 51, 102, 204);
     await parameter.update(configuration);
     verify(
       mockFilterApi.setCIColorParameter(101, 'inputValue', [
-        1.0,
-        0.596078431372549,
-        0.0,
+        0.2,
+        0.4,
+        0.8,
         1.0,
       ]),
-    );
+    ).called(1);
   });
   test('CGPositionParameter', () async {
     final parameter = CGPositionParameter(

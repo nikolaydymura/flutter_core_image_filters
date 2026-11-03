@@ -143,6 +143,10 @@ const Map<String, Map<String, dynamic>> kDefaultValues = {
     'inputBlueCoefficients': [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
   },
   'CIColorCube': {'inputCubeDimension': 2, 'inputExtrapolate': 0},
+  'CIColorCubeWithIntensityFilter': {
+    'inputCubeDimension': 2,
+    'inputIntensity': 1,
+  },
   'CIColorCubesMixedWithMask': {'inputCubeDimension': 2, 'inputExtrapolate': 0},
   'CIColorCubeWithColorSpace': {'inputCubeDimension': 2},
   'CIColorCurves': {

@@ -42,6 +42,7 @@ const Map<String, String> kNames = {
   'Color Controls': 'CIColorControls',
   'Color Cross Polynomial': 'CIColorCrossPolynomial',
   'Color Cube': 'CIColorCube',
+  'Color Cube with Intensity': 'CIColorCubeWithIntensityFilter',
   'Color Cubes Mixed With Mask': 'CIColorCubesMixedWithMask',
   'Color Cube with ColorSpace': 'CIColorCubeWithColorSpace',
   'Color Curves': 'CIColorCurves',

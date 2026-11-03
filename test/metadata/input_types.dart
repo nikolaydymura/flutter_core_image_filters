@@ -237,6 +237,12 @@ const Map<String, Map<String, String>> kInputTypes = {
     'inputCubeData': '',
     'inputExtrapolate': 'CIAttributeTypeBoolean',
   },
+  'CIColorCubeWithIntensityFilter': {
+    'inputImage': 'CIAttributeTypeImage',
+    'inputCubeDimension': 'CIAttributeTypeCount',
+    'inputCubeData': '',
+    'inputIntensity': 'CIAttributeTypeScalar',
+  },
   'CIColorCubesMixedWithMask': {
     'inputImage': 'CIAttributeTypeImage',
     'inputMaskImage': 'CIAttributeTypeImage',

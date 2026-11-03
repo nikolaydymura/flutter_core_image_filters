@@ -44,6 +44,7 @@ const Map<String, bool> kHasImageInput = {
   'CIColorCube': true,
   'CIColorCubesMixedWithMask': true,
   'CIColorCubeWithColorSpace': true,
+  'CIColorCubeWithIntensityFilter': true,
   'CIColorCurves': true,
   'CIColorDodgeBlendMode': true,
   'CIColorInvert': true,

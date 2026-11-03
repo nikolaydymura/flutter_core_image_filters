@@ -149,6 +149,12 @@ const Map<String, List<String>> kInputKeys = {
     'inputCubeData',
     'inputExtrapolate',
   ],
+  'CIColorCubeWithIntensityFilter': [
+    'inputImage',
+    'inputCubeDimension',
+    'inputCubeData',
+    'inputIntensity',
+  ],
   'CIColorCubesMixedWithMask': [
     'inputImage',
     'inputMaskImage',
@@ -913,6 +919,12 @@ const Map<String, List<String>> kInputKeysDisplayNames = {
     'Blue Coefficients',
   ],
   'CIColorCube': ['Image', 'Cube Dimension', 'Cube Data', 'Extrapolate'],
+  'CIColorCubeWithIntensityFilter': [
+    'Image',
+    'Cube Dimension',
+    'Cube Data',
+    'Intensity',
+  ],
   'CIColorCubesMixedWithMask': [
     'Image',
     'Mask Image',
