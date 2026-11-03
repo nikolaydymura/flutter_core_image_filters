@@ -11,10 +11,10 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2.8.0
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2.23.0
         with:
-          flutter-version: '3.29.0'
+          flutter-version: '3.47.9'
           channel: 'stable'
 
       - name: Install Dependencies
@@ -52,10 +52,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - uses: subosito/flutter-action@v2.8.0
+      - uses: actions/checkout@v7
+      - uses: subosito/flutter-action@v2.23.0
         with:
-          flutter-version: '3.29.0'
+          flutter-version: '3.47.9'
           channel: 'stable'
 
       - name: Install Dependencies
