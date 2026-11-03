@@ -19,8 +19,9 @@ void main() {
       final configuration = FlutterCoreImageFilters.createFilter(
         displayName: displayName,
       );
-      final categories =
-          configuration.categories.map((e) => e.displayName).toSet();
+      final categories = configuration.categories
+          .map((e) => e.displayName)
+          .toSet();
       final ciCategories = kCategories[configuration.name]?.toSet();
       expect(ciCategories, isNotNull);
       expect(categories, ciCategories?.toSet());

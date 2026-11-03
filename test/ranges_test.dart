@@ -1,6 +1,7 @@
 import 'package:flutter_core_image_filters/flutter_core_image_filters.dart';
 import 'package:flutter_gpu_filters_interface/flutter_gpu_filters_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'metadata/ranges.dart';
 
 /*
@@ -64,8 +65,8 @@ void main() {
     if (noParams) {
       continue;
     }
-    final numParams =
-        configuration.parameters.whereType<RangeNumberParameter>();
+    final numParams = configuration.parameters
+        .whereType<RangeNumberParameter>();
     for (final numParam in numParams) {
       test('ranges for ${numParam.name} values of `${configuration.name}`', () {
         final paramValues = kInputRanges[configuration.name];

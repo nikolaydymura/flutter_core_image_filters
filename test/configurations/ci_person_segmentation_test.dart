@@ -9,11 +9,9 @@ void main() {
   });
   group('CIPersonSegmentation', () {
     test('change inputQualityLevel', () {
-      final parameter =
-          configuration.parameters.firstWhere(
-                (e) => e.name == 'inputQualityLevel',
-              )
-              as NumberParameter;
+      final parameter = configuration.parameters.firstWhere(
+        (e) => e.name == 'inputQualityLevel',
+      ) as NumberParameter;
       expect(parameter.value.isNaN, true);
       configuration.qualityLevel = 0.5;
       expect(parameter.value, 0.5);

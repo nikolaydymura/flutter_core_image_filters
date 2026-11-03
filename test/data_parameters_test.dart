@@ -47,9 +47,9 @@ void testImageFileParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter =
-      configuration.parameters.firstWhere((e) => e.name == parameterName)
-          as DataParameter;
+  final parameter = configuration.parameters.firstWhere(
+    (e) => e.name == parameterName,
+  ) as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);
@@ -64,9 +64,9 @@ void testImageParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter =
-      configuration.parameters.firstWhere((e) => e.name == parameterName)
-          as DataParameter;
+  final parameter = configuration.parameters.firstWhere(
+    (e) => e.name == parameterName,
+  ) as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);
@@ -81,9 +81,9 @@ void testImageAssetParameter(
   CIFilterConfiguration configuration,
   String parameterName,
 ) {
-  final parameter =
-      configuration.parameters.firstWhere((e) => e.name == parameterName)
-          as DataParameter;
+  final parameter = configuration.parameters.firstWhere(
+    (e) => e.name == parameterName,
+  ) as DataParameter;
   expect(parameter.data, isNull);
   expect(parameter.file, isNull);
   expect(parameter.asset, isNull);

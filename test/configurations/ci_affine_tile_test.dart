@@ -8,9 +8,9 @@ void main() {
   });
   group('CIAffineTile', () {
     test('change inputTransform', () {
-      final parameter =
-          configuration.parameters.firstWhere((e) => e.name == 'inputTransform')
-              as CGAffineTransformParameter;
+      final parameter = configuration.parameters.firstWhere(
+        (e) => e.name == 'inputTransform',
+      ) as CGAffineTransformParameter;
       expect(parameter.value, const CGAffineTransform());
       configuration.transform = const CGAffineTransform().copyWith(
         a: 0.0,

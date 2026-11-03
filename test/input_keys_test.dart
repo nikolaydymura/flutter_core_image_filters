@@ -24,10 +24,9 @@ void main() {
         displayName: displayName,
       );
       final inputKeys = configuration.parameters.map((e) => e.name).toSet();
-      final ciInputKeys =
-          kInputKeys[configuration.name]
-              ?.whereNot((e) => e == 'inputImage')
-              .toSet();
+      final ciInputKeys = kInputKeys[configuration.name]
+          ?.whereNot((e) => e == 'inputImage')
+          .toSet();
       expect(ciInputKeys, isNotNull);
       expect(inputKeys, ciInputKeys?.toSet());
     }, skip: ignore);
@@ -41,12 +40,12 @@ void main() {
       final configuration = FlutterCoreImageFilters.createFilter(
         displayName: displayName,
       );
-      final displayNames =
-          configuration.parameters.map((e) => e.displayName).toSet();
-      final ciDisplayNames =
-          kInputKeysDisplayNames[configuration.name]
-              ?.whereNot((e) => e == 'Image')
-              .toSet();
+      final displayNames = configuration.parameters
+          .map((e) => e.displayName)
+          .toSet();
+      final ciDisplayNames = kInputKeysDisplayNames[configuration.name]
+          ?.whereNot((e) => e == 'Image')
+          .toSet();
       expect(ciDisplayNames, isNotNull);
       expect(displayNames, ciDisplayNames?.toSet());
     }, skip: ignore);
