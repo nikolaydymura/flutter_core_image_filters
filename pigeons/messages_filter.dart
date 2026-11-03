@@ -7,8 +7,10 @@ import 'package:pigeon/pigeon.dart';
 @ConfigurePigeon(
   PigeonOptions(
     dartOut: 'lib/src/messages/filter_messages.g.dart',
-    swiftOut: 'ios/Classes/FilterMessages.g.swift',
-    swiftOptions: SwiftOptions(),
+    swiftOut: 'darwin/flutter_core_image_filters/Sources/flutter_core_image_filters/FilterMessages.g.swift',
+    swiftOptions: SwiftOptions(
+      includeErrorClass: false
+    ),
     copyrightHeader: 'pigeons/copyright.txt',
   ),
 )

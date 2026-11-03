@@ -7,6 +7,7 @@
 
 import Foundation
 import Metal
+import CoreImage
 
 extension CIContext {
     var currentColorSpace: CGColorSpace {

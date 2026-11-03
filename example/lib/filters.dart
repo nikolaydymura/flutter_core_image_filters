@@ -75,8 +75,8 @@ final kFailedFilters = [
   FilterItem(
     'Shaded Material',
     FlutterCoreImageFilters.createFilter<CIShadedMaterialConfiguration>(
-      displayName: 'Shaded Material',
-    )
+        displayName: 'Shaded Material',
+      )
       ..scale = 100
       ..shadingImageAsset = 'images/inputImage1.jpg',
   ),
@@ -100,17 +100,10 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Ripple',
-    FlutterCoreImageFilters.createFilter<CIRippleTransitionConfiguration>(
-      displayName: 'Ripple',
-    )
+    FlutterCoreImageFilters.createFilter<CIRippleTransitionConfiguration>(displayName: 'Ripple')
       ..shadingImageAsset = 'images/inputImage1.jpg'
       ..targetImageAsset = 'images/inputImage2.jpg'
-      ..extent = const Rect.fromLTWH(
-        0,
-        0,
-        150,
-        150,
-      )
+      ..extent = const Rect.fromLTWH(0, 0, 150, 150)
       ..time = 0.5
       ..scale = -10
       ..width = 150
@@ -118,9 +111,7 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Ripple',
-    FlutterCoreImageFilters.createFilter<CIRippleTransitionConfiguration>(
-      displayName: 'Ripple',
-    ),
+    FlutterCoreImageFilters.createFilter<CIRippleTransitionConfiguration>(displayName: 'Ripple'),
   ),
   FilterItem(
     'Pin Light Blend Mode',
@@ -136,23 +127,19 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Palettize',
-    FlutterCoreImageFilters.createFilter<CIPalettizeConfiguration>(
-      displayName: 'Palettize',
-    )
+    FlutterCoreImageFilters.createFilter<CIPalettizeConfiguration>(displayName: 'Palettize')
       ..paletteImageAsset = 'images/inputImage1.jpg'
       ..perceptual = false,
   ),
   FilterItem(
     'Palettize',
-    FlutterCoreImageFilters.createFilter<CIPalettizeConfiguration>(
-      displayName: 'Palettize',
-    ),
+    FlutterCoreImageFilters.createFilter<CIPalettizeConfiguration>(displayName: 'Palettize'),
   ),
   FilterItem(
     'Palette Centroid',
     FlutterCoreImageFilters.createFilter<CIPaletteCentroidConfiguration>(
-      displayName: 'Palette Centroid',
-    )
+        displayName: 'Palette Centroid',
+      )
       ..paletteImageAsset = 'images/inputImage1.jpg'
       ..perceptual = false,
   ),
@@ -165,8 +152,8 @@ final kFailedFilters = [
   FilterItem(
     'Page Curl',
     FlutterCoreImageFilters.createFilter<CIPageCurlTransitionConfiguration>(
-      displayName: 'Page Curl',
-    )
+        displayName: 'Page Curl',
+      )
       ..shadingImageAsset = 'images/inputImage1.jpg'
       ..targetImageAsset = 'images/inputImage2.jpg'
       ..backsideImageAsset = 'images/inputImage2.jpg'
@@ -207,33 +194,27 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Minimum',
-    FlutterCoreImageFilters.createFilter<CIMinimumCompositingConfiguration>(
-      displayName: 'Minimum',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
+    FlutterCoreImageFilters.createFilter<CIMinimumCompositingConfiguration>(displayName: 'Minimum')
+      ..backgroundImageAsset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Minimum',
-    FlutterCoreImageFilters.createFilter<CIMinimumCompositingConfiguration>(
-      displayName: 'Minimum',
-    ),
+    FlutterCoreImageFilters.createFilter<CIMinimumCompositingConfiguration>(displayName: 'Minimum'),
   ),
   FilterItem(
     'Maximum',
-    FlutterCoreImageFilters.createFilter<CIMaximumCompositingConfiguration>(
-      displayName: 'Maximum',
-    )..backgroundImageAsset = 'images/inputImage1.jpg',
+    FlutterCoreImageFilters.createFilter<CIMaximumCompositingConfiguration>(displayName: 'Maximum')
+      ..backgroundImageAsset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Maximum',
-    FlutterCoreImageFilters.createFilter<CIMaximumCompositingConfiguration>(
-      displayName: 'Maximum',
-    ),
+    FlutterCoreImageFilters.createFilter<CIMaximumCompositingConfiguration>(displayName: 'Maximum'),
   ),
   FilterItem(
     'Masked Variable Blur',
     FlutterCoreImageFilters.createFilter<CIMaskedVariableBlurConfiguration>(
-      displayName: 'Masked Variable Blur',
-    )
+        displayName: 'Masked Variable Blur',
+      )
       ..maskImageAsset = 'images/inputImage1.jpg'
       ..radius = 8,
   ),
@@ -305,21 +286,16 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Lab ∆E',
-    FlutterCoreImageFilters.createFilter<CILabDeltaEConfiguration>(
-      displayName: 'Lab ∆E',
-    )..image2Asset = 'images/inputImage1.jpg',
+    FlutterCoreImageFilters.createFilter<CILabDeltaEConfiguration>(displayName: 'Lab ∆E')
+      ..image2Asset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Lab ∆E',
-    FlutterCoreImageFilters.createFilter<CILabDeltaEConfiguration>(
-      displayName: 'Lab ∆E',
-    ),
+    FlutterCoreImageFilters.createFilter<CILabDeltaEConfiguration>(displayName: 'Lab ∆E'),
   ),
   FilterItem(
     'KMeans',
-    FlutterCoreImageFilters.createFilter<CIKMeansConfiguration>(
-      displayName: 'KMeans',
-    )
+    FlutterCoreImageFilters.createFilter<CIKMeansConfiguration>(displayName: 'KMeans')
       ..meansImageAsset = 'images/inputImage1.jpg'
       ..extent = const Rect.fromLTWH(0, 0, 320, 40)
       ..perceptual = false
@@ -328,9 +304,7 @@ final kFailedFilters = [
   ),
   FilterItem(
     'KMeans',
-    FlutterCoreImageFilters.createFilter<CIKMeansConfiguration>(
-      displayName: 'KMeans',
-    ),
+    FlutterCoreImageFilters.createFilter<CIKMeansConfiguration>(displayName: 'KMeans'),
   ),
   FilterItem(
     'Hard Light Blend Mode',
@@ -346,24 +320,20 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Guided Filter',
-    FlutterCoreImageFilters.createFilter<CIGuidedFilterConfiguration>(
-      displayName: 'Guided Filter',
-    )
+    FlutterCoreImageFilters.createFilter<CIGuidedFilterConfiguration>(displayName: 'Guided Filter')
       ..epsilon = 0.001
       ..radius = 5
       ..guideImageAsset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Guided Filter',
-    FlutterCoreImageFilters.createFilter<CIGuidedFilterConfiguration>(
-      displayName: 'Guided Filter',
-    ),
+    FlutterCoreImageFilters.createFilter<CIGuidedFilterConfiguration>(displayName: 'Guided Filter'),
   ),
   FilterItem(
     'Glass Distortion',
     FlutterCoreImageFilters.createFilter<CIGlassDistortionConfiguration>(
-      displayName: 'Glass Distortion',
-    )
+        displayName: 'Glass Distortion',
+      )
       ..scale = 100
       ..center = const Point(75.0, 75.0)
       ..textureAsset = 'images/inputImage1.jpg',
@@ -376,9 +346,7 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Flash',
-    FlutterCoreImageFilters.createFilter<CIFlashTransitionConfiguration>(
-      displayName: 'Flash',
-    )
+    FlutterCoreImageFilters.createFilter<CIFlashTransitionConfiguration>(displayName: 'Flash')
       ..targetImageAsset = 'images/inputImage1.jpg'
       ..color = const Color.fromRGBO(134, 204, 153, 1.0)
       ..time = 1
@@ -391,9 +359,7 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Flash',
-    FlutterCoreImageFilters.createFilter<CIFlashTransitionConfiguration>(
-      displayName: 'Flash',
-    ),
+    FlutterCoreImageFilters.createFilter<CIFlashTransitionConfiguration>(displayName: 'Flash'),
   ),
   FilterItem(
     'Exclusion Blend Mode',
@@ -409,26 +375,22 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Edge Preserve Upsample Filter',
-    FlutterCoreImageFilters.createFilter<
-        CIEdgePreserveUpsampleFilterConfiguration>(
-      displayName: 'Edge Preserve Upsample Filter',
-    )
+    FlutterCoreImageFilters.createFilter<CIEdgePreserveUpsampleFilterConfiguration>(
+        displayName: 'Edge Preserve Upsample Filter',
+      )
       ..lumaSigma = 0.5
       ..spatialSigma = 2
       ..smallImageAsset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Edge Preserve Upsample Filter',
-    FlutterCoreImageFilters.createFilter<
-        CIEdgePreserveUpsampleFilterConfiguration>(
+    FlutterCoreImageFilters.createFilter<CIEdgePreserveUpsampleFilterConfiguration>(
       displayName: 'Edge Preserve Upsample Filter',
     ),
   ),
   FilterItem(
     'Dissolve',
-    FlutterCoreImageFilters.createFilter<CIDissolveTransitionConfiguration>(
-      displayName: 'Dissolve',
-    )
+    FlutterCoreImageFilters.createFilter<CIDissolveTransitionConfiguration>(displayName: 'Dissolve')
       ..time = 1
       ..targetImageAsset = 'images/inputImage1.jpg',
   ),
@@ -441,8 +403,8 @@ final kFailedFilters = [
   FilterItem(
     'Displacement Distortion',
     FlutterCoreImageFilters.createFilter<CIDisplacementDistortionConfiguration>(
-      displayName: 'Displacement Distortion',
-    )
+        displayName: 'Displacement Distortion',
+      )
       ..scale = 100
       ..displacementImageAsset = 'images/inputImage1.jpg',
   ),
@@ -454,10 +416,9 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Disintegrate With Mask',
-    FlutterCoreImageFilters.createFilter<
-        CIDisintegrateWithMaskTransitionConfiguration>(
-      displayName: 'Disintegrate With Mask',
-    )
+    FlutterCoreImageFilters.createFilter<CIDisintegrateWithMaskTransitionConfiguration>(
+        displayName: 'Disintegrate With Mask',
+      )
       ..time = 1
       ..shadowOffset = const Point(10, -5)
       ..shadowDensity = 0.5
@@ -467,8 +428,7 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Disintegrate With Mask',
-    FlutterCoreImageFilters.createFilter<
-        CIDisintegrateWithMaskTransitionConfiguration>(
+    FlutterCoreImageFilters.createFilter<CIDisintegrateWithMaskTransitionConfiguration>(
       displayName: 'Disintegrate With Mask',
     ),
   ),
@@ -499,8 +459,8 @@ final kFailedFilters = [
   FilterItem(
     'Copy Machine',
     FlutterCoreImageFilters.createFilter<CICopyMachineTransitionConfiguration>(
-      displayName: 'Copy Machine',
-    )
+        displayName: 'Copy Machine',
+      )
       ..angle = 3.14
       ..time = 1
       ..opacity = 1.5
@@ -517,21 +477,18 @@ final kFailedFilters = [
   ),
   FilterItem(
     'Color Map',
-    FlutterCoreImageFilters.createFilter<CIColorMapConfiguration>(
-      displayName: 'Color Map',
-    )..gradientImageAsset = 'images/inputImage1.jpg',
+    FlutterCoreImageFilters.createFilter<CIColorMapConfiguration>(displayName: 'Color Map')
+      ..gradientImageAsset = 'images/inputImage1.jpg',
   ),
   FilterItem(
     'Color Map',
-    FlutterCoreImageFilters.createFilter<CIColorMapConfiguration>(
-      displayName: 'Color Map',
-    ),
+    FlutterCoreImageFilters.createFilter<CIColorMapConfiguration>(displayName: 'Color Map'),
   ),
   FilterItem(
     'Blend With Alpha Mask',
     FlutterCoreImageFilters.createFilter<CIBlendWithAlphaMaskConfiguration>(
-      displayName: 'Blend With Alpha Mask',
-    )
+        displayName: 'Blend With Alpha Mask',
+      )
       ..backgroundImageAsset = 'images/inputImage1.jpg'
       ..maskImageAsset = 'images/inputImage2.jpg',
   ),
@@ -556,8 +513,8 @@ final kFailedFilters = [
   FilterItem(
     'Checkerboard',
     FlutterCoreImageFilters.createFilter<CICheckerboardGeneratorConfiguration>(
-      displayName: 'Checkerboard',
-    )
+        displayName: 'Checkerboard',
+      )
       ..sharpness = 1
       ..color0 = const Color.fromRGBO(120, 100, 130, 1.0)
       ..center = const Point(150.0, 150.0)

@@ -103,8 +103,7 @@ void main() {
     group(filter, () {
       late CIFilterConfiguration configuration;
       setUpAll(() async {
-        configuration =
-            FlutterCoreImageFilters.createFilter(displayName: filter);
+        configuration = FlutterCoreImageFilters.createFilter(displayName: filter);
         await configuration.prepare();
       });
       tearDownAll(() async {

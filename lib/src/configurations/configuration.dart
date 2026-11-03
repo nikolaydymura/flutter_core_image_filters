@@ -70,10 +70,9 @@ abstract class CIFilterConfiguration extends FilterConfiguration
         debugPrint('Input image not supported for $name');
       }
       if (format == ImageExportFormat.auto) {
-        format =
-            source.file.path.endsWith('.png')
-                ? ImageExportFormat.png
-                : ImageExportFormat.jpeg;
+        format = source.file.path.endsWith('.png')
+            ? ImageExportFormat.png
+            : ImageExportFormat.jpeg;
       }
     } else if (source is AssetInputSource) {
       if (hasInputImage) {
@@ -82,10 +81,9 @@ abstract class CIFilterConfiguration extends FilterConfiguration
         debugPrint('Input image not supported for $name');
       }
       if (format == ImageExportFormat.auto) {
-        format =
-            source.path.endsWith('.png')
-                ? ImageExportFormat.png
-                : ImageExportFormat.jpeg;
+        format = source.path.endsWith('.png')
+            ? ImageExportFormat.png
+            : ImageExportFormat.jpeg;
       }
     }
     Uint8List bytes = await _api.exportData(
@@ -133,10 +131,9 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       debugPrint('Input image not supported for $name');
     }
     if (format == ImageExportFormat.auto) {
-      format =
-          output.path.endsWith('.png')
-              ? ImageExportFormat.png
-              : ImageExportFormat.jpeg;
+      format = output.path.endsWith('.png')
+          ? ImageExportFormat.png
+          : ImageExportFormat.jpeg;
     }
     await _api.exportImageFile(
       _filters,
@@ -159,10 +156,9 @@ abstract class CIFilterConfiguration extends FilterConfiguration
     final output = config.output;
     var format = config.format;
     if (format == VideoExportFormat.auto) {
-      format =
-          output.path.endsWith('.mp4')
-              ? VideoExportFormat.mp4
-              : VideoExportFormat.mov;
+      format = output.path.endsWith('.mp4')
+          ? VideoExportFormat.mp4
+          : VideoExportFormat.mov;
     }
     final bool asset = source is AssetInputSource;
 
@@ -177,10 +173,9 @@ abstract class CIFilterConfiguration extends FilterConfiguration
       period.inMilliseconds.toDouble(),
     );
 
-    final stream =
-        EventChannel(
-          'AVAssetExportSession_$sessionId',
-        ).receiveBroadcastStream().distinct();
+    final stream = EventChannel('AVAssetExportSession_$sessionId')
+        .receiveBroadcastStream()
+        .distinct();
     await for (num event in stream) {
       if (event == -100.0) {
         return;

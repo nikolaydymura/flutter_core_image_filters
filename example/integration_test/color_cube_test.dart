@@ -26,11 +26,7 @@ void main() {
       configuration.cubeDataAsset = 'images/lookup_amatorka.png';
       await configuration.update();
 
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'no-extrapolate.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'no-extrapolate.jpeg');
     });
     test('extrapolate', () async {
       configuration.extrapolate = true;
@@ -38,11 +34,7 @@ void main() {
       configuration.cubeDataAsset = 'images/lookup_amatorka.png';
       await configuration.update();
 
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'extrapolate.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'extrapolate.jpeg');
     });
   });
 }

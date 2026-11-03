@@ -44,71 +44,53 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Filters'),
-      ),
+      appBar: AppBar(title: const Text('Filters')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: CustomScrollView(
           slivers: [
             SliverFixedExtentList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final item = kFailedFilters[index];
-                  return Card(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return FilterPage(
-                                configuration: item.configuration,
-                              );
-                            },
-                          ),
-                        );
-                      },
-                      title: Text(item.name),
-                      trailing: Icon(
-                        Icons.arrow_forward,
-                        color: Theme.of(context).colorScheme.error,
-                      ),
-                    ),
-                  );
-                },
-                childCount: kFailedFilters.length,
-              ),
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final item = kFailedFilters[index];
+                return Card(
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FilterPage(configuration: item.configuration);
+                          },
+                        ),
+                      );
+                    },
+                    title: Text(item.name),
+                    trailing: Icon(Icons.arrow_forward, color: Theme.of(context).colorScheme.error),
+                  ),
+                );
+              }, childCount: kFailedFilters.length),
               itemExtent: 64,
             ),
             SliverFixedExtentList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) {
-                  final item = kFilters[index];
-                  return Card(
-                    child: ListTile(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return FilterPage(
-                                configuration: item.configuration,
-                              );
-                            },
-                          ),
-                        );
-                      },
-                      title: Text(item.name),
-                      trailing: Icon(
-                        Icons.arrow_forward,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                  );
-                },
-                childCount: kFilters.length,
-              ),
+              delegate: SliverChildBuilderDelegate((context, index) {
+                final item = kFilters[index];
+                return Card(
+                  child: ListTile(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FilterPage(configuration: item.configuration);
+                          },
+                        ),
+                      );
+                    },
+                    title: Text(item.name),
+                    trailing: Icon(Icons.arrow_forward, color: Theme.of(context).primaryColor),
+                  ),
+                );
+              }, childCount: kFilters.length),
               itemExtent: 64,
             ),
           ],
@@ -166,11 +148,11 @@ class _FilterPageState extends State<FilterPage> {
     final CIImagePreviewController systemController;
     final CIImagePreviewController openGLController;
     final CIImagePreviewController metalController;
-    if (widget.configuration.hasInputImage && Platform.isIOS) {
+    if (widget.configuration.hasInputImage) {
       systemController = await CIImagePreviewController.fromAsset(file.path);
       openGLController = await CIImagePreviewController.fromAsset(file.path);
       metalController = await CIImagePreviewController.fromAsset(file.path);
-    } else if (widget.configuration.hasInputImage && Platform.isIOS) {
+    } else if (widget.configuration.hasInputImage) {
       systemController = await CIImagePreviewController.fromFile(file);
       openGLController = await CIImagePreviewController.fromFile(file);
       metalController = await CIImagePreviewController.fromFile(file);
@@ -186,14 +168,8 @@ class _FilterPageState extends State<FilterPage> {
       );
     }
     await systemController.connect(widget.configuration);
-    await openGLController.connect(
-      widget.configuration,
-      context: CIContext.egl,
-    );
-    await metalController.connect(
-      widget.configuration,
-      context: CIContext.mlt,
-    );
+    await openGLController.connect(widget.configuration, context: CIContext.egl);
+    await metalController.connect(widget.configuration, context: CIContext.mlt);
     controllers
       ..add(systemController)
       ..add(openGLController)
@@ -222,8 +198,7 @@ class _FilterPageState extends State<FilterPage> {
         ],
       ),
       floatingActionButton: ConstrainedBox(
-        constraints:
-            BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
+        constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width / 2),
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -258,34 +233,24 @@ class _FilterPageState extends State<FilterPage> {
                       maxHeight: MediaQuery.of(context).size.height * 0.25,
                     ),
                     color: _bgColor,
-                    child: CIImagePreview(
-                      controller: controllers[index],
-                    ),
+                    child: CIImagePreview(controller: controllers[index]),
                   );
                 },
                 separatorBuilder: (context, index) {
                   if ((index + 1) % 3 == 0) {
-                    return const Divider(
-                      thickness: 8,
-                      color: Colors.black,
-                    );
+                    return const Divider(thickness: 8, color: Colors.black);
                   }
-                  return const SizedBox(
-                    height: 8,
-                  );
+                  return const SizedBox(height: 8);
                 },
               )
-            : const Center(
-                child: CircularProgressIndicator(),
-              ),
+            : const Center(child: CircularProgressIndicator()),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
   Future<void> _exportVideo() async {
     final file = _videoFile;
-    final root =
-        Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
+    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
       '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
@@ -306,8 +271,7 @@ class _FilterPageState extends State<FilterPage> {
 
   Future<void> _exportImage() async {
     final file = _imageFile;
-    final root =
-        Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
+    final root = Platform.isIOS ? await getTemporaryDirectory() : Directory('.');
     final output = File(
       '${root.path}/${DateTime.now().millisecondsSinceEpoch}.${file.path.split('.').last}',
     );
@@ -319,9 +283,7 @@ class _FilterPageState extends State<FilterPage> {
         output,
         format: ImageExportFormat.jpeg,
       ),
-      crop: widget.configuration.hasInputImage
-          ? null
-          : const Rect.fromLTWH(0, 0, 300, 300),
+      crop: widget.configuration.hasInputImage ? null : const Rect.fromLTWH(0, 0, 300, 300),
     );
     debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
     debugPrint('Exported: ${output.absolute}');

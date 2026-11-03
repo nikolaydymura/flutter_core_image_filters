@@ -154,23 +154,17 @@ class ImagePreview: NSObject, ImagePreviewApi, FilterDelegate {
     }
     
     func setSource(_ textureId: Int64, asset: String) throws {
-        #if os(iOS)
-        let assetKey = registrar.lookupKey(forAsset: asset)
-
-        guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-            throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-        }
-        try setSource(textureId, path: path)
-        #else
-        try setSource(textureId, path: asset)
-        #endif
+        try setSource(textureId, url: registrar.lookupURL(forAsset: asset))
     }
     
     func setSource(_ textureId: Int64, path: String) throws {
+        try setSource(textureId, url: URL(fileURLWithPath: path))
+    }
+    
+    fileprivate func setSource(_ textureId: Int64, url: URL) throws {
         guard let preview = previews[textureId] else {
             throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
-        let url = URL(fileURLWithPath: path)
         guard let image = CIImage(contentsOf: url) else {
             throw FlutterError(code: "core-image-filters", message: "Image not loaded", details: nil)
         }

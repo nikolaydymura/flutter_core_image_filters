@@ -23,17 +23,14 @@ void main() {
       if (!name.startsWith('Photo Effect')) {
         continue;
       }
-      final configuration =
-          FlutterCoreImageFilters.createFilter(displayName: name);
+      final configuration = FlutterCoreImageFilters.createFilter(displayName: name);
       try {
         await configuration.prepare();
         final watch = Stopwatch();
         watch.start();
         final image = await configuration.export(inputSource);
         final bytes = await image.toByteData();
-        debugPrint(
-          'Exporting image took ${watch.elapsedMilliseconds} milliseconds',
-        );
+        debugPrint('Exporting image took ${watch.elapsedMilliseconds} milliseconds');
         if (bytes == null) {
           continue;
         }
@@ -47,9 +44,7 @@ void main() {
         img.JpegEncoder encoder = img.JpegEncoder();
         final data = encoder.encode(persistedImage);
         await output.writeAsBytes(data);
-        debugPrint(
-          'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
-        );
+        debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
         debugPrint('Exported: ${output.absolute}');
         await output.copy('$demosFolder/$name.jpeg');
       } finally {
@@ -64,17 +59,12 @@ void main() {
       final watch = Stopwatch();
       watch.start();
       final output = File('${tmpDirectory.path}/${configuration.name}.mp4');
-      final config =
-          VideoExportConfig(AssetInputSource('videos/demo.mp4'), output);
+      final config = VideoExportConfig(AssetInputSource('videos/demo.mp4'), output);
       final stream = configuration.exportVideoFile(config);
       await for (final value in stream) {
-        debugPrint(
-          'Exporting ${(value * 100).toInt()}%',
-        );
+        debugPrint('Exporting ${(value * 100).toInt()}%');
       }
-      debugPrint(
-        'Exporting file took ${watch.elapsedMilliseconds} milliseconds',
-      );
+      debugPrint('Exporting file took ${watch.elapsedMilliseconds} milliseconds');
       debugPrint('Exported: ${output.absolute}');
       await output.copy('$demosFolder/${configuration.name}.mp4');
     } finally {

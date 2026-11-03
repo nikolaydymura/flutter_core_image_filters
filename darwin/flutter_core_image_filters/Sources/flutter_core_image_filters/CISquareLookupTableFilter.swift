@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreImage
 
 class CISquareLookupTableFilterRegister: CIFilterConstructor {
     static func register() {

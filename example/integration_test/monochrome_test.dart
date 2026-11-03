@@ -22,21 +22,13 @@ void main() {
 
   group('CIMonochromeConfiguration', () {
     test('monochrome default', () async {
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'monochrome_default.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'monochrome_default.jpeg');
     });
     test('monochrome 0.1', () async {
       configuration.intensity = 0.1;
       await configuration.update();
 
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'monochrome_0.1.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'monochrome_0.1.jpeg');
     });
     test('monochrome 0.5', () async {
       configuration.intensity = 0.5;
@@ -48,11 +40,7 @@ void main() {
       );
       await configuration.update();
 
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'monochrome_0.5.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'monochrome_0.5.jpeg');
     });
     test('monochrome 0.9', () async {
       configuration.intensity = 0.9;
@@ -64,11 +52,7 @@ void main() {
       );
       await configuration.update();
 
-      await expectFilteredSuccessfully(
-        configuration,
-        source,
-        'monochrome_0.9.jpeg',
-      );
+      await expectFilteredSuccessfully(configuration, source, 'monochrome_0.9.jpeg');
     });
   });
 }

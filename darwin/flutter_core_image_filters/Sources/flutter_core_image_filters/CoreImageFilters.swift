@@ -214,18 +214,12 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
         }
         if targetClass == "CIImage" {
             if asset {
-#if os(iOS)
-                let assetKey = registrar.lookupKey(forAsset: path)
-                
-                guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                    throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-                }
-                guard let image = CIImage(contentsOf: URL(fileURLWithPath: filePath)) else {
+                let url = try registrar.lookupURL(forAsset: path)
+                guard let image = CIImage(contentsOf: url) else {
                     throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
                 }
                 filter.setValue(image, forKey: key)
                 filterDelegate?.didUpdated(filter: filter)
-#endif
             } else {
                 guard let image = CIImage(contentsOf: URL(fileURLWithPath: path)) else {
                     throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
@@ -265,14 +259,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
         if targetClass == "NSData" {
             var fileURL = URL(fileURLWithPath: path)
             if asset {
-#if os(iOS)
-                let assetKey = registrar.lookupKey(forAsset: path)
-                
-                guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                    throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-                }
-                fileURL = URL(fileURLWithPath: filePath)
-#endif
+                fileURL = try registrar.lookupURL(forAsset: path)
             }
             filter.setValue(try? Data(contentsOf: fileURL), forKey: key)
             filterDelegate?.didUpdated(filter: filter)
@@ -340,14 +327,7 @@ class CoreImageFilters: NSObject, FilterApi, FiltersLocator {
         }
         var fileURL = URL(fileURLWithPath: path)
         if asset {
-#if os(iOS)
-            let assetKey = registrar.lookupKey(forAsset: path)
-            
-            guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-            }
-            fileURL = URL(fileURLWithPath: filePath)
-#endif
+            fileURL = try registrar.lookupURL(forAsset: path)
         }
         guard let image = CIImage(contentsOf: fileURL) else {
             throw FlutterError(code: "core-image-filters", message: "Image failed", details: nil)
@@ -462,18 +442,11 @@ extension CoreImageFilters {
         guard !filter.isEmpty else {
             throw FlutterError(code: "core-image-filters", message: "Filter not found", details: nil)
         }
-        var path = input
+        var fileURL = URL(fileURLWithPath: input)
         if asset {
-#if os(iOS)
-            let assetKey = registrar.lookupKey(forAsset: path)
-            
-            guard let filePath = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-                throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-            }
-            path = filePath
-#endif
+            fileURL = try registrar.lookupURL(forAsset: input)
         }
-        let asset = AVAsset(url: URL(fileURLWithPath: path))
+        let asset = AVAsset(url: fileURL)
         let ciContext = CIContext.selectVideoContext(context)
         let videoComposition = AVVideoComposition(asset: asset) { request in
             let source = request.sourceImage.clampedToExtent()

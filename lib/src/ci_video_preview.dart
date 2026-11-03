@@ -73,9 +73,10 @@ class CIVideoPreviewController extends VideoPreviewController {
     await _api.pause(textureId);
   }
 
-  Stream<Size> get videoSize => EventChannel(
-    'VideoPreviewTextureEvent_$textureId',
-  ).receiveBroadcastStream().map((event) {
-    return Size(event['width'].toDouble(), event['height'].toDouble());
-  });
+  Stream<Size> get videoSize =>
+      EventChannel('VideoPreviewTextureEvent_$textureId')
+          .receiveBroadcastStream()
+          .map((event) {
+            return Size(event['width'].toDouble(), event['height'].toDouble());
+          });
 }

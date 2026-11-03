@@ -15,6 +15,7 @@ import FlutterMacOS
 #else
 #error("Unsupported platform.")
 #endif
+import flutter_core_image_filters_objc
 
 fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
     var player: AVPlayer?
@@ -59,11 +60,11 @@ fileprivate class VideoPreviewTexture: NSObject, FlutterTexture {
         let videoOutput = AVPlayerItemVideoOutput(pixelBufferAttributes: [
             kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_32BGRA,
             kCVPixelBufferIOSurfacePropertiesKey as String : [:] ])
-        #if os(macOS)
+#if os(macOS)
         let displayLink = CADisplayLink()
-        #else
+#else
         let displayLink = CADisplayLink(target: frameUpdater, selector: #selector(FLTFrameUpdater.onDisplayLink(_:)))
-        #endif
+#endif
         displayLink.add(to: RunLoop.current, forMode: .common)
         displayLink.isPaused = true
         
@@ -130,7 +131,7 @@ extension VideoPreviewTexture: FlutterStreamHandler {
             guard let tracks = try? await asset.loadTracks(withMediaType: .video), let video = tracks.first else {
                 return
             }
-
+            
             naturalSize = try? await video.load(.naturalSize)
             preferredTransform = try? await video.load(.preferredTransform)
         } else {
@@ -180,11 +181,11 @@ class VideoPreview: NSObject, VideoPreviewApi {
     init(registrar: FlutterPluginRegistrar, filters: FiltersLocator) {
         self.registrar = registrar
         self.filters = filters
-        #if os(macOS)
+#if os(macOS)
         self.registry = registrar.textures
-        #else
+#else
         self.registry = registrar.textures()
-        #endif
+#endif
     }
     
     func create() throws -> Int64 {
@@ -211,31 +212,26 @@ class VideoPreview: NSObject, VideoPreviewApi {
         preview.filters = []
     }
     
-    func setSource(_ textureId: Int64, asset: String) throws  {
-        #if os(iOS)
-        let assetKey = registrar.lookupKey(forAsset: asset)
-        
-        guard let path = Bundle.main.path(forResource: assetKey, ofType: nil) else {
-            throw FlutterError(code: "core-image-filters", message: "Asset not found", details: nil)
-        }
-        try setSource(textureId, path: path)
-        #else
-        try setSource(textureId, path: asset)
-        #endif
+    func setSource(_ textureId: Int64, asset: String) throws {
+            
+        try setSource(textureId, url: registrar.lookupURL(forAsset: asset))
     }
     
     func setSource(_ textureId: Int64, path: String) throws {
+        try setSource(textureId, url: URL(fileURLWithPath: path))
+    }
+    
+    fileprivate func setSource(_ textureId: Int64, url: URL) throws {
         guard let preview = previews[textureId] else {
             throw FlutterError(code: "core-image-filters", message: "Preview not found", details: nil)
         }
-        let url = URL(fileURLWithPath: path)
         preview.setSource(url: url)
 #if os(iOS)
         let eventChannel = FlutterEventChannel(name: "VideoPreviewTextureEvent_\(textureId)",
                                                binaryMessenger: registrar.messenger())
         
 #else
-        let eventChannel = FlutterEventChannel(name: "VideoPreviewTextureEvent_\(exportId)",
+        let eventChannel = FlutterEventChannel(name: "VideoPreviewTextureEvent_\(textureId)",
                                                binaryMessenger: registrar.messenger)
 #endif
         eventChannel.setStreamHandler(preview)

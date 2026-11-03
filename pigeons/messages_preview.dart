@@ -7,7 +7,7 @@ import 'package:pigeon/pigeon.dart';
 @ConfigurePigeon(
   PigeonOptions(
     dartOut: 'lib/src/messages/preview_messages.g.dart',
-    swiftOut: 'ios/Classes/PreviewMessages.g.swift',
+    swiftOut: 'darwin/flutter_core_image_filters/Sources/flutter_core_image_filters/PreviewMessages.g.swift',
     swiftOptions: SwiftOptions(),
     copyrightHeader: 'pigeons/copyright.txt',
   ),

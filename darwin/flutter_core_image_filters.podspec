@@ -13,7 +13,7 @@ Core Image filters API.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Nikolay Dymura' => 'nikolay.dymura@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*'
+  s.source_files = 'flutter_core_image_filters/Sources/flutter_core_image_filters/**/*'
   s.ios.dependency 'Flutter'
   s.osx.dependency 'FlutterMacOS'
   s.ios.deployment_target = '13.0'
@@ -26,5 +26,5 @@ Core Image filters API.
      'LD_RUNPATH_SEARCH_PATHS' => '/usr/lib/swift',
   }
   s.swift_version = '5.0'
-  s.resource_bundles = {'flutter_core_image_filters_privacy' => ['Resources/PrivacyInfo.xcprivacy']}
+  s.resource_bundles = {'flutter_core_image_filters_privacy' => ['flutter_core_image_filters/Sources/flutter_core_image_filters/Resources/PrivacyInfo.xcprivacy']}
 end

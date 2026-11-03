@@ -10,4 +10,7 @@ linter:
 
 analyzer:
   exclude:
+    - build/**
+    - ios/**
+    - macos/**
     - lib/src/messages/**

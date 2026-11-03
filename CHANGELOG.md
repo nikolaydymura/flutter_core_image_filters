@@ -1,3 +1,7 @@
+## 0.1.0
+
+Added SPM support
+
 ## 0.0.26
 
 Updated dependencies
