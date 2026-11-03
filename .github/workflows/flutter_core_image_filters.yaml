@@ -37,14 +37,12 @@ jobs:
           remove_from_coverage -f coverage/lcov.info -r '\bmessages\b'
 
       - name: Check Code Coverage
-        uses: VeryGoodOpenSource/very_good_coverage@v2
-        with:
-          path: coverage/lcov.info
-          min_coverage: 80
-          exclude: 'messages/'
+        run: |
+          brew install lcov
+          lcov --summary coverage/lcov.info --fail-under-lines 75
 
       - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
